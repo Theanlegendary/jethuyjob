@@ -4,7 +4,7 @@
 
 const initialProjects = [
   {
-    "id": "",
+    "id": "prj-100",
     "title": "Senior Backend Engineer (Java / Spring Boot)",
     "hot": true,
     "company": "FPT Software",
@@ -85,7 +85,7 @@ const initialProjects = [
     ]
   },
   {
-    "id": "",
+    "id": "prj-101",
     "title": "Chuyên Viên Phân Tích Dữ Liệu & AI Solution Architect",
     "hot": true,
     "company": "Ngân Hàng Vietcombank",

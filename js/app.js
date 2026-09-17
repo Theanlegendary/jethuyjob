@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     freelancers: [...initialFreelancers],
     categories: [...initialCategories],
     notifications: [...initialNotifications],
-    savedJobs: new Set(['', '']),
+    savedJobs: new Set(['prj-100', 'prj-101']),
     quickFilter: 'all',
     attachedCVFile: null,
     companies: [],
@@ -160,13 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initNavigation() {
-    document.getElementById('btn-open-post-project-home')?.addEventListener('click', () => {
-      openPostJobWizard();
-    });
-    document.getElementById('btn-open-enterprise-home')?.addEventListener('click', () => {
-      openEnterpriseModal('Tư vấn Doanh nghiệp');
-    });
-    
     document.querySelectorAll('[data-view]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -418,31 +411,6 @@ document.addEventListener('DOMContentLoaded', () => {
     locationSelect?.addEventListener('change', handleSearch);
     submitBtn?.addEventListener('click', handleSearch);
 
-        // Main Hero Search Bar Bindings (ChinaJob Style)
-    const heroMainInput = document.getElementById('hero-main-search-input');
-    const heroMainLoc = document.getElementById('hero-main-location-select');
-    const heroMainBtn = document.getElementById('btn-hero-main-search');
-
-    const handleHeroMainSearch = () => {
-      const kw = heroMainInput?.value.trim() || '';
-      const loc = heroMainLoc?.value || 'all';
-      
-      switchView('browse');
-      
-      const searchInp = document.getElementById('jobSearchInput');
-      const locInp = document.getElementById('jobLocationInput');
-      if (searchInp) searchInp.value = kw;
-      if (locInp) locInp.value = loc === 'all' ? 'Toàn quốc' : loc;
-      
-      if (typeof filterJobs === 'function') filterJobs();
-      showToast(`🔍 Đang tìm kiếm việc làm: ${kw || 'Tất cả'}`);
-    };
-
-    heroMainBtn?.addEventListener('click', handleHeroMainSearch);
-    heroMainInput?.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') handleHeroMainSearch();
-    });
-
     // Quick Search Tags (YBOX Style)
     document.querySelectorAll('.quick-search-tag').forEach(tag => {
       tag.addEventListener('click', () => {
@@ -626,75 +594,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (filtered.length === 0) {
       feedContainer.innerHTML = `
-        <div class="col-span-full bg-white p-8 rounded-xl border border-slate-200 text-center">
-          <span class="material-symbols-outlined text-4xl text-slate-400 mb-2">folder_open</span>
-          <h4 class="text-base font-bold text-slate-900 mb-1">Không tìm thấy việc làm phù hợp</h4>
-          <p class="text-xs text-slate-500">Hãy thử tìm kiếm với từ khóa khác hoặc xóa bộ lọc.</p>
+        <div style="background:#ffffff; border:1px solid var(--fl-border); border-radius:var(--radius-lg); padding:40px 20px; text-align:center;">
+          <i class="fa-solid fa-folder-open" style="font-size:36px; color:var(--fl-text-light); margin-bottom:12px;"></i>
+          <h4 style="font-size:16px; font-weight:700; color:var(--fl-text-heading); margin-bottom:6px;">Không tìm thấy việc làm phù hợp</h4>
+          <p style="font-size:13.5px; color:var(--fl-text-muted);">Hãy thử tìm kiếm với từ khóa khác hoặc xóa bộ lọc để xem toàn bộ danh sách.</p>
         </div>
       `;
       return;
     }
 
-    // Render 6 clean jobs with strict typography hierarchy
-    const displayJobs = filtered.slice(0, 6);
-
-    feedContainer.innerHTML = displayJobs.map(p => {
+    feedContainer.innerHTML = filtered.map(p => {
       const isSaved = state.savedJobs.has(p.id);
+      const isPromoted = p.featured || p.hot;
       const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
       const logoUrl = resolveBrandLogo(p);
       const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin} – ${p.budgetMax} USD` : 'Thỏa thuận');
+      const applicantCount = p.applicantsCount || (p.bids ? p.bids.length : 12);
 
       const avatarHtml = `<img
         src="${logoUrl}"
         alt="${initial}"
-        class="w-11 h-11 rounded-lg object-contain bg-white p-1 border border-slate-200"
+        class="card-brand-logo"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-      /><span class="w-11 h-11 rounded-lg bg-slate-100 text-slate-800 font-bold text-xs items-center justify-center border border-slate-200" style="display:none;">${initial}</span>`;
+      /><span class="card-brand-fallback" style="display:none;">${initial}</span>`;
 
       return `
-        <article class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group cursor-pointer" data-project-id="${p.id}">
-          <div>
-            <div class="flex items-start justify-between gap-3 mb-3">
-              <div class="flex items-center gap-3">
-                ${avatarHtml}
-                <div>
-                  <h4 class="text-xs font-semibold text-slate-600">${p.company || p.clientName}</h4>
-                  <div class="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
-                    <span>${p.location || 'Hà Nội'}</span>
-                    <span>•</span>
-                    <span>${p.workType || 'Toàn thời gian'}</span>
-                  </div>
-                </div>
-              </div>
-              <button class="text-slate-400 hover:text-red-600 transition-colors p-1" data-action="save" title="Lưu việc làm">
-                <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark ${isSaved ? 'text-red-600' : ''}"></i>
-              </button>
+        <article class="career-job-card ${isPromoted ? 'promoted' : ''}" data-project-id="${p.id}">
+          <div class="career-card-left-section">
+            <div class="career-avatar-circle">
+              ${avatarHtml}
             </div>
 
-            <h3 class="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-2 mb-3 leading-snug">
-              ${p.title}
-            </h3>
-            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-4">
-              ${p.description || ''}
-            </p>
+            <div class="career-main-details">
+              <div class="career-title-row">
+                <h3 class="career-job-title">${p.title}</h3>
+                <span class="badge-hot-tag"><i class="fa-solid fa-fire"></i> GẤP</span>
+                <span class="badge-new-yellow">NEW</span>
+                ${p.top100 !== false ? '<span class="badge-top100-star"><i class="fa-solid fa-star"></i> TOP 100</span>' : ''}
+              </div>
+
+              <div class="career-company-row">
+                <span class="company-name-bold">${p.company || p.clientName || 'Animalz Technologies'}</span>
+                <i class="fa-solid fa-circle-check career-verified-check" title="Doanh nghiệp đã xác thực"></i>
+                <span class="career-meta-sep">•</span>
+                <span class="career-location-text"><i class="fa-solid fa-location-dot" style="color:var(--fl-primary); font-size:12px;"></i> ${p.location || 'Hà Nội & TP.HCM'}</span>
+                <span class="career-meta-sep">•</span>
+                <span class="career-workmode-badge"><i class="fa-solid fa-briefcase" style="font-size:11px;"></i> ${p.workType || 'Full-Time'}</span>
+              </div>
+
+              <div class="career-pills-row">
+                ${p.boosted !== false ? '<span class="pill-tag-boosted"><i class="fa-solid fa-rocket"></i> Boosted</span>' : ''}
+                ${p.featured ? '<span class="pill-tag-featured"><i class="fa-solid fa-crown"></i> Ưu Tiên</span>' : ''}
+                <span class="pill-tag-white"><i class="fa-solid fa-shield"></i> Xác thực 100%</span>
+                <span class="pill-tag-white"><i class="fa-solid fa-circle-check" style="color:var(--fl-primary);"></i> Tuyển gấp</span>
+              </div>
+
+              <div class="career-live-meta">
+                <span><i class="fa-regular fa-clock"></i> ${p.postedDate || p.timeAgo || '2 giờ trước'}</span>
+                <span class="career-meta-sep">•</span>
+                <span><i class="fa-solid fa-users" style="color:var(--fl-primary);"></i> <strong>${applicantCount}</strong> người đã nộp CV</span>
+                <span class="career-meta-sep">•</span>
+                <span style="color:var(--fl-text-muted); font-size:11.5px;"><i class="fa-solid fa-hashtag"></i> ${p.id}</span>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
-              <span class="font-bold text-red-600 text-sm sm:text-base">${salaryText}</span>
-              <span class="text-slate-500">${p.postedDate || p.timeAgo || 'Vừa đăng'}</span>
+          <div class="career-card-right-section">
+            <div class="career-salary-box">
+              <div class="career-salary-text">${salaryText}</div>
+              <div class="career-salary-subbadge"><i class="fa-solid fa-circle-dollar-to-slot"></i> Thu nhập hấp dẫn</div>
             </div>
-            <button class="w-full mt-4 py-2.5 px-4 bg-slate-100 group-hover:bg-red-600 group-hover:text-white text-slate-800 font-semibold rounded-lg text-xs transition-all flex items-center justify-center gap-1.5" data-action="view-detail">
-              <span>Xem Chi Tiết</span>
-              <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </button>
+
+            <div class="career-action-buttons-group">
+              <button class="btn-save-pill ${isSaved ? 'saved' : ''}" title="Lưu việc làm" data-action="save">
+                <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark"></i> ${isSaved ? 'Đã lưu' : 'Lưu'}
+              </button>
+              <button class="btn-apply-prominent" data-action="view-detail">
+                Xem Chi Tiết <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
           </div>
         </article>
       `;
     }).join('');
 
     // Bind Event Listeners
-    feedContainer.querySelectorAll('article[data-project-id]').forEach(card => {
+    feedContainer.querySelectorAll('.career-job-card').forEach(card => {
       const prjId = card.getAttribute('data-project-id');
 
       card.querySelectorAll('[data-action="save"]').forEach(saveBtn => {
@@ -705,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast('Đã bỏ lưu việc làm');
           } else {
             state.savedJobs.add(prjId);
-            showToast('❤️ Đã lưu việc làm!');
+            showToast('❤️ Đã lưu việc làm vào danh sách yêu thích!');
           }
           updateSavedJobsCountUI();
           renderHomeFeaturedProjects();
@@ -1350,8 +1335,102 @@ document.addEventListener('DOMContentLoaded', () => {
      HOMEPAGE LIVE ACTIVITY TICKER & MARKET INSIGHTS CONTROLLER
      ========================================================================== */
   function initLiveActivityTicker() {
-    // Disabled fake live activity toast popups to ensure authentic experience
-    return;
+    // Check if user previously disabled ticker
+    if (localStorage.getItem('vietnamjobs_hide_activity_ticker') === 'true') {
+      return;
+    }
+
+    const toast = document.getElementById('live-activity-toast');
+    const msgEl = document.getElementById('activity-toast-msg');
+    const timeEl = document.getElementById('activity-toast-time');
+    const closeBtn = document.getElementById('btn-close-activity-toast');
+    const dontShowCb = document.getElementById('cb-dont-show-activity');
+    const onlineCounter = document.getElementById('live-online-users');
+
+    // Live Online Counter Fluctuation
+    if (onlineCounter) {
+      setInterval(() => {
+        const delta = Math.floor(Math.random() * 7) - 3;
+        const current = parseInt(onlineCounter.textContent.replace(/,/g, ''), 10) || 1486;
+        onlineCounter.textContent = (current + delta).toLocaleString();
+      }, 4000);
+    }
+
+    if (!toast || !msgEl) return;
+
+    let tickerInterval = null;
+    let toastTimeout = null;
+
+    // "Không hiện lại" Checkbox Event Listener
+    dontShowCb?.addEventListener('change', (e) => {
+      e.stopPropagation();
+      if (dontShowCb.checked) {
+        localStorage.setItem('vietnamjobs_hide_activity_ticker', 'true');
+        toast.classList.remove('show');
+        clearInterval(tickerInterval);
+        clearTimeout(toastTimeout);
+        showToast('ℹ️ Đã tắt thông báo hoạt động ứng tuyển');
+      }
+    });
+
+    dontShowCb?.closest('.activity-toast-dont-show')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    const activities = [
+      { jobId: "prj-100", logo: "images/brands/fpt.svg", text: "Nguyễn Minh Tuấn vừa ứng tuyển <strong>Senior Backend Engineer</strong> tại FPT Software", time: "1 phút trước" },
+      { jobId: "prj-101", logo: "images/brands/vcb.svg", text: "Vietcombank vừa gửi lời mời phỏng vấn tới ứng viên <strong>Trần Minh Quang</strong>", time: "3 phút trước" },
+      { jobId: "prj-102", logo: "images/brands/vinfast.svg", text: "VinFast Digital vừa đăng tuyển 3 vị trí <strong>React / Next.js Senior</strong>", time: "5 phút trước" },
+      { jobId: "prj-104", logo: "images/brands/shopee.svg", text: "Shopee Vietnam vừa nhận 4 hồ sơ ứng tuyển <strong>Digital Marketing Manager</strong>", time: "8 phút trước" },
+      { jobId: "prj-103", logo: "images/brands/viettel.svg", text: "Vũ Đình Nam vừa nộp hồ sơ ứng tuyển <strong>Mobile Flutter Engineer</strong> tại Viettel", time: "12 phút trước" },
+      { jobId: "prj-105", logo: "images/brands/momo.svg", text: "MoMo Fintech vừa xem hồ sơ của <strong>Nguyễn Hà My</strong> (UX Lead)", time: "15 phút trước" },
+      { jobId: "prj-111", logo: "images/brands/samsung.svg", text: "Samsung R&D vừa mở tuyển 2 vị trí <strong>AI Data Engineer</strong>", time: "18 phút trước" }
+    ];
+
+    let actIndex = 0;
+    let currentJobId = "prj-100";
+
+    // Direct routing on toast click
+    toast.addEventListener('click', (e) => {
+      if (e.target.closest('.activity-toast-close') || e.target.closest('.activity-toast-dont-show')) return;
+      if (currentJobId) {
+        showJobDetail(currentJobId);
+        toast.classList.remove('show');
+      }
+    });
+
+    closeBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toast.classList.remove('show');
+    });
+
+    function showNextActivity() {
+      if (document.hidden) return;
+      if (localStorage.getItem('vietnamjobs_hide_activity_ticker') === 'true') return;
+
+      const act = activities[actIndex];
+      actIndex = (actIndex + 1) % activities.length;
+      currentJobId = act.jobId;
+
+      const imgEl = document.getElementById('activity-toast-img');
+      if (imgEl && act.logo) imgEl.src = act.logo;
+      if (msgEl) msgEl.innerHTML = act.text;
+      if (timeEl) timeEl.innerHTML = '<span class="live-pulse-dot" style="width:6px;height:6px;"></span> ' + act.time + ' <span style="margin-left:6px;color:var(--fl-primary);font-weight:700;">Xem chi tiết &rarr;</span>';
+
+      toast.classList.add('show');
+
+      clearTimeout(toastTimeout);
+      // Stay visible for 7.5 seconds for comfortable reading
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 7500);
+    }
+
+    // Start ticker with comfortable unhurried 18s interval
+    setTimeout(() => {
+      showNextActivity();
+      tickerInterval = setInterval(showNextActivity, 18000);
+    }, 4000);
   }
 
   function initMarketInsights() {
