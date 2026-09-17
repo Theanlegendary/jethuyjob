@@ -9,20 +9,50 @@
   <meta name="description" content="Kết nối hơn 500,000+ ứng viên chất lượng cao với hàng nghìn doanh nghiệp hàng đầu tại Việt Nam. Tìm việc làm nhanh, ứng tuyển 1-click.">
   
   <!-- Google Fonts: Plus Jakarta Sans & Be Vietnam Pro & FontAwesome -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css?v=merged_1789638183">
   <!-- Tailwind CSS & Material Symbols & Inter Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
-  tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface":"#f8f9ff","surface-bright":"#f8f9ff","on-tertiary-container":"#dde5ff","primary-container":"#0a66c2","tertiary":"#3c4e74","on-primary-container":"#dbe6ff","tertiary-fixed":"#d8e2ff","on-secondary":"#ffffff","tertiary-container":"#55668e","secondary":"#2f5ea1","primary":"#004e99","surface-variant":"#d9e3f4","on-surface":"#121c28","on-surface-variant":"#414752","surface-container-high":"#dfe9fa","surface-container-highest":"#d9e3f4","on-secondary-container":"#0d4788","tertiary-fixed-dim":"#b4c6f3","on-tertiary-fixed-variant":"#35466c","on-primary":"#ffffff","surface-container-low":"#eef4ff","inverse-primary":"#a8c8ff","error-container":"#ffdad6","on-primary-fixed":"#001b3d","on-secondary-fixed-variant":"#0c4687","secondary-container":"#8cb7ff","secondary-fixed":"#d6e3ff","on-tertiary-fixed":"#051a3e","inverse-surface":"#27313e","on-secondary-fixed":"#001b3d","surface-dim":"#d1dbec","surface-tint":"#005eb5","secondary-fixed-dim":"#a9c7ff","surface-container-lowest":"#ffffff","error":"#ba1a1a","on-primary-fixed-variant":"#00468a","background":"#f8f9ff","primary-fixed":"#d6e3ff","surface-container":"#e5eeff","inverse-on-surface":"#eaf1ff","primary-fixed-dim":"#a8c8ff","on-error-container":"#93000a","outline":"#727783","on-error":"#ffffff","on-background":"#121c28","on-tertiary":"#ffffff","outline-variant":"#c1c6d4"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin-sm":"1rem","space-lg":"1.5rem","margin-lg":"2rem","gutter-lg":"1.5rem","gutter-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem","space-sm":"0.5rem","space-md":"1rem","gutter":"1rem","space-xl":"2rem"},"fontFamily":{"headline-xl":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"headline-lg-mobile":["Inter"],"headline-xl-mobile":["Inter"],"headline-sm":["Inter"],"body-sm":["Inter"],"label-sm":["Inter"],"caption":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-lg":["Inter"]},"fontSize":{"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-lg-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl-mobile":["26px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-sm":["16px",{"lineHeight":"22px","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"600"}],"caption":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"700"}]}}}}
-  </script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'Noto Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['Source Serif 4', 'Georgia', 'Cambria', 'Times New Roman', 'serif']
+      },
+      colors: {
+        primary: {
+          DEFAULT: '#dc2626',
+          hover: '#b91c1c',
+          light: '#fef2f2'
+        },
+        slate: {
+          900: '#0f172a',
+          800: '#1e293b',
+          700: '#334155',
+          600: '#475569',
+          500: '#64748b',
+          400: '#94a3b8',
+          200: '#e2e8f0',
+          100: '#f1f5f9'
+        }
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '8px',
+        'lg': '10px',
+        'xl': '12px'
+      }
+    }
+  }
+}
+</script>
 </head>
 <body>
 
@@ -79,24 +109,21 @@
         </div>
 
         <!-- Center SPA Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-space-xs">
-          <button class="px-3.5 py-2 rounded-lg font-label-md text-label-md transition-all font-semibold linkedin-nav-btn active" data-view="home">
-            <i class="fa-solid fa-house mr-1.5"></i>Trang chủ
+        <nav class="hidden lg:flex items-center gap-6">
+          <button class="nav-link-clean active" data-view="home">
+            Trang Chủ
           </button>
-          <button class="px-3.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-semibold linkedin-nav-btn" data-view="browse">
-            <i class="fa-solid fa-newspaper mr-1.5"></i>Tin tức & Thị trường
+          <button class="nav-link-clean" data-view="browse">
+            Việc Làm
           </button>
-          <button class="px-3.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-semibold linkedin-nav-btn" data-view="browse">
-            <i class="fa-solid fa-briefcase mr-1.5"></i>Việc làm
+          <button class="nav-link-clean" data-view="browse">
+            Doanh Nghiệp
           </button>
-          <button class="px-3.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-semibold linkedin-nav-btn" data-view="browse">
-            <i class="fa-solid fa-building mr-1.5"></i>Doanh nghiệp
+          <button class="nav-link-clean" data-view="browse">
+            Tin Tức & Thị Trường
           </button>
-          <button class="px-3.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-semibold linkedin-nav-btn" data-view="freelancers">
-            <i class="fa-solid fa-user-tie mr-1.5"></i>Chuyên gia & Cố vấn
-          </button>
-          <button class="px-3.5 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-semibold linkedin-nav-btn" data-view="tools">
-            <i class="fa-solid fa-calculator mr-1.5"></i>Tính lương
+          <button class="nav-link-clean" data-view="freelancers">
+            Chuyên Gia
           </button>
         </nav>
 
@@ -176,27 +203,27 @@
          ======================================================================== -->
             <section class="app-view active-view" id="view-home">
   <!-- =========================================================================
-       1. HERO SEARCH & VALUE PROPOSITION (Clean & Direct)
+       1. HERO SEARCH ("Find your next opportunity")
        ========================================================================= -->
-  <div class="w-full bg-surface-container-lowest border-b border-outline-variant/20 py-12 md:py-16">
+  <div class="w-full bg-white border-b border-slate-200 py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-4 leading-tight">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
           Tìm kiếm cơ hội nghề nghiệp & đối tác doanh nghiệp
         </h1>
-        <p class="text-base sm:text-lg text-on-surface-variant font-normal mb-8 leading-relaxed">
+        <p class="text-base sm:text-lg text-slate-600 font-normal mb-8 leading-relaxed">
           Nền tảng kết nối nhân sự chuyên nghiệp và thông tin thị trường lao động hàng đầu Việt Nam
         </p>
 
         <!-- Search Bar -->
-        <form id="hero-search-form" class="bg-surface p-2 sm:p-3 rounded-2xl shadow-lg border border-outline-variant/40 flex flex-col sm:flex-row gap-2">
-          <div class="flex-1 flex items-center px-3 bg-surface-container-low rounded-xl">
-            <span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
-            <input type="text" id="hero-main-search-input" placeholder="Chức danh, kỹ năng, hoặc tên công ty..." class="w-full py-3 bg-transparent text-on-surface placeholder-on-surface-variant/60 focus:outline-none text-sm font-medium">
+        <form id="hero-search-form" class="bg-white p-2.5 rounded-xl shadow-sm border border-slate-200 flex flex-col sm:flex-row gap-2">
+          <div class="flex-1 flex items-center px-3.5 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="material-symbols-outlined text-slate-400 mr-2 text-xl">search</span>
+            <input type="text" id="hero-main-search-input" placeholder="Chức danh, kỹ năng, hoặc tên công ty..." class="w-full py-3 bg-transparent text-slate-900 placeholder-slate-400 focus:outline-none text-sm font-medium">
           </div>
-          <div class="w-full sm:w-48 flex items-center px-3 bg-surface-container-low rounded-xl">
-            <span class="material-symbols-outlined text-on-surface-variant mr-2">location_on</span>
-            <select id="hero-main-location-select" class="w-full py-3 bg-transparent text-on-surface focus:outline-none text-sm font-medium cursor-pointer">
+          <div class="w-full sm:w-48 flex items-center px-3.5 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="material-symbols-outlined text-slate-400 mr-2 text-xl">location_on</span>
+            <select id="hero-main-location-select" class="w-full py-3 bg-transparent text-slate-900 focus:outline-none text-sm font-medium cursor-pointer">
               <option value="">Tất cả địa điểm</option>
               <option value="hanoi">Hà Nội</option>
               <option value="hcm">TP. Hồ Chí Minh</option>
@@ -204,7 +231,7 @@
               <option value="remote">Remote / Linh hoạt</option>
             </select>
           </div>
-          <button type="submit" id="btn-hero-main-search" class="w-full sm:w-auto px-8 py-3.5 bg-primary text-on-primary font-semibold rounded-xl hover:bg-primary-hover transition-colors flex items-center justify-center gap-2 text-sm shadow-md">
+          <button type="submit" id="btn-hero-main-search" class="w-full sm:w-auto px-7 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 text-sm shadow-sm">
             <span>Tìm Kiếm</span>
             <span class="material-symbols-outlined text-base">arrow_forward</span>
           </button>
@@ -212,12 +239,12 @@
 
         <!-- Quick Search Tags -->
         <div class="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm">
-          <span class="text-on-surface-variant font-medium mr-1">Tìm nhanh:</span>
-          <button class="quick-search-tag px-3 py-1.5 bg-surface-container-low hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant rounded-full border border-outline-variant/30 font-medium transition-all" data-filter-keyword="Java">Java Developer</button>
-          <button class="quick-search-tag px-3 py-1.5 bg-surface-container-low hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant rounded-full border border-outline-variant/30 font-medium transition-all" data-filter-keyword="React">React / Next.js</button>
-          <button class="quick-search-tag px-3 py-1.5 bg-surface-container-low hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant rounded-full border border-outline-variant/30 font-medium transition-all" data-filter-keyword="AI">AI & Data</button>
-          <button class="quick-search-tag px-3 py-1.5 bg-surface-container-low hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant rounded-full border border-outline-variant/30 font-medium transition-all" data-filter-keyword="Marketing">Marketing Lead</button>
-          <button class="quick-search-tag px-3 py-1.5 bg-surface-container-low hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant rounded-full border border-outline-variant/30 font-medium transition-all" data-filter-keyword="Remote">Remote Jobs</button>
+          <span class="text-slate-500 font-medium mr-1">Tìm nhanh:</span>
+          <button class="quick-search-tag px-3 py-1 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-600 rounded-md font-medium transition-all" data-filter-keyword="Java">Java Developer</button>
+          <button class="quick-search-tag px-3 py-1 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-600 rounded-md font-medium transition-all" data-filter-keyword="React">React / Next.js</button>
+          <button class="quick-search-tag px-3 py-1 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-600 rounded-md font-medium transition-all" data-filter-keyword="AI">AI & Data</button>
+          <button class="quick-search-tag px-3 py-1 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-600 rounded-md font-medium transition-all" data-filter-keyword="Marketing">Marketing Lead</button>
+          <button class="quick-search-tag px-3 py-1 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-600 rounded-md font-medium transition-all" data-filter-keyword="Remote">Remote Jobs</button>
         </div>
       </div>
     </div>
@@ -226,14 +253,14 @@
   <!-- =========================================================================
        2. LATEST JOBS (6 Real Jobs Grid)
        ========================================================================= -->
-  <div class="w-full py-12 md:py-16 bg-background">
+  <div class="w-full py-14 md:py-18 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between mb-8 pb-4 border-b border-outline-variant/30">
+      <div class="flex items-end justify-between mb-8 pb-4 border-b border-slate-200">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">Việc Làm Mới Nhất</h2>
-          <p class="text-sm text-on-surface-variant mt-1">Các vị trí vừa được đăng tải trực tiếp từ các doanh nghiệp uy tín</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Việc Làm Mới Nhất</h2>
+          <p class="text-sm text-slate-500 mt-1">Các vị trí vừa được đăng tải trực tiếp từ các doanh nghiệp uy tín</p>
         </div>
-        <a data-view="browse" href="#" class="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-hover transition-colors group">
+        <a data-view="browse" href="#" class="inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700 transition-colors group">
           <span>Xem tất cả việc làm</span>
           <span class="material-symbols-outlined text-base ml-1 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </a>
@@ -247,92 +274,92 @@
   </div>
 
   <!-- =========================================================================
-       3. BUSINESS & CAREER NEWS (Editorial Content)
+       3. BUSINESS & CAREER NEWS (Editorial Content with Source Serif 4 Headlines)
        ========================================================================= -->
-  <div class="w-full py-12 md:py-16 bg-surface-container-lowest border-y border-outline-variant/20">
+  <div class="w-full py-14 md:py-18 bg-white border-y border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between mb-8 pb-4 border-b border-outline-variant/30">
+      <div class="flex items-end justify-between mb-8 pb-4 border-b border-slate-200">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">Thời Sự Tuyển Dụng & Thị Trường</h2>
-          <p class="text-sm text-on-surface-variant mt-1">Phân tích xu hướng nhân lực, báo cáo thu nhập và chính sách HR mới nhất</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Thời Sự Tuyển Dụng & Thị Trường</h2>
+          <p class="text-sm text-slate-500 mt-1">Phân tích xu hướng nhân lực, báo cáo thu nhập và chính sách HR mới nhất</p>
         </div>
-        <a data-view="browse" href="#" class="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-hover transition-colors group">
+        <a data-view="browse" href="#" class="inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700 transition-colors group">
           <span>Xem tất cả bài viết</span>
           <span class="material-symbols-outlined text-base ml-1 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </a>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        <!-- BIG LEAD STORY (7 Columns) -->
-        <div class="lg:col-span-7 bg-surface rounded-2xl border border-outline-variant/30 overflow-hidden shadow-sm flex flex-col group cursor-pointer" data-view="browse">
-          <div class="h-64 sm:h-72 bg-surface-container-low overflow-hidden relative">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+        <!-- BIG LEAD STORY (7 Columns - Serif Headline) -->
+        <div class="lg:col-span-7 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col group cursor-pointer" data-view="browse">
+          <div class="h-64 sm:h-72 bg-slate-100 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Báo cáo Thị trường Nhân lực" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-4 left-4 z-20 bg-primary text-on-primary font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+            <span class="absolute top-4 left-4 bg-slate-900 text-white font-semibold text-xs px-3 py-1 rounded uppercase tracking-wider">
               Báo Cáo Đặc Biệt
             </span>
           </div>
           <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs text-on-surface-variant font-medium mb-2 flex items-center gap-2">
+              <div class="text-xs text-slate-500 font-medium mb-2 flex items-center gap-2">
                 <span>Ban Biên Tập Workthean</span>
                 <span>•</span>
                 <span>16 Tháng 9, 2026</span>
               </div>
-              <h3 class="text-xl sm:text-2xl font-bold text-on-surface group-hover:text-primary transition-colors leading-snug mb-3">
+              <!-- Source Serif 4 Headline -->
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug mb-3">
                 Báo cáo Chuỗi Cung Ứng & Thị Trường Nhân Lực Cấp Cao Q3/2026: Nhu cầu AI & Data Analyst tăng 42%
               </h3>
-              <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4">
+              <p class="text-sm text-slate-600 line-clamp-3 leading-relaxed mb-4">
                 Khảo sát thực tế tại hơn 300 doanh nghiệp công nghệ và logistics cho thấy xu hướng dịch chuyển dòng vốn FDI kéo theo nhu cầu cao đột biến với các vị trí Quản lý Dữ liệu, AI Engineer và Kỹ sư Logistics chuyên sâu.
               </p>
             </div>
-            <div class="flex items-center text-sm font-semibold text-primary">
+            <div class="flex items-center text-sm font-semibold text-red-600">
               <span>Đọc báo cáo chi tiết</span>
               <span class="material-symbols-outlined text-base ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </div>
           </div>
         </div>
 
-        <!-- SIDE STORIES STACK (5 Columns) -->
+        <!-- SIDE STORIES STACK (5 Columns - Serif Headlines) -->
         <div class="lg:col-span-5 flex flex-col gap-4">
           <!-- Side Story 1 -->
-          <article class="p-5 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm group cursor-pointer" data-view="browse">
-            <div class="flex items-center gap-2 text-xs font-semibold text-primary mb-1">
-              <span>XU HƯỚNG NGÀNH</span>
-              <span class="text-on-surface-variant">• 4 phút đọc</span>
+          <article class="p-5 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm group cursor-pointer" data-view="browse">
+            <div class="flex items-center gap-2 text-xs font-semibold text-red-600 uppercase tracking-wider mb-1">
+              <span>Xu Hướng Ngành</span>
+              <span class="text-slate-400">• 4 phút đọc</span>
             </div>
-            <h4 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors leading-snug mb-2">
+            <h4 class="font-serif text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug mb-2">
               Hạ tầng Logistics Cái Mép – Thị Vải & Nhu cầu Nhân sự Chuỗi Cung ứng Quốc tế
             </h4>
-            <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
               Các cảng nước sâu đang mở rộng quy mô tuyển dụng nhân sự vận hành kho vận thông minh và chuyên viên quản lý chuỗi cung ứng toàn cầu.
             </p>
           </article>
 
           <!-- Side Story 2 -->
-          <article class="p-5 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm group cursor-pointer" data-view="browse">
-            <div class="flex items-center gap-2 text-xs font-semibold text-primary mb-1">
-              <span>DOANH NGHIỆP TIÊU BIỂU</span>
-              <span class="text-on-surface-variant">• 5 phút đọc</span>
+          <article class="p-5 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm group cursor-pointer" data-view="browse">
+            <div class="flex items-center gap-2 text-xs font-semibold text-red-600 uppercase tracking-wider mb-1">
+              <span>Doanh Nghiệp Tiêu Biểu</span>
+              <span class="text-slate-400">• 5 phút đọc</span>
             </div>
-            <h4 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors leading-snug mb-2">
+            <h4 class="font-serif text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug mb-2">
               Vingroup & Viettel mở rộng trung tâm R&D tại Hà Nội: Cơ hội lớn cho Kỹ sư Việt Nam
             </h4>
-            <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
               Làn sóng thành lập trung tâm nghiên cứu và phát triển tạo cơ hội việc làm hấp dẫn cho đội ngũ lập trình viên, kỹ sư nhúng và AI Solution Architect.
             </p>
           </article>
 
           <!-- Side Story 3 -->
-          <article class="p-5 bg-surface rounded-xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm group cursor-pointer" data-view="browse">
-            <div class="flex items-center gap-2 text-xs font-semibold text-primary mb-1">
-              <span>QUẢN TRỊ HR</span>
-              <span class="text-on-surface-variant">• 3 phút đọc</span>
+          <article class="p-5 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm group cursor-pointer" data-view="browse">
+            <div class="flex items-center gap-2 text-xs font-semibold text-red-600 uppercase tracking-wider mb-1">
+              <span>Quản Trị HR</span>
+              <span class="text-slate-400">• 3 phút đọc</span>
             </div>
-            <h4 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors leading-snug mb-2">
+            <h4 class="font-serif text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug mb-2">
               Mô hình Làm việc Hybrid & Chiêu thức Giữ chân Nhân tài Công nghệ 2026
             </h4>
-            <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
               Phân tích các chính sách đãi ngộ linh hoạt giúp các doanh nghiệp SaaS và Fintech gia tăng 35% tỷ lệ gắn kết nhân sự trong môi trường cạnh tranh.
             </p>
           </article>
@@ -342,16 +369,16 @@
   </div>
 
   <!-- =========================================================================
-       4. COMPANIES HIRING (Authentic Vietnamese Enterprise Grid)
+       4. COMPANIES HIRING (Clean 10px Rounded Cards)
        ========================================================================= -->
-  <div class="w-full py-12 md:py-16 bg-background">
+  <div class="w-full py-14 md:py-18 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between mb-8 pb-4 border-b border-outline-variant/30">
+      <div class="flex items-end justify-between mb-8 pb-4 border-b border-slate-200">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">Doanh Nghiệp Tiêu Biểu</h2>
-          <p class="text-sm text-on-surface-variant mt-1">Các đối tác tuyển dụng hàng đầu đang thu hút nhân tài</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Doanh Nghiệp Tiêu Biểu</h2>
+          <p class="text-sm text-slate-500 mt-1">Các đối tác tuyển dụng hàng đầu đang thu hút nhân tài</p>
         </div>
-        <a data-view="browse" href="#" class="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-hover transition-colors group">
+        <a data-view="browse" href="#" class="inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700 transition-colors group">
           <span>Xem tất cả công ty</span>
           <span class="material-symbols-outlined text-base ml-1 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </a>
@@ -359,24 +386,24 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- FPT Software -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between group">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
           <div>
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-lg shadow-sm">
+              <div class="w-11 h-11 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-base shadow-sm">
                 FPT
               </div>
               <div>
-                <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">FPT Software</h3>
-                <p class="text-xs text-on-surface-variant font-medium">Công nghệ & Phần mềm</p>
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">FPT Software</h3>
+                <p class="text-xs text-slate-500 font-medium">Công nghệ & Phần mềm</p>
               </div>
             </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
               Tập đoàn công nghệ hàng đầu Việt Nam hoạt động trong lĩnh vực xuất khẩu phần mềm và chuyển đổi số toàn cầu.
             </p>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-xs">
-            <span class="font-semibold text-primary">42 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+            <span class="font-semibold text-red-600">42 vị trí đang tuyển</span>
+            <button data-view="browse" class="font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1">
               <span>Chi tiết</span>
               <span class="material-symbols-outlined text-sm">chevron_right</span>
             </button>
@@ -384,24 +411,24 @@
         </div>
 
         <!-- Viettel Digital -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between group">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
           <div>
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center font-black text-base shadow-sm">
+              <div class="w-11 h-11 rounded-lg bg-red-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">
                 VTL
               </div>
               <div>
-                <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">Tổng Công Ty Dịch Vụ Số Viettel</h3>
-                <p class="text-xs text-on-surface-variant font-medium">Viễn thông & Fintech</p>
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">Tổng Công Ty Dịch Vụ Số Viettel</h3>
+                <p class="text-xs text-slate-500 font-medium">Viễn thông & Fintech</p>
               </div>
             </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
               Đơn vị chủ lực phát triển hệ sinh thái tài chính số, hạ tầng Cloud & Big Data của Tập đoàn Viettel.
             </p>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-xs">
-            <span class="font-semibold text-primary">28 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+            <span class="font-semibold text-red-600">28 vị trí đang tuyển</span>
+            <button data-view="browse" class="font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1">
               <span>Chi tiết</span>
               <span class="material-symbols-outlined text-sm">chevron_right</span>
             </button>
@@ -409,24 +436,24 @@
         </div>
 
         <!-- Tập đoàn Vingroup -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between group">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
           <div>
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-black text-lg shadow-sm">
+              <div class="w-11 h-11 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold text-base shadow-sm">
                 VIN
               </div>
               <div>
-                <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">Tập Đoàn Vingroup (VinFast)</h3>
-                <p class="text-xs text-on-surface-variant font-medium">Công nghiệp & Ô tô Điện</p>
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">Tập Đoàn Vingroup (VinFast)</h3>
+                <p class="text-xs text-slate-500 font-medium">Công nghiệp & Ô tô Điện</p>
               </div>
             </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
               Tập đoàn đa ngành hàng đầu Việt Nam tiên phong chuyển đổi xanh và công nghệ ô tô thông minh toàn cầu.
             </p>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-xs">
-            <span class="font-semibold text-primary">35 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+            <span class="font-semibold text-red-600">35 vị trí đang tuyển</span>
+            <button data-view="browse" class="font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1">
               <span>Chi tiết</span>
               <span class="material-symbols-outlined text-sm">chevron_right</span>
             </button>
@@ -434,24 +461,24 @@
         </div>
 
         <!-- MoMo Fintech -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between group">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
           <div>
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-pink-600 text-white flex items-center justify-center font-black text-sm shadow-sm">
+              <div class="w-11 h-11 rounded-lg bg-pink-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">
                 MoMo
               </div>
               <div>
-                <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">MoMo Fintech</h3>
-                <p class="text-xs text-on-surface-variant font-medium">Tài chính số & Đổi mới sáng tạo</p>
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">MoMo Fintech</h3>
+                <p class="text-xs text-slate-500 font-medium">Tài chính số & Đổi mới sáng tạo</p>
               </div>
             </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
               Siêu ứng dụng thanh toán và dịch vụ tài chính số hàng đầu phục vụ hơn 30 triệu người dùng Việt Nam.
             </p>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-xs">
-            <span class="font-semibold text-primary">19 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+            <span class="font-semibold text-red-600">19 vị trí đang tuyển</span>
+            <button data-view="browse" class="font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1">
               <span>Chi tiết</span>
               <span class="material-symbols-outlined text-sm">chevron_right</span>
             </button>
@@ -459,24 +486,24 @@
         </div>
 
         <!-- VNG Corporation -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between group">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
           <div>
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center font-black text-base shadow-sm">
+              <div class="w-11 h-11 rounded-lg bg-amber-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">
                 VNG
               </div>
               <div>
-                <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">VNG Corporation</h3>
-                <p class="text-xs text-on-surface-variant font-medium">Game & Internet Services</p>
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">VNG Corporation</h3>
+                <p class="text-xs text-slate-500 font-medium">Game & Internet Services</p>
               </div>
             </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
               Kỳ lân công nghệ đầu tiên tại Việt Nam sở hữu hệ sinh thái Zalo, VNGGames và ZaloPay.
             </p>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-xs">
-            <span class="font-semibold text-primary">22 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+            <span class="font-semibold text-red-600">22 vị trí đang tuyển</span>
+            <button data-view="browse" class="font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1">
               <span>Chi tiết</span>
               <span class="material-symbols-outlined text-sm">chevron_right</span>
             </button>
@@ -484,24 +511,24 @@
         </div>
 
         <!-- KiotViet -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between group">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
           <div>
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-sm">
+              <div class="w-11 h-11 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">
                 Kiot
               </div>
               <div>
-                <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">KiotViet (Citigo)</h3>
-                <p class="text-xs text-on-surface-variant font-medium">SaaS & Retail Tech</p>
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">KiotViet (Citigo)</h3>
+                <p class="text-xs text-slate-500 font-medium">SaaS & Retail Tech</p>
               </div>
             </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+            <p class="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
               Giải pháp phần mềm quản lý bán hàng hàng đầu dành cho hơn 200,000 cửa hàng kinh doanh tại Việt Nam.
             </p>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-xs">
-            <span class="font-semibold text-primary">15 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+            <span class="font-semibold text-red-600">15 vị trí đang tuyển</span>
+            <button data-view="browse" class="font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1">
               <span>Chi tiết</span>
               <span class="material-symbols-outlined text-sm">chevron_right</span>
             </button>
@@ -514,60 +541,60 @@
   <!-- =========================================================================
        5. CAREER INSIGHTS (Tools & Guides)
        ========================================================================= -->
-  <div class="w-full py-12 md:py-16 bg-surface-container-lowest border-y border-outline-variant/20">
+  <div class="w-full py-14 md:py-18 bg-white border-y border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-8 pb-4 border-b border-outline-variant/30">
-        <h2 class="text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">Công Cụ & Cẩm Nang Sự Nghiệp</h2>
-        <p class="text-sm text-on-surface-variant mt-1">Hỗ trợ ứng viên phát triển sự nghiệp chuyên nghiệp và minh bạch</p>
+      <div class="mb-8 pb-4 border-b border-slate-200">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Công Cụ & Cẩm Nang Sự Nghiệp</h2>
+        <p class="text-sm text-slate-500 mt-1">Hỗ trợ ứng viên phát triển sự nghiệp chuyên nghiệp và minh bạch</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Salary Calculator Card -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center mb-4">
+            <div class="w-11 h-11 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mb-4">
               <span class="material-symbols-outlined text-2xl">calculate</span>
             </div>
-            <h3 class="text-lg font-bold text-on-surface mb-2">Tính Lương GROSS ⇆ NET</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed mb-6">
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Tính Lương GROSS ⇆ NET</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
               Công cụ quy đổi chính xác theo chuẩn Luật Lao động 2026. Bao gồm Bảo hiểm Xã hội, BHYT, BHTN và trừ thuế TNCN chi tiết.
             </p>
           </div>
-          <button data-view="browse" class="w-full py-2.5 px-4 bg-surface-container-low hover:bg-primary-container hover:text-on-primary-container text-on-surface font-semibold rounded-xl text-xs transition-colors flex items-center justify-center gap-2">
+          <button data-view="browse" class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-lg text-xs transition-colors flex items-center justify-center gap-2">
             <span>Sử dụng công cụ</span>
             <span class="material-symbols-outlined text-sm">arrow_forward</span>
           </button>
         </div>
 
         <!-- ATS CV Toolkit -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center mb-4">
+            <div class="w-11 h-11 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mb-4">
               <span class="material-symbols-outlined text-2xl">description</span>
             </div>
-            <h3 class="text-lg font-bold text-on-surface mb-2">Mẫu CV Chuẩn ATS</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed mb-6">
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Mẫu CV Chuẩn ATS</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
               Bộ template thiết kế chuẩn hóa giúp hồ sơ của bạn dễ dàng vượt qua các thuật toán lọc tự động của các tập đoàn đa quốc gia.
             </p>
           </div>
-          <button data-view="browse" class="w-full py-2.5 px-4 bg-surface-container-low hover:bg-primary-container hover:text-on-primary-container text-on-surface font-semibold rounded-xl text-xs transition-colors flex items-center justify-center gap-2">
+          <button data-view="browse" class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-lg text-xs transition-colors flex items-center justify-center gap-2">
             <span>Tải bộ template</span>
             <span class="material-symbols-outlined text-sm">download</span>
           </button>
         </div>
 
         <!-- Salary Survey Report -->
-        <div class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between">
+        <div class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center mb-4">
+            <div class="w-11 h-11 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mb-4">
               <span class="material-symbols-outlined text-2xl">insights</span>
             </div>
-            <h3 class="text-lg font-bold text-on-surface mb-2">Khảo Sát Thu Nhập Ngành</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed mb-6">
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Khảo Sát Thu Nhập Ngành</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
               Tra cứu dải lương trung bình của hơn 50 vị trí thuộc ngành IT, Marketing, Tài chính và Quản lý theo số năm kinh nghiệm.
             </p>
           </div>
-          <button data-view="browse" class="w-full py-2.5 px-4 bg-surface-container-low hover:bg-primary-container hover:text-on-primary-container text-on-surface font-semibold rounded-xl text-xs transition-colors flex items-center justify-center gap-2">
+          <button data-view="browse" class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-lg text-xs transition-colors flex items-center justify-center gap-2">
             <span>Xem báo cáo</span>
             <span class="material-symbols-outlined text-sm">arrow_forward</span>
           </button>
@@ -577,28 +604,28 @@
   </div>
 
   <!-- =========================================================================
-       6. FOR EMPLOYERS (Clean Enterprise Hiring CTA Banner)
+       6. FOR EMPLOYERS (Clean Enterprise Banner)
        ========================================================================= -->
-  <div class="w-full py-16 md:py-20 bg-surface">
+  <div class="w-full py-16 md:py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gradient-to-br from-surface-container-high to-surface-container p-8 sm:p-12 rounded-3xl border border-outline-variant/30 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="bg-white p-8 sm:p-12 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
         <div class="max-w-2xl text-center md:text-left">
-          <span class="inline-block px-3 py-1 bg-primary-container text-on-primary-container font-bold text-xs rounded-full uppercase tracking-wider mb-3">
+          <span class="inline-block px-3 py-1 bg-red-50 text-red-700 font-semibold text-xs rounded-md uppercase tracking-wider mb-3">
             Dành Cho Nhà Tuyển Dụng
           </span>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-on-surface tracking-tight mb-3">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
             Xây dựng đội ngũ nhân sự tài năng. Truyền tải câu chuyện doanh nghiệp.
           </h2>
-          <p class="text-sm sm:text-base text-on-surface-variant leading-relaxed">
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
             Tiếp cận lực lượng lao động chất lượng cao và giải pháp tư vấn thu hút nhân tài cấp cao thiết kế riêng cho doanh nghiệp của bạn.
           </p>
         </div>
         <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
-          <button id="btn-open-post-project-home" class="px-6 py-3.5 bg-primary text-on-primary font-semibold rounded-xl hover:bg-primary-hover transition-colors text-sm shadow-sm flex items-center justify-center gap-2">
+          <button id="btn-open-post-project-home" class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors text-sm shadow-sm flex items-center justify-center gap-2">
             <span class="material-symbols-outlined text-base">add_circle</span>
             <span>Đăng Tin Tuyển Dụng</span>
           </button>
-          <button id="btn-open-enterprise-home" class="px-6 py-3.5 bg-surface text-on-surface font-semibold rounded-xl border border-outline-variant hover:bg-surface-container-low transition-colors text-sm flex items-center justify-center gap-2">
+          <button id="btn-open-enterprise-home" class="px-6 py-3 bg-white text-slate-800 font-semibold rounded-lg border border-slate-300 hover:bg-slate-50 transition-colors text-sm flex items-center justify-center gap-2">
             <span>Liên Hệ Tư Vấn HR</span>
           </button>
         </div>
@@ -2570,7 +2597,7 @@
   <div id="toast-container"></div>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=1789639611_v10"></script>
+  <script src="js/data.js?v=1789639871_v10"></script>
   <script src="js/app.js?v=merged_1789638183"></script>
 <!-- Real-Time Activity Notification Toast (Bottom-Left) -->
 

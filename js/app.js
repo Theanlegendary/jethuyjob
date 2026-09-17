@@ -626,16 +626,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (filtered.length === 0) {
       feedContainer.innerHTML = `
-        <div class="col-span-full bg-surface p-8 rounded-2xl border border-outline-variant/30 text-center">
-          <span class="material-symbols-outlined text-4xl text-on-surface-variant/40 mb-2">folder_open</span>
-          <h4 class="text-base font-bold text-on-surface mb-1">Không tìm thấy việc làm phù hợp</h4>
-          <p class="text-xs text-on-surface-variant">Hãy thử tìm kiếm với từ khóa khác hoặc chuyển địa điểm.</p>
+        <div class="col-span-full bg-white p-8 rounded-xl border border-slate-200 text-center">
+          <span class="material-symbols-outlined text-4xl text-slate-400 mb-2">folder_open</span>
+          <h4 class="text-base font-bold text-slate-900 mb-1">Không tìm thấy việc làm phù hợp</h4>
+          <p class="text-xs text-slate-500">Hãy thử tìm kiếm với từ khóa khác hoặc xóa bộ lọc.</p>
         </div>
       `;
       return;
     }
 
-    // Limit to exactly 6 jobs for clean homepage hierarchy
+    // Render 6 clean jobs with strict typography hierarchy
     const displayJobs = filtered.slice(0, 6);
 
     feedContainer.innerHTML = displayJobs.map(p => {
@@ -643,46 +643,48 @@ document.addEventListener('DOMContentLoaded', () => {
       const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
       const logoUrl = resolveBrandLogo(p);
       const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin} – ${p.budgetMax} USD` : 'Thỏa thuận');
-      const applicantCount = p.applicantsCount || (p.bids ? p.bids.length : 12);
 
       const avatarHtml = `<img
         src="${logoUrl}"
         alt="${initial}"
-        class="w-12 h-12 rounded-xl object-contain bg-surface p-1.5 border border-outline-variant/30"
+        class="w-11 h-11 rounded-lg object-contain bg-white p-1 border border-slate-200"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-      /><span class="w-12 h-12 rounded-xl bg-surface-container-high text-on-surface font-bold text-sm items-center justify-center border border-outline-variant/30" style="display:none;">${initial}</span>`;
+      /><span class="w-11 h-11 rounded-lg bg-slate-100 text-slate-800 font-bold text-xs items-center justify-center border border-slate-200" style="display:none;">${initial}</span>`;
 
       return `
-        <article class="p-6 bg-surface rounded-2xl border border-outline-variant/30 hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between group cursor-pointer" data-project-id="${p.id}">
+        <article class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group cursor-pointer" data-project-id="${p.id}">
           <div>
-            <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="flex items-start justify-between gap-3 mb-3">
               <div class="flex items-center gap-3">
                 ${avatarHtml}
                 <div>
-                  <h4 class="text-xs font-semibold text-on-surface-variant">${p.company || p.clientName}</h4>
-                  <div class="flex items-center gap-2 text-xs text-on-surface-variant mt-0.5">
+                  <h4 class="text-xs font-semibold text-slate-600">${p.company || p.clientName}</h4>
+                  <div class="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
                     <span>${p.location || 'Hà Nội'}</span>
                     <span>•</span>
                     <span>${p.workType || 'Toàn thời gian'}</span>
                   </div>
                 </div>
               </div>
-              <button class="text-on-surface-variant hover:text-primary transition-colors p-1" data-action="save" title="Lưu việc làm">
-                <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark ${isSaved ? 'text-primary' : ''}"></i>
+              <button class="text-slate-400 hover:text-red-600 transition-colors p-1" data-action="save" title="Lưu việc làm">
+                <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark ${isSaved ? 'text-red-600' : ''}"></i>
               </button>
             </div>
 
-            <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-2 mb-3 leading-snug">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-2 mb-3 leading-snug">
               ${p.title}
             </h3>
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-4">
+              ${p.description || ''}
+            </p>
           </div>
 
           <div>
-            <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-xs">
-              <span class="font-bold text-primary text-sm">${salaryText}</span>
-              <span class="text-on-surface-variant">${p.postedDate || p.timeAgo || 'Vừa đăng'}</span>
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+              <span class="font-bold text-red-600 text-sm sm:text-base">${salaryText}</span>
+              <span class="text-slate-500">${p.postedDate || p.timeAgo || 'Vừa đăng'}</span>
             </div>
-            <button class="w-full mt-4 py-2.5 px-4 bg-surface-container-low group-hover:bg-primary group-hover:text-on-primary text-on-surface font-semibold rounded-xl text-xs transition-all flex items-center justify-center gap-1.5" data-action="view-detail">
+            <button class="w-full mt-4 py-2.5 px-4 bg-slate-100 group-hover:bg-red-600 group-hover:text-white text-slate-800 font-semibold rounded-lg text-xs transition-all flex items-center justify-center gap-1.5" data-action="view-detail">
               <span>Xem Chi Tiết</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </button>
