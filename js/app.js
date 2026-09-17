@@ -1,70 +1,3 @@
-
-function createCleanJobCardHTML(p, isSaved) {
-  const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
-  const logoUrl = resolveBrandLogo(p);
-  const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin} – ${p.budgetMax} USD` : 'Thỏa thuận');
-  const skills = p.skills || ['React', 'Node.js', 'TypeScript'];
-  const displaySkills = skills.slice(0, 3);
-  const extraCount = skills.length > 3 ? skills.length - 3 : 0;
-  const postedTime = p.postedDate || p.timeAgo || 'Cập nhật hôm nay';
-
-  const avatarHtml = `<img
-    src="${logoUrl}"
-    alt="${initial}"
-    class="w-full h-full object-contain"
-    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-  /><span class="w-full h-full font-bold text-slate-700 text-sm items-center justify-center bg-slate-100" style="display:none;">${initial}</span>`;
-
-  return `
-    <article class="p-6 sm:p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex items-start gap-5 group cursor-pointer relative" data-project-id="${p.id}">
-      <!-- Left Logo (64px x 64px) -->
-      <div class="w-16 h-16 rounded-xl bg-white border border-slate-200 p-2.5 flex items-center justify-center shrink-0 overflow-hidden shadow-xs">
-        ${avatarHtml}
-      </div>
-
-      <!-- Content Details -->
-      <div class="flex-1 min-w-0 pr-10">
-        <!-- Title & Tag Line -->
-        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
-          ${p.hot ? '<span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded">⚡ Urgent</span>' : '<span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded">Mới</span>'}
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-red-600 transition-colors truncate">
-            ${p.title}
-          </h3>
-        </div>
-
-        <!-- Company Name -->
-        <p class="text-base font-medium text-slate-700 mb-1.5 truncate">
-          ${p.company || p.clientName || 'Doanh Nghiệp'}
-        </p>
-
-        <!-- Salary & Location -->
-        <p class="text-base font-semibold text-slate-900 mb-2 flex items-center gap-2 flex-wrap">
-          <span class="text-red-600 font-extrabold text-lg sm:text-xl">${salaryText}</span>
-          <span class="text-slate-300">|</span>
-          <span class="text-slate-600 font-medium">${p.location || 'Hà Nội'}</span>
-        </p>
-
-        <!-- Time Ago -->
-        <div class="text-xs sm:text-sm text-slate-500 flex items-center gap-1.5 mb-3">
-          <span class="material-symbols-outlined text-base text-slate-400">schedule</span>
-          <span>${postedTime}</span>
-        </div>
-
-        <!-- Skill Tags -->
-        <div class="flex items-center gap-2 flex-wrap">
-          ${displaySkills.map(s => `<span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs sm:text-sm rounded-md font-medium">${s}</span>`).join('')}
-          ${extraCount > 0 ? `<span class="px-2.5 py-1 bg-slate-100 text-slate-500 text-xs sm:text-sm rounded-md font-medium">+${extraCount}</span>` : ''}
-        </div>
-      </div>
-
-      <!-- Top-Right Heart Button -->
-      <button class="absolute top-6 right-6 w-10 h-10 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-400 hover:text-red-600 transition-colors shadow-xs" data-action="save" title="Lưu việc làm">
-        <i class="fa-${isSaved ? 'solid' : 'regular'} fa-heart ${isSaved ? 'text-red-600' : ''} text-lg"></i>
-      </button>
-    </article>
-  `;
-}
-
 /* ==========================================================================
    VIETNAM RECRUITMENT MARKETPLACE - APP LOGIC & SPA CONTROLLER
    ========================================================================== */
@@ -661,22 +594,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (filtered.length === 0) {
       feedContainer.innerHTML = `
-        <div class="col-span-full bg-white p-8 rounded-xl border border-slate-200 text-center">
-          <span class="material-symbols-outlined text-4xl text-slate-400 mb-2">folder_open</span>
-          <h4 class="text-base font-bold text-slate-900 mb-1">Không tìm thấy việc làm phù hợp</h4>
-          <p class="text-xs text-slate-500">Hãy thử tìm kiếm với từ khóa khác hoặc xóa bộ lọc.</p>
+        <div style="background:#ffffff; border:1px solid var(--fl-border); border-radius:var(--radius-lg); padding:40px 20px; text-align:center;">
+          <i class="fa-solid fa-folder-open" style="font-size:36px; color:var(--fl-text-light); margin-bottom:12px;"></i>
+          <h4 style="font-size:16px; font-weight:700; color:var(--fl-text-heading); margin-bottom:6px;">Không tìm thấy việc làm phù hợp</h4>
+          <p style="font-size:13.5px; color:var(--fl-text-muted);">Hãy thử tìm kiếm với từ khóa khác hoặc xóa bộ lọc để xem toàn bộ danh sách.</p>
         </div>
       `;
       return;
     }
 
-    feedContainer.innerHTML = filtered.slice(0, 6).map(p => {
+    feedContainer.innerHTML = filtered.map(p => {
       const isSaved = state.savedJobs.has(p.id);
-      return createCleanJobCardHTML(p, isSaved);
+      const isPromoted = p.featured || p.hot;
+      const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
+      const logoUrl = resolveBrandLogo(p);
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin} – ${p.budgetMax} USD` : 'Thỏa thuận');
+      const applicantCount = p.applicantsCount || (p.bids ? p.bids.length : 12);
+
+      const avatarHtml = `<img
+        src="${logoUrl}"
+        alt="${initial}"
+        class="card-brand-logo"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      /><span class="card-brand-fallback" style="display:none;">${initial}</span>`;
+
+      return `
+        <article class="career-job-card ${isPromoted ? 'promoted' : ''}" data-project-id="${p.id}">
+          <div class="career-card-left-section">
+            <div class="career-avatar-circle">
+              ${avatarHtml}
+            </div>
+
+            <div class="career-main-details">
+              <div class="career-title-row">
+                <h3 class="career-job-title">${p.title}</h3>
+                <span class="badge-hot-tag"><i class="fa-solid fa-fire"></i> GẤP</span>
+                <span class="badge-new-yellow">NEW</span>
+                ${p.top100 !== false ? '<span class="badge-top100-star"><i class="fa-solid fa-star"></i> TOP 100</span>' : ''}
+              </div>
+
+              <div class="career-company-row">
+                <span class="company-name-bold">${p.company || p.clientName || 'Animalz Technologies'}</span>
+                <i class="fa-solid fa-circle-check career-verified-check" title="Doanh nghiệp đã xác thực"></i>
+                <span class="career-meta-sep">•</span>
+                <span class="career-location-text"><i class="fa-solid fa-location-dot" style="color:var(--fl-primary); font-size:12px;"></i> ${p.location || 'Hà Nội & TP.HCM'}</span>
+                <span class="career-meta-sep">•</span>
+                <span class="career-workmode-badge"><i class="fa-solid fa-briefcase" style="font-size:11px;"></i> ${p.workType || 'Full-Time'}</span>
+              </div>
+
+              <div class="career-pills-row">
+                ${p.boosted !== false ? '<span class="pill-tag-boosted"><i class="fa-solid fa-rocket"></i> Boosted</span>' : ''}
+                ${p.featured ? '<span class="pill-tag-featured"><i class="fa-solid fa-crown"></i> Ưu Tiên</span>' : ''}
+                <span class="pill-tag-white"><i class="fa-solid fa-shield"></i> Xác thực 100%</span>
+                <span class="pill-tag-white"><i class="fa-solid fa-circle-check" style="color:var(--fl-primary);"></i> Tuyển gấp</span>
+              </div>
+
+              <div class="career-live-meta">
+                <span><i class="fa-regular fa-clock"></i> ${p.postedDate || p.timeAgo || '2 giờ trước'}</span>
+                <span class="career-meta-sep">•</span>
+                <span><i class="fa-solid fa-users" style="color:var(--fl-primary);"></i> <strong>${applicantCount}</strong> người đã nộp CV</span>
+                <span class="career-meta-sep">•</span>
+                <span style="color:var(--fl-text-muted); font-size:11.5px;"><i class="fa-solid fa-hashtag"></i> ${p.id}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="career-card-right-section">
+            <div class="career-salary-box">
+              <div class="career-salary-text">${salaryText}</div>
+              <div class="career-salary-subbadge"><i class="fa-solid fa-circle-dollar-to-slot"></i> Thu nhập hấp dẫn</div>
+            </div>
+
+            <div class="career-action-buttons-group">
+              <button class="btn-save-pill ${isSaved ? 'saved' : ''}" title="Lưu việc làm" data-action="save">
+                <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark"></i> ${isSaved ? 'Đã lưu' : 'Lưu'}
+              </button>
+              <button class="btn-apply-prominent" data-action="view-detail">
+                Xem Chi Tiết <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
     }).join('');
 
     // Bind Event Listeners
-    feedContainer.querySelectorAll('article[data-project-id]').forEach(card => {
+    feedContainer.querySelectorAll('.career-job-card').forEach(card => {
       const prjId = card.getAttribute('data-project-id');
 
       card.querySelectorAll('[data-action="save"]').forEach(saveBtn => {
@@ -746,6 +749,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const browseFeed = document.getElementById('browse-projects-feed');
     if (!browseFeed) return;
 
+    // Read filters
     const checkedCats = [...document.querySelectorAll('.browse-cat-filter:checked')].map(c => c.value);
     const checkedTypes = [...document.querySelectorAll('.browse-type-filter:checked')].map(c => c.value);
     const checkedLocs = [...document.querySelectorAll('.browse-loc-filter:checked')].map(c => c.value);
@@ -756,18 +760,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (checkedCats.length > 0) projects = projects.filter(p => checkedCats.includes(p.category));
     if (checkedTypes.length > 0) projects = projects.filter(p => checkedTypes.some(t => (p.workType || p.type || '').toLowerCase().includes(t.toLowerCase())));
     if (checkedLocs.length > 0) {
-      const locMap = { 'hcm': ['hcm', 'hồ chí minh', 'tp.hcm', 'ho chi minh', 'sài gòn'], 'hanoi': ['hà nội', 'ha noi', 'hà noi'], 'danang': ['đà nẵng', 'da nang'], 'bacninh': ['bắc ninh', 'bac ninh'] };
-      projects = projects.filter(p => {
-        const loc = (p.location || '').toLowerCase();
-        return checkedLocs.some(filterKey => {
-          const aliases = locMap[filterKey] || [filterKey];
-          return aliases.some(alias => loc.includes(alias));
-        });
+    const locMap = { 'hcm': ['hcm', 'hồ chí minh', 'tp.hcm', 'ho chi minh', 'sài gòn'], 'hanoi': ['hà nội', 'ha noi', 'hà noi'], 'danang': ['đà nẵng', 'da nang'], 'bacninh': ['bắc ninh', 'bac ninh'] };
+    projects = projects.filter(p => {
+      const loc = (p.location || '').toLowerCase();
+      return checkedLocs.some(filterKey => {
+        const aliases = locMap[filterKey] || [filterKey];
+        return aliases.some(alias => loc.includes(alias));
       });
-    }
+    });
+  }
 
     if (state.filters.search) {
-      const q = state.filters.search.toLowerCase();
+      const q = state.filters.search;
       projects = projects.filter(p =>
         p.title.toLowerCase().includes(q) ||
         (p.company || '').toLowerCase().includes(q) ||
@@ -782,35 +786,62 @@ document.addEventListener('DOMContentLoaded', () => {
     if (countEl) countEl.textContent = projects.length;
 
     if (projects.length === 0) {
-      browseFeed.innerHTML = `<div class="bg-white border border-slate-200 rounded-xl p-10 text-center"><span class="material-symbols-outlined text-4xl text-slate-400">folder_open</span><h4 class="mt-2 text-base font-bold text-slate-900">Không tìm thấy việc làm phù hợp</h4></div>`;
+      browseFeed.innerHTML = `<div style="background:#fff;border:1px solid var(--fl-border);border-radius:var(--radius-lg);padding:40px;text-align:center;"><i class="fa-solid fa-folder-open" style="font-size:36px;color:var(--fl-text-light);"></i><h4 style="margin-top:12px;font-size:16px;color:var(--fl-text-heading);">Không tìm thấy việc làm phù hợp</h4></div>`;
       return;
     }
 
     browseFeed.innerHTML = projects.map(p => {
       const isSaved = state.savedJobs.has(p.id);
-      return createCleanJobCardHTML(p, isSaved);
+      const initial = p.logoType || (p.company ? p.company.substring(0, 2).toUpperCase() : 'VJ');
+      const logoUrl = resolveBrandLogo(p);
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin} – ${p.budgetMax} USD` : 'Thỏa thuận');
+
+      return `
+        <article class="career-job-card ${p.hot ? 'promoted' : ''}" data-project-id="${p.id}">
+          <div class="career-card-left-section">
+            <div class="career-avatar-circle">
+              <img src="${logoUrl}" alt="${initial}" class="card-brand-logo"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <span class="card-brand-fallback" style="display:none;">${initial}</span>
+            </div>
+
+            <div class="career-main-details">
+              <div class="career-title-row">
+                <h3 class="career-job-title">${p.title}</h3>
+                <span class="badge-hot-tag"><i class="fa-solid fa-fire"></i> GẤP</span>
+              </div>
+
+              <div class="career-company-row">
+                <span class="company-name-bold">${p.company || p.clientName || 'Doanh Nghiệp'}</span>
+                <i class="fa-solid fa-circle-check career-verified-check"></i>
+                <span class="career-meta-sep">•</span>
+                <span class="career-location-text"><i class="fa-solid fa-location-dot" style="color:var(--fl-primary);"></i> ${p.location || 'Hà Nội & TP.HCM'}</span>
+              </div>
+
+              <p style="font-size:13px; color:var(--fl-text-body); margin-top:4px; line-height:1.4;">
+                ${p.description ? p.description.substring(0, 140) + '...' : 'Tìm kiếm ứng viên tài năng tham gia dự án công nghệ.'}
+              </p>
+            </div>
+          </div>
+
+          <div class="career-card-right-section">
+            <div class="career-salary-box">
+              <div class="career-salary-text">${salaryText}</div>
+            </div>
+
+            <div class="career-action-buttons-group">
+              <button class="btn-apply-prominent" data-action="view-detail">
+                Xem Chi Tiết <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
     }).join('');
 
-    browseFeed.querySelectorAll('article[data-project-id]').forEach(card => {
+    browseFeed.querySelectorAll('.career-job-card').forEach(card => {
       const prjId = card.getAttribute('data-project-id');
-
-      card.querySelectorAll('[data-action="save"]').forEach(saveBtn => {
-        saveBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          if (state.savedJobs.has(prjId)) {
-            state.savedJobs.delete(prjId);
-            showToast('Đã bỏ lưu việc làm');
-          } else {
-            state.savedJobs.add(prjId);
-            showToast('❤️ Đã lưu việc làm vào danh sách yêu thích!');
-          }
-          updateSavedJobsCountUI();
-          renderBrowseProjects();
-        });
-      });
-
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('[data-action="save"]')) return;
+      card.addEventListener('click', () => {
         showJobDetail(prjId);
       });
     });
