@@ -11,7 +11,7 @@
   <!-- Google Fonts: Plus Jakarta Sans & Be Vietnam Pro & FontAwesome -->
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=1789640695_v10">
+  <link rel="stylesheet" href="css/styles.css?v=1789641102_v10">
 </head>
 <body>
 
@@ -154,435 +154,413 @@
          VIEW 1: RECRUITMENT MARKETPLACE HOMEPAGE (#view-home)
          ======================================================================== -->
     <section class="app-view active-view" id="view-home">
-  <!-- =========================================================================
-       1. HERO SEARCH ("Find your next opportunity" - FreightWaves / Zara Scaled)
-       ========================================================================= -->
-  <div class="w-full bg-white border-b border-slate-200 py-20 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-5 leading-[1.1]">
-          Tìm kiếm cơ hội nghề nghiệp & đối tác doanh nghiệp
-        </h1>
-        <p class="text-lg sm:text-xl text-slate-600 font-normal mb-10 leading-relaxed max-w-3xl mx-auto">
-          Nền tảng kết nối nhân sự chuyên nghiệp và thông tin thị trường lao động hàng đầu Việt Nam
+  <!-- BEGIN: TopLeaderboardBanner -->
+  <aside class="max-w-[1280px] mx-auto px-4 my-4" data-purpose="sonar-leaderboard-ad">
+    <div class="bg-gradient-to-r from-[#0a192f] via-[#0d274c] to-[#04437a] text-white p-4 sm:p-5 rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between gap-4 border border-sky-900/60">
+      <div class="flex items-center space-x-4">
+        <div class="bg-white/10 px-3.5 py-1.5 rounded font-black tracking-widest text-xl text-sky-300 border border-sky-400/30 shrink-0">
+          WORKTHEAN
+        </div>
+        <div>
+          <h2 class="text-base sm:text-lg font-bold tracking-tight">Workthean Supply Chain & Talent Intelligence Q3/2026</h2>
+          <p class="text-xs sm:text-sm text-sky-200">Dữ liệu thực tế cho 50+ vị trí thuộc ngành IT, Logistics, Tài chính và Quản lý Doanh nghiệp.</p>
+        </div>
+      </div>
+      <a class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2.5 text-xs rounded transition uppercase tracking-wider whitespace-nowrap shadow-lg shrink-0" data-view="browse" href="#">
+        Tải Báo Cáo Lương →
+      </a>
+    </div>
+  </aside>
+  <!-- END: TopLeaderboardBanner -->
+
+  <!-- BEGIN: HeroTopStories -->
+  <section class="max-w-[1280px] mx-auto px-4 pt-2 pb-6" data-purpose="top-stories-block">
+    <div class="flex items-center justify-between mb-3 border-b-2 border-slate-900 pb-1.5">
+      <h3 class="text-lg font-black uppercase tracking-wide text-slate-900 flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+        Tin Tức Tiêu Điểm
+      </h3>
+      <a class="text-xs font-bold text-[#0070ba] hover:underline" data-view="browse" href="#">Xem Tất Cả »</a>
+    </div>
+
+    <!-- Hero grid: 1 big left lead + 8 right cards (4x2 grid) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+      <!-- Lead Hero Article (6 cols left) -->
+      <article class="lg:col-span-6 flex flex-col border-b lg:border-b-0 lg:border-r border-slate-200 pb-5 lg:pb-0 lg:pr-6" data-purpose="hero-lead-article">
+        <div class="relative overflow-hidden rounded-md mb-3.5 group cursor-pointer" data-view="browse">
+          <img alt="Báo cáo Thị trường Nhân lực" class="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition duration-500" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"/>
+          <span class="absolute bottom-3 left-3 bg-[#0070ba] text-white text-[11px] font-bold px-3 py-1 rounded shadow uppercase tracking-wider">
+            Báo Cáo Đặc Biệt
+          </span>
+        </div>
+        <span class="tag-category mb-1">THỊ TRƯỜNG LAO ĐỘNG & FDI</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight mb-2.5 hover:text-[#0070ba] transition cursor-pointer" data-view="browse">
+          Báo cáo Chuỗi Cung Ứng & Thị Trường Nhân Lực Cấp Cao Q3/2026: Nhu cầu AI & Data Analyst tăng 42%
+        </h2>
+        <p class="text-sm text-slate-600 mb-4 line-clamp-3 leading-relaxed">
+          Khảo sát thực tế tại hơn 300 doanh nghiệp công nghệ và logistics cho thấy xu hướng dịch chuyển dòng vốn FDI kéo theo nhu cầu cao đột biến với các vị trí Quản lý Dữ liệu, AI Engineer và Kỹ sư Logistics chuyên sâu.
         </p>
-
-        <!-- Search Bar -->
-        <form id="hero-search-form" class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col sm:flex-row gap-3">
-          <div class="flex-1 flex items-center px-4 bg-slate-50 rounded-xl border border-slate-100">
-            <span class="material-symbols-outlined text-slate-400 mr-3 text-2xl">search</span>
-            <input type="text" id="hero-main-search-input" placeholder="Chức danh, kỹ năng, hoặc tên công ty..." class="w-full py-4 bg-transparent text-slate-900 placeholder-slate-400 focus:outline-none text-base font-medium">
-          </div>
-          <div class="w-full sm:w-56 flex items-center px-4 bg-slate-50 rounded-xl border border-slate-100">
-            <span class="material-symbols-outlined text-slate-400 mr-3 text-2xl">location_on</span>
-            <select id="hero-main-location-select" class="w-full py-4 bg-transparent text-slate-900 focus:outline-none text-base font-medium cursor-pointer">
-              <option value="">Tất cả địa điểm</option>
-              <option value="hanoi">Hà Nội</option>
-              <option value="hcm">TP. Hồ Chí Minh</option>
-              <option value="danang">Đà Nẵng</option>
-              <option value="remote">Remote / Linh hoạt</option>
-            </select>
-          </div>
-          <button type="submit" id="btn-hero-main-search" class="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2 text-base shadow-sm shrink-0">
-            <span>Tìm Kiếm</span>
-            <span class="material-symbols-outlined text-lg">arrow_forward</span>
-          </button>
-        </form>
-
-        <!-- Quick Search Tags -->
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-2.5 text-sm sm:text-base">
-          <span class="text-slate-500 font-medium mr-1">Tìm nhanh:</span>
-          <button class="quick-search-tag px-3.5 py-1.5 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-700 rounded-lg font-medium transition-all text-sm" data-filter-keyword="Java">Java Developer</button>
-          <button class="quick-search-tag px-3.5 py-1.5 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-700 rounded-lg font-medium transition-all text-sm" data-filter-keyword="React">React / Next.js</button>
-          <button class="quick-search-tag px-3.5 py-1.5 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-700 rounded-lg font-medium transition-all text-sm" data-filter-keyword="AI">AI & Data</button>
-          <button class="quick-search-tag px-3.5 py-1.5 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-700 rounded-lg font-medium transition-all text-sm" data-filter-keyword="Marketing">Marketing Lead</button>
-          <button class="quick-search-tag px-3.5 py-1.5 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-700 rounded-lg font-medium transition-all text-sm" data-filter-keyword="Remote">Remote Jobs</button>
+        <div class="mt-auto">
+          <a class="inline-flex items-center text-xs font-bold text-white bg-[#0070ba] hover:bg-[#00558f] px-3.5 py-2 rounded transition" data-view="browse" href="#">
+            Đọc Chi Tiết »
+          </a>
         </div>
-      </div>
-    </div>
-  </div>
+      </article>
 
-  <!-- =========================================================================
-       2. LATEST JOBS (6 Real Jobs Grid - Larger Proportions)
-       ========================================================================= -->
-  <div class="w-full py-16 md:py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between mb-10 pb-4 border-b border-slate-200">
-        <div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Việc Làm Mới Nhất</h2>
-          <p class="text-base text-slate-500 mt-1">Các vị trí vừa được đăng tải trực tiếp từ các doanh nghiệp uy tín</p>
-        </div>
-        <a data-view="browse" href="#" class="inline-flex items-center text-base font-semibold text-red-600 hover:text-red-700 transition-colors group">
-          <span>Xem tất cả việc làm</span>
-          <span class="material-symbols-outlined text-lg ml-1 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
-        </a>
-      </div>
-
-      <!-- Container dynamically populated with 6 jobs by app.js -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-feed">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       3. BUSINESS & CAREER NEWS (FreightWaves / Zara Editorial Style)
-       ========================================================================= -->
-  <div class="w-full py-16 md:py-24 bg-white border-y border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between mb-10 pb-4 border-b border-slate-200">
-        <div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Thời Sự Tuyển Dụng & Thị Trường</h2>
-          <p class="text-base text-slate-500 mt-1">Phân tích xu hướng nhân lực, báo cáo thu nhập và chính sách HR mới nhất</p>
-        </div>
-        <a data-view="browse" href="#" class="inline-flex items-center text-base font-semibold text-red-600 hover:text-red-700 transition-colors group">
-          <span>Xem tất cả bài viết</span>
-          <span class="material-symbols-outlined text-lg ml-1 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-        <!-- BIG LEAD STORY (7 Columns - Zara/FreightWaves Serif Headline) -->
-        <div class="lg:col-span-7 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col group cursor-pointer" data-view="browse">
-          <div class="h-72 sm:h-80 bg-slate-100 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Báo cáo Thị trường Nhân lực" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-5 left-5 bg-slate-900 text-white font-bold text-xs px-3.5 py-1.5 rounded uppercase tracking-wider">
-              Báo Cáo Đặc Biệt
-            </span>
-          </div>
-          <div class="p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="text-sm text-slate-500 font-medium mb-3 flex items-center gap-2">
-                <span>Ban Biên Tập Workthean</span>
-                <span>•</span>
-                <span>16 Tháng 9, 2026</span>
-              </div>
-              <h3 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-[1.2] mb-4">
-                Báo cáo Chuỗi Cung Ứng & Thị Trường Nhân Lực Cấp Cao Q3/2026: Nhu cầu AI & Data Analyst tăng 42%
-              </h3>
-              <p class="text-base text-slate-600 line-clamp-3 leading-relaxed mb-6">
-                Khảo sát thực tế tại hơn 300 doanh nghiệp công nghệ và logistics cho thấy xu hướng dịch chuyển dòng vốn FDI kéo theo nhu cầu cao đột biến với các vị trí Quản lý Dữ liệu, AI Engineer và Kỹ sư Logistics chuyên sâu.
-              </p>
-            </div>
-            <div class="flex items-center text-base font-semibold text-red-600">
-              <span>Đọc báo cáo chi tiết</span>
-              <span class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- SIDE STORIES STACK (5 Columns) -->
-        <div class="lg:col-span-5 flex flex-col gap-6">
-          <!-- Side Story 1 -->
-          <article class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm group cursor-pointer" data-view="browse">
-            <div class="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
-              <span>Xu Hướng Ngành</span>
-              <span class="text-slate-400">• 4 phút đọc</span>
-            </div>
-            <h4 class="font-serif text-xl font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug mb-2.5">
+      <!-- 8 Top Stories Right Grid (6 cols right) -->
+      <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4" data-purpose="hero-top-secondary-list">
+        <!-- Item 1 -->
+        <article class="flex space-x-3 items-start pb-2.5 border-b border-slate-100 cursor-pointer" data-view="browse">
+          <img alt="Logistics Cái Mép" class="w-20 h-16 object-cover rounded shrink-0" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=300&q=80"/>
+          <div>
+            <span class="tag-category block">Logistics & Cảng Biển</span>
+            <h4 class="text-xs font-bold text-slate-900 hover:text-[#0070ba] line-clamp-2 leading-snug">
               Hạ tầng Logistics Cái Mép – Thị Vải & Nhu cầu Nhân sự Chuỗi Cung ứng Quốc tế
             </h4>
-            <p class="text-sm text-slate-600 line-clamp-2 leading-relaxed">
-              Các cảng nước sâu đang mở rộng quy mô tuyển dụng nhân sự vận hành kho vận thông minh và chuyên viên quản lý chuỗi cung ứng toàn cầu.
-            </p>
-          </article>
-
-          <!-- Side Story 2 -->
-          <article class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm group cursor-pointer" data-view="browse">
-            <div class="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
-              <span>Doanh Nghiệp Tiêu Biểu</span>
-              <span class="text-slate-400">• 5 phút đọc</span>
-            </div>
-            <h4 class="font-serif text-xl font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug mb-2.5">
-              Vingroup & Viettel mở rộng trung tâm R&D tại Hà Nội: Cơ hội lớn cho Kỹ sư Việt Nam
+          </div>
+        </article>
+        <!-- Item 2 -->
+        <article class="flex space-x-3 items-start pb-2.5 border-b border-slate-100 cursor-pointer" data-view="browse">
+          <img alt="R&D Center" class="w-20 h-16 object-cover rounded shrink-0" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=300&q=80"/>
+          <div>
+            <span class="tag-category block">Công Nghệ & AI</span>
+            <h4 class="text-xs font-bold text-slate-900 hover:text-[#0070ba] line-clamp-2 leading-snug">
+              Vingroup & Viettel mở rộng trung tâm R&D tại Hà Nội: Cơ hội lớn cho Kỹ sư Việt
             </h4>
-            <p class="text-sm text-slate-600 line-clamp-2 leading-relaxed">
-              Làn sóng thành lập trung tâm nghiên cứu và phát triển tạo cơ hội việc làm hấp dẫn cho đội ngũ lập trình viên, kỹ sư nhúng và AI Solution Architect.
-            </p>
-          </article>
-
-          <!-- Side Story 3 -->
-          <article class="p-6 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm group cursor-pointer" data-view="browse">
-            <div class="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
-              <span>Quản Trị HR</span>
-              <span class="text-slate-400">• 3 phút đọc</span>
-            </div>
-            <h4 class="font-serif text-xl font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug mb-2.5">
+          </div>
+        </article>
+        <!-- Item 3 -->
+        <article class="flex space-x-3 items-start pb-2.5 border-b border-slate-100 cursor-pointer" data-view="browse">
+          <img alt="Hybrid Work" class="w-20 h-16 object-cover rounded shrink-0" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=300&q=80"/>
+          <div>
+            <span class="tag-category block">Quản Trị HR</span>
+            <h4 class="text-xs font-bold text-slate-900 hover:text-[#0070ba] line-clamp-2 leading-snug">
               Mô hình Làm việc Hybrid & Chiêu thức Giữ chân Nhân tài Công nghệ 2026
             </h4>
-            <p class="text-sm text-slate-600 line-clamp-2 leading-relaxed">
-              Phân tích các chính sách đãi ngộ linh hoạt giúp các doanh nghiệp SaaS và Fintech gia tăng 35% tỷ lệ gắn kết nhân sự trong môi trường cạnh tranh.
-            </p>
-          </article>
-        </div>
+          </div>
+        </article>
+        <!-- Item 4 -->
+        <article class="flex space-x-3 items-start pb-2.5 border-b border-slate-100 cursor-pointer" data-view="browse">
+          <img alt="Bảo hiểm xã hội" class="w-20 h-16 object-cover rounded shrink-0" src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=300&q=80"/>
+          <div>
+            <span class="tag-category block">Chính Sách Lao Động</span>
+            <h4 class="text-xs font-bold text-slate-900 hover:text-[#0070ba] line-clamp-2 leading-snug">
+              Mức lương tối thiểu vùng 2026 & Quy định Bảo hiểm Xã hội mới nhất
+            </h4>
+          </div>
+        </article>
+        <!-- Item 5 -->
+        <article class="flex space-x-3 items-start pb-2.5 border-b border-slate-100 cursor-pointer" data-view="browse">
+          <img alt="AI Developer" class="w-20 h-16 object-cover rounded shrink-0" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=300&q=80"/>
+          <div>
+            <span class="tag-category block">Tuyển Dụng IT</span>
+            <h4 class="text-xs font-bold text-slate-900 hover:text-[#0070ba] line-clamp-2 leading-snug">
+              Xu hướng dịch chuyển lập trình viên Fullstack sang AI Engineering
+            </h4>
+          </div>
+        </article>
+        <!-- Item 6 -->
+        <article class="flex space-x-3 items-start pb-2.5 border-b border-slate-100 cursor-pointer" data-view="browse">
+          <img alt="Semiconductor" class="w-20 h-16 object-cover rounded shrink-0" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80"/>
+          <div>
+            <span class="tag-category block">Doanh Nghiệp FDI</span>
+            <h4 class="text-xs font-bold text-slate-900 hover:text-[#0070ba] line-clamp-2 leading-snug">
+              Làn sóng đầu tư bán dẫn và nhu cầu kỹ sư vi mạch tại Đà Nẵng
+            </h4>
+          </div>
+        </article>
+        <!-- Item 7 -->
+        <article class="flex space-x-3 items-start cursor-pointer" data-view="browse">
+          <img alt="Fintech Bank" class="w-20 h-16 object-cover rounded shrink-0" src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=300&q=80"/>
+          <div>
+            <span class="tag-category block">Tài Chính & Bank</span>
+            <h4 class="text-xs font-bold text-slate-900 hover:text-[#0070ba] line-clamp-2 leading-snug">
+              Ngành Ngân hàng tăng tốc số hóa: Nhu cầu AI Solution Architect tăng mạnh
+            </h4>
+          </div>
+        </article>
+        <!-- Item 8 -->
+        <article class="flex space-x-3 items-start cursor-pointer" data-view="browse">
+          <img alt="ATS Resume" class="w-20 h-16 object-cover rounded shrink-0" src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=300&q=80"/>
+          <div>
+            <span class="tag-category block">Kỹ Năng Sự Nghiệp</span>
+            <h4 class="text-xs font-bold text-slate-900 hover:text-[#0070ba] line-clamp-2 leading-snug">
+              Bí quyết tối ưu CV chuẩn ATS vượt qua hệ thống quét tự động
+            </h4>
+          </div>
+        </article>
       </div>
     </div>
-  </div>
+  </section>
+  <!-- END: HeroTopStories -->
 
-  <!-- =========================================================================
-       4. COMPANIES HIRING (Scaled Enterprise Cards)
-       ========================================================================= -->
-  <div class="w-full py-16 md:py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between mb-10 pb-4 border-b border-slate-200">
-        <div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Doanh Nghiệp Tiêu Biểu</h2>
-          <p class="text-base text-slate-500 mt-1">Các đối tác tuyển dụng hàng đầu đang thu hút nhân tài</p>
-        </div>
-        <a data-view="browse" href="#" class="inline-flex items-center text-base font-semibold text-red-600 hover:text-red-700 transition-colors group">
-          <span>Xem tất cả công ty</span>
-          <span class="material-symbols-outlined text-lg ml-1 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- FPT Software -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center gap-4 mb-5">
-              <div class="w-14 h-14 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
-                FPT
-              </div>
-              <div>
-                <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">FPT Software</h3>
-                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Công nghệ & Phần mềm</p>
-              </div>
-            </div>
-            <p class="text-sm text-slate-600 line-clamp-2 mb-5 leading-relaxed">
-              Tập đoàn công nghệ hàng đầu Việt Nam hoạt động trong lĩnh vực xuất khẩu phần mềm và chuyển đổi số toàn cầu.
-            </p>
+  <!-- BEGIN: MainContentAndSidebar -->
+  <main class="max-w-[1280px] mx-auto px-4 pb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- ================= Left Primary Feed (70%) ================= -->
+      <section class="lg:col-span-8 space-y-10" data-purpose="editorial-primary-feed">
+        
+        <!-- SECTION 1: Search & Latest Jobs -->
+        <section data-purpose="category-section-latest-jobs">
+          <div class="section-heading-bar flex items-center justify-between">
+            <span>Việc Làm Mới Nhất</span>
+            <a class="text-xs text-[#0070ba] font-bold hover:underline" data-view="browse" href="#">Xem Tất Cả »</a>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-sm">
-            <span class="font-bold text-red-600">42 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-slate-700 hover:text-slate-900 flex items-center gap-1">
-              <span>Chi tiết</span>
-              <span class="material-symbols-outlined text-base">chevron_right</span>
+
+          <!-- Integrated Search Box -->
+          <form id="hero-search-form" class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-2 mb-6">
+            <div class="flex-1 flex items-center px-3.5 bg-slate-50 rounded-lg border border-slate-100">
+              <span class="material-symbols-outlined text-slate-400 mr-2 text-xl">search</span>
+              <input type="text" id="hero-main-search-input" placeholder="Chức danh, kỹ năng, hoặc tên công ty..." class="w-full py-2.5 bg-transparent text-slate-900 placeholder-slate-400 focus:outline-none text-sm font-medium">
+            </div>
+            <div class="w-full sm:w-44 flex items-center px-3 bg-slate-50 rounded-lg border border-slate-100">
+              <span class="material-symbols-outlined text-slate-400 mr-1.5 text-lg">location_on</span>
+              <select id="hero-main-location-select" class="w-full py-2.5 bg-transparent text-slate-900 focus:outline-none text-xs font-medium cursor-pointer">
+                <option value="">Địa điểm</option>
+                <option value="hanoi">Hà Nội</option>
+                <option value="hcm">TP.HCM</option>
+                <option value="danang">Đà Nẵng</option>
+                <option value="remote">Remote</option>
+              </select>
+            </div>
+            <button type="submit" id="btn-hero-main-search" class="w-full sm:w-auto px-6 py-2.5 bg-[#0070ba] hover:bg-[#00558f] text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-1.5 text-xs shadow-sm">
+              <span>Tìm Kiếm</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </button>
-          </div>
-        </div>
+          </form>
 
-        <!-- Viettel Digital -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center gap-4 mb-5">
-              <div class="w-14 h-14 rounded-xl bg-red-600 text-white flex items-center justify-center font-bold text-base shadow-sm">
-                VTL
-              </div>
+          <!-- Dynamic 6 Jobs Grid (Populated cleanly by app.js using Image 2 blueprint) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="projects-feed">
+            <!-- Rendered by JS -->
+          </div>
+        </section>
+
+        <!-- SECTION 2: Doanh Nghiệp Tiêu Biểu -->
+        <section data-purpose="category-section-companies">
+          <div class="section-heading-bar flex items-center justify-between">
+            <span>Doanh Nghiệp Tiêu Biểu</span>
+            <a class="text-xs text-[#0070ba] font-bold hover:underline" data-view="browse" href="#">Xem Tất Cả »</a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- FPT -->
+            <article class="bg-white p-4 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition shadow-sm group">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">Tổng Công Ty Dịch Vụ Số Viettel</h3>
-                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Viễn thông & Fintech</p>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-blue-600 text-white font-bold text-sm flex items-center justify-center">FPT</div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900 group-hover:text-[#0070ba]">FPT Software</h4>
+                    <span class="text-[11px] text-slate-500 font-medium">Công nghệ & Phần mềm</span>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-600 line-clamp-2 mb-3">Tập đoàn công nghệ hàng đầu Việt Nam hoạt động trong lĩnh vực phần mềm toàn cầu.</p>
               </div>
-            </div>
-            <p class="text-sm text-slate-600 line-clamp-2 mb-5 leading-relaxed">
-              Đơn vị chủ lực phát triển hệ sinh thái tài chính số, hạ tầng Cloud & Big Data của Tập đoàn Viettel.
-            </p>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-sm">
-            <span class="font-bold text-red-600">28 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-slate-700 hover:text-slate-900 flex items-center gap-1">
-              <span>Chi tiết</span>
-              <span class="material-symbols-outlined text-base">chevron_right</span>
-            </button>
-          </div>
-        </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                <span class="font-bold text-red-600">42 vị trí đang tuyển</span>
+                <a data-view="browse" class="text-slate-600 font-semibold hover:text-[#0070ba]" href="#">Chi tiết »</a>
+              </div>
+            </article>
 
-        <!-- Tập đoàn Vingroup -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center gap-4 mb-5">
-              <div class="w-14 h-14 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-bold text-lg shadow-sm">
-                VIN
-              </div>
+            <!-- Viettel -->
+            <article class="bg-white p-4 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition shadow-sm group">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">Tập Đoàn Vingroup (VinFast)</h3>
-                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Công nghiệp & Ô tô Điện</p>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-red-600 text-white font-bold text-xs flex items-center justify-center">VTL</div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900 group-hover:text-[#0070ba]">Viettel Digital</h4>
+                    <span class="text-[11px] text-slate-500 font-medium">Viễn thông & Fintech</span>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-600 line-clamp-2 mb-3">Đơn vị chủ lực phát triển hệ sinh thái tài chính số & Big Data của Viettel.</p>
               </div>
-            </div>
-            <p class="text-sm text-slate-600 line-clamp-2 mb-5 leading-relaxed">
-              Tập đoàn đa ngành hàng đầu Việt Nam tiên phong chuyển đổi xanh và công nghệ ô tô thông minh toàn cầu.
-            </p>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-sm">
-            <span class="font-bold text-red-600">35 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-slate-700 hover:text-slate-900 flex items-center gap-1">
-              <span>Chi tiết</span>
-              <span class="material-symbols-outlined text-base">chevron_right</span>
-            </button>
-          </div>
-        </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                <span class="font-bold text-red-600">28 vị trí đang tuyển</span>
+                <a data-view="browse" class="text-slate-600 font-semibold hover:text-[#0070ba]" href="#">Chi tiết »</a>
+              </div>
+            </article>
 
-        <!-- MoMo Fintech -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center gap-4 mb-5">
-              <div class="w-14 h-14 rounded-xl bg-pink-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">
-                MoMo
-              </div>
+            <!-- Vingroup -->
+            <article class="bg-white p-4 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition shadow-sm group">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">MoMo Fintech</h3>
-                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Tài chính số</p>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-emerald-700 text-white font-bold text-sm flex items-center justify-center">VIN</div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900 group-hover:text-[#0070ba]">Vingroup (VinFast)</h4>
+                    <span class="text-[11px] text-slate-500 font-medium">Công nghiệp & Ô tô Điện</span>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-600 line-clamp-2 mb-3">Tập đoàn đa ngành hàng đầu Việt Nam tiên phong chuyển đổi xanh toàn cầu.</p>
               </div>
-            </div>
-            <p class="text-sm text-slate-600 line-clamp-2 mb-5 leading-relaxed">
-              Siêu ứng dụng thanh toán và dịch vụ tài chính số hàng đầu phục vụ hơn 30 triệu người dùng Việt Nam.
-            </p>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-sm">
-            <span class="font-bold text-red-600">19 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-slate-700 hover:text-slate-900 flex items-center gap-1">
-              <span>Chi tiết</span>
-              <span class="material-symbols-outlined text-base">chevron_right</span>
-            </button>
-          </div>
-        </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                <span class="font-bold text-red-600">35 vị trí đang tuyển</span>
+                <a data-view="browse" class="text-slate-600 font-semibold hover:text-[#0070ba]" href="#">Chi tiết »</a>
+              </div>
+            </article>
 
-        <!-- VNG Corporation -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center gap-4 mb-5">
-              <div class="w-14 h-14 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold text-base shadow-sm">
-                VNG
-              </div>
+            <!-- MoMo -->
+            <article class="bg-white p-4 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition shadow-sm group">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">VNG Corporation</h3>
-                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Game & Digital Services</p>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-pink-600 text-white font-bold text-[11px] flex items-center justify-center">MoMo</div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900 group-hover:text-[#0070ba]">MoMo Fintech</h4>
+                    <span class="text-[11px] text-slate-500 font-medium">Tài chính số & AI</span>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-600 line-clamp-2 mb-3">Siêu ứng dụng thanh toán phục vụ hơn 30 triệu người dùng Việt Nam.</p>
               </div>
-            </div>
-            <p class="text-sm text-slate-600 line-clamp-2 mb-5 leading-relaxed">
-              Kỳ lân công nghệ đầu tiên tại Việt Nam sở hữu hệ sinh thái Zalo, VNGGames và ZaloPay.
-            </p>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-sm">
-            <span class="font-bold text-red-600">22 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-slate-700 hover:text-slate-900 flex items-center gap-1">
-              <span>Chi tiết</span>
-              <span class="material-symbols-outlined text-base">chevron_right</span>
-            </button>
-          </div>
-        </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                <span class="font-bold text-red-600">19 vị trí đang tuyển</span>
+                <a data-view="browse" class="text-slate-600 font-semibold hover:text-[#0070ba]" href="#">Chi tiết »</a>
+              </div>
+            </article>
 
-        <!-- KiotViet -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center gap-4 mb-5">
-              <div class="w-14 h-14 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">
-                Kiot
-              </div>
+            <!-- VNG -->
+            <article class="bg-white p-4 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition shadow-sm group">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">KiotViet (Citigo)</h3>
-                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">SaaS & Retail Tech</p>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-amber-600 text-white font-bold text-xs flex items-center justify-center">VNG</div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900 group-hover:text-[#0070ba]">VNG Corporation</h4>
+                    <span class="text-[11px] text-slate-500 font-medium">Game & Internet Services</span>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-600 line-clamp-2 mb-3">Kỳ lân công nghệ đầu tiên sở hữu Zalo, VNGGames và ZaloPay.</p>
               </div>
-            </div>
-            <p class="text-sm text-slate-600 line-clamp-2 mb-5 leading-relaxed">
-              Giải pháp phần mềm quản lý bán hàng hàng đầu dành cho hơn 200,000 cửa hàng kinh doanh tại Việt Nam.
-            </p>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                <span class="font-bold text-red-600">22 vị trí đang tuyển</span>
+                <a data-view="browse" class="text-slate-600 font-semibold hover:text-[#0070ba]" href="#">Chi tiết »</a>
+              </div>
+            </article>
+
+            <!-- KiotViet -->
+            <article class="bg-white p-4 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition shadow-sm group">
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">Kiot</div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900 group-hover:text-[#0070ba]">KiotViet (Citigo)</h4>
+                    <span class="text-[11px] text-slate-500 font-medium">SaaS & Retail Tech</span>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-600 line-clamp-2 mb-3">Giải pháp phần mềm bán hàng cho 200,000 cửa hàng kinh doanh.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                <span class="font-bold text-red-600">15 vị trí đang tuyển</span>
+                <a data-view="browse" class="text-slate-600 font-semibold hover:text-[#0070ba]" href="#">Chi tiết »</a>
+              </div>
+            </article>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-sm">
-            <span class="font-bold text-red-600">15 vị trí đang tuyển</span>
-            <button data-view="browse" class="font-semibold text-slate-700 hover:text-slate-900 flex items-center gap-1">
-              <span>Chi tiết</span>
-              <span class="material-symbols-outlined text-base">chevron_right</span>
-            </button>
+        </section>
+
+        <!-- SECTION 3: Công Cụ Sự Nghiệp -->
+        <section data-purpose="category-section-tools">
+          <div class="section-heading-bar flex items-center justify-between">
+            <span>Công Cụ & Cẩm Nang Sự Nghiệp</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Calculator -->
+            <article class="bg-white p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mb-3">
+                  <span class="material-symbols-outlined text-xl">calculate</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 mb-1">Tính Lương GROSS ⇆ NET</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">Chính xác theo chuẩn BHXH, BHYT & Thuế TNCN 2026.</p>
+              </div>
+              <button data-view="browse" class="w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-lg text-xs transition">Sử dụng công cụ »</button>
+            </article>
+
+            <!-- ATS CV -->
+            <article class="bg-white p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mb-3">
+                  <span class="material-symbols-outlined text-xl">description</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 mb-1">Mẫu CV Chuẩn ATS</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">Chuẩn hóa giúp CV dễ dàng vượt qua thuật toán lọc tự động.</p>
+              </div>
+              <button data-view="browse" class="w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-lg text-xs transition">Tải bộ template »</button>
+            </article>
+
+            <!-- Salary Survey -->
+            <article class="bg-white p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mb-3">
+                  <span class="material-symbols-outlined text-xl">insights</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 mb-1">Khảo Sát Thu Nhập</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">Tra cứu dải lương thực tế của 50+ vị trí công nghệ & quản lý.</p>
+              </div>
+              <button data-view="browse" class="w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-lg text-xs transition">Xem báo cáo »</button>
+            </article>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- ================= Right Sidebar (30%) ================= -->
+      <aside class="lg:col-span-4 space-y-6" data-purpose="primary-sidebar">
+        <!-- Primary Action CTA Button -->
+        <button id="btn-open-post-project-home" class="block w-full text-center bg-[#0070ba] hover:bg-[#00558f] text-white font-extrabold text-sm py-3.5 px-4 rounded shadow transition uppercase tracking-wider">
+          ĐĂNG TIN TUYỂN DỤNG HR
+        </button>
+
+        <!-- Upcoming HR Events Widget -->
+        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm" data-purpose="events-widget">
+          <div class="border-b border-slate-200 pb-2 mb-4">
+            <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 flex items-center justify-between">
+              Sự Kiện & Diễn Đàn HR
+              <span class="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">LIVE</span>
+            </h3>
+          </div>
+          <div class="space-y-4 text-xs">
+            <!-- Event 1 -->
+            <div class="border-b border-slate-100 pb-3">
+              <div class="text-[11px] font-bold text-[#0070ba] uppercase">26 Tháng 10, 2026</div>
+              <h4 class="text-sm font-bold text-slate-900 my-0.5">Hội Thảo Tuyển Dụng & Giữ Chân Nhân Tài 2026</h4>
+              <p class="text-slate-500 mb-2">Trung Tâm Hội Nghị Quốc Gia • Hà Nội</p>
+              <a class="font-bold text-amber-600 hover:text-amber-700 inline-flex items-center" data-view="browse" href="#">Đăng ký tham dự →</a>
+            </div>
+            <!-- Event 2 -->
+            <div>
+              <div class="text-[11px] font-bold text-[#0070ba] uppercase">28 Tháng 10, 2026</div>
+              <h4 class="text-sm font-bold text-slate-900 my-0.5">Diễn Đàn Chuyển Đổi Số HR & Ứng Dụng AI</h4>
+              <p class="text-slate-500 mb-2">GEM Center • TP. Hồ Chí Minh</p>
+              <a class="font-bold text-amber-600 hover:text-amber-700 inline-flex items-center" data-view="browse" href="#">Đăng ký tham dự →</a>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- =========================================================================
-       5. CAREER INSIGHTS (Tools & Guides)
-       ========================================================================= -->
-  <div class="w-full py-16 md:py-24 bg-white border-y border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10 pb-4 border-b border-slate-200">
-        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Công Cụ & Cẩm Nang Sự Nghiệp</h2>
-        <p class="text-base text-slate-500 mt-1">Hỗ trợ ứng viên phát triển sự nghiệp chuyên nghiệp và minh bạch</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Salary Calculator Card -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-5">
-              <span class="material-symbols-outlined text-3xl">calculate</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-3">Tính Lương GROSS ⇆ NET</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6">
-              Công cụ quy đổi chính xác theo chuẩn Luật Lao động 2026. Bao gồm Bảo hiểm Xã hội, BHYT, BHTN và trừ thuế TNCN chi tiết.
-            </p>
+        <!-- Certified HR Officer Card -->
+        <div class="bg-gradient-to-b from-[#0f2137] to-[#0a1626] text-white p-5 rounded-lg border border-sky-800 shadow text-center" data-purpose="compliance-ad-card">
+          <div class="w-12 h-12 mx-auto mb-2 text-sky-400">
+            <svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"></path></svg>
           </div>
-          <button data-view="browse" class="w-full py-3 px-5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-            <span>Sử dụng công cụ</span>
-            <span class="material-symbols-outlined text-base">arrow_forward</span>
-          </button>
-        </div>
-
-        <!-- ATS CV Toolkit -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-5">
-              <span class="material-symbols-outlined text-3xl">description</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-3">Mẫu CV Chuẩn ATS</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6">
-              Bộ template thiết kế chuẩn hóa giúp hồ sơ của bạn dễ dàng vượt qua các thuật toán lọc tự động của các tập đoàn đa quốc gia.
-            </p>
-          </div>
-          <button data-view="browse" class="w-full py-3 px-5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-            <span>Tải bộ template</span>
-            <span class="material-symbols-outlined text-base">download</span>
-          </button>
-        </div>
-
-        <!-- Salary Survey Report -->
-        <div class="p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-5">
-              <span class="material-symbols-outlined text-3xl">insights</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-3">Khảo Sát Thu Nhập Ngành</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6">
-              Tra cứu dải lương trung bình của hơn 50 vị trí thuộc ngành IT, Marketing, Tài chính và Quản lý theo số năm kinh nghiệm.
-            </p>
-          </div>
-          <button data-view="browse" class="w-full py-3 px-5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
-            <span>Xem báo cáo</span>
-            <span class="material-symbols-outlined text-base">arrow_forward</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       6. FOR EMPLOYERS (Zara/FreightWaves Enterprise Banner)
-       ========================================================================= -->
-  <div class="w-full py-20 md:py-28 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white p-10 sm:p-14 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-10">
-        <div class="max-w-2xl text-center md:text-left">
-          <span class="inline-block px-3.5 py-1 bg-red-50 text-red-700 font-bold text-xs rounded-md uppercase tracking-wider mb-4">
-            Dành Cho Nhà Tuyển Dụng
-          </span>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
-            Xây dựng đội ngũ nhân sự tài năng. Truyền tải câu chuyện doanh nghiệp.
-          </h2>
-          <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
-            Tiếp cận lực lượng lao động chất lượng cao và giải pháp tư vấn thu hút nhân tài cấp cao thiết kế riêng cho doanh nghiệp của bạn.
+          <span class="text-[11px] tracking-widest uppercase font-bold text-sky-300 block">Workthean Certification</span>
+          <h3 class="text-lg font-extrabold mt-1 mb-2 leading-tight">Chứng Nhận Nhà Tuyển Dụng Uy Tín</h3>
+          <p class="text-xs text-slate-300 mb-4 px-2">
+            Khung chuẩn hóa quy trình tuyển dụng và đánh giá năng lực ứng viên cấp cao.
           </p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto shrink-0">
-          <button id="btn-open-post-project-home" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-colors text-base shadow-sm flex items-center justify-center gap-2">
-            <span class="material-symbols-outlined text-lg">add_circle</span>
-            <span>Đăng Tin Tuyển Dụng</span>
-          </button>
-          <button id="btn-open-enterprise-home" class="px-8 py-4 bg-white text-slate-800 font-semibold rounded-xl border border-slate-300 hover:bg-slate-50 transition-colors text-base flex items-center justify-center gap-2">
-            <span>Liên Hệ Tư Vấn HR</span>
+          <button id="btn-open-enterprise-home" class="inline-block w-full py-2 bg-[#0070ba] hover:bg-[#00558f] text-white font-bold text-xs uppercase tracking-wider rounded transition">
+            TƯ VẤN DOANH NGHIỆP
           </button>
         </div>
-      </div>
+
+        <!-- Special Investigation Report Card -->
+        <div class="bg-gradient-to-r from-amber-700 to-amber-900 text-white p-4.5 rounded-lg shadow border border-amber-600">
+          <div class="text-[10px] uppercase font-extrabold tracking-widest text-amber-200">Báo Cáo Đặc Biệt</div>
+          <h4 class="text-sm font-bold my-1">KHẢO SÁT THỰC TẾ MỨC LƯƠNG CÔNG NGHỆ 2026</h4>
+          <p class="text-xs text-amber-100 mb-3">Phân tích dải thu nhập thực tế từ 1,000+ doanh nghiệp.</p>
+          <a class="text-xs font-bold text-white hover:underline flex items-center justify-between" data-view="browse" href="#">
+            <span>Xem Chi Tiết Báo Cáo →</span>
+          </a>
+        </div>
+      </aside>
     </div>
-  </div>
+  </main>
+  <!-- END: MainContentAndSidebar -->
 </section>
 
         <!-- SOCIAL PROOF & TRUSTED PARTNERS BAR -->
@@ -1630,8 +1608,8 @@
   <div id="toast-container"></div>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=1789640695_v10"></script>
-  <script src="js/app.js?v=1789640695_v10"></script>
+  <script src="js/data.js?v=1789641102_v10"></script>
+  <script src="js/app.js?v=1789641102_v10"></script>
 <!-- Real-Time Activity Notification Toast (Bottom-Left) -->
 <div class="live-activity-toast" id="live-activity-toast">
   <button class="activity-toast-close" id="btn-close-activity-toast" aria-label="Đóng" title="Đóng thông báo">&times;</button>
