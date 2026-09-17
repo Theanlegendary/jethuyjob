@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=20260903_v10">
+  <link rel="stylesheet" href="css/styles.css?v=3000_1789633980958">
 </head>
 <body>
 
@@ -155,76 +155,126 @@
     <!-- ========================================================================
          VIEW 1: RECRUITMENT MARKETPLACE HOMEPAGE (#view-home)
          ======================================================================== -->
-    <section class="app-view active-view" id="view-home">
-      <div class="container" style="padding-top: 18px;">
+        <section class="app-view active-view" id="view-home">
+      <div class="container-zara">
 
-        <!-- HERO SECTION (BIG CONVERSION & RECRUITMENT FOCUSED) -->
-        <section class="recruitment-hero-section" aria-label="Tuyển dụng và tìm việc làm">
-          <div class="hero-main-content">
-            <h1 class="hero-headline">
-              Tuyển đúng người. <span>Nhanh hơn.</span>
-            </h1>
-            <p class="hero-subheadline">
-              Tiếp cận hàng trăm nghìn ứng viên chất lượng cao và kết nối cơ hội nghề nghiệp đột phá tại các doanh nghiệp hàng đầu.
+        <!-- ZARA EDITORIAL HERO SPLIT PANEL (BIG BIG HEADLINE + GIANT PHOTO) -->
+        <section class="zara-hero-split">
+          <div class="zara-hero-left">
+            <span class="zara-hero-eyebrow">EDITORIAL RECRUITMENT • VOL. 2026</span>
+            <h1 class="zara-hero-title">TUYỂN DỤNG<br>THẾ HỆ MỚI.</h1>
+            <p class="zara-hero-subtitle">
+              Kết nối nhân tài đỉnh cao cùng các tập đoàn hàng đầu Việt Nam. Nâng tầm sự nghiệp qua trải nghiệm tuyển dụng tối giản & khác biệt.
             </p>
 
-            <!-- Integrated Search Bar -->
-            <form class="hero-search-box" id="hero-search-form" onsubmit="event.preventDefault();">
-              <div class="search-input-col">
+            <!-- Minimal Search Bar -->
+            <form class="zara-search-box" id="hero-search-form" onsubmit="event.preventDefault();">
+              <div class="zara-search-input-wrap">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="header-search-input" placeholder="Vị trí tuyển dụng, kỹ năng, công ty..." aria-label="Tìm kiếm việc làm">
+                <input type="text" id="header-search-input" placeholder="TÌM VIỆC LÀM, KỸ NĂNG, CÔNG TY..." aria-label="Tìm kiếm việc làm">
               </div>
-              <div class="search-divider"></div>
-              <div class="search-select-col">
-                <i class="fa-solid fa-location-dot"></i>
-                <select id="hero-location-select" aria-label="Chọn địa điểm">
-                  <option value="all">Tất cả địa điểm</option>
-                  <option value="hanoi">Hà Nội</option>
-                  <option value="hcm">TP. Hồ Chí Minh</option>
-                  <option value="danang">Đà Nẵng</option>
-                  <option value="remote">Làm việc từ xa (Remote)</option>
-                </select>
-              </div>
-              <button type="button" class="btn-hero-search" id="btn-hero-submit-search">
-                <i class="fa-solid fa-magnifying-glass"></i> Tìm Việc Ngay
-              </button>
+              <button type="button" class="btn-zara-search" id="btn-hero-submit-search">TÌM KIẾM</button>
             </form>
-<!-- Hero Quick Search Tags -->
-<div class="quick-search-tags-row">
-  <span class="quick-search-label">Tìm nhanh:</span>
-  <button class="quick-search-tag" data-filter-keyword="Java"><i class="fa-brands fa-java"></i> Java</button>
-  <button class="quick-search-tag" data-filter-keyword="React"><i class="fa-brands fa-react"></i> React</button>
-  <button class="quick-search-tag" data-filter-keyword="Python">🐍 Python</button>
-  <button class="quick-search-tag" data-filter-keyword="Marketing"><i class="fa-solid fa-chart-line"></i> Marketing</button>
-  <button class="quick-search-tag" data-filter-keyword="Design"><i class="fa-solid fa-pen-nib"></i> UI/UX</button>
-  <button class="quick-search-tag" data-filter-keyword="Remote"><i class="fa-solid fa-laptop-house"></i> Remote</button>
-</div>
 
-<!-- Hero Stats -->
-<div class="hero-stats-row">
-  <div class="hero-stat-item">
-    <div class="hero-stat-number" id="stat-candidates">520,000+</div>
-    <div class="hero-stat-label">Ứng Viên</div>
-  </div>
-  <div class="hero-stat-divider"></div>
-  <div class="hero-stat-item">
-    <div class="hero-stat-number" id="stat-jobs">15,000+</div>
-    <div class="hero-stat-label">Việc Làm</div>
-  </div>
-  <div class="hero-stat-divider"></div>
-  <div class="hero-stat-item">
-    <div class="hero-stat-number" id="stat-companies">3,200+</div>
-    <div class="hero-stat-label">Doanh Nghiệp</div>
-  </div>
-  <div class="hero-stat-divider"></div>
-  <div class="hero-stat-item">
-    <div class="hero-stat-number">98%</div>
-    <div class="hero-stat-label">Tỷ Lệ Phản Hồi</div>
-  </div>
-</div>
-      </div>
+            <div class="zara-hero-stats">
+              <div class="zara-stat-col">
+                <span class="zara-stat-num">520K+</span>
+                <span class="zara-stat-lbl">ỨNG VIÊN</span>
+              </div>
+              <div class="zara-stat-divider"></div>
+              <div class="zara-stat-col">
+                <span class="zara-stat-num">15K+</span>
+                <span class="zara-stat-lbl">VIỆC LÀM</span>
+              </div>
+              <div class="zara-stat-divider"></div>
+              <div class="zara-stat-col">
+                <span class="zara-stat-num">3.2K+</span>
+                <span class="zara-stat-lbl">DOANH NGHIỆP</span>
+              </div>
+            </div>
+          </div>
 
+          <div class="zara-hero-right">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Zara Editorial Workspace" class="zara-hero-photo">
+            <div class="zara-photo-caption">CAMPUS HEADQUARTERS • VIETNAMJOBS 2026</div>
+          </div>
         </section>
+
+
+        <!-- ZARA BRAND WALL (TRANSPARENT MINIMALIST LOGOS) -->
+        <div class="zara-trust-strip">
+          <div class="zara-trust-label">ĐỐI TÁC CHÍNH THỨC CỦA HÀNG TRĂM TẬP ĐOÀN HÀNG ĐẦU</div>
+          <div class="zara-logos-grid">
+            <img src="images/brands/nike.svg" alt="Nike" class="zara-brand-img" onerror="this.style.display='none'">
+            <img src="images/brands/samsung.svg" alt="Samsung" class="zara-brand-img" onerror="this.style.display='none'">
+            <img src="images/brands/loreal.svg" alt="L'Oreal" class="zara-brand-img" onerror="this.style.display='none'">
+            <img src="images/brands/unilever.svg" alt="Unilever" class="zara-brand-img" onerror="this.style.display='none'">
+            <img src="images/brands/zara.svg" alt="Zara" class="zara-brand-img" onerror="this.style.display='none'">
+            <img src="images/brands/shopee.svg" alt="Shopee" class="zara-brand-img" onerror="this.style.display='none'">
+          </div>
+        </div>
+
+
+        <!-- ZARA FEATURED EMPLOYERS (BIG BIG BRAND TILES) -->
+        <section class="zara-section">
+          <div class="zara-section-header">
+            <h2 class="zara-section-title">TOP NHÀ TUYỂN DỤNG HÀNG ĐẦU</h2>
+            <a href="#" class="zara-link-more" data-view="browse">XEM TẤT CẢ CÔNG TY →</a>
+          </div>
+
+          <div class="zara-employers-grid">
+            
+            <div class="zara-employer-tile" data-view="browse">
+              <div class="zara-tile-img-wrap">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Nike Vietnam">
+                <span class="zara-tile-badge">18 POSITIONS</span>
+              </div>
+              <div class="zara-tile-body">
+                <h3 class="zara-tile-name">NIKE VIETNAM</h3>
+                <p class="zara-tile-sub">SPORT & FASHION GLOBAL ARCHITECTURE</p>
+              </div>
+            </div>
+
+            <div class="zara-employer-tile" data-view="browse">
+              <div class="zara-tile-img-wrap">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Samsung Electronics">
+                <span class="zara-tile-badge">42 POSITIONS</span>
+              </div>
+              <div class="zara-tile-body">
+                <h3 class="zara-tile-name">SAMSUNG ELECTRONICS</h3>
+                <p class="zara-tile-sub">GLOBAL R&D & MOBILE COMPUTING</p>
+              </div>
+            </div>
+
+            <div class="zara-employer-tile" data-view="browse">
+              <div class="zara-tile-img-wrap">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="L'Oreal Vietnam">
+                <span class="zara-tile-badge">12 POSITIONS</span>
+              </div>
+              <div class="zara-tile-body">
+                <h3 class="zara-tile-name">L'ORÉAL VIETNAM</h3>
+                <p class="zara-tile-sub">BEAUTY TECH & E-COMMERCE LEADERSHIP</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ZARA OPPORTUNITIES LOOKBOOK (BIG BIG 3-COL GRID) -->
+        <section class="zara-section">
+          <div class="zara-section-header">
+            <h2 class="zara-section-title">VIỆC LÀM MỚI NHẤT</h2>
+            <a href="#" class="zara-link-more" data-view="browse">XEM TẤT CẢ 15,000+ VIỆC LÀM →</a>
+          </div>
+
+          <div class="zara-jobs-grid" id="homepage-square-jobs-feed">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </section>
+
+      </div>
+    </section>
 
         <!-- SOCIAL PROOF & TRUSTED PARTNERS BAR -->
         <div class="corporate-trust-bar" aria-label="Doanh nghiệp tin dùng">

@@ -4521,3 +4521,284 @@ footer a:hover {
 .btn-demo-auth:hover {
   background: var(--fl-primary-light);
 }
+
+
+/* ==========================================================================
+   ZARA LUXURY EDITORIAL SYSTEM (BIG BOLD TYPOGRAPHY & IMAGE PANELS)
+   ========================================================================== */
+
+.container-zara {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 48px !important;
+}
+@media (max-width: 768px) {
+  .container-zara { padding: 0 16px !important; }
+}
+
+/* Zara Hero Split */
+.zara-hero-split {
+  display: grid !important;
+  grid-template-columns: 1.1fr 1fr !important;
+  gap: 48px !important;
+  align-items: center !important;
+  padding: 48px 0 64px !important;
+  border-bottom: 1px solid #111111 !important;
+}
+@media (max-width: 1024px) {
+  .zara-hero-split { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .zara-hero-right { display: none !important; }
+}
+
+.zara-hero-eyebrow {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+  color: #0a66c2 !important;
+  text-transform: uppercase !important;
+  display: block !important;
+  margin-bottom: 14px !important;
+}
+
+.zara-hero-title {
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem) !important;
+  font-weight: 900 !important;
+  color: #111111 !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.04em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 20px !important;
+}
+
+.zara-hero-subtitle {
+  font-size: clamp(15px, 1.4vw, 18px) !important;
+  color: #555555 !important;
+  line-height: 1.5 !important;
+  margin-bottom: 32px !important;
+  max-width: 560px !important;
+}
+
+/* Zara Search Box */
+.zara-search-box {
+  display: flex !important;
+  align-items: center !important;
+  border: 1px solid #111111 !important;
+  margin-bottom: 40px !important;
+  max-width: 580px !important;
+}
+
+.zara-search-input-wrap {
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 !important;
+  padding: 14px 18px !important;
+  gap: 12px !important;
+}
+.zara-search-input-wrap i { color: #111111 !important; font-size: 16px !important; }
+.zara-search-input-wrap input {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #111111 !important;
+  width: 100% !important;
+  letter-spacing: 0.03em !important;
+}
+
+.btn-zara-search {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  padding: 16px 28px !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+  white-space: nowrap !important;
+}
+.btn-zara-search:hover {
+  background: #0a66c2 !important;
+}
+
+/* Zara Stats */
+.zara-hero-stats {
+  display: flex !important;
+  align-items: center !important;
+  gap: 32px !important;
+}
+.zara-stat-num {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #111111 !important;
+  letter-spacing: -0.03em !important;
+  display: block !important;
+}
+.zara-stat-lbl {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: #888888 !important;
+  letter-spacing: 0.1em !important;
+}
+.zara-stat-divider {
+  width: 1px !important;
+  height: 36px !important;
+  background: #ebebeb !important;
+}
+
+/* Hero Right Photo */
+.zara-hero-right {
+  position: relative !important;
+  height: 520px !important;
+  overflow: hidden !important;
+}
+.zara-hero-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  filter: grayscale(10%) contrast(105%) !important;
+  transition: transform 0.6s ease !important;
+}
+.zara-hero-right:hover .zara-hero-photo {
+  transform: scale(1.03) !important;
+}
+.zara-photo-caption {
+  position: absolute !important;
+  bottom: 16px !important;
+  left: 16px !important;
+  background: rgba(17, 17, 17, 0.85) !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  padding: 4px 10px !important;
+}
+
+/* Zara Trust Strip */
+.zara-trust-strip {
+  padding: 36px 0 !important;
+  border-bottom: 1px solid #ebebeb !important;
+  text-align: center !important;
+}
+.zara-trust-label {
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+  color: #888888 !important;
+  margin-bottom: 24px !important;
+}
+.zara-logos-grid {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 56px !important;
+  flex-wrap: wrap !important;
+}
+.zara-brand-img {
+  height: 32px !important;
+  max-width: 120px !important;
+  object-fit: contain !important;
+  filter: grayscale(100%) opacity(0.5) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+.zara-brand-img:hover {
+  filter: grayscale(0%) opacity(1) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Zara Section Headers */
+.zara-section {
+  padding: 64px 0 32px !important;
+  border-bottom: 1px solid #ebebeb !important;
+}
+.zara-section-header {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  margin-bottom: 32px !important;
+}
+.zara-section-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
+  font-weight: 900 !important;
+  color: #111111 !important;
+  letter-spacing: -0.03em !important;
+  text-transform: uppercase !important;
+}
+.zara-link-more {
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #0a66c2 !important;
+  letter-spacing: 0.08em !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+.zara-link-more:hover {
+  text-decoration: underline !important;
+}
+
+/* Zara Employer Tiles */
+.zara-employers-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 32px !important;
+}
+@media (max-width: 992px) { .zara-employers-grid { grid-template-columns: 1fr !important; } }
+
+.zara-employer-tile {
+  cursor: pointer !important;
+}
+.zara-tile-img-wrap {
+  width: 100% !important;
+  height: 320px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: #f0f0f0 !important;
+}
+.zara-tile-img-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.5s ease !important;
+}
+.zara-employer-tile:hover .zara-tile-img-wrap img {
+  transform: scale(1.05) !important;
+}
+.zara-tile-badge {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  background: #111111 !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  padding: 4px 10px !important;
+  letter-spacing: 0.1em !important;
+}
+.zara-tile-body {
+  padding: 16px 0 !important;
+}
+.zara-tile-name {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: #111111 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 4px !important;
+}
+.zara-tile-sub {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #888888 !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Zara Jobs Grid (3 Columns) */
+.zara-jobs-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 32px !important;
+}
+@media (max-width: 1024px) { .zara-jobs-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 640px)  { .zara-jobs-grid { grid-template-columns: 1fr !important; } }
