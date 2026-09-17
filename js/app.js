@@ -411,6 +411,31 @@ document.addEventListener('DOMContentLoaded', () => {
     locationSelect?.addEventListener('change', handleSearch);
     submitBtn?.addEventListener('click', handleSearch);
 
+        // Main Hero Search Bar Bindings (ChinaJob Style)
+    const heroMainInput = document.getElementById('hero-main-search-input');
+    const heroMainLoc = document.getElementById('hero-main-location-select');
+    const heroMainBtn = document.getElementById('btn-hero-main-search');
+
+    const handleHeroMainSearch = () => {
+      const kw = heroMainInput?.value.trim() || '';
+      const loc = heroMainLoc?.value || 'all';
+      
+      switchView('browse');
+      
+      const searchInp = document.getElementById('jobSearchInput');
+      const locInp = document.getElementById('jobLocationInput');
+      if (searchInp) searchInp.value = kw;
+      if (locInp) locInp.value = loc === 'all' ? 'Toàn quốc' : loc;
+      
+      if (typeof filterJobs === 'function') filterJobs();
+      showToast(`🔍 Đang tìm kiếm việc làm: ${kw || 'Tất cả'}`);
+    };
+
+    heroMainBtn?.addEventListener('click', handleHeroMainSearch);
+    heroMainInput?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleHeroMainSearch();
+    });
+
     // Quick Search Tags (YBOX Style)
     document.querySelectorAll('.quick-search-tag').forEach(tag => {
       tag.addEventListener('click', () => {

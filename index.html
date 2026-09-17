@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=merged_1789637495">
+  <link rel="stylesheet" href="css/styles.css?v=merged_1789637666">
   <!-- Tailwind CSS & Material Symbols & Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -199,6 +199,57 @@
                 <span class="text-on-surface-variant font-caption text-caption">Số ISSN: 2814-7299</span>
               </div>
             </div>
+
+          <!-- HERO SEARCH & VALUE PROPOSITION (CHINAJOB CLEAN STYLE) -->
+          <div class="w-full bg-surface-container-lowest border-b border-outline-variant/30 py-space-xl mb-margin-lg shadow-xs">
+            <div class="max-w-7xl mx-auto px-gutter-lg flex flex-col items-center text-center">
+              
+              <div class="inline-flex items-center gap-2 bg-primary-container/10 text-primary-container px-3.5 py-1 rounded-full font-label-sm text-label-sm font-bold mb-space-sm">
+                <span class="material-symbols-outlined text-base">verified</span> Nền Tảng Tuyển Dụng &amp; Tin Tức Nhân Lực Hàng Đầu
+              </div>
+
+              <h1 class="font-headline-xl text-headline-xl md:text-4xl text-on-surface font-extrabold tracking-tight max-w-4xl leading-tight mb-space-xs">
+                Kết Nối Nhân Tài Cấp Cao Với Các Tập Đoàn Hàng Đầu Việt Nam
+              </h1>
+              
+              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-space-lg leading-relaxed">
+                Khám phá 15,000+ vị trí việc làm chứng thực, học bổng thạc sĩ doanh nghiệp và bản tin phân tích thị trường lao động chuyên sâu.
+              </p>
+
+              <!-- Main Hero Search Bar -->
+              <div class="w-full max-w-4xl bg-surface-container-lowest p-2 rounded-2xl shadow-lg border border-outline-variant/40 flex flex-col sm:flex-row items-center gap-2">
+                <div class="relative flex-1 w-full">
+                  <span class="material-symbols-outlined absolute left-3.5 top-3 text-on-surface-variant text-xl pointer-events-none">search</span>
+                  <input class="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-all border border-transparent focus:border-primary/40" id="hero-main-search-input" placeholder="Từ khóa việc làm, chức danh, kỹ năng (Java, AI, Logistics)..." type="text"/>
+                </div>
+                <div class="relative w-full sm:w-56">
+                  <span class="material-symbols-outlined absolute left-3.5 top-3 text-on-surface-variant text-xl pointer-events-none">location_on</span>
+                  <select class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-all border border-transparent focus:border-primary/40 appearance-none cursor-pointer" id="hero-main-location-select">
+                    <option value="all">Tất cả địa điểm</option>
+                    <option value="hanoi">Hà Nội</option>
+                    <option value="hcm">TP. Hồ Chí Minh</option>
+                    <option value="danang">Đà Nẵng</option>
+                    <option value="remote">Remote / WFH</option>
+                  </select>
+                  <span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant text-sm pointer-events-none">expand_more</span>
+                </div>
+                <button class="w-full sm:w-auto px-7 py-3 bg-primary-container text-on-primary font-label-md text-label-md rounded-xl hover:bg-primary transition-all font-bold shadow-md flex items-center justify-center gap-2 shrink-0" id="btn-hero-main-search" type="button">
+                  <span class="material-symbols-outlined text-lg">search</span> Tìm kiếm
+                </button>
+              </div>
+
+              <!-- Quick Category Tags Row -->
+              <div class="flex items-center justify-center gap-2 flex-wrap mt-space-md text-caption font-caption text-on-surface-variant">
+                <span class="font-bold text-on-surface">Tìm nhanh:</span>
+                <button class="px-3 py-1 bg-surface-container-low hover:bg-primary-container/10 hover:text-primary-container text-on-surface rounded-full transition-all cursor-pointer font-semibold border border-outline-variant/20" data-view="browse" onclick="switchView('browse')">💻 Công Nghệ &amp; IT</button>
+                <button class="px-3 py-1 bg-surface-container-low hover:bg-primary-container/10 hover:text-primary-container text-on-surface rounded-full transition-all cursor-pointer font-semibold border border-outline-variant/20" data-view="browse" onclick="switchView('browse')">🚚 Chuỗi Cung Ứng &amp; Logistics</button>
+                <button class="px-3 py-1 bg-surface-container-low hover:bg-primary-container/10 hover:text-primary-container text-on-surface rounded-full transition-all cursor-pointer font-semibold border border-outline-variant/20" data-view="browse" onclick="switchView('browse')">🤖 AI &amp; Data Science</button>
+                <button class="px-3 py-1 bg-surface-container-low hover:bg-primary-container/10 hover:text-primary-container text-on-surface rounded-full transition-all cursor-pointer font-semibold border border-outline-variant/20" data-view="browse" onclick="switchView('browse')">💼 Kinh Doanh &amp; HR</button>
+                <button class="px-3 py-1 bg-surface-container-low hover:bg-primary-container/10 hover:text-primary-container text-on-surface rounded-full transition-all cursor-pointer font-semibold border border-outline-variant/20" data-view="browse" onclick="switchView('browse')">🎓 Học Bổng &amp; Sinh Viên</button>
+              </div>
+
+            </div>
+          </div>
           </div>
 
           <div class="max-w-7xl mx-auto px-gutter-lg w-full space-y-margin-lg">
@@ -2458,7 +2509,7 @@
 
   <!-- Scripts -->
   <script src="js/data.js?v=20260903_v10"></script>
-  <script src="js/app.js?v=merged_1789637495"></script>
+  <script src="js/app.js?v=merged_1789637666"></script>
 <!-- Real-Time Activity Notification Toast (Bottom-Left) -->
 <div class="live-activity-toast" id="live-activity-toast">
   <button class="activity-toast-close" id="btn-close-activity-toast" aria-label="Đóng" title="Đóng thông báo">&times;</button>
