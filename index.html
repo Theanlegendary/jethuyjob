@@ -13,138 +13,99 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=3000_1789633980958">
+  <link rel="stylesheet" href="css/styles.css?v=3000_1789634166638">
 </head>
 <body>
 
   <!-- ==========================================================================
        SUPER CLEAN 2-TIER HEADER (MATCHING VLR / VIETNAM LOGISTICS REVIEW STYLE)
        ========================================================================== -->
-  <header class="app-header" role="banner">
-    
-    <!-- Tier 1: Pure Clean White Top Bar -->
-    <div class="header-top-white-bar">
-      <div class="container header-top-container">
-        
-        <!-- Brand Logo & Social Utilities on Left -->
-        <div class="header-brand-group">
-          <a href="#" class="brand-logo-red" data-view="home">
-            <div class="logo-main-text">Vietnam<span>Jobs</span></div>
-            <div class="logo-sub-text">VIETNAM RECRUITMENT & CAREER MARKETPLACE</div>
-          </a>
-          <div class="header-social-pills">
-            <a href="#" class="social-circle-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" class="social-circle-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="social-circle-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="tel:19006868" class="social-circle-btn" title="Hotline 1900 6868"><i class="fa-solid fa-phone"></i></a>
-          </div>
+  <header class="app-header linkedin-app-header" role="banner">
+    <div class="container linkedin-header-container">
+      
+      <!-- Left: Logo & Search -->
+      <div class="linkedin-header-left">
+        <a href="#" class="linkedin-logo-badge" data-view="home" title="VietnamJobs - LinkedIn Style Platform">
+          <span class="logo-in">in</span>
+          <span class="logo-text">Vietnam<strong>Jobs</strong></span>
+        </a>
+        <div class="linkedin-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="header-search-input" placeholder="Tìm kiếm việc làm, kỹ năng, tin tức..." aria-label="Tìm kiếm">
         </div>
-
-        <!-- Right: Capsule Search & Action Buttons -->
-        <div class="header-top-right-group">
-          <div class="header-capsule-search">
-            <input type="text" id="top-capsule-search-input" placeholder="Tìm kiếm..." aria-label="Tìm kiếm nhanh">
-            <i class="fa-solid fa-magnifying-glass" id="btn-top-capsule-search"></i>
-          </div>
-
-          <div class="flag-language-btn" title="Ngôn ngữ">
-            <span>🇻🇳 VN</span>
-          </div>
-
-          <!-- Auth Actions: Guest vs Logged-In State -->
-          <div class="header-auth-group" id="header-auth-guest">
-            <button class="btn-auth-signin" id="btn-header-signin">
-              <i class="fa-solid fa-right-to-bracket"></i> Đăng Nhập
-            </button>
-            <button class="btn-auth-signup" id="btn-header-signup">
-              <i class="fa-solid fa-user-plus"></i> Đăng Ký
-            </button>
-          </div>
-
-          <div class="header-user-profile" id="header-user-profile" style="display:none;">
-            <div class="header-user-avatar-btn" id="btn-user-profile-menu">
-              <div class="user-avatar-circle" id="header-user-avatar">TL</div>
-              <div class="user-name-wrapper">
-                <span class="user-display-name" id="header-user-name">Thean</span>
-                <i class="fa-solid fa-circle-check user-verified-icon"></i>
-              </div>
-              <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--fl-text-muted);"></i>
-            </div>
-
-            <div class="user-dropdown-menu" id="user-dropdown-menu">
-              <div class="user-dropdown-header">
-                <div class="dropdown-user-name" id="dropdown-user-name">Thean</div>
-                <div class="dropdown-user-email" id="dropdown-user-email">thean@vietnamjobs.vn</div>
-                <span class="dropdown-role-badge" id="dropdown-user-role">Ứng Viên VIP</span>
-              </div>
-              <div class="dropdown-divider"></div>
-              <button type="button" class="dropdown-item" id="dropdown-btn-saved">
-                <i class="fa-solid fa-heart" style="color:#ef4444;"></i> Việc làm đã lưu (<span id="menu-saved-count">2</span>)
-              </button>
-              <button type="button" class="dropdown-item" id="dropdown-btn-applied">
-                <i class="fa-solid fa-paper-plane" style="color:#0a66c2;"></i> Hồ sơ đã nộp (<span id="menu-applied-count">1</span>)
-              </button>
-              <button type="button" class="dropdown-item" id="dropdown-btn-post-job">
-                <i class="fa-solid fa-plus-circle" style="color:#10b981;"></i> Đăng tin tuyển dụng
-              </button>
-              <div class="dropdown-divider"></div>
-              <button type="button" class="dropdown-item dropdown-logout-btn" id="btn-user-logout">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng Xuất
-              </button>
-            </div>
-          </div>
-
-          <button class="btn-signup-red-solid" id="btn-open-post-project">
-            <i class="fa-solid fa-plus-circle"></i> Đăng Tin Tuyển Dụng
-          </button>
-        </div>
-
       </div>
+
+      <!-- Center Nav Links -->
+      <nav class="linkedin-nav-menu" role="navigation">
+        <button class="linkedin-nav-btn active" data-view="home">
+          <i class="fa-solid fa-house"></i>
+          <span>Trang chủ</span>
+        </button>
+        <button class="linkedin-nav-btn" data-view="browse">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>Tin tức & Thị trường</span>
+        </button>
+        <button class="linkedin-nav-btn" data-view="browse">
+          <i class="fa-solid fa-briefcase"></i>
+          <span>Việc làm</span>
+        </button>
+        <button class="linkedin-nav-btn" data-view="browse">
+          <i class="fa-solid fa-building"></i>
+          <span>Doanh nghiệp</span>
+        </button>
+        <button class="linkedin-nav-btn" data-view="freelancers">
+          <i class="fa-solid fa-user-tie"></i>
+          <span>Cố vấn</span>
+        </button>
+        <button class="linkedin-nav-btn" data-view="tools">
+          <i class="fa-solid fa-calculator"></i>
+          <span>Tính lương</span>
+        </button>
+      </nav>
+
+      <!-- Right Auth Actions -->
+      <div class="linkedin-header-right">
+        <div class="header-auth-group" id="header-auth-guest">
+          <button class="btn-linkedin-outline" id="btn-header-signin">Đăng nhập</button>
+          <button class="btn-linkedin-solid" id="btn-header-signup">Đăng ký</button>
+        </div>
+
+        <div class="header-user-profile" id="header-user-profile" style="display:none;">
+          <div class="header-user-avatar-btn" id="btn-user-profile-menu">
+            <div class="user-avatar-circle" id="header-user-avatar">TL</div>
+            <span class="user-display-name" id="header-user-name">Thean</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:10px; color:#666666;"></i>
+          </div>
+
+          <div class="user-dropdown-menu" id="user-dropdown-menu">
+            <div class="user-dropdown-header">
+              <div class="dropdown-user-name" id="dropdown-user-name">Thean</div>
+              <div class="dropdown-user-email" id="dropdown-user-email">thean@vietnamjobs.vn</div>
+              <span class="dropdown-role-badge" id="dropdown-user-role">Ứng Viên VIP</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item" id="dropdown-btn-saved">
+              <i class="fa-solid fa-heart" style="color:#ef4444;"></i> Việc làm đã lưu (<span id="menu-saved-count">2</span>)
+            </button>
+            <button type="button" class="dropdown-item" id="dropdown-btn-applied">
+              <i class="fa-solid fa-paper-plane" style="color:#0a66c2;"></i> Hồ sơ đã nộp (<span id="menu-applied-count">1</span>)
+            </button>
+            <button type="button" class="dropdown-item" id="dropdown-btn-post-job">
+              <i class="fa-solid fa-plus-circle" style="color:#10b981;"></i> Đăng tin tuyển dụng
+            </button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item dropdown-logout-btn" id="btn-user-logout">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng Xuất
+            </button>
+          </div>
+        </div>
+
+        <button class="btn-linkedin-post-job" id="btn-open-post-project">
+          <i class="fa-solid fa-plus"></i> Đăng Tin Tuyển Dụng
+        </button>
+      </div>
+
     </div>
-
-    <!-- Tier 2: Solid Brand Navigation Strip (VLR Style) -->
-    <nav class="header-brand-nav-strip" role="navigation" aria-label="Primary Navigation">
-      <div class="container brand-nav-container">
-        
-        <button class="hamburger-btn" id="btn-hamburger" aria-label="Mở menu" aria-expanded="false">
-  <i class="fa-solid fa-bars"></i>
-</button>
-        <div class="brand-nav-links-left">
-          <button class="brand-nav-item home-icon-btn active" data-view="home" title="Trang chủ">
-            <i class="fa-solid fa-house"></i>
-          </button>
-          <button class="brand-nav-item" data-view="browse">
-            Thời Sự Tuyển Dụng
-          </button>
-          <button class="brand-nav-item" data-view="browse">
-            Việc Làm Mới
-          </button>
-          <button class="brand-nav-item" data-view="browse">
-            Top Công Ty
-          </button>
-          <button class="brand-nav-item" data-view="freelancers">
-            Dành Cho Ứng Viên
-          </button>
-          <button class="brand-nav-item" data-view="browse">
-            Học Bổng & Sinh Viên
-          </button>
-          <button class="brand-nav-item" data-view="browse">
-            Công Nghệ & IT
-          </button>
-          <button class="brand-nav-item" data-view="freelancers">
-            Kỹ Năng & CV
-          </button>
-          <button class="brand-nav-item" id="nav-btn-headhunt-trigger">
-            Doanh Nghiệp / Headhunt
-          </button>
-        </div>
-
-        <div class="brand-nav-badge-right" id="nav-btn-hot-badge" data-view="browse">
-          <i class="fa-solid fa-fire"></i> HOT JOB
-        </div>
-
-      </div>
-    </nav>
   </header>
 
   <!-- ==========================================================================
@@ -156,49 +117,213 @@
          VIEW 1: RECRUITMENT MARKETPLACE HOMEPAGE (#view-home)
          ======================================================================== -->
         <section class="app-view active-view" id="view-home">
-      <div class="container-zara">
+      <div class="container linkedin-container">
 
-        <!-- ZARA EDITORIAL HERO SPLIT PANEL (BIG BIG HEADLINE + GIANT PHOTO) -->
-        <section class="zara-hero-split">
-          <div class="zara-hero-left">
-            <span class="zara-hero-eyebrow">EDITORIAL RECRUITMENT • VOL. 2026</span>
-            <h1 class="zara-hero-title">TUYỂN DỤNG<br>THẾ HỆ MỚI.</h1>
-            <p class="zara-hero-subtitle">
-              Kết nối nhân tài đỉnh cao cùng các tập đoàn hàng đầu Việt Nam. Nâng tầm sự nghiệp qua trải nghiệm tuyển dụng tối giản & khác biệt.
-            </p>
+        <div class="linkedin-layout-grid">
 
-            <!-- Minimal Search Bar -->
-            <form class="zara-search-box" id="hero-search-form" onsubmit="event.preventDefault();">
-              <div class="zara-search-input-wrap">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="header-search-input" placeholder="TÌM VIỆC LÀM, KỸ NĂNG, CÔNG TY..." aria-label="Tìm kiếm việc làm">
+          <!-- LEFT COLUMN: USER PROFILE & QUICK FILTER SHORTCUTS -->
+          <aside class="linkedin-col-sidebar-left">
+            
+            <div class="linkedin-card profile-summary-card">
+              <div class="card-cover-bg"></div>
+              <div class="avatar-wrap">
+                <div class="user-avatar-lg" id="home-user-avatar">TL</div>
               </div>
-              <button type="button" class="btn-zara-search" id="btn-hero-submit-search">TÌM KIẾM</button>
-            </form>
-
-            <div class="zara-hero-stats">
-              <div class="zara-stat-col">
-                <span class="zara-stat-num">520K+</span>
-                <span class="zara-stat-lbl">ỨNG VIÊN</span>
+              <div class="user-info-body">
+                <h3 class="user-title" id="home-user-name">Thean</h3>
+                <p class="user-sub">Senior Software Engineer & Product Specialist</p>
+                <div class="user-status-badge"><i class="fa-solid fa-circle-check"></i> Ứng Viên Đã Xác Thực</div>
               </div>
-              <div class="zara-stat-divider"></div>
-              <div class="zara-stat-col">
-                <span class="zara-stat-num">15K+</span>
-                <span class="zara-stat-lbl">VIỆC LÀM</span>
+              <div class="card-stats-body">
+                <div class="stat-row">
+                  <span class="stat-lbl">Lượt xem hồ sơ</span>
+                  <span class="stat-val">142</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-lbl">Hiển thị bài viết</span>
+                  <span class="stat-val">1,280</span>
+                </div>
               </div>
-              <div class="zara-stat-divider"></div>
-              <div class="zara-stat-col">
-                <span class="zara-stat-num">3.2K+</span>
-                <span class="zara-stat-lbl">DOANH NGHIỆP</span>
+              <div class="card-footer-action" data-view="browse">
+                <i class="fa-solid fa-bookmark" style="color:#0a66c2;"></i> Mục đã lưu của tôi
               </div>
             </div>
-          </div>
 
-          <div class="zara-hero-right">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Zara Editorial Workspace" class="zara-hero-photo">
-            <div class="zara-photo-caption">CAMPUS HEADQUARTERS • VIETNAMJOBS 2026</div>
-          </div>
-        </section>
+            <!-- Quick Category Filters -->
+            <div class="linkedin-card">
+              <div class="card-header-sm">Ngành Nghề Nổi Bật</div>
+              <div class="category-shortcut-list">
+                <a href="#" class="cat-shortcut-item" data-filter-cat="web-dev"><i class="fa-solid fa-code"></i> Công Nghệ / IT <span>6.8k</span></a>
+                <a href="#" class="cat-shortcut-item" data-filter-cat="ai-ml"><i class="fa-solid fa-brain"></i> AI & Data <span>2.4k</span></a>
+                <a href="#" class="cat-shortcut-item" data-filter-cat="mobile-apps"><i class="fa-solid fa-mobile-screen"></i> Mobile App <span>3.2k</span></a>
+                <a href="#" class="cat-shortcut-item" data-filter-cat="design"><i class="fa-solid fa-pen-nib"></i> Design / UI-UX <span>3.8k</span></a>
+                <a href="#" class="cat-shortcut-item" data-filter-cat="recruitment"><i class="fa-solid fa-briefcase"></i> Kinh Doanh / HR <span>4.1k</span></a>
+              </div>
+            </div>
+
+          </aside>
+
+
+          <!-- CENTER COLUMN: NEWS MAGAZINE & JOB OPPORTUNITIES FEED -->
+          <main class="linkedin-col-main-feed">
+
+            <!-- Start A Post Box -->
+            <div class="linkedin-card start-post-card">
+              <div class="start-post-top">
+                <div class="user-avatar-md">TL</div>
+                <button class="fake-post-input" id="btn-trigger-post-modal">Đăng bài viết mới hoặc tạo tin tuyển dụng...</button>
+              </div>
+              <div class="start-post-actions">
+                <button class="post-act-btn col-blue"><i class="fa-solid fa-image"></i> Ảnh</button>
+                <button class="post-act-btn col-green"><i class="fa-solid fa-video"></i> Video</button>
+                <button class="post-act-btn col-amber"><i class="fa-solid fa-calendar-days"></i> Sự kiện</button>
+                <button class="post-act-btn col-red"><i class="fa-solid fa-newspaper"></i> Bài viết</button>
+              </div>
+            </div>
+
+            <!-- SECTION 1: NEWS & MARKET MAGAZINE (FREIGHTWAVES + LINKEDIN NEWS) -->
+            <div class="linkedin-card news-section-card">
+              <div class="section-title-row">
+                <div>
+                  <span class="badge-sub-title"><i class="fa-solid fa-newspaper"></i> LINKEDIN NEWS MAGAZINE</span>
+                  <h2 class="main-section-title">Tin Tức Thị Trường & HR Marketing</h2>
+                </div>
+                <a href="#" class="btn-link-more" data-view="browse">Xem tất cả bài viết →</a>
+              </div>
+
+              <!-- News Editorial Grid -->
+              <div class="news-editorial-grid">
+                <!-- Lead Story -->
+                <article class="news-lead-item" data-article-id="art-101">
+                  <div class="lead-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Xu hướng tuyển dụng Tech 2026">
+                    <span class="category-pill">BÁO CÁO THỊ TRƯỜNG</span>
+                  </div>
+                  <div class="lead-content">
+                    <h3 class="lead-title">Xu hướng tuyển dụng Tech & AI Việt Nam 2026: Lương Senior cán mốc $3,000/tháng</h3>
+                    <p class="lead-excerpt">Phân tích toàn diện từ 150,000+ dữ liệu tuyển dụng tại TP.HCM và Hà Nội. Doanh nghiệp sẵn sàng trả đãi ngộ vượt mức thị trường cho nhân sự GenAI & DevOps...</p>
+                    <div class="lead-meta"><i class="fa-solid fa-pen-nib"></i> Editor-in-Chief • 15 phút trước</div>
+                  </div>
+                </article>
+
+                <!-- Side Stories -->
+                <div class="news-side-stack">
+                  <article class="news-side-item" data-article-id="art-102">
+                    <span class="side-cat">HR BRANDING</span>
+                    <h4 class="side-title">VinFast mở rộng R&D xe điện: Chiêu mộ 500 Kỹ sư phần mềm & Automotive</h4>
+                    <span class="side-meta">VinFast Recruitment • 1 giờ trước</span>
+                  </article>
+                  <article class="news-side-item" data-article-id="art-103">
+                    <span class="side-cat">TECH SPOTLIGHT</span>
+                    <h4 class="side-title">Shopee tối ưu hóa hệ thống xử lý 10 triệu đơn hàng/giây bằng Golang & Redis</h4>
+                    <span class="side-meta">Shopee Engineering • 3 giờ trước</span>
+                  </article>
+                  <article class="news-side-item" data-article-id="art-104">
+                    <span class="side-cat">CULTURE</span>
+                    <h4 class="side-title">VNG Campus công bố gói phúc lợi làm việc linh hoạt WFH 2 ngày/tuần</h4>
+                    <span class="side-meta">VNG People Team • 5 giờ trước</span>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 2: JOB OPPORTUNITIES FEED -->
+            <div class="linkedin-card jobs-section-card">
+              <div class="section-title-row">
+                <div>
+                  <span class="badge-sub-title"><i class="fa-solid fa-briefcase"></i> CƠ HỘI NGHỀ NGHIỆP</span>
+                  <h2 class="main-section-title">Việc Làm Mới Nhất</h2>
+                </div>
+                <a href="#" class="btn-link-more" data-view="browse">Xem tất cả 15,000+ việc làm →</a>
+              </div>
+
+              <div class="jobs-feed-grid" id="homepage-square-jobs-feed">
+                <!-- Dynamically populated by app.js -->
+              </div>
+            </div>
+
+            <!-- SECTION 3: SALARY CALCULATOR & ATS CV TOOLKIT BANNER -->
+            <div class="linkedin-card cv-banner-card">
+              <div class="cv-banner-body">
+                <span class="cv-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> CAREER TOOLKIT</span>
+                <h2 class="cv-title">Tạo CV Chuẩn ATS & Tính Lương Gross ⇄ Net 2026</h2>
+                <p class="cv-desc">Tối ưu hóa khả năng trúng tuyển với 50+ mẫu CV Harvard và công cụ tính thuế TNCN chính xác nhất.</p>
+                <div class="cv-actions">
+                  <button class="btn-linkedin-solid" id="btn-open-cv-builder"><i class="fa-solid fa-plus-circle"></i> Tạo CV Ngay</button>
+                  <button class="btn-linkedin-outline" data-view="tools"><i class="fa-solid fa-calculator"></i> Tính Lương Gross Net</button>
+                </div>
+              </div>
+            </div>
+
+          </main>
+
+
+          <!-- RIGHT COLUMN: LINKEDIN NEWS WIDGET & TOP BRANDS -->
+          <aside class="linkedin-col-sidebar-right">
+
+            <!-- LinkedIn News Widget -->
+            <div class="linkedin-card news-widget-card">
+              <div class="widget-header-row">
+                <h4>LinkedIn News</h4>
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+              <ul class="widget-news-list">
+                <li>
+                  <a href="#" class="news-link">Xu hướng tuyển dụng AI 2026 cán mốc $3,000/tháng</a>
+                  <span class="news-sub">• 18,420 người đọc</span>
+                </li>
+                <li>
+                  <a href="#" class="news-link">VinFast tuyển 500 Kỹ sư phần mềm R&D xe điện</a>
+                  <span class="news-sub">• 12,150 người đọc</span>
+                </li>
+                <li>
+                  <a href="#" class="news-link">Shopee tối ưu hệ thống 10M giao dịch/giây</a>
+                  <span class="news-sub">• 9,840 người đọc</span>
+                </li>
+                <li>
+                  <a href="#" class="news-link">VNG Campus áp dụng Hybrid Work 2026</a>
+                  <span class="news-sub">• 8,300 người đọc</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Top Hiring Companies -->
+            <div class="linkedin-card">
+              <div class="card-header-sm">Top Doanh Nghiệp Đang Tuyển</div>
+              <div class="brand-list-widget">
+                <div class="brand-row-item" data-view="browse">
+                  <img src="images/brands/nike.svg" alt="Nike" class="brand-logo" onerror="this.style.display='none'">
+                  <div class="brand-details">
+                    <div class="brand-name">Nike Vietnam</div>
+                    <div class="brand-meta">Thương hiệu thể thao • 18 việc làm</div>
+                  </div>
+                  <button class="btn-follow">+ Theo dõi</button>
+                </div>
+                <div class="brand-row-item" data-view="browse">
+                  <img src="images/brands/samsung.svg" alt="Samsung" class="brand-logo" onerror="this.style.display='none'">
+                  <div class="brand-details">
+                    <div class="brand-name">Samsung Electronics</div>
+                    <div class="brand-meta">Công nghệ & Điện tử • 42 việc làm</div>
+                  </div>
+                  <button class="btn-follow">+ Theo dõi</button>
+                </div>
+                <div class="brand-row-item" data-view="browse">
+                  <img src="images/brands/shopee.svg" alt="Shopee" class="brand-logo" onerror="this.style.display='none'">
+                  <div class="brand-details">
+                    <div class="brand-name">Shopee Vietnam</div>
+                    <div class="brand-meta">Thương mại điện tử • 36 việc làm</div>
+                  </div>
+                  <button class="btn-follow">+ Theo dõi</button>
+                </div>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+    </section>
 
 
         <!-- ZARA BRAND WALL (TRANSPARENT MINIMALIST LOGOS) -->
