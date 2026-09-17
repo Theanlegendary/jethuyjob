@@ -13,53 +13,53 @@ function createCleanJobCardHTML(p, isSaved) {
     alt="${initial}"
     class="w-full h-full object-contain"
     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-  /><span class="w-full h-full font-bold text-slate-700 text-xs items-center justify-center bg-slate-100" style="display:none;">${initial}</span>`;
+  /><span class="w-full h-full font-bold text-slate-700 text-sm items-center justify-center bg-slate-100" style="display:none;">${initial}</span>`;
 
   return `
-    <article class="p-5 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex items-start gap-4 group cursor-pointer relative" data-project-id="${p.id}">
-      <!-- Left Logo -->
-      <div class="w-14 h-14 rounded-xl bg-white border border-slate-200 p-2 flex items-center justify-center shrink-0 overflow-hidden">
+    <article class="p-6 sm:p-7 bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all shadow-sm flex items-start gap-5 group cursor-pointer relative" data-project-id="${p.id}">
+      <!-- Left Logo (64px x 64px) -->
+      <div class="w-16 h-16 rounded-xl bg-white border border-slate-200 p-2.5 flex items-center justify-center shrink-0 overflow-hidden shadow-xs">
         ${avatarHtml}
       </div>
 
       <!-- Content Details -->
-      <div class="flex-1 min-w-0 pr-8">
+      <div class="flex-1 min-w-0 pr-10">
         <!-- Title & Tag Line -->
-        <div class="flex items-center gap-2 mb-1 flex-wrap">
-          ${p.hot ? '<span class="text-[11px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">⚡ Urgent</span>' : '<span class="text-[11px] font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Mới</span>'}
-          <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors truncate">
+        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+          ${p.hot ? '<span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded">⚡ Urgent</span>' : '<span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded">Mới</span>'}
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-red-600 transition-colors truncate">
             ${p.title}
           </h3>
         </div>
 
         <!-- Company Name -->
-        <p class="text-sm font-medium text-slate-700 mb-1 truncate">
+        <p class="text-base font-medium text-slate-700 mb-1.5 truncate">
           ${p.company || p.clientName || 'Doanh Nghiệp'}
         </p>
 
         <!-- Salary & Location -->
-        <p class="text-sm font-semibold text-slate-900 mb-1.5 flex items-center gap-1.5 flex-wrap">
-          <span class="text-red-600 font-bold">${salaryText}</span>
+        <p class="text-base font-semibold text-slate-900 mb-2 flex items-center gap-2 flex-wrap">
+          <span class="text-red-600 font-extrabold text-lg sm:text-xl">${salaryText}</span>
           <span class="text-slate-300">|</span>
-          <span class="text-slate-600 font-normal">${p.location || 'Hà Nội'}</span>
+          <span class="text-slate-600 font-medium">${p.location || 'Hà Nội'}</span>
         </p>
 
         <!-- Time Ago -->
-        <div class="text-xs text-slate-500 flex items-center gap-1 mb-2.5">
-          <span class="material-symbols-outlined text-sm text-slate-400">schedule</span>
+        <div class="text-xs sm:text-sm text-slate-500 flex items-center gap-1.5 mb-3">
+          <span class="material-symbols-outlined text-base text-slate-400">schedule</span>
           <span>${postedTime}</span>
         </div>
 
         <!-- Skill Tags -->
-        <div class="flex items-center gap-1.5 flex-wrap">
-          ${displaySkills.map(s => `<span class="px-2.5 py-0.5 bg-slate-100 text-slate-600 text-xs rounded font-medium">${s}</span>`).join('')}
-          ${extraCount > 0 ? `<span class="px-2 py-0.5 bg-slate-100 text-slate-500 text-xs rounded font-medium">+${extraCount}</span>` : ''}
+        <div class="flex items-center gap-2 flex-wrap">
+          ${displaySkills.map(s => `<span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs sm:text-sm rounded-md font-medium">${s}</span>`).join('')}
+          ${extraCount > 0 ? `<span class="px-2.5 py-1 bg-slate-100 text-slate-500 text-xs sm:text-sm rounded-md font-medium">+${extraCount}</span>` : ''}
         </div>
       </div>
 
       <!-- Top-Right Heart Button -->
-      <button class="absolute top-5 right-5 w-9 h-9 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-400 hover:text-red-600 transition-colors" data-action="save" title="Lưu việc làm">
-        <i class="fa-${isSaved ? 'solid' : 'regular'} fa-heart ${isSaved ? 'text-red-600' : ''} text-base"></i>
+      <button class="absolute top-6 right-6 w-10 h-10 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-400 hover:text-red-600 transition-colors shadow-xs" data-action="save" title="Lưu việc làm">
+        <i class="fa-${isSaved ? 'solid' : 'regular'} fa-heart ${isSaved ? 'text-red-600' : ''} text-lg"></i>
       </button>
     </article>
   `;
