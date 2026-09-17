@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=merged_1789635517">
+  <link rel="stylesheet" href="css/styles.css?v=merged_1789635885">
   <!-- Tailwind CSS & Material Symbols & Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1338,72 +1338,897 @@
     <!-- ========================================================================
          VIEW 2: BROWSE ALL JOBS PAGE (#view-browse)
          ======================================================================== -->
+        <!-- ========================================================================
+         VIEW 2: THỜI SỰ TUYỂN DỤNG - OPPORTUNITIES (JOB / INTERN / SCHOLARSHIP) (#view-browse)
+         ======================================================================== -->
     <section class="app-view" id="view-browse">
-  <div class="container" style="padding: 24px 20px;">
-    <div class="section-header-row" style="margin-bottom: 20px;">
-      <div>
-        <h2 class="section-title">Danh Sách Việc Làm Đang Mở</h2>
-        <p class="section-subtitle">Tìm kiếm và ứng tuyển vào các vị trí phù hợp với năng lực của bạn</p>
-      </div>
-    </div>
-    <div class="browse-layout-grid">
-      <!-- Filter Sidebar -->
-      <aside class="browse-filter-sidebar">
-        <div class="filter-sidebar-header">
-          <div class="filter-sidebar-title">
-            <div class="filter-title-icon"><i class="fa-solid fa-sliders"></i></div>
-            <span>Bộ Lọc Tìm Kiếm</span>
+      <div class="w-full bg-background min-h-screen pt-28">
+        <div class="flex flex-col w-full">
+
+          <!-- Subtle Top Banner for Career Digest -->
+          <div class="w-full bg-surface-container-low py-space-sm px-gutter-lg border-b border-outline-variant/20">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-xs text-on-surface-variant font-caption text-caption">
+              <div class="flex items-center gap-space-sm">
+                <span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary-container bg-surface-container-lowest px-2.5 py-0.5 rounded-full shadow-sm font-semibold">
+                  <span class="material-symbols-outlined text-sm">workspace_premium</span> Sàn việc làm &amp; Học bổng xác thực
+                </span>
+                <span class="hidden md:inline text-outline-variant">|</span>
+                <span class="hidden md:inline font-medium">Cập nhật lúc 09:15 AM hôm nay • 148 vị trí mới tuần này</span>
+              </div>
+              <div class="flex items-center gap-space-md">
+                <span class="hover:text-primary-container cursor-pointer flex items-center gap-1 font-label-sm text-label-sm font-semibold transition-colors" onclick="showToast('🔔 Đã bật thông báo cơ hội nghề nghiệp mới!')">
+                  <span class="material-symbols-outlined text-sm">tune</span> Tuỳ chỉnh thông báo việc làm
+                </span>
+              </div>
+            </div>
           </div>
-          <button type="button" class="btn-reset-filters" id="btn-reset-browse-filters" title="Xóa tất cả bộ lọc">
-            <i class="fa-solid fa-rotate-left"></i> Đặt lại
-          </button>
-        </div>
 
-        <div class="filter-group">
-          <div class="filter-group-label"><i class="fa-solid fa-layer-group"></i> Ngành nghề tuyển dụng</div>
-          <label class="filter-option"><input type="checkbox" value="web-dev" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-code" style="color:#0a66c2; width:16px;"></i> Công nghệ / IT</span> <span class="filter-count-badge">6.8k</span></label>
-          <label class="filter-option"><input type="checkbox" value="ai-ml" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-brain" style="color:#8b5cf6; width:16px;"></i> AI & Dữ Liệu</span> <span class="filter-count-badge">2.4k</span></label>
-          <label class="filter-option"><input type="checkbox" value="mobile-apps" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-mobile-screen" style="color:#ec4899; width:16px;"></i> Mobile App</span> <span class="filter-count-badge">3.2k</span></label>
-          <label class="filter-option"><input type="checkbox" value="design" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-pen-nib" style="color:#f59e0b; width:16px;"></i> Design / UI-UX</span> <span class="filter-count-badge">3.8k</span></label>
-          <label class="filter-option"><input type="checkbox" value="recruitment" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-user-group" style="color:#10b981; width:16px;"></i> Kinh doanh / HR</span> <span class="filter-count-badge">4.1k</span></label>
-        </div>
+          <!-- Search and Gray Filter Toolbar (LinkedIn Standard Gray Pills) -->
+          <div class="w-full bg-surface-container-lowest shadow-sm sticky top-28 z-30 border-b border-outline-variant/30">
+            <div class="max-w-7xl mx-auto px-gutter-lg py-3 flex flex-col gap-3">
+              
+              <!-- Search Inputs Row -->
+              <div class="flex flex-col md:flex-row items-center gap-space-sm">
+                <div class="relative flex-1 w-full">
+                  <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-lg pointer-events-none">search</span>
+                  <input class="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md pl-9 pr-4 py-2 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-all border border-transparent focus:border-primary/40" id="jobSearchInput" onkeyup="filterJobs()" placeholder="Tìm kiếm theo chức vụ, kỹ năng, học bổng hoặc công ty..." type="text"/>
+                </div>
+                <div class="relative w-full md:w-72">
+                  <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-lg pointer-events-none">location_on</span>
+                  <input class="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md pl-9 pr-4 py-2 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-all border border-transparent focus:border-primary/40" id="jobLocationInput" onkeyup="filterJobs()" placeholder="Hà Nội, TP.HCM, Remote..." type="text" value="Toàn quốc"/>
+                </div>
+                <button class="w-full md:w-auto px-6 py-2 bg-primary-container text-on-primary font-label-md text-label-md rounded-xl hover:bg-primary transition-all flex items-center justify-center gap-1.5 shrink-0 shadow-sm font-bold" onclick="filterJobs()" type="button">
+                  <span class="material-symbols-outlined text-sm">search</span> Tìm kiếm
+                </button>
+              </div>
 
-        <div class="filter-group">
-          <div class="filter-group-label"><i class="fa-solid fa-briefcase"></i> Hình thức làm việc</div>
-          <label class="filter-option"><input type="checkbox" value="Full-Time" class="browse-type-filter"> <span class="filter-opt-text"><i class="fa-solid fa-clock" style="color:#0a66c2; width:16px;"></i> Toàn thời gian</span></label>
-          <label class="filter-option"><input type="checkbox" value="Part-Time" class="browse-type-filter"> <span class="filter-opt-text"><i class="fa-solid fa-calendar-day" style="color:#f59e0b; width:16px;"></i> Bán thời gian</span></label>
-          <label class="filter-option"><input type="checkbox" value="Remote" class="browse-type-filter"> <span class="filter-opt-text"><i class="fa-solid fa-house-laptop" style="color:#10b981; width:16px;"></i> Remote / WFH</span></label>
-        </div>
+              <!-- Gray Filter Pills Bar -->
+              <div class="flex items-center gap-2 overflow-x-auto pb-1 text-on-surface-variant font-body-sm text-body-sm scrollbar-none">
+                <button class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3.5 py-1.5 rounded-full hover:bg-surface-container-highest transition-colors flex items-center gap-1.5 shrink-0 font-semibold" id="btnFilterType" type="button">
+                  <span>Loại hình:</span>
+                  <span class="font-bold text-primary-container" id="lblFilterType">Tất cả</span>
+                  <span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+                </button>
+                <button class="bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1 shrink-0 font-medium" onclick="showToast('💡 Bộ lọc Lương & Đãi ngộ')" type="button">
+                  <span>Mức đãi ngộ &amp; Lương</span>
+                  <span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+                </button>
+                <button class="bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1 shrink-0 font-medium" onclick="showToast('💡 Bộ lọc Kinh nghiệm')" type="button">
+                  <span>Kinh nghiệm</span>
+                  <span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+                </button>
+                <button class="bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1 shrink-0 font-medium" onclick="showToast('💡 Bộ lọc Ngành nghề')" type="button">
+                  <span>Ngành nghề</span>
+                  <span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+                </button>
+                <button class="bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1 shrink-0 font-medium" onclick="showToast('💡 Bộ lọc Ngày đăng')" type="button">
+                  <span>Ngày đăng</span>
+                  <span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+                </button>
+                <button class="bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1 shrink-0 font-medium" onclick="showToast('💡 Bộ lọc Hình thức làm việc')" type="button">
+                  <span>Hình thức làm việc</span>
+                  <span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+                </button>
+                <div class="h-4 w-px bg-surface-container-highest mx-1 shrink-0"></div>
+                <button class="bg-surface-container-low text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1.5 shrink-0 font-semibold" id="savedJobsBtn" onclick="toggleFilterSavedOnly()" type="button">
+                  <span class="material-symbols-outlined text-base">bookmark</span>
+                  <span>Đã lưu (<span id="savedCount">2</span>)</span>
+                </button>
+                <button class="text-primary-container hover:underline font-label-sm text-label-sm px-2 py-1 shrink-0 ml-auto font-bold" onclick="resetOpportunityFilters()" type="button">
+                  Đặt lại bộ lọc
+                </button>
+              </div>
 
-        <div class="filter-group">
-          <div class="filter-group-label"><i class="fa-solid fa-location-dot"></i> Địa điểm làm việc</div>
-          <label class="filter-option"><input type="checkbox" value="hcm" class="browse-loc-filter"> <span class="filter-opt-text"><i class="fa-solid fa-city" style="color:#ef4444; width:16px;"></i> TP. Hồ Chí Minh</span></label>
-          <label class="filter-option"><input type="checkbox" value="hanoi" class="browse-loc-filter"> <span class="filter-opt-text"><i class="fa-solid fa-landmark" style="color:#0a66c2; width:16px;"></i> Hà Nội</span></label>
-          <label class="filter-option"><input type="checkbox" value="danang" class="browse-loc-filter"> <span class="filter-opt-text"><i class="fa-solid fa-bridge" style="color:#06b6d4; width:16px;"></i> Đà Nẵng</span></label>
-          <label class="filter-option"><input type="checkbox" value="bacninh" class="browse-loc-filter"> <span class="filter-opt-text"><i class="fa-solid fa-industry" style="color:#f97316; width:16px;"></i> Bắc Ninh</span></label>
-        </div>
+            </div>
+          </div>
 
-        <button class="btn-apply-filters-premium" id="btn-apply-browse-filters">
-          <i class="fa-solid fa-filter"></i> <span>Áp Dụng Lọc</span>
-          <span class="filter-active-count-badge" id="filter-active-badge" style="display:none;">0</span>
-        </button>
-      </aside>
+          <!-- Main Content Master-Detail Container -->
+          <div class="max-w-7xl mx-auto px-gutter-lg py-margin w-full">
+            
+            <!-- Top Result Meta Row -->
+            <div class="flex items-center justify-between mb-space-md text-on-surface-variant font-caption text-caption">
+              <div class="flex items-center gap-2">
+                <span class="font-headline-sm text-headline-sm text-on-surface font-extrabold">Cơ Hội Nghề Nghiệp &amp; Học Bổng</span>
+                <span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold" id="opportunityResultsCount">5 kết quả phù hợp</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>Sắp xếp theo:</span>
+                <button class="font-label-sm text-label-sm text-on-surface flex items-center gap-0.5 hover:text-primary-container font-bold" type="button">
+                  Độ phù hợp nhất <span class="material-symbols-outlined text-sm">unfold_more</span>
+                </button>
+              </div>
+            </div>
 
-      <!-- Main Results -->
-      <div>
-        <div class="browse-results-header">
-          <div class="browse-results-count">Tìm thấy <span id="browse-results-count">0</span> việc làm</div>
-          <select class="browse-sort-select" id="browse-sort-select">
-            <option value="newest">Mới nhất</option>
-            <option value="salary">Lương cao nhất</option>
-            <option value="applicants">Nhiều ứng viên nhất</option>
-          </select>
+            <!-- Master-Detail 2-Column Split View -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start relative">
+              
+              <!-- LEFT COLUMN: 40% (5 Cols) Opportunities List -->
+              <div class="lg:col-span-5 flex flex-col gap-space-sm max-h-[calc(100vh-210px)] overflow-y-auto pr-1 scrollbar-thin" id="jobCardsContainer">
+                
+                <!-- Job Card 0 -->
+                <div class="job-item group cursor-pointer bg-surface-container-lowest p-space-md rounded-xl transition-all shadow-sm bg-surface-container-low border border-primary/20 relative" id="card-0" onclick="selectJob(0)">
+                  <div class="flex items-start gap-space-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container-high overflow-hidden shrink-0 flex items-center justify-center p-1 shadow-sm border border-outline-variant/20">
+                      <img class="w-full h-full object-cover rounded-lg" alt="Viettel Post" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKbSeuiXDzmACAK9QYz6hzJnjs-_ko9ZPSLo-PnXtQgJcvHD6msIRDz8Di25BrduEHkdA7_x0lrQINFVhCVRewKhzWqYXu_aSYQert8bzOdUqoJclymsegqNZYX1Ge88KBd39Fb-LkhjGadHKAXbd8hZuT7D7xUo53re_AKSiedQ8g4azmSYJTh5r00YMGsLXWiqNVit6VzuFLhv-CTdrRE-79l4eJhhO3bGvkTvRTIvNMQ7dYjTsF"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-1 mb-1">
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-sm text-primary-container bg-surface-container-high font-bold">
+                          [Full-time]
+                        </span>
+                        <span class="font-caption text-caption text-on-surface-variant flex items-center gap-0.5">
+                          <span class="material-symbols-outlined text-xs">schedule</span> Vừa đăng
+                        </span>
+                      </div>
+                      <h3 class="font-headline-sm text-headline-sm text-primary-container group-hover:underline truncate font-bold">
+                        Senior Logistics Platform Architect
+                      </h3>
+                      <p class="font-body-sm text-body-sm text-on-surface font-semibold truncate mt-0.5">
+                        Viettel Post Logistics Technology JSC
+                      </p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs text-primary">location_on</span> Cầu Giấy, Hà Nội • Hybrid
+                      </p>
+                      <div class="flex flex-wrap items-center gap-1.5 mt-space-sm">
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption font-label-sm text-on-surface font-bold">
+                          $2,400 - $3,500 / tháng
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          5+ năm KN
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          Microservices • Golang
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Job Card 1: Scholarship -->
+                <div class="job-item group cursor-pointer bg-surface-container-lowest p-space-md rounded-xl transition-all shadow-sm border border-outline-variant/20 hover:border-primary/30 relative" id="card-1" onclick="selectJob(1)">
+                  <div class="flex items-start gap-space-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container-high overflow-hidden shrink-0 flex items-center justify-center p-1 shadow-sm border border-outline-variant/20">
+                      <img class="w-full h-full object-cover rounded-lg" alt="VINIF VinUniversity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRnT9zM9xzMmD2NHf-EiV_rv4a-Opw1JG7Xa2QedNw0Q2-RLcP7LoczVglpV3YnCf_82zt0CcPwn2U00tAbzWuurqkhvLXoffNTdM5OtkAWqHfKvnDi009o4R2C8kMp-EKjVhV4Scjyigxz6k_CnIH6Fwn0VEFF6lqv3noEFPYQK62X1lP19eVlP_RI_7j40IUCyZtvNPO7esTqUbGBy7nxmnugcG0l_SuZgIUbqhYf-kg6N82RKLO"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-1 mb-1">
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-sm text-secondary bg-surface-container-high font-bold">
+                          [Học bổng Doanh nghiệp / Scholarship]
+                        </span>
+                        <span class="font-caption text-caption text-on-surface-variant flex items-center gap-0.5">
+                          <span class="material-symbols-outlined text-xs">schedule</span> 1 ngày trước
+                        </span>
+                      </div>
+                      <h3 class="font-headline-sm text-headline-sm text-primary-container group-hover:underline truncate font-bold">
+                        Học Bổng Toàn Phần Thạc Sĩ AI &amp; Supply Chain 2025
+                      </h3>
+                      <p class="font-body-sm text-body-sm text-on-surface font-semibold truncate mt-0.5">
+                        Vingroup Innovation Foundation (VINIF)
+                      </p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs text-secondary">location_on</span> Hà Nội • Tài trợ 100% Học phí
+                      </p>
+                      <div class="flex flex-wrap items-center gap-1.5 mt-space-sm">
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption font-label-sm text-secondary font-bold">
+                          Trợ cấp 120.000.000 VND / năm
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          Cử nhân / SV năm cuối
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          Hạn nộp: 15/12/2024
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Job Card 2: Intern -->
+                <div class="job-item group cursor-pointer bg-surface-container-lowest p-space-md rounded-xl transition-all shadow-sm border border-outline-variant/20 hover:border-primary/30 relative" id="card-2" onclick="selectJob(2)">
+                  <div class="flex items-start gap-space-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container-high overflow-hidden shrink-0 flex items-center justify-center p-1 shadow-sm border border-outline-variant/20">
+                      <img class="w-full h-full object-cover rounded-lg" alt="MoMo E-Wallet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi_7aaenVc381vKyhNFvl860ea41uFGbweSul1rLiM97Hw1CpCcizJCXIopkDEc591MXpTX6AJofVFGev97Vkjc7bHLo8p2aY6gks1s1_2ctyZSZOkPCSL_K-UJMkrTdE9m1wZmfFmJsSUFvgIKO-kqEypFtzgWmRsWq28eMwXnOvVYp-vMY_ij4KvDVv3vxpOutsGq9WBBA9b5bqBwRQPKI-fZVkPjhhRBHiL8aWC9Rhae7421pyq"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-1 mb-1">
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-sm text-tertiary-container bg-surface-container-high font-bold">
+                          [Thực tập sinh / Intern]
+                        </span>
+                        <span class="font-caption text-caption text-on-surface-variant flex items-center gap-0.5">
+                          <span class="material-symbols-outlined text-xs">schedule</span> 2 ngày trước
+                        </span>
+                      </div>
+                      <h3 class="font-headline-sm text-headline-sm text-primary-container group-hover:underline truncate font-bold">
+                        Growth Product Operations Intern (Có Lương)
+                      </h3>
+                      <p class="font-body-sm text-body-sm text-on-surface font-semibold truncate mt-0.5">
+                        MoMo E-Wallet (M-Service)
+                      </p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs text-secondary">location_on</span> Quận 7, TP. Hồ Chí Minh • On-site
+                      </p>
+                      <div class="flex flex-wrap items-center gap-1.5 mt-space-sm">
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption font-label-sm text-on-surface font-bold">
+                          Trợ cấp: 6.000.000 - 8.500.000 VND
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          Cơ hội lên Full-time
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          SQL, Data Analytics
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Job Card 3: Full-time Marketing -->
+                <div class="job-item group cursor-pointer bg-surface-container-lowest p-space-md rounded-xl transition-all shadow-sm border border-outline-variant/20 hover:border-primary/30 relative" id="card-3" onclick="selectJob(3)">
+                  <div class="flex items-start gap-space-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container-high overflow-hidden shrink-0 flex items-center justify-center p-1 shadow-sm border border-outline-variant/20">
+                      <img class="w-full h-full object-cover rounded-lg" alt="Gemadept Corporation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7qsw8HtBK324UXZAwGOlsIuKEwNk9eF5A_sgJJSpkUOPBPrddVWCKJMb5Obk9yMAr0VIjcXIdVZqhUbtP0LnJBKitA4fKfNajEEH_YFF3tCGQAOgyr7S0wq5bYnCwktz1UFVmM968-KgQ_HVx0ngJZwL-Xbmre0FHi_3_1uj07djEpqJrzFEKRcl3h_uPs404eyehiBw4A7BFuXSyKSfoQ8IQD2T8T5zUNOC2zNeH3zukXYM5rodk"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-1 mb-1">
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-sm text-primary-container bg-surface-container-high font-bold">
+                          [Full-time]
+                        </span>
+                        <span class="font-caption text-caption text-on-surface-variant flex items-center gap-0.5">
+                          <span class="material-symbols-outlined text-xs">schedule</span> 3 ngày trước
+                        </span>
+                      </div>
+                      <h3 class="font-headline-sm text-headline-sm text-primary-container group-hover:underline truncate font-bold">
+                        Supply Chain B2B Brand Marketing Lead
+                      </h3>
+                      <p class="font-body-sm text-body-sm text-on-surface font-semibold truncate mt-0.5">
+                        Gemadept Port &amp; Logistics Corporation
+                      </p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs text-secondary">location_on</span> Quận 1, TP. Hồ Chí Minh • Hybrid
+                      </p>
+                      <div class="flex flex-wrap items-center gap-1.5 mt-space-sm">
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption font-label-sm text-on-surface font-bold">
+                          35.000.000 - 50.000.000 VND
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          3-5 năm KN
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          PR Doanh nghiệp
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Job Card 4: Full-time Tech -->
+                <div class="job-item group cursor-pointer bg-surface-container-lowest p-space-md rounded-xl transition-all shadow-sm border border-outline-variant/20 hover:border-primary/30 relative" id="card-4" onclick="selectJob(4)">
+                  <div class="flex items-start gap-space-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container-high overflow-hidden shrink-0 flex items-center justify-center p-1 shadow-sm border border-outline-variant/20">
+                      <img class="w-full h-full object-cover rounded-lg" alt="Techcombank Hub" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF5Zjuj7b-SHzxnVB2Fq5NHjVW6Qw6Y9akKPW1g6ZREsffq_-w8ezeVmmVEnY3DiY8ZK5kawaKoT_cilAO02I_Npa9P_p8Qpx-jggN3_Z3em2vD9Npx_Pp39_np4_-sKWUBfC1WtjrD_5SI4I6TeAYXvxdLZ8f5lgGV43zm-CZDvVdvLcVl7hfV9n7c04XgQ0mEFA3_FuAu1r2I5nT7q71AG-sSMmatOWlq7jLCCykaAfk00r315Mn"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-1 mb-1">
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-sm text-primary-container bg-surface-container-high font-bold">
+                          [Full-time]
+                        </span>
+                        <span class="font-caption text-caption text-on-surface-variant flex items-center gap-0.5">
+                          <span class="material-symbols-outlined text-xs">schedule</span> 4 ngày trước
+                        </span>
+                      </div>
+                      <h3 class="font-headline-sm text-headline-sm text-primary-container group-hover:underline truncate font-bold">
+                        Lead Data Scientist - Credit Risk Modeling
+                      </h3>
+                      <p class="font-body-sm text-body-sm text-on-surface font-semibold truncate mt-0.5">
+                        Techcombank Digital Banking Hub
+                      </p>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs text-secondary">location_on</span> Hai Bà Trưng, Hà Nội • On-site
+                      </p>
+                      <div class="flex flex-wrap items-center gap-1.5 mt-space-sm">
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption font-label-sm text-on-surface font-bold">
+                          Thương lượng ($3,000+)
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          Machine Learning
+                        </span>
+                        <span class="bg-surface-container px-2 py-0.5 rounded-lg text-caption text-on-surface-variant">
+                          Python • PyTorch
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- RIGHT COLUMN: 60% (7 Cols) Sticky Master-Detail Specification Pane -->
+              <div class="lg:col-span-7 sticky top-48 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden flex flex-col max-h-[calc(100vh-200px)]" id="detailPane">
+                
+                <!-- Header & Action Bar -->
+                <div class="p-space-lg bg-surface-container-lowest border-b border-outline-variant/20">
+                  <div class="flex items-start justify-between gap-space-md mb-space-sm">
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2 mb-1.5">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-caption font-label-sm text-primary-container bg-surface-container-high font-bold" id="detailBadge">
+                          [Full-time]
+                        </span>
+                        <span class="text-caption text-on-surface-variant flex items-center gap-1">
+                          <span class="material-symbols-outlined text-sm text-primary">verified</span> Doanh nghiệp đã chứng thực mã số thuế
+                        </span>
+                      </div>
+                      <h2 class="font-headline-lg text-headline-lg text-primary-container font-extrabold tracking-tight" id="detailTitle">
+                        Senior Logistics Platform Architect
+                      </h2>
+                      <div class="flex flex-wrap items-center gap-y-1 gap-x-space-md text-body-sm font-body-sm text-on-surface-variant mt-2">
+                        <span class="font-label-md text-label-md text-on-surface font-bold" id="detailCompany">Viettel Post Logistics Technology JSC</span>
+                        <span>•</span>
+                        <span class="flex items-center gap-0.5" id="detailLocation"><span class="material-symbols-outlined text-sm text-primary">location_on</span> Cầu Giấy, Hà Nội</span>
+                        <span>•</span>
+                        <span id="detailPosted">Đăng ngày 22/10/2024</span>
+                      </div>
+                      <div class="flex items-center gap-space-md mt-2 text-caption font-caption text-on-surface-variant">
+                        <span class="text-primary font-bold flex items-center gap-1">
+                          <span class="material-symbols-outlined text-sm">groups</span> <span id="detailApplicants">42 ứng viên</span> đã nộp đơn
+                        </span>
+                        <span>•</span>
+                        <span class="text-error font-bold flex items-center gap-1">
+                          <span class="material-symbols-outlined text-sm">event</span> Hạn ứng tuyển: <span id="detailDeadline">10/11/2024</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="w-16 h-16 rounded-xl bg-surface-container-high overflow-hidden shrink-0 flex items-center justify-center p-1.5 shadow-sm border border-outline-variant/20">
+                      <img class="w-full h-full object-cover rounded-lg" id="detailLogo" alt="Enterprise Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBamHJ-39gxGZPL3YJdLI3qS8Jokwcgw0nPhvpadnl8cIlf6i4Ym8guT_hxJwoWymsHc3C5Yj__unMdAvjC1iLjawR_f_3gt_mfGGuSycj5grKhYz1O4bhk--gUsEl31e6Eg7MxUXkpl5oaHPmAkAM9FhqUnRz1TxjFagZn0tz6eDl5hJoHngaURbUU7_WPcyJb32dOuMRSn0Dygt38tiuVZj9ycOJFzNd4MWCzCDQsE_S4iepsYBuv"/>
+                    </div>
+                  </div>
+
+                  <!-- Quick Action Bar -->
+                  <div class="flex flex-wrap items-center gap-space-sm pt-space-sm">
+                    <button class="px-5 py-2.5 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-xl transition-all shadow-sm flex items-center gap-2 font-bold" onclick="showApplyModal()" type="button">
+                      <span class="material-symbols-outlined text-base">send</span> Ứng tuyển ngay
+                    </button>
+                    <button class="px-4 py-2.5 bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-xl transition-colors flex items-center gap-1.5 font-semibold" id="saveJobBtn" onclick="toggleSaveCurrentJob()" type="button">
+                      <span class="material-symbols-outlined text-base" id="saveJobIcon">bookmark_border</span>
+                      <span id="saveJobText">Lưu tin tuyển dụng</span>
+                    </button>
+                    <button class="p-2.5 bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded-xl transition-colors" onclick="shareJob()" title="Chia sẻ" type="button">
+                      <span class="material-symbols-outlined text-base">share</span>
+                    </button>
+                    <button class="px-3.5 py-2.5 bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm rounded-xl transition-colors ml-auto flex items-center gap-1 font-semibold" onclick="showHRContact()" type="button">
+                      <span class="material-symbols-outlined text-sm">chat</span> Liên hệ HR đăng tin
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Scrollable Specification Content -->
+                <div class="p-space-lg overflow-y-auto flex-1 space-y-space-lg text-body-md font-body-md text-on-surface-variant pr-3 scrollbar-thin">
+                  
+                  <!-- Key Metrics Grid -->
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm bg-surface-container-low p-space-md rounded-xl border border-outline-variant/10">
+                    <div>
+                      <div class="font-caption text-caption text-on-surface-variant">Mức đãi ngộ</div>
+                      <div class="font-label-md text-label-md text-on-surface mt-0.5 font-bold text-primary-container" id="metricSalary">$2,400 - $3,500</div>
+                    </div>
+                    <div>
+                      <div class="font-caption text-caption text-on-surface-variant">Kinh nghiệm</div>
+                      <div class="font-label-md text-label-md text-on-surface mt-0.5 font-bold" id="metricExp">Tối thiểu 5 năm</div>
+                    </div>
+                    <div>
+                      <div class="font-caption text-caption text-on-surface-variant">Cấp bậc</div>
+                      <div class="font-label-md text-label-md text-on-surface mt-0.5 font-bold" id="metricLevel">Senior / Lead</div>
+                    </div>
+                    <div>
+                      <div class="font-caption text-caption text-on-surface-variant">Hình thức</div>
+                      <div class="font-label-md text-label-md text-on-surface mt-0.5 font-bold" id="metricWorkMode">Hybrid (2 ngày remote)</div>
+                    </div>
+                  </div>
+
+                  <!-- About Enterprise Section -->
+                  <div>
+                    <h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-space-xs flex items-center gap-2 font-bold">
+                      <span class="material-symbols-outlined text-base text-primary">domain</span> Về doanh nghiệp &amp; Sứ mệnh dự án
+                    </h4>
+                    <p class="text-body-sm leading-relaxed text-on-surface-variant" id="detailAboutCompany">
+                      Viettel Post là doanh nghiệp logistics hàng đầu tại Việt Nam, tiên phong triển khai công nghệ phân loại hàng hóa tự động, robotics, và hệ thống điều hành chuỗi cung ứng thông minh xử lý hơn 2 triệu bưu gửi mỗi ngày trên toàn quốc. Đội ngũ Core Platform đóng vai trò trái tim kỹ thuật số hóa toàn diện hạ tầng vận chuyển xuyên biên giới.
+                    </p>
+                  </div>
+
+                  <!-- Job Responsibilities Section -->
+                  <div>
+                    <h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-space-xs flex items-center gap-2 font-bold">
+                      <span class="material-symbols-outlined text-base text-primary">assignment</span> Mô tả công việc &amp; Trọng tâm nhiệm vụ
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-body-sm text-on-surface-variant" id="detailResponsibilities">
+                      <li>Thiết kế, xây dựng và tối ưu hóa kiến trúc Distributed Microservices phục vụ luồng vận hành thời gian thực (real-time package routing).</li>
+                      <li>Chịu trách nhiệm kiến trúc cho hệ thống Data Pipeline xử lý hàng tỷ records sự kiện logistics mỗi tháng với độ trễ dưới 50ms.</li>
+                      <li>Phối hợp cùng Giám đốc Công nghệ (CTO) và Product Lead trong việc chuẩn hóa API Gateway, Service Mesh (Istio), và Event-Driven Streaming qua Kafka.</li>
+                      <li>Hướng dẫn, mentor cho các kỹ sư Backend mid-level trong việc áp dụng Clean Architecture, Domain-Driven Design (DDD) và CI/CD Automation.</li>
+                    </ul>
+                  </div>
+
+                  <!-- Candidate Requirements Section -->
+                  <div>
+                    <h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-space-xs flex items-center gap-2 font-bold">
+                      <span class="material-symbols-outlined text-base text-primary">fact_check</span> Yêu cầu ứng viên &amp; Năng lực
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-body-sm text-on-surface-variant" id="detailRequirements">
+                      <li>Từ 5 năm kinh nghiệm lập trình backend quy mô lớn, thành thạo Golang, Java hoặc C++ hiệu năng cao.</li>
+                      <li>Kinh nghiệm thực chiến với Apache Kafka, RabbitMQ, Redis Cluster và cơ sở dữ liệu phân tán (PostgreSQL, Cassandra/ScyliaDB).</li>
+                      <li>Hiểu biết sâu sắc về Docker, Kubernetes (K8s), Cloud Infrastructure (AWS / On-prem Private Cloud) và kỹ thuật giám sát Grafana/Prometheus.</li>
+                      <li>Kỹ năng tư duy giải quyết sự cố dưới áp lực tải cao trong các đợt Siêu Sale thương mại điện tử (11.11, Tết Peak).</li>
+                    </ul>
+                  </div>
+
+                  <!-- Compensation & Benefits Section -->
+                  <div>
+                    <h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-space-xs flex items-center gap-2 font-bold">
+                      <span class="material-symbols-outlined text-base text-primary">card_giftcard</span> Quyền lợi &amp; Đãi ngộ
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+                      <div class="p-space-sm bg-surface-container-low rounded-xl border border-outline-variant/10">
+                        <div class="font-label-sm text-label-sm text-on-surface flex items-center gap-1 mb-1 font-bold">
+                          <span class="material-symbols-outlined text-sm text-primary">payments</span> Lương &amp; Thưởng cạnh tranh
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Lương tháng 13 + thưởng hiệu quả kinh doanh từ 2-4 tháng lương. Đánh giá xét tăng lương 2 lần/năm.</p>
+                      </div>
+                      <div class="p-space-sm bg-surface-container-low rounded-xl border border-outline-variant/10">
+                        <div class="font-label-sm text-label-sm text-on-surface flex items-center gap-1 mb-1 font-bold">
+                          <span class="material-symbols-outlined text-sm text-primary">health_and_safety</span> Chăm sóc sức khỏe VIP
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Gói bảo hiểm sức khỏe quốc tế Bảo Việt Premium dành cho nhân sự và trợ cấp 50% cho người thân.</p>
+                      </div>
+                      <div class="p-space-sm bg-surface-container-low rounded-xl border border-outline-variant/10">
+                        <div class="font-label-sm text-label-sm text-on-surface flex items-center gap-1 mb-1 font-bold">
+                          <span class="material-symbols-outlined text-sm text-primary">laptop_mac</span> Thiết bị &amp; Môi trường
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Cấp mới MacBook Pro M3 Max hoặc Dell Precision theo nhu cầu kiến trúc phần mềm, ngân sách đào tạo 25 triệu/năm.</p>
+                      </div>
+                      <div class="p-space-sm bg-surface-container-low rounded-xl border border-outline-variant/10">
+                        <div class="font-label-sm text-label-sm text-on-surface flex items-center gap-1 mb-1 font-bold">
+                          <span class="material-symbols-outlined text-sm text-primary">fitness_center</span> Phúc lợi tinh thần
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Phòng Gym &amp; Yoga ngay tại trụ sở, pantry cà phê không giới hạn, du lịch nghỉ dưỡng chuẩn 5 sao hàng năm.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Interview Process Section -->
+                  <div>
+                    <h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-space-xs flex items-center gap-2 font-bold">
+                      <span class="material-symbols-outlined text-base text-primary">timeline</span> Quy trình tuyển dụng &amp; Phỏng vấn
+                    </h4>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 p-space-sm bg-surface-container-low rounded-xl text-caption font-caption border border-outline-variant/10">
+                      <div class="flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">1</span>
+                        <span>Sàng lọc hồ sơ (24h)</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant hidden sm:inline text-xs">arrow_forward</span>
+                      <div class="flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">2</span>
+                        <span>Technical Interview (Online 60')</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant hidden sm:inline text-xs">arrow_forward</span>
+                      <div class="flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">3</span>
+                        <span>System Design &amp; Culture Fit</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant hidden sm:inline text-xs">arrow_forward</span>
+                      <div class="flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold">4</span>
+                        <span>Offer &amp; Onboarding</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- HR Poster Info Box -->
+                  <div class="p-space-md bg-surface-container-low rounded-xl border border-outline-variant/10">
+                    <div class="flex items-center justify-between gap-space-sm">
+                      <div class="flex items-center gap-space-sm">
+                        <img class="w-12 h-12 rounded-full object-cover shadow-sm border border-outline-variant/20" alt="HR Nguyễn Thu Thảo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeRHwW5GM2j-f019TILPDs4q3N9Uc8PYrbrVsh6w7JK2Jm8K0F3SbxEYLxollmswEC4drTiTPfWizobub0e5nZY7dS935cdnOBigiq0WKmOH3uk0cEaSZDNXY3KT99u70PE6krBRJF59uQ19rkykw9n0EwKC9_7rsK5lSTHV8dtabVBsUZB5H4-Q-O2fEt_j8qDOXCs7IPOSlVy1AsBSyZz30ucoG03reX8OFN0W51QpnCbbjjfYvH"/>
+                        <div>
+                          <div class="flex items-center gap-1.5">
+                            <span class="font-label-md text-label-md text-on-surface font-bold" id="hrName">Nguyễn Thu Thảo</span>
+                            <span class="material-symbols-outlined text-primary text-sm">verified</span>
+                          </div>
+                          <p class="font-caption text-caption text-on-surface-variant" id="hrTitle">Head of Technical Talent Acquisition • Tuyển dụng chính</p>
+                          <p class="font-caption text-caption text-on-surface-variant mt-0.5">Tỷ lệ phản hồi tin nhắn: <strong class="text-primary font-bold">100% trong vòng 2 giờ</strong></p>
+                        </div>
+                      </div>
+                      <button class="px-3.5 py-1.5 bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-sm text-label-sm rounded-xl shadow-sm transition-all flex items-center gap-1 font-bold" onclick="showHRContact()" type="button">
+                        <span class="material-symbols-outlined text-sm">send</span> Nhắn tin HR
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Interactive Modal for Job Application (In-page Micro Interaction) -->
+          <div class="fixed inset-0 z-50 bg-on-surface/40 backdrop-blur-sm hidden items-center justify-center p-4" id="applyModal">
+            <div class="bg-surface-container-lowest max-w-lg w-full rounded-2xl p-space-lg shadow-xl relative border border-outline-variant/30">
+              <div class="flex items-center justify-between pb-space-sm mb-space-md border-b border-outline-variant/20">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary-container text-xl">assignment_turned_in</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Nộp hồ sơ ứng tuyển trực tuyến</h3>
+                </div>
+                <button class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg transition-colors" onclick="hideApplyModal()">
+                  <span class="material-symbols-outlined text-lg">close</span>
+                </button>
+              </div>
+              <form class="space-y-space-md" onsubmit="handleApplySubmit(event)">
+                <div>
+                  <label class="block font-label-sm text-label-sm text-on-surface mb-1 font-bold">Vị trí ứng tuyển</label>
+                  <input class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm px-3.5 py-2 rounded-xl focus:outline-none font-semibold" id="modalJobTitle" readonly="" type="text"/>
+                </div>
+                <div class="grid grid-cols-2 gap-space-sm">
+                  <div>
+                    <label class="block font-label-sm text-label-sm text-on-surface mb-1 font-bold">Họ và tên *</label>
+                    <input class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm px-3.5 py-2 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-all border border-transparent focus:border-primary/40" placeholder="Trần Nam Phong" required="" type="text" value="Trần Nam Phong"/>
+                  </div>
+                  <div>
+                    <label class="block font-label-sm text-label-sm text-on-surface mb-1 font-bold">Số điện thoại *</label>
+                    <input class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm px-3.5 py-2 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-all border border-transparent focus:border-primary/40" placeholder="098 765 4321" required="" type="tel" value="0912 345 678"/>
+                  </div>
+                </div>
+                <div>
+                  <label class="block font-label-sm text-label-sm text-on-surface mb-1 font-bold">Email liên hệ *</label>
+                  <input class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm px-3.5 py-2 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-all border border-transparent focus:border-primary/40" placeholder="namphong.dev@gmail.com" required="" type="email" value="namphong.dev@gmail.com"/>
+                </div>
+                <div>
+                  <label class="block font-label-sm text-label-sm text-on-surface mb-1 font-bold">Tải lên hồ sơ CV / Portfolio (PDF, tối đa 10MB) *</label>
+                  <div class="p-space-md rounded-xl bg-surface-container-low text-center flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container-high transition-colors border border-dashed border-outline-variant/40">
+                    <span class="material-symbols-outlined text-2xl text-primary-container mb-1">upload_file</span>
+                    <span class="font-label-sm text-label-sm text-on-surface font-bold">Tran_Nam_Phong_Architect_Resume_2024.pdf</span>
+                    <span class="font-caption text-caption text-on-surface-variant mt-0.5">Đã tải lên tự động từ hồ sơ cá nhân BizPost</span>
+                  </div>
+                </div>
+                <div>
+                  <label class="block font-label-sm text-label-sm text-on-surface mb-1 font-bold">Thư giới thiệu ngắn (Cover Note)</label>
+                  <textarea class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm p-3 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-all border border-transparent focus:border-primary/40" placeholder="Chia sẻ ngắn gọn lý do bạn phù hợp với vị trí này..." rows="3">Tôi có hơn 6 năm kinh nghiệm trong việc thiết kế kiến trúc phân tán cho hệ thống logistics và bán lẻ. Rất mong có cơ hội thảo luận cùng ban lãnh đạo công nghệ Viettel Post.</textarea>
+                </div>
+                <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+                  <button class="px-4 py-2 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm rounded-xl font-semibold" onclick="hideApplyModal()" type="button">
+                    Huỷ bỏ
+                  </button>
+                  <button class="px-6 py-2 bg-primary-container text-on-primary font-label-md text-label-md rounded-xl hover:bg-primary transition-colors flex items-center gap-1.5 shadow-sm font-bold" type="submit">
+                    <span class="material-symbols-outlined text-sm">check</span> Xác nhận nộp hồ sơ
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Inline JavaScript Logic for Split-View Interaction -->
+          <script>
+            const opportunityJobData = [
+              {
+                title: "Senior Logistics Platform Architect",
+                badge: "[Full-time]",
+                company: "Viettel Post Logistics Technology JSC",
+                location: "Cầu Giấy, Hà Nội • Hybrid",
+                posted: "Đăng ngày 22/10/2024",
+                applicants: "42 ứng viên",
+                deadline: "10/11/2024",
+                salary: "$2,400 - $3,500",
+                exp: "Tối thiểu 5 năm",
+                level: "Senior / Lead",
+                workMode: "Hybrid (2 ngày remote)",
+                logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuBamHJ-39gxGZPL3YJdLI3qS8Jokwcgw0nPhvpadnl8cIlf6i4Ym8guT_hxJwoWymsHc3C5Yj__unMdAvjC1iLjawR_f_3gt_mfGGuSycj5grKhYz1O4bhk--gUsEl31e6Eg7MxUXkpl5oaHPmAkAM9FhqUnRz1TxjFagZn0tz6eDl5hJoHngaURbUU7_WPcyJb32dOuMRSn0Dygt38tiuVZj9ycOJFzNd4MWCzCDQsE_S4iepsYBuv",
+                about: "Viettel Post là doanh nghiệp logistics hàng đầu tại Việt Nam, tiên phong triển khai công nghệ phân loại hàng hóa tự động, robotics, và hệ thống điều hành chuỗi cung ứng thông minh xử lý hơn 2 triệu bưu gửi mỗi ngày trên toàn quốc.",
+                responsibilities: [
+                  "Thiết kế, xây dựng và tối ưu hóa kiến trúc Distributed Microservices phục vụ luồng vận hành thời gian thực.",
+                  "Chịu trách nhiệm kiến trúc cho hệ thống Data Pipeline xử lý hàng tỷ records sự kiện logistics mỗi tháng.",
+                  "Phối hợp cùng CTO và Product Lead trong việc chuẩn hóa API Gateway, Service Mesh (Istio), và Event Streaming qua Kafka.",
+                  "Mentor cho các kỹ sư Backend mid-level trong việc áp dụng Clean Architecture và Domain-Driven Design."
+                ],
+                requirements: [
+                  "Từ 5 năm kinh nghiệm lập trình backend quy mô lớn, thành thạo Golang, Java hoặc C++ hiệu năng cao.",
+                  "Kinh nghiệm thực chiến với Apache Kafka, RabbitMQ, Redis Cluster và PostgreSQL/Cassandra.",
+                  "Hiểu biết sâu sắc về Docker, Kubernetes (K8s), Cloud Infrastructure và Prometheus/Grafana.",
+                  "Tư duy xử lý sự cố dưới áp lực tải cao trong các đợt Siêu Sale e-commerce."
+                ],
+                hrName: "Nguyễn Thu Thảo",
+                hrTitle: "Head of Technical Talent Acquisition"
+              },
+              {
+                title: "Học Bổng Toàn Phần Thạc Sĩ AI & Supply Chain 2025",
+                badge: "[Học bổng Doanh nghiệp / Scholarship]",
+                company: "Vingroup Innovation Foundation (VINIF)",
+                location: "Hà Nội • Tài trợ 100% Học phí",
+                posted: "Đăng ngày 21/10/2024",
+                applicants: "128 ứng viên",
+                deadline: "15/12/2024",
+                salary: "Trợ cấp 120,000,000đ/năm",
+                exp: "Cử nhân / SV năm cuối",
+                level: "Thạc sĩ / Học viên NC",
+                workMode: "Toàn thời gian nghiên cứu",
+                logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDRnT9zM9xzMmD2NHf-EiV_rv4a-Opw1JG7Xa2QedNw0Q2-RLcP7LoczVglpV3YnCf_82zt0CcPwn2U00tAbzWuurqkhvLXoffNTdM5OtkAWqHfKvnDi009o4R2C8kMp-EKjVhV4Scjyigxz6k_CnIH6Fwn0VEFF6lqv3noEFPYQK62X1lP19eVlP_RI_7j40IUCyZtvNPO7esTqUbGBy7nxmnugcG0l_SuZgIUbqhYf-kg6N82RKLO",
+                about: "Chương trình Học bổng Đào tạo Thạc sĩ Chuỗi Cung Ứng & Trí Tuệ Nhân Tạo được tài trợ 100% kinh phí bởi Quỹ Đổi mới sáng tạo Vingroup (VINIF) phối hợp cùng Viện Nghiên Cứu VinUni.",
+                responsibilities: [
+                  "Tham gia chương trình đào tạo Thạc sĩ chuẩn quốc tế 2 năm về AI, Machine Learning trong Logistics.",
+                  "Nghiên cứu ứng dụng các thuật toán tối ưu hóa định tuyến giao vận và giảm phát thải carbon.",
+                  "Xuất bản tối thiểu 1 bài báo khoa học tại các hội thảo quốc tế uy tín (IEEE/ACM/Scopus).",
+                  "Tham gia thực tập dự án thực chiến tại các công ty thành viên Vingroup."
+                ],
+                requirements: [
+                  "Tốt nghiệp Cử nhân ngành Khoa học Máy tính, Công nghệ Thông tin, Toán Tin hoặc Chuỗi cung ứng.",
+                  "Điểm trung bình học tập (GPA) từ 3.2/4.0 trở lên.",
+                  "Trình độ tiếng Anh IELTS từ 6.5 trở lên hoặc TOEFL iBT tương đương.",
+                  "Có định hướng nghiên cứu chuyên sâu về thuật toán AI/ML."
+                ],
+                hrName: "GS.TS. Trần Đình Long",
+                hrTitle: "Trưởng Ban Điều Hành Học Bổng VINIF"
+              },
+              {
+                title: "Growth Product Operations Intern (Có Lương)",
+                badge: "[Thực tập sinh / Intern]",
+                company: "MoMo E-Wallet (M-Service)",
+                location: "Quận 7, TP.HCM • On-site",
+                posted: "Đăng ngày 20/10/2024",
+                applicants: "95 ứng viên",
+                deadline: "05/11/2024",
+                salary: "6.000.000 - 8.500.000 VND",
+                exp: "Không yêu cầu KN",
+                level: "Intern / Fresher",
+                workMode: "Full-time Internship",
+                logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCi_7aaenVc381vKyhNFvl860ea41uFGbweSul1rLiM97Hw1CpCcizJCXIopkDEc591MXpTX6AJofVFGev97Vkjc7bHLo8p2aY6gks1s1_2ctyZSZOkPCSL_K-UJMkrTdE9m1wZmfFmJsSUFvgIKO-kqEypFtzgWmRsWq28eMwXnOvVYp-vMY_ij4KvDVv3vxpOutsGq9WBBA9b5bqBwRQPKI-fZVkPjhhRBHiL8aWC9Rhae7421pyq",
+                about: "MoMo là Siêu ứng dụng Tài chính hàng đầu Việt Nam với hơn 31 triệu người dùng. Đội ngũ Product Growth là đầu máy tăng trưởng trải nghiệm thanh toán và dịch vụ đời sống số.",
+                responsibilities: [
+                  "Hỗ trợ phân tích hành vi người dùng (A/B Testing, User Funnel) bằng SQL và Amplitude.",
+                  "Theo dõi và tối ưu hóa các chiến dịch ưu đãi đối tác (Voucher, Cash-back Campaign).",
+                  "Phối hợp với Product Manager xây dựng tài liệu tính năng mới.",
+                  "Tổng hợp báo cáo hiệu suất tăng trưởng hàng tuần cho Ban Giám đốc."
+                ],
+                requirements: [
+                  "Sinh viên năm 3, 4 hoặc mới tốt nghiệp các ngành Kinh tế, CNTT, Hệ thống Thông tin.",
+                  "Sử dụng thành thạo Excel/Google Sheets, tư duy logic số liệu tốt.",
+                  "Có kinh nghiệm tham gia các cuộc thi Business Case hoặc nghiên cứu sản phẩm số.",
+                  "Chủ động, nhanh nhẹn và khả năng học hỏi công cụ mới cực nhanh."
+                ],
+                hrName: "Lê Hoàng Yến",
+                hrTitle: "Senior Product Campus Recruiter"
+              },
+              {
+                title: "Supply Chain B2B Brand Marketing Lead",
+                badge: "[Full-time]",
+                company: "Gemadept Port & Logistics Corporation",
+                location: "Quận 1, TP.HCM • Hybrid",
+                posted: "Đăng ngày 19/10/2024",
+                applicants: "31 ứng viên",
+                deadline: "12/11/2024",
+                salary: "35.000.000 - 50.000.000 VND",
+                exp: "3 - 5 năm KN",
+                level: "Team Lead / Manager",
+                workMode: "Hybrid (1 ngày remote)",
+                logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuA7qsw8HtBK324UXZAwGOlsIuKEwNk9eF5A_sgJJSpkUOPBPrddVWCKJMb5Obk9yMAr0VIjcXIdVZqhUbtP0LnJBKitA4fKfNajEEH_YFF3tCGQAOgyr7S0wq5bYnCwktz1UFVmM968-KgQ_HVx0ngJZwL-Xbmre0FHi_3_1uj07djEpqJrzFEKRcl3h_uPs404eyehiBw4A7BFuXSyKSfoQ8IQD2T8T5zUNOC2zNeH3zukXYM5rodk",
+                about: "Gemadept là tập đoàn khai thác cảng và logistics hàng đầu Việt Nam niêm yết trên sàn HOSE, sở hữu hệ sinh thái cảng nước sâu Gemalink và chuỗi trung tâm kho bãi hiện đại.",
+                responsibilities: [
+                  "Xây dựng và thực thi chiến lược Thương hiệu B2B cho mảng Cảng biển & Logistics.",
+                  "Quản lý các sự kiện hội thảo quốc tế, kết nối đối tác hãng tàu và chủ hàng toàn cầu.",
+                  "Chịu trách nhiệm nội dung cho Báo cáo Thường niên và Báo cáo Phát triển Bền vững (ESG).",
+                  "Điều phối ngân sách Marketing B2B và quản lý đối tác truyền thông agency."
+                ],
+                requirements: [
+                  "Từ 3 năm kinh nghiệm làm B2B Marketing/PR trong ngành Logistics, Hàng hải hoặc Bất động sản.",
+                  "Kỹ năng nói và viết tiếng Anh thương mại xuất sắc (IELTS 7.5+).",
+                  "Tư duy chiến lược thương hiệu, am hiểu sâu sắc về chuỗi cung ứng toàn cầu.",
+                  "Kỹ năng quản lý dự án và thuyết trình trước cấp lãnh đạo."
+                ],
+                hrName: "Phạm Quốc Hùng",
+                hrTitle: "Head of Corporate Affairs & Recruitment"
+              },
+              {
+                title: "Lead Data Scientist - Credit Risk Modeling",
+                badge: "[Full-time]",
+                company: "Techcombank Digital Banking Hub",
+                location: "Hai Bà Trưng, Hà Nội • On-site",
+                posted: "Đăng ngày 18/10/2024",
+                applicants: "26 ứng viên",
+                deadline: "20/11/2024",
+                salary: "Thương lượng ($3,000+)",
+                exp: "Tối thiểu 4 năm",
+                level: "Lead Data Scientist",
+                workMode: "Full-time On-site",
+                logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuBF5Zjuj7b-SHzxnVB2Fq5NHjVW6Qw6Y9akKPW1g6ZREsffq_-w8ezeVmmVEnY3DiY8ZK5kawaKoT_cilAO02I_Npa9P_p8Qpx-jggN3_Z3em2vD9Npx_Pp39_np4_-sKWUBfC1WtjrD_5SI4I6TeAYXvxdLZ8f5lgGV43zm-CZDvVdvLcVl7hfV9n7c04XgQ0mEFA3_FuAu1r2I5nT7q71AG-sSMmatOWlq7jLCCykaAfk00r315Mn",
+                about: "Techcombank Digital Banking Hub hội tụ hơn 500 chuyên gia công nghệ và dữ liệu tài chính hàng đầu, là ngân hàng tư nhân số 1 Việt Nam về quy mô vốn hóa và chuyển đổi số.",
+                responsibilities: [
+                  "Phát triển các mô hình học máy chấm điểm tín dụng tự động (Automated Credit Scoring).",
+                  "Tối ưu hóa thuật toán phát hiện gian lận giao dịch thẻ và ngân hàng số thời gian thực.",
+                  "Triển khai MLOps pipeline đưa mô hình vào production với độ trễ thấp.",
+                  "Làm việc trực tiếp với Khối Quản trị Rủi ro và Ban Giám đốc Ngân hàng Số."
+                ],
+                requirements: [
+                  "Tốt nghiệp Thạc sĩ/Tiến sĩ chuyên ngành Data Science, Statistics, Machine Learning.",
+                  "Thành thạo Python, PyTorch/TensorFlow, SQL và hệ sinh thái Big Data (Spark, Databricks).",
+                  "Kinh nghiệm thực chiến về Credit Scoring, Fraud Detection trong Ngân hàng/Fintech.",
+                  "Có các công trình nghiên cứu hoặc dự án dữ liệu lớn thành công."
+                ],
+                hrName: "Vũ Bảo Ngọc",
+                hrTitle: "Lead Financial Tech Headhunter"
+              }
+            ];
+
+            let selectedIndex = 0;
+            let currentSavedSet = new Set([0, 1]);
+            let filterSavedOnly = false;
+
+            function selectJob(idx) {
+              selectedIndex = idx;
+              const item = opportunityJobData[idx];
+              if (!item) return;
+
+              // Highlight Card
+              for (let i = 0; i < opportunityJobData.length; i++) {
+                const card = document.getElementById(`card-${i}`);
+                if (card) {
+                  if (i === idx) {
+                    card.classList.add("bg-surface-container-low", "border-primary/20");
+                  } else {
+                    card.classList.remove("bg-surface-container-low", "border-primary/20");
+                  }
+                }
+              }
+
+              // Update Detail Pane Elements
+              document.getElementById("detailBadge").textContent = item.badge;
+              document.getElementById("detailTitle").textContent = item.title;
+              document.getElementById("detailCompany").textContent = item.company;
+              document.getElementById("detailLocation").innerHTML = `<span class="material-symbols-outlined text-sm text-primary">location_on</span> ${item.location}`;
+              document.getElementById("detailPosted").textContent = item.posted;
+              document.getElementById("detailApplicants").textContent = item.applicants;
+              document.getElementById("detailDeadline").textContent = item.deadline;
+              document.getElementById("detailLogo").src = item.logo;
+              document.getElementById("detailLogo").alt = item.company;
+
+              document.getElementById("metricSalary").textContent = item.salary;
+              document.getElementById("metricExp").textContent = item.exp;
+              document.getElementById("metricLevel").textContent = item.level;
+              document.getElementById("metricWorkMode").textContent = item.workMode;
+
+              document.getElementById("detailAboutCompany").textContent = item.about;
+
+              document.getElementById("detailResponsibilities").innerHTML = item.responsibilities.map(r => `<li>${r}</li>`).join("");
+              document.getElementById("detailRequirements").innerHTML = item.requirements.map(r => `<li>${r}</li>`).join("");
+
+              document.getElementById("hrName").textContent = item.hrName;
+              document.getElementById("hrTitle").textContent = item.hrTitle;
+
+              updateSaveButtonUI();
+
+              // Smooth Scroll Detail Pane to Top
+              const detailPane = document.getElementById("detailPane");
+              if (detailPane) detailPane.scrollTop = 0;
+            }
+
+            function updateSaveButtonUI() {
+              const isSaved = currentSavedSet.has(selectedIndex);
+              const saveIcon = document.getElementById("saveJobIcon");
+              const saveText = document.getElementById("saveJobText");
+              const savedCountEl = document.getElementById("savedCount");
+
+              if (saveIcon) saveIcon.textContent = isSaved ? "bookmark" : "bookmark_border";
+              if (saveText) saveText.textContent = isSaved ? "Đã lưu tin" : "Lưu tin tuyển dụng";
+              if (savedCountEl) savedCountEl.textContent = currentSavedSet.size;
+            }
+
+            function toggleSaveCurrentJob() {
+              if (currentSavedSet.has(selectedIndex)) {
+                currentSavedSet.delete(selectedIndex);
+                showToast("Đã bỏ lưu cơ hội tuyển dụng này.");
+              } else {
+                currentSavedSet.add(selectedIndex);
+                showToast("❤️ Đã lưu vị trí này vào mục Đã lưu của bạn!");
+              }
+              updateSaveButtonUI();
+            }
+
+            function toggleFilterSavedOnly() {
+              filterSavedOnly = !filterSavedOnly;
+              const btn = document.getElementById("savedJobsBtn");
+              if (filterSavedOnly) {
+                btn.classList.add("bg-primary-container", "text-on-primary");
+                showToast("📌 Đang hiển thị danh sách cơ hội tuyển dụng đã lưu");
+              } else {
+                btn.classList.remove("bg-primary-container", "text-on-primary");
+              }
+              filterJobs();
+            }
+
+            function filterJobs() {
+              const q = (document.getElementById("jobSearchInput")?.value || "").toLowerCase();
+              const loc = (document.getElementById("jobLocationInput")?.value || "").toLowerCase();
+              
+              let matchCount = 0;
+              let firstMatchIdx = -1;
+
+              for (let i = 0; i < opportunityJobData.length; i++) {
+                const item = opportunityJobData[i];
+                const card = document.getElementById(`card-${i}`);
+                if (!card) continue;
+
+                const textMatch = !q || item.title.toLowerCase().includes(q) || item.company.toLowerCase().includes(q) || item.about.toLowerCase().includes(q);
+                const locMatch = !loc || loc === "toàn quốc" || item.location.toLowerCase().includes(loc);
+                const savedMatch = !filterSavedOnly || currentSavedSet.has(i);
+
+                if (textMatch && locMatch && savedMatch) {
+                  card.style.display = "block";
+                  matchCount++;
+                  if (firstMatchIdx === -1) firstMatchIdx = i;
+                } else {
+                  card.style.display = "none";
+                }
+              }
+
+              const countBadge = document.getElementById("opportunityResultsCount");
+              if (countBadge) countBadge.textContent = `${matchCount} kết quả phù hợp`;
+
+              if (firstMatchIdx !== -1) {
+                selectJob(firstMatchIdx);
+              }
+            }
+
+            function resetOpportunityFilters() {
+              const searchInp = document.getElementById("jobSearchInput");
+              const locInp = document.getElementById("jobLocationInput");
+              if (searchInp) searchInp.value = "";
+              if (locInp) locInp.value = "Toàn quốc";
+              filterSavedOnly = false;
+              const btn = document.getElementById("savedJobsBtn");
+              if (btn) btn.classList.remove("bg-primary-container", "text-on-primary");
+              filterJobs();
+              showToast("🔄 Đã đặt lại bộ lọc cơ hội nghề nghiệp");
+            }
+
+            function showApplyModal() {
+              const item = opportunityJobData[selectedIndex];
+              if (!item) return;
+              const modal = document.getElementById("applyModal");
+              const titleInp = document.getElementById("modalJobTitle");
+              if (titleInp) titleInp.value = `${item.title} — ${item.company}`;
+              if (modal) {
+                modal.classList.remove("hidden");
+                modal.classList.add("flex");
+              }
+            }
+
+            function hideApplyModal() {
+              const modal = document.getElementById("applyModal");
+              if (modal) {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+              }
+            }
+
+            function handleApplySubmit(e) {
+              e.preventDefault();
+              hideApplyModal();
+              const item = opportunityJobData[selectedIndex];
+              showToast(`🎉 Nộp hồ sơ ứng tuyển thành công vị trí "${item?.title}"! HR ${item?.hrName || "tuyển dụng"} sẽ phản hồi qua email trong vòng 24h.`);
+            }
+
+            function shareJob() {
+              const item = opportunityJobData[selectedIndex];
+              navigator.clipboard?.writeText(window.location.href);
+              showToast(`🔗 Đã sao chép liên kết tuyển dụng "${item?.title}" vào bộ nhớ tạm!`);
+            }
+
+            function showHRContact() {
+              const item = opportunityJobData[selectedIndex];
+              alert(`💬 Đang kết nối trực tiếp với ${item?.hrName} (${item?.hrTitle}) — Công ty ${item?.company}`);
+            }
+
+            // Init default selection on load
+            document.addEventListener("DOMContentLoaded", () => {
+              selectJob(0);
+            });
+          </script>
+
         </div>
-        <div class="projects-feed" id="browse-projects-feed"></div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- ========================================================================
          VIEW: JOB DETAIL PAGE WITH ID (#view-job-detail)
@@ -2069,7 +2894,7 @@
 
   <!-- Scripts -->
   <script src="js/data.js?v=20260903_v10"></script>
-  <script src="js/app.js?v=merged_1789635517"></script>
+  <script src="js/app.js?v=merged_1789635885"></script>
 <!-- Real-Time Activity Notification Toast (Bottom-Left) -->
 <div class="live-activity-toast" id="live-activity-toast">
   <button class="activity-toast-close" id="btn-close-activity-toast" aria-label="Đóng" title="Đóng thông báo">&times;</button>
