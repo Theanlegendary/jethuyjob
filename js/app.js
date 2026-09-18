@@ -514,10 +514,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initOpportunityTabs();
   loadProjectsFromAPI();
   const initialHash = window.location.hash ? window.location.hash.replace('#', '') : '';
-  if (['home2', 'browse', 'company', 'salary', 'insights', 'freelancers'].includes(initialHash)) {
+  if (['home', 'browse', 'company', 'salary', 'insights', 'freelancers'].includes(initialHash)) {
     switchView(initialHash, false);
   } else {
-    switchView('home', false);
+    switchView('home2', false);
   }
   handleUrlRouting();
 

@@ -105,10 +105,10 @@
         </a>
 
         <nav class="wt-nav-menu" role="navigation" aria-label="Main Navigation">
-          <button class="wt-nav-link active" data-view="home">Home 1</button>
-          <button class="wt-nav-link" data-view="home2">
-            Home 2 <span style="background: #0070ba; color: #fff; font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 10px; margin-left: 2px;">News</span>
+          <button class="wt-nav-link active" data-view="home2">
+            Home 2 (FreightWaves) <span style="background: #0070ba; color: #fff; font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 10px; margin-left: 2px;">News</span>
           </button>
+          <button class="wt-nav-link" data-view="home">Home 1 (Executive)</button>
           <button class="wt-nav-link" data-view="browse">Jobs</button>
           <button class="wt-nav-link" data-view="company">Companies</button>
           <button class="wt-nav-link" data-view="salary">Salary</button>
@@ -165,34 +165,36 @@
        ========================================================================== -->
   <main class="main-content">
 
+    <!-- GLOBAL STICKY HOME CHOICE SWITCHER -->
+    <aside class="wt-global-home-choice" style="background:#ffffff; border-bottom: 2px solid #0070ba; padding: 12px 24px; position: sticky; top: 72px; z-index: 999; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+      <div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #0070ba; color: #fff; font-size: 13px;">
+            <i class="fa-solid fa-sliders"></i>
+          </span>
+          <div>
+            <strong style="font-size: 14px; color: #0f172a;">LỰA CHỌN GIAO DIỆN TRANG CHỦ:</strong>
+            <span style="font-size: 12px; color: #64748b; margin-left: 6px;" class="hidden sm:inline">Chọn 1 trong 2 phong cách trang chủ để trải nghiệm</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="wt-choice-btn active" data-view="home2" style="padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 800; cursor: pointer; border: 2px solid #0070ba; background: #0070ba; color: #ffffff; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-newspaper"></i> <span>Home 2: FreightWaves (Thời Sự &amp; Dữ Liệu)</span>
+          </button>
+          <button class="wt-choice-btn" data-view="home" style="padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; border: 1px solid #cbd5e1; background: #f8fafc; color: #334155; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-briefcase" style="color: #0070ba;"></i> <span>Home 1: Executive Tuyển Dụng</span>
+          </button>
+          <a href="home2.html" target="_blank" style="padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; color: #0070ba; background: #e0f2fe; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="Mở trang Home 2 độc lập">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Tab riêng
+          </a>
+        </div>
+      </div>
+    </aside>
+
     <!-- ========================================================================
          VIEW 1: CLEAN SMART-INSPIRED HOMEPAGE (#view-home)
          ======================================================================== -->
-    <section class="app-view active-view" id="view-home">
-      
-      <!-- Home Choice Switcher Bar -->
-      <aside class="wt-home-choice-bar" style="background:#ffffff; border-bottom:1px solid #e2e8f0; padding:10px 24px;">
-        <div style="max-width:1280px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
-          <div style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:#334155;">
-            <span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#e0f2fe; color:#0284c7; font-size:11px;">
-              <i class="fa-solid fa-sliders"></i>
-            </span>
-            <span>Tùy Chọn Giao Diện Trang Chủ:</span>
-            <span style="font-weight:400; color:#64748b;" class="hidden sm:inline">(Bạn đang xem <strong>Home 1: Executive Tuyển Dụng</strong>)</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <button class="wt-choice-btn active" data-view="home" style="padding:6px 14px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer; border:1px solid #0070ba; background:#0070ba; color:#fff;">
-              <i class="fa-solid fa-briefcase"></i> Home 1: Executive Tuyển Dụng
-            </button>
-            <button class="wt-choice-btn" data-view="home2" style="padding:6px 14px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer; border:1px solid #cbd5e1; background:#f8fafc; color:#334155;">
-              <i class="fa-solid fa-newspaper" style="color:#0070ba;"></i> Home 2: Thời Sự & Dữ Liệu (FreightWaves)
-            </button>
-            <a href="home2.html" target="_blank" style="font-size:12px; font-weight:700; color:#0070ba; text-decoration:none; margin-left:4px; display:inline-flex; align-items:center; gap:4px;" title="Mở trang Home 2 độc lập">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Tab riêng
-            </a>
-          </div>
-        </div>
-      </aside>
+    <section class="app-view" id="view-home">
 
       <!-- 1. Hero Section -->
       <div class="wt-hero">
@@ -512,31 +514,7 @@
     <!-- ========================================================================
          VIEW 1.2: FREIGHTWAVES-STYLE EDITORIAL & INTELLIGENCE HOMEPAGE (#view-home2)
          ======================================================================== -->
-    <section class="app-view" id="view-home2">
-      
-      <!-- Home Choice Switcher Bar -->
-      <aside class="wt-home-choice-bar" style="background:#ffffff; border-bottom:1px solid #e2e8f0; padding:10px 24px;">
-        <div style="max-width:1280px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
-          <div style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:#334155;">
-            <span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#e0f2fe; color:#0284c7; font-size:11px;">
-              <i class="fa-solid fa-sliders"></i>
-            </span>
-            <span>Tùy Chọn Giao Diện Trang Chủ:</span>
-            <span style="font-weight:400; color:#64748b;" class="hidden sm:inline">(Bạn đang xem <strong>Home 2: Thời Sự &amp; Dữ Liệu Nhân Lực FreightWaves</strong>)</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <button class="wt-choice-btn" data-view="home" style="padding:6px 14px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer; border:1px solid #cbd5e1; background:#f8fafc; color:#334155;">
-              <i class="fa-solid fa-briefcase"></i> Home 1: Executive Tuyển Dụng
-            </button>
-            <button class="wt-choice-btn active" data-view="home2" style="padding:6px 14px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer; border:1px solid #0070ba; background:#0070ba; color:#fff;">
-              <i class="fa-solid fa-newspaper"></i> Home 2: Thời Sự &amp; Dữ Liệu (FreightWaves)
-            </button>
-            <a href="home2.html" target="_blank" style="font-size:12px; font-weight:700; color:#0070ba; text-decoration:none; margin-left:4px; display:inline-flex; align-items:center; gap:4px;" title="Mở trang Home 2 độc lập">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Tab riêng
-            </a>
-          </div>
-        </div>
-      </aside>
+    <section class="app-view active-view" id="view-home2">
 
       <!-- NetworkBrandsBar Sub-strip for Home 2 -->
       <div class="bg-[#1a222d] border-b border-slate-800 text-[11px] text-slate-400 py-1.5 hidden md:block">
@@ -1752,6 +1730,6 @@
 
   <!-- SCRIPTS -->
   <script src="js/data.js?v=1789700000"></script>
-  <script src="js/app.js?v=1789700000_smart"></script>
+  <script src="js/app.js?v=1789700000_home2"></script>
 </body>
 </html>
