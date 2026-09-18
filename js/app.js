@@ -264,7 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    if (viewId === 'browse') renderBrowseProjects();
+    if (viewId === 'home') {
+      renderHomeEditorial();
+      renderHomeSquareJobs();
+    } else if (viewId === 'browse') {
+      renderHomeFeaturedProjects();
+    } else if (viewId === 'company') {
+      renderCompanyPage();
+    }
   }
 
   /* ==========================================================================
@@ -766,8 +773,221 @@ document.addEventListener('DOMContentLoaded', () => {
 
       card.addEventListener('click', (e) => {
         if (e.target.closest('[data-action="save"]')) return;
-        showJobDetail(prjId);
+        feedContainer.querySelectorAll('.career-job-card').forEach(c => c.classList.remove('active-selected'));
+        card.classList.add('active-selected');
+        updateJobDetailPreview(prjId);
       });
+    });
+
+    // Automatically preview first item on load
+    if (filtered.length > 0) {
+      updateJobDetailPreview(filtered[0].id);
+    }
+  }
+
+  /* ==========================================================================
+     FREIGHTWAVES EDITORIAL, SQUARE JOBS, PHNOM PENH POST & SPLIT PANE RENDERERS
+     ========================================================================== */
+
+  function renderHomeEditorial() {
+    const leadContainer = document.getElementById('home-editorial-grid');
+    const topicsContainer = document.getElementById('home-topics-grid');
+    if (!leadContainer) return;
+
+    const articles = window.initialArticles || [];
+    const leadArt = articles.find(a => a.featured) || articles[0];
+    const topicArts = articles.filter(a => a.id !== (leadArt ? leadArt.id : ''));
+
+    if (leadArt) {
+      leadContainer.innerHTML = `
+        <article class="fw-lead-article" data-article-id="${leadArt.id}">
+          <div class="fw-lead-img-box">
+            <img src="${leadArt.image}" alt="${leadArt.title}" class="fw-lead-img" onerror="this.src='images/hero_team.jpg'">
+          </div>
+          <div class="fw-lead-content">
+            <span class="fw-category-badge">${leadArt.category}</span>
+            <h3 class="fw-article-title">${leadArt.title}</h3>
+            <p class="fw-article-summary">${leadArt.summary}</p>
+            <div class="fw-article-meta">
+              <span><i class="fa-solid fa-user-pen"></i> ${leadArt.author}</span>
+              <span>•</span>
+              <span><i class="fa-regular fa-clock"></i> ${leadArt.date}</span>
+            </div>
+          </div>
+        </article>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          ${topicArts.slice(0, 2).map(a => `
+            <div class="fw-topic-card" style="padding:16px;">
+              <span class="fw-category-badge" style="font-size:10px;">${a.category}</span>
+              <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin:6px 0;">${a.title}</h4>
+              <div style="font-size:12px; color:#64748b;"><i class="fa-regular fa-clock"></i> ${a.date}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    if (topicsContainer) {
+      topicsContainer.innerHTML = topicArts.slice(2).map(a => `
+        <div class="fw-topic-card">
+          <span class="fw-category-badge">${a.category}</span>
+          <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin:8px 0 6px;">${a.title}</h4>
+          <p style="font-size:12.5px; color:#475569; line-height:1.45; margin-bottom:10px;">${a.summary}</p>
+          <div style="font-size:12px; color:#94a3b8;"><i class="fa-regular fa-clock"></i> ${a.date} • ${a.author}</div>
+        </div>
+      `).join('');
+    }
+  }
+
+  function renderHomeSquareJobs() {
+    const grid = document.getElementById('home-square-jobs-grid');
+    if (!grid) return;
+
+    const jobs = state.projects.slice(0, 4);
+    grid.innerHTML = jobs.map(p => {
+      const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
+      const logoUrl = resolveBrandLogo(p);
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax} USD` : 'Thỏa thuận');
+      const descShort = p.description ? (p.description.substring(0, 110) + '...') : 'Tuyển dụng nhân sự chất lượng cao với mức đãi ngộ hấp dẫn...';
+
+      return `
+        <div class="square-job-card" data-project-id="${p.id}">
+          <div>
+            <div class="square-card-top">
+              <div class="square-logo-box">
+                <img src="${logoUrl}" alt="${initial}" class="square-logo-img" onerror="this.src='images/brands/fpt.svg'">
+              </div>
+              <div>
+                <div style="font-size:12px; font-weight:700; color:#475569;">${p.company || 'Doanh Nghiệp'}</div>
+                <div style="font-size:11px; color:#94a3b8;"><i class="fa-solid fa-location-dot"></i> ${p.location || 'Hà Nội'}</div>
+              </div>
+            </div>
+            <h4 class="square-job-title">${p.title}</h4>
+            <p class="square-job-desc">${descShort}</p>
+          </div>
+          <div class="square-card-bottom">
+            <span class="square-salary-badge">${salaryText}</span>
+            <span style="font-size:11px; font-weight:700; color:#0a66c2;">Ứng tuyển <i class="fa-solid fa-chevron-right"></i></span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    grid.querySelectorAll('.square-job-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const prjId = card.getAttribute('data-project-id');
+        switchView('browse');
+        setTimeout(() => updateJobDetailPreview(prjId), 100);
+      });
+    });
+  }
+
+  function renderCompanyPage() {
+    const heroContainer = document.getElementById('ppp-hero-story');
+    const gridContainer = document.getElementById('ppp-company-articles-grid');
+    const directoryContainer = document.getElementById('ppp-corporate-directory');
+    if (!heroContainer) return;
+
+    const companyArts = window.initialCompanyArticles || [];
+
+    if (companyArts.length > 0) {
+      const main = companyArts[0];
+      heroContainer.innerHTML = `
+        <span class="fw-category-badge">${main.category}</span>
+        <h2 style="font-size:24px; font-weight:800; color:#0c1b2e; margin:10px 0;">${main.title}</h2>
+        <p style="font-size:14px; color:#475569; line-height:1.6; margin-bottom:14px;">${main.summary}</p>
+        <div style="font-size:12px; color:#94a3b8; display:flex; align-items:center; gap:12px;">
+          <span><img src="${main.logo}" alt="" style="width:20px; height:20px; object-fit:contain; vertical-align:middle;"> <strong>${main.company}</strong></span>
+          <span>•</span>
+          <span><i class="fa-regular fa-clock"></i> ${main.date}</span>
+        </div>
+      `;
+
+      if (gridContainer) {
+        gridContainer.innerHTML = companyArts.slice(1).map(a => `
+          <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:16px;">
+            <span class="fw-category-badge" style="font-size:10px;">${a.category}</span>
+            <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin:6px 0;">${a.title}</h4>
+            <p style="font-size:12.5px; color:#64748b; line-height:1.4; margin-bottom:8px;">${a.summary}</p>
+            <div style="font-size:11px; color:#94a3b8;">${a.company} • ${a.date}</div>
+          </div>
+        `).join('');
+      }
+    }
+
+    if (directoryContainer) {
+      const topBrands = ['FPT Software', 'Samsung Vietnam', 'Nike Vietnam', 'L\'Oréal Vietnam', 'Viettel Solutions', 'Inditex / Zara'];
+      directoryContainer.innerHTML = topBrands.map(b => `
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:12px; display:flex; align-items:center; justify-content:space-between;">
+          <div style="font-weight:700; font-size:13.5px; color:#0f172a;">${b}</div>
+          <span style="font-size:11px; font-weight:700; color:#0a66c2; background:#e0f2fe; padding:2px 8px; border-radius:4px;">Hồ sơ</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  function updateJobDetailPreview(projectId) {
+    const pane = document.getElementById('job-detail-preview-panel');
+    if (!pane) return;
+
+    const p = state.projects.find(x => x.id === projectId) || state.projects[0];
+    if (!p) return;
+
+    state.selectedProject = p;
+    const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
+    const logoUrl = resolveBrandLogo(p);
+    const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin} – ${p.budgetMax} USD` : 'Thỏa thuận');
+    const isSaved = state.savedJobs.has(p.id);
+
+    pane.innerHTML = `
+      <div class="preview-company-header">
+        <img src="${logoUrl}" alt="${initial}" class="preview-logo" onerror="this.src='images/brands/fpt.svg'">
+        <div>
+          <h3 style="font-size:20px; font-weight:800; color:#0c1b2e; margin-bottom:4px;">${p.title}</h3>
+          <div style="font-size:14px; font-weight:700; color:#0a66c2;">${p.company || 'Doanh Nghiệp Tuyển Dụng'}</div>
+          <div style="font-size:12.5px; color:#64748b; margin-top:2px;"><i class="fa-solid fa-location-dot"></i> ${p.location || 'Hà Nội'} • ${p.workType || 'Toàn thời gian'}</div>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+        <button type="button" class="btn-linkedin-apply" id="btn-preview-apply">
+          <i class="fa-solid fa-paper-plane"></i> Ứng Tuyển Nhanh
+        </button>
+        <button type="button" style="background:#f1f5f9; border:1px solid #cbd5e1; color:#334155; padding:10px 18px; border-radius:24px; font-weight:700; cursor:pointer;" id="btn-preview-save">
+          <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark" style="${isSaved ? 'color:#0a66c2;' : ''}"></i> ${isSaved ? 'Đã Lưu' : 'Lưu Việc'}
+        </button>
+      </div>
+
+      <div style="border-top:1px solid #e2e8f0; padding-top:16px;">
+        <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">Mô Tả Công Việc</h4>
+        <p style="font-size:13.5px; color:#334155; line-height:1.6; margin-bottom:16px;">${p.description || 'Tham gia trực tiếp phát triển hệ thống sản phẩm chuyển đổi số quy mô lớn...'}</p>
+
+        <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">Quyền Lợi & Mức Lương</h4>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:12px; border-radius:8px; font-weight:700; color:#dc2626; margin-bottom:16px;">
+          💰 ${salaryText}
+        </div>
+
+        <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">Kỹ Năng Yêu Cầu</h4>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px;">
+          ${(p.skills || ['React', 'Node.js']).map(s => `<span style="background:#e0f2fe; color:#0369a1; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">${s}</span>`).join('')}
+        </div>
+      </div>
+    `;
+
+    document.getElementById('btn-preview-apply')?.addEventListener('click', () => {
+      openQuickApplyModal(p.id);
+    });
+
+    document.getElementById('btn-preview-save')?.addEventListener('click', () => {
+      if (state.savedJobs.has(p.id)) {
+        state.savedJobs.delete(p.id);
+        showToast('Đã bỏ lưu việc làm');
+      } else {
+        state.savedJobs.add(p.id);
+        showToast('❤️ Đã lưu việc làm!');
+      }
+      updateSavedJobsCountUI();
+      updateJobDetailPreview(p.id);
     });
   }
 

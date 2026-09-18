@@ -875,3 +875,99 @@ const initialChatThreads = [
     ]
   }
 ];
+
+const initialArticles = [
+  {
+    id: "art-101",
+    type: "editor",
+    category: "Thị Trường",
+    title: "Khảo sát tuyển dụng Q3/2026: Nhu cầu nhân sự IT & AI tăng vọt tại Đông Nam Á",
+    summary: "Báo cáo mới nhất từ Hiệp hội Công nghệ chỉ ra mức tăng trưởng 34% nhu cầu nhân lực AI, Data Engineering và Cloud Architecture.",
+    author: "Ban Biên Tập WorkThean",
+    date: "18 Tháng 9, 2026",
+    readTime: "4 phút đọc",
+    image: "images/project_dashboard.jpg",
+    featured: true
+  },
+  {
+    id: "art-102",
+    type: "company",
+    category: "Giới thiệu Sản Phẩm",
+    companyName: "FPT Software",
+    title: "FPT Software ra mắt nền tảng Cloud AI Enterprise giúp tối ưu hóa 40% quy trình vận hành",
+    summary: "Giải pháp đám mây thế hệ mới được ứng dụng tại hơn 50 tập đoàn đa quốc gia thuộc danh sách Fortune 500.",
+    author: "Đội Ngũ Truyền Thông FPT",
+    date: "17 Tháng 9, 2026",
+    readTime: "5 phút đọc",
+    image: "images/hero_team.jpg",
+    featured: false
+  },
+  {
+    id: "art-103",
+    type: "expert",
+    category: "Chuyên Gia",
+    title: "Xây dựng Văn Hóa Doanh Nghiệp trong Thời Đại Làm Việc Hybrid & Remote",
+    summary: "Bài viết chuyên sâu từ Tiến sĩ Nguyễn Văn Nam (Chuyên gia Quản trị Nhân sự Tập đoàn Vingroup) về chiến lược giữ chân nhân tài.",
+    author: "TS. Nguyễn Văn Nam",
+    date: "16 Tháng 9, 2026",
+    readTime: "7 phút đọc",
+    image: "images/news_emoney.jpg",
+    featured: false
+  },
+  {
+    id: "art-104",
+    type: "company",
+    category: "Công Nghệ & Dịch Vụ",
+    companyName: "Viettel Solutions",
+    title: "Viettel ra mắt hệ sinh thái hạ tầng 5G Private cho các khu công nghiệp thông minh",
+    summary: "Hạ tầng mạng di động dùng riêng giúp đảm bảo an ninh dữ liệu tuyệt đối cho các nhà máy sản xuất quy mô lớn.",
+    author: "PR Viettel Solutions",
+    date: "15 Tháng 9, 2026",
+    readTime: "3 phút đọc",
+    image: "images/news_tv360.jpg",
+    featured: false
+  },
+  {
+    id: "art-105",
+    type: "editor",
+    category: "Đào Tạo & Kỹ Năng",
+    title: "Bộ kỹ năng bắt buộc phải có cho Kỹ sư Phần mềm năm 2026",
+    summary: "Tổng hợp đánh giá từ 500 Giám đốc Công nghệ (CTO) về sự chuyển dịch yêu cầu chuyên môn từ Coding sang System Design & AI Integration.",
+    author: "Ban Biên Tập WorkThean",
+    date: "14 Tháng 9, 2026",
+    readTime: "6 phút đọc",
+    image: "images/news_camid.jpg",
+    featured: false
+  }
+];
+
+const initialCompanyArticles = [
+  {
+    id: "comp-art-1",
+    company: "Samsung Vietnam",
+    logo: "images/brands/samsung.svg",
+    title: "Samsung mở rộng trung tâm R&D tại Hà Nội, tuyển dụng 500 kỹ sư nghiên cứu AI",
+    date: "18 Tháng 9, 2026",
+    category: "Tuyển Dụng & Đầu Tư",
+    summary: "Trung tâm R&D lớn nhất khu vực Đông Nam Á của Samsung tăng tốc đầu tư các dự án trí tuệ nhân tạo thế hệ mới."
+  },
+  {
+    id: "comp-art-2",
+    company: "Nike Vietnam",
+    logo: "images/brands/nike.svg",
+    title: "Nike thúc đẩy mô hình chuỗi cung ứng xanh và sản xuất bền vững tại Việt Nam",
+    date: "17 Tháng 9, 2026",
+    category: "Bền Vững & Chuỗi Cung Ứng",
+    summary: "Mở rộng cơ hội việc làm quản lý chất lượng và kỹ sư môi trường cho hệ thống đối tác toàn quốc."
+  },
+  {
+    id: "comp-art-3",
+    company: "L'Oréal Vietnam",
+    logo: "images/brands/loreal.svg",
+    title: "L'Oréal công bố chương trình Nhà Lãnh Đạo Tương Lai 2026 dành cho Sinh viên",
+    date: "16 Tháng 9, 2026",
+    category: "Học Bổng & Quản TV Tập Sự",
+    summary: "Chương trình luân chuyển công tác quốc tế 18 tháng tại Paris và Singapore dành cho các tài năng trẻ xuất sắc."
+  }
+];
+
