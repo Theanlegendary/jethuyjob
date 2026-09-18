@@ -641,6 +641,21 @@ document.addEventListener('DOMContentLoaded', () => {
       else btn.classList.remove('active');
     });
 
+    // Sync Header Edition Toggle Buttons
+    document.querySelectorAll('.edition-toggle-btn').forEach(btn => {
+      if (btn.getAttribute('data-view') === viewId) {
+        btn.classList.add('active');
+        btn.style.background = '#0070ba';
+        btn.style.color = '#ffffff';
+        btn.style.fontWeight = '700';
+      } else {
+        btn.classList.remove('active');
+        btn.style.background = 'transparent';
+        btn.style.color = '#475569';
+        btn.style.fontWeight = '600';
+      }
+    });
+
     if (viewId === 'home') {
       renderHomeTopEmployers();
       renderHomeFeaturedOpportunities();
