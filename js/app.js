@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const state = {
-    currentView: 'browse',
+    currentView: 'home',
     mode: 'work', // 'work' = candidate, 'hire' = employer
     projects: [...initialProjects],
     freelancers: [...initialFreelancers],
@@ -156,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuickFilterPills();
   initBestJobsShowcase();
   initCompanySpotlight();
-  initProjectsFeed();
   initQuickApplyModal();
   initJobDetailPage();
   initPostJobWizard();
@@ -164,6 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initFreelancersDirectory();
   loadProjectsFromAPI();
   handleUrlRouting();
+
+  // Boot the correct default view — HOME with editorial + square jobs
+  switchView('home');
 
   // Listen to browser forward/back & hash change
   window.addEventListener('hashchange', handleUrlRouting);
@@ -1078,32 +1080,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     browseFeed.innerHTML = projects.map(p => {
       const isSaved = state.savedJobs.has(p.id);
-      return createCleanJobCardHTML(p, isSaved);
+      const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
+      const logoUrl = resolveBrandLogo(p);
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax}` : 'Thỏa thuận');
+      return `
+        <div class="job-item-split-card" data-project-id="${p.id}">
+          <div style="display:flex; align-items:flex-start; gap:12px;">
+            <div style="width:44px;height:44px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;padding:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+              <img src="${logoUrl}" alt="${initial}" style="width:100%;height:100%;object-fit:contain;" onerror="this.src='images/brands/fpt.svg'">
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:15px;font-weight:700;color:#0a66c2;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${p.title}</div>
+              <div style="font-size:12.5px;font-weight:600;color:#334155;margin-bottom:2px;">${p.company || 'Doanh Nghiệp'}</div>
+              <div style="font-size:12px;color:#64748b;">
+                <i class="fa-solid fa-location-dot"></i> ${p.location || 'Hà Nội'} &nbsp;•&nbsp;
+                <span style="color:#dc2626;font-weight:700;">${salaryText}</span>
+              </div>
+              <div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap;">
+                ${p.hot ? '<span style="background:#fef2f2;color:#dc2626;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;">⚡ Gấp</span>' : '<span style="background:#f0f7ff;color:#0a66c2;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;">Mới</span>'}
+                ${isSaved ? '<span style="background:#f0f7ff;color:#0a66c2;font-size:10px;padding:2px 6px;border-radius:3px;"><i class="fa-solid fa-bookmark"></i> Đã lưu</span>' : ''}
+              </div>
+            </div>
+          </div>
+        </div>`;
     }).join('');
 
-    browseFeed.querySelectorAll('article[data-project-id]').forEach(card => {
+    // Bind split-pane click → update right detail panel (no page redirect)
+    const allCards = browseFeed.querySelectorAll('.job-item-split-card');
+    allCards.forEach(card => {
       const prjId = card.getAttribute('data-project-id');
-
-      card.querySelectorAll('[data-action="save"]').forEach(saveBtn => {
-        saveBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          if (state.savedJobs.has(prjId)) {
-            state.savedJobs.delete(prjId);
-            showToast('Đã bỏ lưu việc làm');
-          } else {
-            state.savedJobs.add(prjId);
-            showToast('❤️ Đã lưu việc làm vào danh sách yêu thích!');
-          }
-          updateSavedJobsCountUI();
-          renderBrowseProjects();
-        });
-      });
-
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('[data-action="save"]')) return;
-        showJobDetail(prjId);
+      card.addEventListener('click', () => {
+        allCards.forEach(c => c.classList.remove('active-selected'));
+        card.classList.add('active-selected');
+        updateJobDetailPreview(prjId);
       });
     });
+
+    // Auto-preview first job on browse load
+    if (projects.length > 0) {
+      allCards[0]?.classList.add('active-selected');
+      updateJobDetailPreview(projects[0].id);
+    }
   }
 
   /* ==========================================================================

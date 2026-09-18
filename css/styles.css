@@ -4899,3 +4899,26 @@ footer a:hover {
   margin-bottom: 18px;
 }
 
+
+/* ============================================================
+   BROWSE VIEW: SPLIT PANE JOB LIST CARD
+   ============================================================ */
+.job-item-split-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  margin-bottom: 0;
+}
+.job-item-split-card:hover {
+  border-color: #0a66c2;
+  box-shadow: 0 2px 12px rgba(10, 102, 194, 0.12);
+  transform: translateY(-1px);
+}
+.job-item-split-card.active-selected {
+  border-color: #0a66c2;
+  background: #f0f7ff;
+  box-shadow: 0 2px 12px rgba(10, 102, 194, 0.18);
+}
