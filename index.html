@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=20260903_v10">
+  <link rel="stylesheet" href="css/styles.css?v=1789694359_v10">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
         
         <!-- Brand Logo & Social Utilities on Left -->
         <div class="header-brand-group">
-          <a href="#" class="brand-logo-red" data-view="home">
+          <a href="#" class="brand-logo-red" data-view="browse">
             <div class="logo-main-text">Vietnam<span>Jobs</span></div>
             <div class="logo-sub-text">VIETNAM RECRUITMENT & CAREER MARKETPLACE</div>
           </a>
@@ -110,7 +110,7 @@
   <i class="fa-solid fa-bars"></i>
 </button>
         <div class="brand-nav-links-left">
-          <button class="brand-nav-item home-icon-btn active" data-view="home" title="Trang chủ">
+          <button class="brand-nav-item home-icon-btn active" data-view="browse" title="Trang chủ">
             <i class="fa-solid fa-house"></i>
           </button>
           <button class="brand-nav-item" data-view="browse">
@@ -155,76 +155,119 @@
     <!-- ========================================================================
          VIEW 1: RECRUITMENT MARKETPLACE HOMEPAGE (#view-home)
          ======================================================================== -->
-    <section class="app-view active-view" id="view-home">
-      <div class="container" style="padding-top: 18px;">
+    <section class="app-view " id="view-home">
+  <div class="container" style="padding: 24px 20px;">
+    
+    <!-- HERO SEARCH & RECRUITMENT PORTAL HEADER (MOVED TO JOB PAGE) -->
+    <section class="recruitment-hero-section" aria-label="Tuyển dụng và tìm kiếm việc làm" style="margin-bottom: 28px;">
+      <div class="hero-main-content">
+        <h1 class="hero-headline">
+          Tuyển đúng người. <span>Nhanh hơn.</span>
+        </h1>
+        <p class="hero-subheadline">
+          Tiếp cận hàng trăm nghìn ứng viên chất lượng cao và kết nối cơ hội nghề nghiệp đột phá tại các doanh nghiệp hàng đầu.
+        </p>
 
-        <!-- HERO SECTION (BIG CONVERSION & RECRUITMENT FOCUSED) -->
-        <section class="recruitment-hero-section" aria-label="Tuyển dụng và tìm việc làm">
-          <div class="hero-main-content">
-            <h1 class="hero-headline">
-              Tuyển đúng người. <span>Nhanh hơn.</span>
-            </h1>
-            <p class="hero-subheadline">
-              Tiếp cận hàng trăm nghìn ứng viên chất lượng cao và kết nối cơ hội nghề nghiệp đột phá tại các doanh nghiệp hàng đầu.
-            </p>
+        <!-- Integrated Search Bar -->
+        <form class="hero-search-box" id="hero-search-form" onsubmit="event.preventDefault();">
+          <div class="search-input-col">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="header-search-input" placeholder="Vị trí tuyển dụng, kỹ năng, công ty..." aria-label="Tìm kiếm việc làm">
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-select-col">
+            <i class="fa-solid fa-location-dot"></i>
+            <select id="hero-location-select" aria-label="Chọn địa điểm">
+              <option value="all">Tất cả địa điểm</option>
+              <option value="hanoi">Hà Nội</option>
+              <option value="hcm">TP. Hồ Chí Minh</option>
+              <option value="danang">Đà Nẵng</option>
+              <option value="remote">Remote / Linh hoạt</option>
+            </select>
+          </div>
+          <button type="button" class="btn-hero-submit" id="btn-hero-submit-search">
+            <span>Tìm Kiếm</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
 
-            <!-- Integrated Search Bar -->
-            <form class="hero-search-box" id="hero-search-form" onsubmit="event.preventDefault();">
-              <div class="search-input-col">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="header-search-input" placeholder="Vị trí tuyển dụng, kỹ năng, công ty..." aria-label="Tìm kiếm việc làm">
-              </div>
-              <div class="search-divider"></div>
-              <div class="search-select-col">
-                <i class="fa-solid fa-location-dot"></i>
-                <select id="hero-location-select" aria-label="Chọn địa điểm">
-                  <option value="all">Tất cả địa điểm</option>
-                  <option value="hanoi">Hà Nội</option>
-                  <option value="hcm">TP. Hồ Chí Minh</option>
-                  <option value="danang">Đà Nẵng</option>
-                  <option value="remote">Làm việc từ xa (Remote)</option>
-                </select>
-              </div>
-              <button type="button" class="btn-hero-search" id="btn-hero-submit-search">
-                <i class="fa-solid fa-magnifying-glass"></i> Tìm Việc Ngay
-              </button>
-            </form>
-<!-- Hero Quick Search Tags -->
-<div class="quick-search-tags-row">
-  <span class="quick-search-label">Tìm nhanh:</span>
-  <button class="quick-search-tag" data-filter-keyword="Java"><i class="fa-brands fa-java"></i> Java</button>
-  <button class="quick-search-tag" data-filter-keyword="React"><i class="fa-brands fa-react"></i> React</button>
-  <button class="quick-search-tag" data-filter-keyword="Python">🐍 Python</button>
-  <button class="quick-search-tag" data-filter-keyword="Marketing"><i class="fa-solid fa-chart-line"></i> Marketing</button>
-  <button class="quick-search-tag" data-filter-keyword="Design"><i class="fa-solid fa-pen-nib"></i> UI/UX</button>
-  <button class="quick-search-tag" data-filter-keyword="Remote"><i class="fa-solid fa-laptop-house"></i> Remote</button>
-</div>
-
-<!-- Hero Stats -->
-<div class="hero-stats-row">
-  <div class="hero-stat-item">
-    <div class="hero-stat-number" id="stat-candidates">520,000+</div>
-    <div class="hero-stat-label">Ứng Viên</div>
-  </div>
-  <div class="hero-stat-divider"></div>
-  <div class="hero-stat-item">
-    <div class="hero-stat-number" id="stat-jobs">15,000+</div>
-    <div class="hero-stat-label">Việc Làm</div>
-  </div>
-  <div class="hero-stat-divider"></div>
-  <div class="hero-stat-item">
-    <div class="hero-stat-number" id="stat-companies">3,200+</div>
-    <div class="hero-stat-label">Doanh Nghiệp</div>
-  </div>
-  <div class="hero-stat-divider"></div>
-  <div class="hero-stat-item">
-    <div class="hero-stat-number">98%</div>
-    <div class="hero-stat-label">Tỷ Lệ Phản Hồi</div>
-  </div>
-</div>
+        <!-- Quick Tag Category Filter Pills -->
+        <div class="quick-category-tags" style="margin-top: 16px;">
+          <span class="quick-tags-label"><i class="fa-solid fa-bolt" style="color:#eab308;"></i> Tìm nhanh:</span>
+          <button type="button" class="quick-search-tag" data-filter-keyword="Java">Java Developer</button>
+          <button type="button" class="quick-search-tag" data-filter-keyword="React">React / Next.js</button>
+          <button type="button" class="quick-search-tag" data-filter-keyword="AI">AI & Machine Learning</button>
+          <button type="button" class="quick-search-tag" data-filter-keyword="Marketing">Marketing Lead</button>
+          <button type="button" class="quick-search-tag" data-filter-keyword="Remote">Remote Jobs</button>
+        </div>
       </div>
+    </section>
 
-        </section>
+    <div class="section-header-row" style="margin-bottom: 20px;">
+      <div>
+        <h2 class="section-title">Danh Sách Việc Làm & Cơ Hội Nghề Nghiệp</h2>
+        <p class="section-subtitle">Tìm kiếm và ứng tuyển trực tiếp vào các vị trí phù hợp với năng lực của bạn</p>
+      </div>
+      <div style="font-size:13.5px; color:var(--fl-text-muted); font-weight:600;">
+        Hiển thị <span id="browse-results-count" style="color:var(--fl-primary); font-weight:700;">--</span> vị trí tuyển dụng
+      </div>
+    </div>
+
+    <div class="browse-layout-grid">
+      <!-- Filter Sidebar -->
+      <aside class="browse-filter-sidebar">
+        <div class="filter-sidebar-header">
+          <div class="filter-sidebar-title">
+            <div class="filter-title-icon"><i class="fa-solid fa-sliders"></i></div>
+            <span>Bộ Lọc Tìm Kiếm</span>
+          </div>
+          <button type="button" class="btn-reset-filters" id="btn-reset-browse-filters" title="Xóa tất cả bộ lọc">
+            <i class="fa-solid fa-rotate-left"></i> Đặt lại
+          </button>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-label"><i class="fa-solid fa-layer-group"></i> Ngành nghề tuyển dụng</div>
+          <label class="filter-option"><input type="checkbox" value="web-dev" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-code" style="color:#0a66c2; width:16px;"></i> Công nghệ / IT</span> <span class="filter-count-badge">6.8k</span></label>
+          <label class="filter-option"><input type="checkbox" value="ai-ml" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-brain" style="color:#8b5cf6; width:16px;"></i> AI & Data</span> <span class="filter-count-badge">3.2k</span></label>
+          <label class="filter-option"><input type="checkbox" value="marketing" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-bullhorn" style="color:#ec4899; width:16px;"></i> Marketing / Truyền thông</span> <span class="filter-count-badge">4.5k</span></label>
+          <label class="filter-option"><input type="checkbox" value="design" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-pen-nib" style="color:#f59e0b; width:16px;"></i> Design / UI-UX</span> <span class="filter-count-badge">2.1k</span></label>
+          <label class="filter-option"><input type="checkbox" value="finance" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-chart-line" style="color:#10b981; width:16px;"></i> Tài chính / Ngân hàng</span> <span class="filter-count-badge">1.9k</span></label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-label"><i class="fa-solid fa-briefcase"></i> Hình thức làm việc</div>
+          <label class="filter-option"><input type="checkbox" value="Full-Time" class="browse-type-filter"> <span class="filter-opt-text">Toàn thời gian</span></label>
+          <label class="filter-option"><input type="checkbox" value="Remote" class="browse-type-filter"> <span class="filter-opt-text">Remote / Linh hoạt</span></label>
+          <label class="filter-option"><input type="checkbox" value="Part-Time" class="browse-type-filter"> <span class="filter-opt-text">Bán thời gian / Freelance</span></label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-label"><i class="fa-solid fa-location-dot"></i> Địa điểm làm việc</div>
+          <label class="filter-option"><input type="checkbox" value="hanoi" class="browse-loc-filter"> <span class="filter-opt-text">Hà Nội</span></label>
+          <label class="filter-option"><input type="checkbox" value="hcm" class="browse-loc-filter"> <span class="filter-opt-text">TP. Hồ Chí Minh</span></label>
+          <label class="filter-option"><input type="checkbox" value="danang" class="browse-loc-filter"> <span class="filter-opt-text">Đà Nẵng</span></label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-label"><i class="fa-solid fa-sort"></i> Sắp xếp kết quả</div>
+          <select id="browse-sort-select" style="w-full padding: 8px 12px; border: 1px solid var(--fl-border); border-radius: var(--radius-md); font-size: 13px; color: var(--fl-text-heading); background: #fff;">
+            <option value="newest">Việc làm mới nhất</option>
+            <option value="salary">Mức lương cao nhất</option>
+            <option value="applicants">Nhiều người nộp CV nhất</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Main Job Listings Container -->
+      <main class="browse-jobs-container">
+        <div id="browse-projects-feed" class="projects-feed" style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- Populated by JS -->
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
 
         <!-- SOCIAL PROOF & TRUSTED PARTNERS BAR -->
         <div class="corporate-trust-bar" aria-label="Doanh nghiệp tin dùng">
@@ -541,14 +584,64 @@
     <!-- ========================================================================
          VIEW 2: BROWSE ALL JOBS PAGE (#view-browse)
          ======================================================================== -->
-    <section class="app-view" id="view-browse">
+    <section class="app-view active-view" id="view-browse">
   <div class="container" style="padding: 24px 20px;">
+    
+    <!-- HERO SEARCH & RECRUITMENT PORTAL HEADER (MOVED TO JOB PAGE) -->
+    <section class="recruitment-hero-section" aria-label="Tuyển dụng và tìm kiếm việc làm" style="margin-bottom: 28px;">
+      <div class="hero-main-content">
+        <h1 class="hero-headline">
+          Tuyển đúng người. <span>Nhanh hơn.</span>
+        </h1>
+        <p class="hero-subheadline">
+          Tiếp cận hàng trăm nghìn ứng viên chất lượng cao và kết nối cơ hội nghề nghiệp đột phá tại các doanh nghiệp hàng đầu.
+        </p>
+
+        <!-- Integrated Search Bar -->
+        <form class="hero-search-box" id="hero-search-form" onsubmit="event.preventDefault();">
+          <div class="search-input-col">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="header-search-input" placeholder="Vị trí tuyển dụng, kỹ năng, công ty..." aria-label="Tìm kiếm việc làm">
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-select-col">
+            <i class="fa-solid fa-location-dot"></i>
+            <select id="hero-location-select" aria-label="Chọn địa điểm">
+              <option value="all">Tất cả địa điểm</option>
+              <option value="hanoi">Hà Nội</option>
+              <option value="hcm">TP. Hồ Chí Minh</option>
+              <option value="danang">Đà Nẵng</option>
+              <option value="remote">Remote / Linh hoạt</option>
+            </select>
+          </div>
+          <button type="button" class="btn-hero-submit" id="btn-hero-submit-search">
+            <span>Tìm Kiếm</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <!-- Quick Tag Category Filter Pills -->
+        <div class="quick-category-tags" style="margin-top: 16px;">
+          <span class="quick-tags-label"><i class="fa-solid fa-bolt" style="color:#eab308;"></i> Tìm nhanh:</span>
+          <button type="button" class="quick-search-tag" data-filter-keyword="Java">Java Developer</button>
+          <button type="button" class="quick-search-tag" data-filter-keyword="React">React / Next.js</button>
+          <button type="button" class="quick-search-tag" data-filter-keyword="AI">AI & Machine Learning</button>
+          <button type="button" class="quick-search-tag" data-filter-keyword="Marketing">Marketing Lead</button>
+          <button type="button" class="quick-search-tag" data-filter-keyword="Remote">Remote Jobs</button>
+        </div>
+      </div>
+    </section>
+
     <div class="section-header-row" style="margin-bottom: 20px;">
       <div>
-        <h2 class="section-title">Danh Sách Việc Làm Đang Mở</h2>
-        <p class="section-subtitle">Tìm kiếm và ứng tuyển vào các vị trí phù hợp với năng lực của bạn</p>
+        <h2 class="section-title">Danh Sách Việc Làm & Cơ Hội Nghề Nghiệp</h2>
+        <p class="section-subtitle">Tìm kiếm và ứng tuyển trực tiếp vào các vị trí phù hợp với năng lực của bạn</p>
+      </div>
+      <div style="font-size:13.5px; color:var(--fl-text-muted); font-weight:600;">
+        Hiển thị <span id="browse-results-count" style="color:var(--fl-primary); font-weight:700;">--</span> vị trí tuyển dụng
       </div>
     </div>
+
     <div class="browse-layout-grid">
       <!-- Filter Sidebar -->
       <aside class="browse-filter-sidebar">
@@ -565,45 +658,42 @@
         <div class="filter-group">
           <div class="filter-group-label"><i class="fa-solid fa-layer-group"></i> Ngành nghề tuyển dụng</div>
           <label class="filter-option"><input type="checkbox" value="web-dev" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-code" style="color:#0a66c2; width:16px;"></i> Công nghệ / IT</span> <span class="filter-count-badge">6.8k</span></label>
-          <label class="filter-option"><input type="checkbox" value="ai-ml" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-brain" style="color:#8b5cf6; width:16px;"></i> AI & Dữ Liệu</span> <span class="filter-count-badge">2.4k</span></label>
-          <label class="filter-option"><input type="checkbox" value="mobile-apps" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-mobile-screen" style="color:#ec4899; width:16px;"></i> Mobile App</span> <span class="filter-count-badge">3.2k</span></label>
-          <label class="filter-option"><input type="checkbox" value="design" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-pen-nib" style="color:#f59e0b; width:16px;"></i> Design / UI-UX</span> <span class="filter-count-badge">3.8k</span></label>
-          <label class="filter-option"><input type="checkbox" value="recruitment" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-user-group" style="color:#10b981; width:16px;"></i> Kinh doanh / HR</span> <span class="filter-count-badge">4.1k</span></label>
+          <label class="filter-option"><input type="checkbox" value="ai-ml" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-brain" style="color:#8b5cf6; width:16px;"></i> AI & Data</span> <span class="filter-count-badge">3.2k</span></label>
+          <label class="filter-option"><input type="checkbox" value="marketing" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-bullhorn" style="color:#ec4899; width:16px;"></i> Marketing / Truyền thông</span> <span class="filter-count-badge">4.5k</span></label>
+          <label class="filter-option"><input type="checkbox" value="design" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-pen-nib" style="color:#f59e0b; width:16px;"></i> Design / UI-UX</span> <span class="filter-count-badge">2.1k</span></label>
+          <label class="filter-option"><input type="checkbox" value="finance" class="browse-cat-filter"> <span class="filter-opt-text"><i class="fa-solid fa-chart-line" style="color:#10b981; width:16px;"></i> Tài chính / Ngân hàng</span> <span class="filter-count-badge">1.9k</span></label>
         </div>
 
         <div class="filter-group">
           <div class="filter-group-label"><i class="fa-solid fa-briefcase"></i> Hình thức làm việc</div>
-          <label class="filter-option"><input type="checkbox" value="Full-Time" class="browse-type-filter"> <span class="filter-opt-text"><i class="fa-solid fa-clock" style="color:#0a66c2; width:16px;"></i> Toàn thời gian</span></label>
-          <label class="filter-option"><input type="checkbox" value="Part-Time" class="browse-type-filter"> <span class="filter-opt-text"><i class="fa-solid fa-calendar-day" style="color:#f59e0b; width:16px;"></i> Bán thời gian</span></label>
-          <label class="filter-option"><input type="checkbox" value="Remote" class="browse-type-filter"> <span class="filter-opt-text"><i class="fa-solid fa-house-laptop" style="color:#10b981; width:16px;"></i> Remote / WFH</span></label>
+          <label class="filter-option"><input type="checkbox" value="Full-Time" class="browse-type-filter"> <span class="filter-opt-text">Toàn thời gian</span></label>
+          <label class="filter-option"><input type="checkbox" value="Remote" class="browse-type-filter"> <span class="filter-opt-text">Remote / Linh hoạt</span></label>
+          <label class="filter-option"><input type="checkbox" value="Part-Time" class="browse-type-filter"> <span class="filter-opt-text">Bán thời gian / Freelance</span></label>
         </div>
 
         <div class="filter-group">
           <div class="filter-group-label"><i class="fa-solid fa-location-dot"></i> Địa điểm làm việc</div>
-          <label class="filter-option"><input type="checkbox" value="hcm" class="browse-loc-filter"> <span class="filter-opt-text"><i class="fa-solid fa-city" style="color:#ef4444; width:16px;"></i> TP. Hồ Chí Minh</span></label>
-          <label class="filter-option"><input type="checkbox" value="hanoi" class="browse-loc-filter"> <span class="filter-opt-text"><i class="fa-solid fa-landmark" style="color:#0a66c2; width:16px;"></i> Hà Nội</span></label>
-          <label class="filter-option"><input type="checkbox" value="danang" class="browse-loc-filter"> <span class="filter-opt-text"><i class="fa-solid fa-bridge" style="color:#06b6d4; width:16px;"></i> Đà Nẵng</span></label>
-          <label class="filter-option"><input type="checkbox" value="bacninh" class="browse-loc-filter"> <span class="filter-opt-text"><i class="fa-solid fa-industry" style="color:#f97316; width:16px;"></i> Bắc Ninh</span></label>
+          <label class="filter-option"><input type="checkbox" value="hanoi" class="browse-loc-filter"> <span class="filter-opt-text">Hà Nội</span></label>
+          <label class="filter-option"><input type="checkbox" value="hcm" class="browse-loc-filter"> <span class="filter-opt-text">TP. Hồ Chí Minh</span></label>
+          <label class="filter-option"><input type="checkbox" value="danang" class="browse-loc-filter"> <span class="filter-opt-text">Đà Nẵng</span></label>
         </div>
 
-        <button class="btn-apply-filters-premium" id="btn-apply-browse-filters">
-          <i class="fa-solid fa-filter"></i> <span>Áp Dụng Lọc</span>
-          <span class="filter-active-count-badge" id="filter-active-badge" style="display:none;">0</span>
-        </button>
-      </aside>
-
-      <!-- Main Results -->
-      <div>
-        <div class="browse-results-header">
-          <div class="browse-results-count">Tìm thấy <span id="browse-results-count">0</span> việc làm</div>
-          <select class="browse-sort-select" id="browse-sort-select">
-            <option value="newest">Mới nhất</option>
-            <option value="salary">Lương cao nhất</option>
-            <option value="applicants">Nhiều ứng viên nhất</option>
+        <div class="filter-group">
+          <div class="filter-group-label"><i class="fa-solid fa-sort"></i> Sắp xếp kết quả</div>
+          <select id="browse-sort-select" style="w-full padding: 8px 12px; border: 1px solid var(--fl-border); border-radius: var(--radius-md); font-size: 13px; color: var(--fl-text-heading); background: #fff;">
+            <option value="newest">Việc làm mới nhất</option>
+            <option value="salary">Mức lương cao nhất</option>
+            <option value="applicants">Nhiều người nộp CV nhất</option>
           </select>
         </div>
-        <div class="projects-feed" id="browse-projects-feed"></div>
-      </div>
+      </aside>
+
+      <!-- Main Job Listings Container -->
+      <main class="browse-jobs-container">
+        <div id="browse-projects-feed" class="projects-feed" style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- Populated by JS -->
+        </div>
+      </main>
     </div>
   </div>
 </section>
@@ -899,7 +989,7 @@
         
         <!-- Col 1: Brand Info -->
         <div>
-          <a href="#" class="brand-logo-red" data-view="home" style="margin-bottom: 8px;">
+          <a href="#" class="brand-logo-red" data-view="browse" style="margin-bottom: 8px;">
             <div class="logo-main-text" style="font-size: 24px;">Vietnam<span>Jobs</span></div>
           </a>
           <p style="font-size: 13.5px; color: #64748b; line-height: 1.5; margin-bottom: 12px;">
@@ -931,7 +1021,7 @@
             <li><a href="#" id="footer-btn-post-job"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--fl-primary);"></i> Đăng Tin Tuyển Dụng</a></li>
             <li><a href="#" id="footer-btn-headhunt"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--fl-primary);"></i> Dịch Vụ Headhunt VIP</a></li>
             <li><a href="#" data-view="dashboard"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--fl-primary);"></i> Quản Lý Hồ Sơ Ứng Viên</a></li>
-            <li><a href="#" data-view="home"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--fl-primary);"></i> Báo Giá Dịch Vụ</a></li>
+            <li><a href="#" data-view="browse"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--fl-primary);"></i> Báo Giá Dịch Vụ</a></li>
           </ul>
         </div>
 
@@ -939,10 +1029,10 @@
         <div>
           <div class="footer-col-title">Hỗ Trợ & Pháp Lý</div>
           <ul class="footer-links-list">
-            <li><a href="#" data-view="home"><i class="fa-solid fa-shield-check" style="font-size: 12px; color: var(--fl-primary);"></i> Quy Chế Hoạt Động</a></li>
-            <li><a href="#" data-view="home"><i class="fa-solid fa-lock" style="font-size: 12px; color: #0284c7;"></i> Chính Sách Bảo Mật</a></li>
-            <li><a href="#" data-view="home"><i class="fa-solid fa-file-contract" style="font-size: 12px; color: #d97706;"></i> Điều Khoản Sử Dụng</a></li>
-            <li><a href="#" data-view="home"><i class="fa-solid fa-circle-question" style="font-size: 12px; color: #7c3aed;"></i> Câu Hỏi Thường Gặp</a></li>
+            <li><a href="#" data-view="browse"><i class="fa-solid fa-shield-check" style="font-size: 12px; color: var(--fl-primary);"></i> Quy Chế Hoạt Động</a></li>
+            <li><a href="#" data-view="browse"><i class="fa-solid fa-lock" style="font-size: 12px; color: #0284c7;"></i> Chính Sách Bảo Mật</a></li>
+            <li><a href="#" data-view="browse"><i class="fa-solid fa-file-contract" style="font-size: 12px; color: #d97706;"></i> Điều Khoản Sử Dụng</a></li>
+            <li><a href="#" data-view="browse"><i class="fa-solid fa-circle-question" style="font-size: 12px; color: #7c3aed;"></i> Câu Hỏi Thường Gặp</a></li>
           </ul>
         </div>
 
@@ -1271,8 +1361,8 @@
   <div id="toast-container"></div>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=20260903_v10"></script>
-  <script src="js/app.js?v=20260903_v10"></script>
+  <script src="js/data.js?v=1789694359_v10"></script>
+  <script src="js/app.js?v=1789694359_v10"></script>
 <!-- Real-Time Activity Notification Toast (Bottom-Left) -->
 <div class="live-activity-toast" id="live-activity-toast">
   <button class="activity-toast-close" id="btn-close-activity-toast" aria-label="Đóng" title="Đóng thông báo">&times;</button>
@@ -1294,7 +1384,7 @@
 <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
 <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menu điều hướng">
   <div class="drawer-logo">Vietnam<span style="color:#191919">Jobs</span></div>
-  <button class="drawer-item" data-view="home"><i class="fa-solid fa-house"></i> Trang Chủ</button>
+  <button class="drawer-item" data-view="browse"><i class="fa-solid fa-house"></i> Trang Chủ</button>
   <button class="drawer-item" data-view="browse"><i class="fa-solid fa-briefcase"></i> Việc Làm Mới</button>
   <button class="drawer-item" data-view="browse"><i class="fa-solid fa-building"></i> Top Công Ty</button>
   <button class="drawer-item" data-view="freelancers"><i class="fa-solid fa-user-tie"></i> Dành Cho Ứng Viên</button>
