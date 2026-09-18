@@ -513,10 +513,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initHRPostSystem();
   initOpportunityTabs();
   loadProjectsFromAPI();
+  const initialHash = window.location.hash ? window.location.hash.replace('#', '') : '';
+  if (['home2', 'browse', 'company', 'salary', 'insights', 'freelancers'].includes(initialHash)) {
+    switchView(initialHash, false);
+  } else {
+    switchView('home', false);
+  }
   handleUrlRouting();
-
-  // Boot the correct default view — HOME with editorial + square jobs
-  switchView('home');
 
   // Listen to browser forward/back & hash change
   window.addEventListener('hashchange', handleUrlRouting);
@@ -611,8 +614,23 @@ document.addEventListener('DOMContentLoaded', () => {
       else btn.classList.remove('active');
     });
 
+    // Sync Choice Buttons (Home 1 vs Home 2)
+    document.querySelectorAll('.wt-choice-btn').forEach(btn => {
+      if (btn.getAttribute('data-view') === viewId) {
+        btn.classList.add('active');
+        btn.style.background = '#0070ba';
+        btn.style.color = '#ffffff';
+        btn.style.borderColor = '#0070ba';
+      } else {
+        btn.classList.remove('active');
+        btn.style.background = '#f8fafc';
+        btn.style.color = '#334155';
+        btn.style.borderColor = '#cbd5e1';
+      }
+    });
+
     if (updateHash && viewId !== 'job-detail') {
-      history.replaceState(null, null, ' ');
+      history.replaceState(null, null, `#${viewId}`);
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -628,6 +646,8 @@ document.addEventListener('DOMContentLoaded', () => {
       renderHomeFeaturedOpportunities();
       renderHomeLatestJobs('all');
       renderHomeMarketNews();
+    } else if (viewId === 'home2') {
+      // Home 2 uses FreightWaves structure with rich embedded editorial & data intelligence
     } else if (viewId === 'browse') {
       renderBrowseProjects();
     } else if (viewId === 'company') {
@@ -642,10 +662,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     URL ROUTING (SUPPORT DIRECT LINK WITH JOB ID)
+     URL ROUTING (SUPPORT DIRECT LINK WITH JOB ID & HASH VIEWS)
      ========================================================================== */
   function handleUrlRouting() {
-    const hash = window.location.hash;
+    const hash = window.location.hash ? window.location.hash.replace('#', '') : '';
     const urlParams = new URLSearchParams(window.location.search);
 
     let jobId = urlParams.get('id');
@@ -657,6 +677,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (jobId) {
       showJobDetail(jobId, false);
+      return;
+    }
+
+    if (hash === 'home2') {
+      switchView('home2', false);
+    } else if (hash === 'home') {
+      switchView('home', false);
+    } else if (hash === 'browse') {
+      switchView('browse', false);
+    } else if (hash === 'salary') {
+      switchView('salary', false);
+    } else if (hash === 'company') {
+      switchView('company', false);
+    } else if (hash === 'insights') {
+      switchView('insights', false);
+    } else if (hash === 'freelancers') {
+      switchView('freelancers', false);
     }
   }
 
