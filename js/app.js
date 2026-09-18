@@ -1,4 +1,344 @@
 
+  /* ==========================================================================
+     SMART-INSPIRED HOMEPAGE RENDERERS (LESS INFORMATION | MORE PREMIUM)
+     ========================================================================== */
+
+  function renderHomeTopEmployers() {
+    const grid = document.getElementById('home-top-employers-grid');
+    if (!grid) return;
+
+    const employers = [
+      { name: 'FPT Software', logo: 'images/brands/fpt.svg', jobsCount: 24, fallback: 'FPT' },
+      { name: 'Viettel Group', logo: 'images/brands/viettel.svg', jobsCount: 18, fallback: 'VTL' },
+      { name: 'Vietcombank', logo: 'images/brands/vcb.svg', jobsCount: 32, fallback: 'VCB' },
+      { name: 'Samsung Vietnam', logo: 'images/brands/samsung.svg', jobsCount: 20, fallback: 'SS' },
+      { name: 'Shopee Vietnam', logo: 'images/brands/shopee.svg', jobsCount: 28, fallback: 'SHP' },
+      { name: 'Vingroup / VinFast', logo: 'images/brands/vingroup.svg', jobsCount: 15, fallback: 'VIN' }
+    ];
+
+    grid.innerHTML = employers.map(emp => `
+      <div class="wt-employer-card" data-company-name="${emp.name}">
+        <div class="wt-employer-logo-box">
+          <img src="${emp.logo}" alt="${emp.name}" class="wt-employer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span style="display:none; font-weight:800; font-size:14px; color:#0c1b2e;">${emp.fallback}</span>
+        </div>
+        <div class="wt-employer-name">${emp.name}</div>
+        <div class="wt-employer-jobs-count">${emp.jobsCount} open jobs <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></div>
+      </div>
+    `).join('');
+
+    grid.querySelectorAll('.wt-employer-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const comp = card.getAttribute('data-company-name');
+        state.filters.search = comp.toLowerCase();
+        switchView('browse');
+        renderBrowseProjects();
+      });
+    });
+  }
+
+  function renderHomeFeaturedOpportunities() {
+    const grid = document.getElementById('home-featured-opps-grid');
+    if (!grid) return;
+
+    const featuredJobs = state.projects.filter(p => p.featured || p.hot).slice(0, 4);
+    if (featuredJobs.length === 0) featuredJobs.push(...state.projects.slice(0, 4));
+
+    grid.innerHTML = featuredJobs.map(p => {
+      const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
+      const logoUrl = resolveBrandLogo(p);
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax} USD` : 'Thỏa thuận');
+      const heroImg = p.heroImage || 'images/project_dashboard.jpg';
+      const descShort = p.description ? (p.description.substring(0, 95) + '...') : 'Cơ hội phát triển sự nghiệp tại tập đoàn công nghệ hàng đầu...';
+
+      return `
+        <div class="wt-featured-card" data-project-id="${p.id}">
+          <div class="wt-featured-img-box">
+            <img src="${heroImg}" alt="${p.title}" class="wt-featured-img" onerror="this.src='images/project_dashboard.jpg'">
+            <div class="wt-featured-badge-overlay">${p.workType || p.type || 'Toàn thời gian'}</div>
+          </div>
+          <div class="wt-featured-body">
+            <div class="wt-featured-meta">
+              <span><strong>${p.company || 'Doanh Nghiệp'}</strong></span>
+              <span>•</span>
+              <span><i class="fa-solid fa-location-dot"></i> ${p.location || 'Hà Nội'}</span>
+            </div>
+            <h4 class="wt-featured-title">${p.title}</h4>
+            <p class="wt-featured-desc">${descShort}</p>
+            <div class="wt-featured-footer">
+              <span class="wt-featured-salary">${salaryText}</span>
+              <span class="wt-featured-action">Chi tiết <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    grid.querySelectorAll('.wt-featured-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const prjId = card.getAttribute('data-project-id');
+        switchView('browse');
+        setTimeout(() => updateJobDetailPreview(prjId), 80);
+      });
+    });
+  }
+
+  function renderHomeLatestJobs(filterKey = 'all') {
+    const grid = document.getElementById('home-smart-jobs-grid');
+    if (!grid) return;
+
+    let filtered = [...state.projects];
+    if (filterKey === 'remote') {
+      filtered = filtered.filter(p => (p.location && p.location.toLowerCase().includes('remote')) || (p.workType && p.workType.toLowerCase().includes('remote')));
+    } else if (filterKey === 'fulltime') {
+      filtered = filtered.filter(p => p.type === 'Full-Time' || (p.workType && p.workType.toLowerCase().includes('toàn thời gian')));
+    } else if (filterKey === 'salary30') {
+      filtered = filtered.filter(p => (p.budgetMin && p.budgetMin >= 1200) || (p.salaryDisplay && (p.salaryDisplay.includes('35') || p.salaryDisplay.includes('40') || p.salaryDisplay.includes('45') || p.salaryDisplay.includes('50'))));
+    } else if (filterKey === 'saved') {
+      filtered = filtered.filter(p => state.savedJobs.has(p.id));
+    }
+
+    const displayJobs = filtered.slice(0, 6);
+
+    if (displayJobs.length === 0) {
+      grid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 16px;">
+          <i class="fa-regular fa-folder-open" style="font-size: 32px; color: #94a3b8; margin-bottom: 12px;"></i>
+          <p style="font-size: 15px; color: #64748b; font-weight: 600;">Không có vị trí phù hợp trong bộ lọc này.</p>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = displayJobs.map(p => {
+      const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
+      const logoUrl = resolveBrandLogo(p);
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax} USD` : 'Thỏa thuận');
+      const isSaved = state.savedJobs.has(p.id);
+
+      return `
+        <div class="wt-smart-job-card" data-project-id="${p.id}">
+          <div>
+            <div class="wt-smart-card-header">
+              <div class="wt-smart-company-group">
+                <div class="wt-smart-logo-box">
+                  <img src="${logoUrl}" alt="${initial}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <span style="display:none; font-weight:800; font-size:12px; color:#0c1b2e;">${initial}</span>
+                </div>
+                <div>
+                  <div class="wt-smart-company-name">${p.company || 'Doanh Nghiệp Tuyển Dụng'}</div>
+                  <div style="font-size: 12px; color: #94a3b8;">${p.timeAgo || p.postedDate || 'Hôm nay'}</div>
+                </div>
+              </div>
+              <button type="button" class="btn-save-job-inline" data-save-id="${p.id}" style="background: none; border: none; cursor: pointer; color: ${isSaved ? '#0044cc' : '#94a3b8'}; font-size: 17px;" title="${isSaved ? 'Đã lưu' : 'Lưu việc'}">
+                <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark"></i>
+              </button>
+            </div>
+
+            <h3 class="wt-smart-title">${p.title}</h3>
+
+            <div class="wt-smart-meta-row">
+              <div class="wt-smart-meta-item">
+                <i class="fa-solid fa-location-dot" style="color: #64748b;"></i>
+                <span>${p.location || 'Hà Nội'}</span>
+              </div>
+              <span>•</span>
+              <div class="wt-smart-meta-item">
+                <i class="fa-solid fa-briefcase" style="color: #64748b;"></i>
+                <span>${p.workType || p.type || 'Toàn thời gian'}</span>
+              </div>
+              ${p.hot ? `<span>•</span><span style="background: #fef2f2; color: #dc2626; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Ưu tiên</span>` : ''}
+            </div>
+          </div>
+
+          <div class="wt-smart-card-footer">
+            <div class="wt-smart-salary">${salaryText}</div>
+            <button type="button" class="wt-smart-apply-btn" data-apply-id="${p.id}">
+              <span>Ứng tuyển</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    grid.querySelectorAll('.wt-smart-job-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-save-job-inline') || e.target.closest('.wt-smart-apply-btn')) return;
+        const prjId = card.getAttribute('data-project-id');
+        switchView('browse');
+        setTimeout(() => updateJobDetailPreview(prjId), 80);
+      });
+    });
+
+    grid.querySelectorAll('.btn-save-job-inline').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const prjId = btn.getAttribute('data-save-id');
+        if (state.savedJobs.has(prjId)) {
+          state.savedJobs.delete(prjId);
+          btn.style.color = '#94a3b8';
+          btn.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+          showToast('Đã bỏ lưu việc làm');
+        } else {
+          state.savedJobs.add(prjId);
+          btn.style.color = '#0044cc';
+          btn.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+          showToast('Đã lưu việc làm vào danh sách quan tâm');
+        }
+        updateSavedCountUI();
+      });
+    });
+
+    grid.querySelectorAll('.wt-smart-apply-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const prjId = btn.getAttribute('data-apply-id');
+        openQuickApplyModal(prjId);
+      });
+    });
+  }
+
+  function renderHomeMarketNews() {
+    const grid = document.getElementById('home-market-news-grid');
+    if (!grid) return;
+
+    const articles = window.initialArticles || [];
+    const displayArts = articles.slice(0, 3);
+
+    grid.innerHTML = displayArts.map(art => `
+      <div class="wt-news-card" data-art-id="${art.id}">
+        <div class="wt-news-img-box">
+          <img src="${art.image}" alt="${art.title}" class="wt-news-img" onerror="this.src='images/project_dashboard.jpg'">
+        </div>
+        <div class="wt-news-body">
+          <div class="wt-news-tag">${art.category || 'Tin Tức'}</div>
+          <h3 class="wt-news-title">${art.title}</h3>
+          <p class="wt-news-summary">${art.summary ? (art.summary.substring(0, 110) + '...') : ''}</p>
+          <div class="wt-news-meta">
+            <span><i class="fa-regular fa-clock"></i> ${art.date || '18/09/2026'}</span>
+            <span>•</span>
+            <span>${art.author || 'WorkThean Media'}</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    grid.querySelectorAll('.wt-news-card').forEach(card => {
+      card.addEventListener('click', () => {
+        switchView('insights');
+      });
+    });
+  }
+
+  function renderInsightsPage() {
+    const leadContainer = document.getElementById('insights-editorial-grid');
+    const topicsContainer = document.getElementById('insights-topics-grid');
+    if (!leadContainer) return;
+
+    const articles = window.initialArticles || [];
+    const leadArt = articles.find(a => a.featured) || articles[0];
+    const topicArts = articles.filter(a => a.id !== (leadArt ? leadArt.id : ''));
+
+    if (leadArt) {
+      leadContainer.innerHTML = `
+        <article class="fw-lead-article" data-article-id="${leadArt.id}">
+          <div class="fw-lead-img-box">
+            <img src="${leadArt.image}" alt="${leadArt.title}" class="fw-lead-img" onerror="this.src='images/hero_team.jpg'">
+          </div>
+          <div class="fw-lead-content">
+            <span class="fw-category-badge">${leadArt.category}</span>
+            <h3 class="fw-article-title">${leadArt.title}</h3>
+            <p class="fw-article-summary">${leadArt.summary}</p>
+            <div class="fw-article-meta">
+              <span><i class="fa-solid fa-user-pen"></i> ${leadArt.author}</span>
+              <span>•</span>
+              <span><i class="fa-regular fa-clock"></i> ${leadArt.date}</span>
+            </div>
+          </div>
+        </article>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          ${topicArts.slice(0, 2).map(a => `
+            <div class="fw-topic-card" style="padding:16px;">
+              <span class="fw-category-badge" style="font-size:10px;">${a.category}</span>
+              <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin:6px 0;">${a.title}</h4>
+              <div style="font-size:12px; color:#64748b;"><i class="fa-regular fa-clock"></i> ${a.date}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    if (topicsContainer) {
+      topicsContainer.innerHTML = topicArts.slice(2).map(a => `
+        <div class="fw-topic-card">
+          <span class="fw-category-badge">${a.category}</span>
+          <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin:8px 0 6px;">${a.title}</h4>
+          <p style="font-size:12.5px; color:#475569; line-height:1.45; margin-bottom:10px;">${a.summary}</p>
+          <div style="font-size:12px; color:#94a3b8;"><i class="fa-regular fa-clock"></i> ${a.date} • ${a.author}</div>
+        </div>
+      `).join('');
+    }
+  }
+
+  function initSmartHomeInteractions() {
+    const searchInput = document.getElementById('hero-search-input');
+    const locationSelect = document.getElementById('hero-search-location');
+    const submitBtn = document.getElementById('btn-hero-search-submit');
+
+    const handleHeroSearch = () => {
+      const q = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      const loc = locationSelect ? locationSelect.value : 'all';
+      state.filters.search = q;
+      state.filters.location = loc;
+      switchView('browse');
+      renderBrowseProjects();
+    };
+
+    submitBtn?.addEventListener('click', handleHeroSearch);
+    searchInput?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleHeroSearch();
+    });
+
+    document.querySelectorAll('[data-topic-search]').forEach(el => {
+      el.addEventListener('click', () => {
+        const kw = el.getAttribute('data-topic-search');
+        state.filters.search = kw.toLowerCase();
+        switchView('browse');
+        renderBrowseProjects();
+      });
+    });
+
+    document.querySelectorAll('#home-latest-filter-pills .wt-filter-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('#home-latest-filter-pills .wt-filter-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const filterKey = pill.getAttribute('data-home-filter');
+        renderHomeLatestJobs(filterKey);
+      });
+    });
+
+    document.getElementById('btn-cta-hire-talent')?.addEventListener('click', () => {
+      const modal = document.getElementById('modal-enterprise-consult');
+      if (modal) modal.classList.add('show');
+    });
+
+    document.getElementById('footer-link-post-job')?.addEventListener('click', openWizardModal);
+    document.getElementById('footer-link-consult')?.addEventListener('click', () => {
+      const modal = document.getElementById('modal-enterprise-consult');
+      if (modal) modal.classList.add('show');
+    });
+  }
+
+  function updateSavedCountUI() {
+    const count = state.savedJobs.size;
+    const pillCount = document.getElementById('home-saved-pill-count');
+    if (pillCount) pillCount.textContent = count;
+    const menuCount = document.getElementById('menu-saved-count');
+    if (menuCount) menuCount.textContent = count;
+  }
+
+
 function createCleanJobCardHTML(p, isSaved) {
   const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
   const logoUrl = resolveBrandLogo(p);
@@ -159,8 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initBrowseFilters();
   initNavigation();
-  initTaobaoSearchTicker();
-  initLiveActivityTicker();
+  initSmartHomeInteractions();
   initMarketInsights();
   initSearch();
   initQuickFilterPills();
@@ -278,13 +617,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    // Sync Top Tier Nav Items
+    document.querySelectorAll('.wt-nav-link').forEach(btn => {
+      if (btn.getAttribute('data-view') === viewId) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+
     if (viewId === 'home') {
-      renderHomeEditorial();
-      renderHomeSquareJobs();
+      renderHomeTopEmployers();
+      renderHomeFeaturedOpportunities();
+      renderHomeLatestJobs('all');
+      renderHomeMarketNews();
     } else if (viewId === 'browse') {
-      renderHomeFeaturedProjects();
+      renderBrowseProjects();
     } else if (viewId === 'company') {
       renderCompanyPage();
+    } else if (viewId === 'salary') {
+      initSalaryCalculator();
+    } else if (viewId === 'insights') {
+      renderInsightsPage();
+    } else if (viewId === 'freelancers') {
+      renderFreelancersDirectory();
     }
   }
 
@@ -1580,7 +1933,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      TAOBAO-STYLE ROTATING SEARCH PLACEHOLDER TICKER
      ========================================================================== */
-  function initTaobaoSearchTicker() {
+  function initTaobaoSearchTicker() { return; // Disabled for clean corporate design
     const searchInputs = [
       document.getElementById('header-search-input'),
       document.getElementById('header-top-search-input'),
@@ -1626,7 +1979,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      HOMEPAGE LIVE ACTIVITY TICKER & MARKET INSIGHTS CONTROLLER
      ========================================================================== */
-  function initLiveActivityTicker() {
+  function initLiveActivityTicker() { return; // Disabled for clean corporate design
     // Check if user previously disabled ticker
     if (localStorage.getItem('vietnamjobs_hide_activity_ticker') === 'true') {
       return;
