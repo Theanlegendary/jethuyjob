@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate App Icons - Design Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0044cc;
+      --slate: #64748b;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+    }
+    body.dark-mode {
+      --bg: #0b1120;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      padding: 40px 20px;
+      transition: all 0.25s ease;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text-main);
+    }
+    .header p {
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-size: 15px;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .btn-toggle {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13.5px;
+      transition: all 0.15s ease;
+    }
+    .btn-toggle:hover {
+      border-color: var(--primary);
+    }
+    .icons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .icon-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 16px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .icon-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px rgba(0, 68, 204, 0.12);
+    }
+    .icon-box {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      background: rgba(0, 68, 204, 0.04);
+      transition: transform 0.2s ease;
+    }
+    .icon-card:hover .icon-box {
+      transform: scale(1.1);
+    }
+    .icon-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .icon-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .copy-badge {
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(0, 68, 204, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Custom Corporate App Icon Set</h1>
+      <p>Theme: Corporate Professional &bull; Palette: #0044cc &bull; Stroke: 1.8px Rounded &bull; Transparent BG</p>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn-toggle" id="toggleTheme">🌓 Toggle Light / Dark</button>
+      <button class="btn-toggle" id="toggleSize">🔍 Toggle Size: 48px</button>
+    </div>
+
+    <div class="icons-grid">
+      <!-- 1. Accounts -->
+      <div class="icon-card" data-icon="accounts">
+        <div class="icon-box">
+          <svg class="preview-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none">
+            <rect x="2" y="4" width="20" height="16" rx="3.5" stroke="#0044cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="7.5" cy="10" r="2.2" stroke="#0044cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.5 15.5C4.8 13.8 6 13 7.5 13C9 13 10.2 13.8 10.5 15.5" stroke="#0044cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="13.5" y1="9" x2="18.5" y2="9" stroke="#64748b" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="13.5" y1="13" x2="17" y2="13" stroke="#64748b" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="icon-name">Accounts</div>
+        <div class="icon-meta">Profile & Card</div>
+        <span class="copy-badge">Click to Copy SVG</span>
+      </div>
+
+      <!-- 2. Transfers -->
+      <div class="icon-card" data-icon="transfers">
+        <div class="icon-box">
+          <svg class="preview-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none">
+            <path d="M4 8.5H18.5M18.5 8.5L14.5 4.5M18.5 8.5L14.5 12.5" stroke="#0044cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 15.5H5.5M5.5 15.5L9.5 11.5M5.5 15.5L9.5 19.5" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="icon-name">Transfers</div>
+        <div class="icon-meta">Dual Arrow Flow</div>
+        <span class="copy-badge">Click to Copy SVG</span>
+      </div>
+
+      <!-- 3. Payments -->
+      <div class="icon-card" data-icon="payments">
+        <div class="icon-box">
+          <svg class="preview-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none">
+            <rect x="2" y="5" width="20" height="14" rx="3" stroke="#0044cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="2" y1="9.5" x2="22" y2="9.5" stroke="#0044cc" stroke-width="1.8"/>
+            <rect x="5" y="12.5" width="3.5" height="3" rx="0.8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.5 12.5C15.2 13.2 15.2 14.3 14.5 15" stroke="#0044cc" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M17 11C18.4 12.4 18.4 14.6 17 16" stroke="#64748b" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="icon-name">Payments</div>
+        <div class="icon-meta">EMV & Contactless</div>
+        <span class="copy-badge">Click to Copy SVG</span>
+      </div>
+
+      <!-- 4. Analytics -->
+      <div class="icon-card" data-icon="analytics">
+        <div class="icon-box">
+          <svg class="preview-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none">
+            <path d="M3 20.5H21" stroke="#64748b" stroke-width="1.8" stroke-linecap="round"/>
+            <rect x="5" y="14" width="3" height="6.5" rx="1" fill="#f1f5f9" stroke="#64748b" stroke-width="1.6" stroke-linejoin="round"/>
+            <rect x="10.5" y="10" width="3" height="10.5" rx="1" fill="#f1f5f9" stroke="#64748b" stroke-width="1.6" stroke-linejoin="round"/>
+            <rect x="16" y="6" width="3" height="14.5" rx="1" fill="#f1f5f9" stroke="#0044cc" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M4.5 12.5L9.5 8L13.5 11L19.5 4M19.5 4H15.5M19.5 4V8" stroke="#0044cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="icon-name">Analytics</div>
+        <div class="icon-meta">Growth & Trend</div>
+        <span class="copy-badge">Click to Copy SVG</span>
+      </div>
+
+      <!-- 5. Favorites -->
+      <div class="icon-card" data-icon="favorites">
+        <div class="icon-box">
+          <svg class="preview-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none">
+            <path d="M12 3.2L14.47 8.2C14.7 8.68 15.16 9.01 15.69 9.09L21.2 9.89C21.99 10.01 22.31 10.98 21.73 11.55L17.74 15.44C17.36 15.81 17.18 16.35 17.27 16.87L18.21 22.36C18.35 23.14 17.53 23.74 16.82 23.37L11.89 20.78C11.42 20.53 10.86 20.53 10.39 20.78L5.46 23.37C4.75 23.74 3.93 23.14 4.07 22.36L5.01 16.87C5.1 16.35 4.92 15.81 4.54 15.44L0.55 11.55C-0.03 10.98 0.29 10.01 1.08 9.89L6.59 9.09C7.12 9.01 7.58 8.68 7.81 8.2L10.28 3.2C10.63 2.49 11.65 2.49 12 3.2Z" stroke="#0044cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="icon-name">Favorites</div>
+        <div class="icon-meta">Smooth Star</div>
+        <span class="copy-badge">Click to Copy SVG</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copied SVG to clipboard!</div>
+
+  <script>
+    const themeBtn = document.getElementById('toggleTheme');
+    const sizeBtn = document.getElementById('toggleSize');
+    const toast = document.getElementById('toast');
+    let isDark = false;
+    let currentSize = 48;
+
+    themeBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      document.body.classList.toggle('dark-mode', isDark);
+    });
+
+    sizeBtn.addEventListener('click', () => {
+      currentSize = currentSize === 48 ? 24 : (currentSize === 24 ? 32 : 48);
+      sizeBtn.textContent = `🔍 Toggle Size: ${currentSize}px`;
+      document.querySelectorAll('.preview-svg').forEach(svg => {
+        svg.setAttribute('width', currentSize);
+        svg.setAttribute('height', currentSize);
+      });
+    });
+
+    document.querySelectorAll('.icon-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const svgContent = card.querySelector('svg').outerHTML;
+        navigator.clipboard.writeText(svgContent).then(() => {
+          showToast(`Copied ${card.dataset.icon}.svg code!`);
+        });
+      });
+    });
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+  </script>
+</body>
+</html>
