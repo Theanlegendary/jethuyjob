@@ -126,6 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
     categories: [...initialCategories],
     notifications: [...initialNotifications],
     savedJobs: new Set(['prj-100', 'prj-101']),
+    newsFilter: 'all',
+    opportunityFilter: 'all',
+    articles: (function() {
+      try {
+        const saved = localStorage.getItem('workthean_articles');
+        return saved ? JSON.parse(saved) : [...initialArticles];
+      } catch(e) {
+        return [...initialArticles];
+      }
+    })(),
     quickFilter: 'all',
     attachedCVFile: null,
     companies: [],
@@ -161,6 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initPostJobWizard();
   initAuthSystem();
   initFreelancersDirectory();
+  initHRPostSystem();
+  initOpportunityTabs();
   loadProjectsFromAPI();
   handleUrlRouting();
 
@@ -1065,6 +1077,10 @@ document.addEventListener('DOMContentLoaded', () => {
         (p.company || '').toLowerCase().includes(q) ||
         (p.skills || []).some(s => s.toLowerCase().includes(q))
       );
+    }
+
+    if (state.opportunityFilter && state.opportunityFilter !== 'all') {
+      projects = projects.filter(p => p.opportunityType === state.opportunityFilter);
     }
 
     if (sortVal === 'salary') projects.sort((a, b) => (b.budgetMax || 0) - (a.budgetMax || 0));

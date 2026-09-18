@@ -82,7 +82,9 @@ const initialProjects = [
         "pitch": "Chuyên gia Microservices và Kafka hiệu năng cao.",
         "timeAgo": "30 phút trước"
       }
-    ]
+    ],
+    "heroImage": "images/project_dashboard.jpg",
+    "opportunityType": "job"
   },
   {
     "id": "prj-101",
@@ -147,7 +149,9 @@ const initialProjects = [
         "pitch": "Thạc sĩ Khoa học Dữ liệu 7 năm kinh nghiệm FinTech.",
         "timeAgo": "2 giờ trước"
       }
-    ]
+    ],
+    "heroImage": "images/hero_team.jpg",
+    "opportunityType": "job"
   },
   {
     "id": "prj-102",
@@ -211,7 +215,9 @@ const initialProjects = [
         "pitch": "Senior Frontend Lead 8 năm kinh nghiệm React/Next.js.",
         "timeAgo": "4 giờ trước"
       }
-    ]
+    ],
+    "heroImage": "images/project_mobile.jpg",
+    "opportunityType": "job"
   },
   {
     "id": "prj-103",
@@ -276,7 +282,9 @@ const initialProjects = [
         "pitch": "Từng lead phát triển 3 ứng dụng Fintech top store.",
         "timeAgo": "1 ngày trước"
       }
-    ]
+    ],
+    "heroImage": "images/news_tv360.jpg",
+    "opportunityType": "job"
   },
   {
     "id": "prj-104",
@@ -311,7 +319,9 @@ const initialProjects = [
     "clientHireRate": "90%",
     "clientMemberSince": "Năm 2015",
     "featured": true,
-    "logoUrl": "images/brands/shopee.svg"
+    "logoUrl": "images/brands/shopee.svg",
+    "heroImage": "images/news_emoney.jpg",
+    "opportunityType": "intern"
   },
   {
     "id": "prj-105",
@@ -346,7 +356,9 @@ const initialProjects = [
     "clientHireRate": "95%",
     "clientMemberSince": "Năm 2014",
     "featured": false,
-    "logoUrl": "images/brands/momo.svg"
+    "logoUrl": "images/brands/momo.svg",
+    "heroImage": "images/news_camid.jpg",
+    "opportunityType": "job"
   },
   {
     "id": "prj-106",
@@ -381,7 +393,9 @@ const initialProjects = [
     "clientHireRate": "92%",
     "clientMemberSince": "Năm 2012",
     "featured": true,
-    "logoUrl": "images/brands/tiki.svg"
+    "logoUrl": "images/brands/tiki.svg",
+    "heroImage": "images/project_dashboard.jpg",
+    "opportunityType": "scholarship"
   },
   {
     "id": "prj-107",
@@ -415,7 +429,9 @@ const initialProjects = [
     "clientHireRate": "88%",
     "clientMemberSince": "Năm 2017",
     "featured": false,
-    "logoUrl": "images/brands/vinfast.svg"
+    "logoUrl": "images/brands/vinfast.svg",
+    "heroImage": "images/hero_team.jpg",
+    "opportunityType": "intern"
   },
   {
     "id": "prj-108",
@@ -450,7 +466,9 @@ const initialProjects = [
     "clientHireRate": "94%",
     "clientMemberSince": "Năm 2014",
     "featured": true,
-    "logoUrl": "images/brands/kiotviet.svg"
+    "logoUrl": "images/brands/kiotviet.svg",
+    "heroImage": "images/project_mobile.jpg",
+    "opportunityType": "job"
   },
   {
     "id": "prj-109",
@@ -485,7 +503,9 @@ const initialProjects = [
     "clientHireRate": "96%",
     "clientMemberSince": "Năm 2011",
     "featured": false,
-    "logoUrl": "images/brands/vnpay.svg"
+    "logoUrl": "images/brands/vnpay.svg",
+    "heroImage": "images/news_tv360.jpg",
+    "opportunityType": "scholarship"
   },
   {
     "id": "prj-110",
@@ -519,7 +539,9 @@ const initialProjects = [
     "clientHireRate": "93%",
     "clientMemberSince": "Năm 2014",
     "featured": false,
-    "logoUrl": "images/brands/grab.svg"
+    "logoUrl": "images/brands/grab.svg",
+    "heroImage": "images/news_emoney.jpg",
+    "opportunityType": "job"
   },
   {
     "id": "prj-111",
@@ -553,7 +575,9 @@ const initialProjects = [
     "clientHireRate": "98%",
     "clientMemberSince": "Năm 2008",
     "featured": true,
-    "logoUrl": "images/brands/samsung.svg"
+    "logoUrl": "images/brands/samsung.svg",
+    "heroImage": "images/news_camid.jpg",
+    "opportunityType": "intern"
   },
   {
     "id": "prj-112",
@@ -588,7 +612,9 @@ const initialProjects = [
     "clientHireRate": "91%",
     "clientMemberSince": "Năm 2008",
     "featured": false,
-    "logoUrl": "images/brands/axon.svg"
+    "logoUrl": "images/brands/axon.svg",
+    "heroImage": "images/project_dashboard.jpg",
+    "opportunityType": "scholarship"
   },
   {
     "id": "prj-113",
@@ -623,7 +649,9 @@ const initialProjects = [
     "clientHireRate": "92%",
     "clientMemberSince": "Năm 2010",
     "featured": true,
-    "logoUrl": "images/brands/vpbank.svg"
+    "logoUrl": "images/brands/vpbank.svg",
+    "heroImage": "images/hero_team.jpg",
+    "opportunityType": "job"
   },
   {
     "id": "prj-114",
@@ -658,9 +686,12 @@ const initialProjects = [
     "clientVerified": true,
     "clientHireRate": "96%",
     "clientMemberSince": "Năm 2004",
-    "featured": false
+    "featured": false,
+    "heroImage": "images/project_mobile.jpg",
+    "opportunityType": "job"
   }
 ];
+
 
 const initialFreelancers = [
   {
@@ -878,96 +909,155 @@ const initialChatThreads = [
 
 const initialArticles = [
   {
-    id: "art-101",
-    type: "editor",
-    category: "Thị Trường",
-    title: "Khảo sát tuyển dụng Q3/2026: Nhu cầu nhân sự IT & AI tăng vọt tại Đông Nam Á",
-    summary: "Báo cáo mới nhất từ Hiệp hội Công nghệ chỉ ra mức tăng trưởng 34% nhu cầu nhân lực AI, Data Engineering và Cloud Architecture.",
-    author: "Ban Biên Tập WorkThean",
-    date: "18 Tháng 9, 2026",
-    readTime: "4 phút đọc",
-    image: "images/project_dashboard.jpg",
-    featured: true
+    "id": "art-101",
+    "type": "editor",
+    "topic": "market",
+    "category": "Thời Sự Tuyển Dụng",
+    "title": "Khảo sát thị trường lao động Q3/2026: Nhu cầu nhân sự IT & AI tăng vọt 34% tại Đông Nam Á",
+    "summary": "Báo cáo mới nhất từ Hiệp hội Công nghệ chỉ ra sự bùng nổ nhu cầu nhân lực AI, Data Engineering và Cloud Architecture, với mức lương khởi điểm tăng mạnh.",
+    "author": "Ban Biên Tập WorkThean",
+    "authorRole": "Managing Editor",
+    "date": "18 Tháng 9, 2026",
+    "readTime": "4 phút đọc",
+    "image": "images/project_dashboard.jpg",
+    "featured": true
   },
   {
-    id: "art-102",
-    type: "company",
-    category: "Giới thiệu Sản Phẩm",
-    companyName: "FPT Software",
-    title: "FPT Software ra mắt nền tảng Cloud AI Enterprise giúp tối ưu hóa 40% quy trình vận hành",
-    summary: "Giải pháp đám mây thế hệ mới được ứng dụng tại hơn 50 tập đoàn đa quốc gia thuộc danh sách Fortune 500.",
-    author: "Đội Ngũ Truyền Thông FPT",
-    date: "17 Tháng 9, 2026",
-    readTime: "5 phút đọc",
-    image: "images/hero_team.jpg",
-    featured: false
+    "id": "art-102",
+    "type": "company",
+    "topic": "product",
+    "category": "Giới Thiệu Sản Phẩm",
+    "companyName": "FPT Software",
+    "title": "FPT Software ra mắt nền tảng Cloud AI Enterprise giúp tối ưu hóa 40% quy trình vận hành",
+    "summary": "Giải pháp đám mây thế hệ mới được ứng dụng tại hơn 50 tập đoàn đa quốc gia thuộc Fortune 500, mở ra hàng trăm vị trí kỹ sư AI tại Việt Nam.",
+    "author": "Phòng Truyền Thông FPT",
+    "authorRole": "HR & Marketing Lead",
+    "date": "17 Tháng 9, 2026",
+    "readTime": "5 phút đọc",
+    "image": "images/hero_team.jpg",
+    "featured": false
   },
   {
-    id: "art-103",
-    type: "expert",
-    category: "Chuyên Gia",
-    title: "Xây dựng Văn Hóa Doanh Nghiệp trong Thời Đại Làm Việc Hybrid & Remote",
-    summary: "Bài viết chuyên sâu từ Tiến sĩ Nguyễn Văn Nam (Chuyên gia Quản trị Nhân sự Tập đoàn Vingroup) về chiến lược giữ chân nhân tài.",
-    author: "TS. Nguyễn Văn Nam",
-    date: "16 Tháng 9, 2026",
-    readTime: "7 phút đọc",
-    image: "images/news_emoney.jpg",
-    featured: false
+    "id": "art-103",
+    "type": "expert",
+    "topic": "management",
+    "category": "Góc Chuyên Gia",
+    "title": "Xây dựng Văn Hóa Doanh Nghiệp & Giữ Chân Nhân Tài Trong Kỷ Nguyên Hybrid Work",
+    "summary": "Bài viết chuyên sâu từ Tiến sĩ Nguyễn Văn Nam (Chuyên gia Quản trị Nhân sự Tập đoàn Vingroup) chia sẻ 5 trụ cột then chốt giữ chân người tài.",
+    "author": "TS. Nguyễn Văn Nam",
+    "authorRole": "Phó Tổng Giám Đốc Nhân Sự Vingroup",
+    "date": "16 Tháng 9, 2026",
+    "readTime": "7 phút đọc",
+    "image": "images/news_emoney.jpg",
+    "featured": false
   },
   {
-    id: "art-104",
-    type: "company",
-    category: "Công Nghệ & Dịch Vụ",
-    companyName: "Viettel Solutions",
-    title: "Viettel ra mắt hệ sinh thái hạ tầng 5G Private cho các khu công nghiệp thông minh",
-    summary: "Hạ tầng mạng di động dùng riêng giúp đảm bảo an ninh dữ liệu tuyệt đối cho các nhà máy sản xuất quy mô lớn.",
-    author: "PR Viettel Solutions",
-    date: "15 Tháng 9, 2026",
-    readTime: "3 phút đọc",
-    image: "images/news_tv360.jpg",
-    featured: false
+    "id": "art-104",
+    "type": "company",
+    "topic": "technology",
+    "category": "Công Nghệ & Hạ Tầng",
+    "companyName": "Viettel Solutions",
+    "title": "Viettel ra mắt hệ sinh thái hạ tầng 5G Private cho các khu công nghiệp thông minh",
+    "summary": "Hạ tầng mạng di động dùng riêng giúp đảm bảo an ninh dữ liệu tuyệt đối cho các nhà máy sản xuất tự động hóa quy mô lớn trên toàn quốc.",
+    "author": "Đội Ngũ HR Viettel",
+    "authorRole": "Employer Branding Manager",
+    "date": "15 Tháng 9, 2026",
+    "readTime": "3 phút đọc",
+    "image": "images/news_tv360.jpg",
+    "featured": false
   },
   {
-    id: "art-105",
-    type: "editor",
-    category: "Đào Tạo & Kỹ Năng",
-    title: "Bộ kỹ năng bắt buộc phải có cho Kỹ sư Phần mềm năm 2026",
-    summary: "Tổng hợp đánh giá từ 500 Giám đốc Công nghệ (CTO) về sự chuyển dịch yêu cầu chuyên môn từ Coding sang System Design & AI Integration.",
-    author: "Ban Biên Tập WorkThean",
-    date: "14 Tháng 9, 2026",
-    readTime: "6 phút đọc",
-    image: "images/news_camid.jpg",
-    featured: false
+    "id": "art-105",
+    "type": "editor",
+    "topic": "salary",
+    "category": "Báo Cáo Đãi Ngộ",
+    "title": "Báo Cáo Lương & Phúc Lợi Ngành Công Nghệ 2026: Xu hướng và thang đo mức thu nhập",
+    "summary": "Tổng hợp đánh giá từ 500 Giám đốc Công nghệ (CTO) về mặt bằng thu nhập thực tế, chính sách cổ phần ESOP và các khoản thưởng hiệu suất.",
+    "author": "Ban Biên Tập WorkThean",
+    "authorRole": "Market Research Team",
+    "date": "14 Tháng 9, 2026",
+    "readTime": "6 phút đọc",
+    "image": "images/news_camid.jpg",
+    "featured": false
+  },
+  {
+    "id": "art-106",
+    "type": "company",
+    "topic": "services",
+    "category": "Dịch Vụ Doanh Nghiệp",
+    "companyName": "MoMo Fintech",
+    "title": "MoMo công bố giải pháp Chi Lương Tức Thì & Phúc Lợi Số cho 100,000 lao động Việt",
+    "summary": "Nền tảng giúp người lao động nhận lương linh hoạt theo ngày công thực tế, tăng 65% sự hài lòng và mức độ gắn kết với doanh nghiệp.",
+    "author": "MoMo Enterprise Solutions",
+    "authorRole": "B2B Marketing Lead",
+    "date": "13 Tháng 9, 2026",
+    "readTime": "4 phút đọc",
+    "image": "images/project_mobile.jpg",
+    "featured": false
+  },
+  {
+    "id": "art-107",
+    "type": "expert",
+    "topic": "career",
+    "category": "Góc Chuyên Gia",
+    "title": "Tương Lai Của Nghề Nhân Sự: Khi Trí Tuệ Nhân Tạo Tự Động Hóa Khâu Quét Hồ Sơ",
+    "summary": "Góc nhìn phân tích từ Thạc sĩ Lê Hoàng Yến về cách các ứng viên vượt qua hệ thống ATS và chuẩn bị năng lực tư duy phản biện.",
+    "author": "ThS. Lê Hoàng Yến",
+    "authorRole": "Chuyên gia Đào tạo & Khai vấn Lãnh đạo",
+    "date": "12 Tháng 9, 2026",
+    "readTime": "5 phút đọc",
+    "image": "images/hero_team.jpg",
+    "featured": false
   }
 ];
 
 const initialCompanyArticles = [
   {
-    id: "comp-art-1",
-    company: "Samsung Vietnam",
-    logo: "images/brands/samsung.svg",
-    title: "Samsung mở rộng trung tâm R&D tại Hà Nội, tuyển dụng 500 kỹ sư nghiên cứu AI",
-    date: "18 Tháng 9, 2026",
-    category: "Tuyển Dụng & Đầu Tư",
-    summary: "Trung tâm R&D lớn nhất khu vực Đông Nam Á của Samsung tăng tốc đầu tư các dự án trí tuệ nhân tạo thế hệ mới."
+    "id": "comp-art-1",
+    "company": "Samsung Vietnam",
+    "logo": "images/brands/samsung.svg",
+    "title": "Samsung mở rộng trung tâm R&D tại Hà Nội, tuyển dụng 500 kỹ sư nghiên cứu AI",
+    "date": "18 Tháng 9, 2026",
+    "category": "Đầu Tư & Tuyển Dụng",
+    "author": "Văn Phòng Báo Chí Samsung",
+    "readTime": "5 phút",
+    "summary": "Trung tâm R&D lớn nhất khu vực Đông Nam Á của Samsung tăng tốc đầu tư các dự án trí tuệ nhân tạo thế hệ mới, mở rộng chỉ tiêu tuyển sinh viên xuất sắc.",
+    "fullStory": "Samsung Electronics Việt Nam vừa chính thức công bố kế hoạch mở rộng năng lực nghiên cứu phát triển tại Trung tâm R&D Hà Nội, tập trung vào mô hình học sâu, bán dẫn và thiết bị IoT thông minh."
   },
   {
-    id: "comp-art-2",
-    company: "Nike Vietnam",
-    logo: "images/brands/nike.svg",
-    title: "Nike thúc đẩy mô hình chuỗi cung ứng xanh và sản xuất bền vững tại Việt Nam",
-    date: "17 Tháng 9, 2026",
-    category: "Bền Vững & Chuỗi Cung Ứng",
-    summary: "Mở rộng cơ hội việc làm quản lý chất lượng và kỹ sư môi trường cho hệ thống đối tác toàn quốc."
+    "id": "comp-art-2",
+    "company": "Nike Vietnam",
+    "logo": "images/brands/nike.svg",
+    "title": "Nike thúc đẩy mô hình chuỗi cung ứng xanh và sản xuất bền vững tại Việt Nam",
+    "date": "17 Tháng 9, 2026",
+    "category": "Bền Vững & Chuỗi Cung Ứng",
+    "author": "Nike Sustainability Team",
+    "readTime": "4 phút",
+    "summary": "Mở rộng cơ hội việc làm quản lý chất lượng và kỹ sư môi trường cho hệ thống đối tác sản xuất trên toàn quốc, hướng tới mục tiêu phát thải ròng bằng 0.",
+    "fullStory": "Chương trình Move to Zero của Nike tiếp tục được đẩy mạnh tại các nhà máy đối tác chiến lược ở Đồng Nai và Bình Dương với cam kết chuyển đổi 100% năng lượng tái tạo."
   },
   {
-    id: "comp-art-3",
-    company: "L'Oréal Vietnam",
-    logo: "images/brands/loreal.svg",
-    title: "L'Oréal công bố chương trình Nhà Lãnh Đạo Tương Lai 2026 dành cho Sinh viên",
-    date: "16 Tháng 9, 2026",
-    category: "Học Bổng & Quản TV Tập Sự",
-    summary: "Chương trình luân chuyển công tác quốc tế 18 tháng tại Paris và Singapore dành cho các tài năng trẻ xuất sắc."
+    "id": "comp-art-3",
+    "company": "L'Oréal Vietnam",
+    "logo": "images/brands/loreal.svg",
+    "title": "L'Oréal công bố chương trình Nhà Lãnh Đạo Tương Lai 2026 dành cho Sinh viên",
+    "date": "16 Tháng 9, 2026",
+    "category": "Học Bổng & Quản Trị Viên Tập Sự",
+    "author": "Talent Acquisition L'Oréal",
+    "readTime": "4 phút",
+    "summary": "Chương trình luân chuyển công tác quốc tế 18 tháng tại Paris và Singapore dành cho các tài năng trẻ xuất sắc ngành Marketing và Chuỗi cung ứng.",
+    "fullStory": "Chương trình Management Trainee 2026 của L'Oréal mang đến lộ trình thăng tiến nhanh cho các bạn trẻ mới tốt nghiệp, kèm mức lương cạnh tranh và cơ hội đào tạo tại châu Âu."
+  },
+  {
+    "id": "comp-art-4",
+    "company": "Tập Đoàn Vingroup",
+    "logo": "images/brands/vingroup.svg",
+    "title": "VinFast mở rộng mạng lưới trạm sạc xe điện thông minh và trung tâm phần mềm toàn cầu",
+    "date": "15 Tháng 9, 2026",
+    "category": "Công Nghệ & Hạ Tầng Xanh",
+    "author": "Ban Truyền Thông Vingroup",
+    "readTime": "6 phút",
+    "summary": "Tuyển dụng 300 kỹ sư Embedded Systems, Autonomous Driving và DevOps phục vụ thị trường Bắc Mỹ, Châu Âu và Đông Nam Á.",
+    "fullStory": "VinFast tiếp tục khẳng định vị thế dẫn đầu trong chuyển đổi di chuyển xanh khi triển khai đồng loạt các trung tâm dịch vụ và trung tâm công nghệ cao tại Hà Nội và Hải Phòng."
   }
 ];
-
