@@ -1,17 +1,26 @@
 {
-  "name": "freelancer-clone",
-  "version": "1.0.0",
-  "description": "Full-Stack Freelancer.com Web UI Clone",
-  "main": "server/server.js",
+  "name": "workthean",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "node server/server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "socket.io": "^4.8.3",
-    "sqlite3": "^6.0.1"
+    "lucide-react": "^0.312.0",
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.9.3"
   }
 }
