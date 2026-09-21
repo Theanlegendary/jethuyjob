@@ -1,19 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/:match*",
-      "destination": "/api/index.js"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    }
-  ]
+  "framework": "nextjs",
+  "outputDirectory": ".next"
 }
