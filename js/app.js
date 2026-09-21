@@ -1,31 +1,188 @@
 
+/* ==========================================================================
+   GLOBAL BRAND LOGO LOOKUP & CENTRAL APPLICATION STATE
+   ========================================================================== */
+var brandLogoLookup = {
+  'fpt': 'images/brands/fpt.svg',
+  'vietcombank': 'images/brands/vcb.svg',
+  'vcb': 'images/brands/vcb.svg',
+  'vingroup': 'images/brands/vinfast.svg',
+  'vinfast': 'images/brands/vinfast.svg',
+  'vf': 'images/brands/vinfast.svg',
+  'viettel': 'images/brands/viettel.svg',
+  'vtl': 'images/brands/viettel.svg',
+  'shopee': 'images/brands/shopee.svg',
+  'shp': 'images/brands/shopee.svg',
+  'momo': 'images/brands/momo.svg',
+  'tiki': 'images/brands/tiki.svg',
+  'kiotviet': 'images/brands/kiotviet.svg',
+  'kiot': 'images/brands/kiotviet.svg',
+  'vnpay': 'images/brands/vnpay.svg',
+  'grab': 'images/brands/grab.svg',
+  'samsung': 'images/brands/samsung.svg',
+  'ss': 'images/brands/samsung.svg',
+  'axon': 'images/brands/axon.svg',
+  'vpbank': 'images/brands/vpbank.svg',
+  'vpbs': 'images/brands/vpbank.svg',
+  'vng': 'images/brands/vng.svg',
+  'nike': 'images/brands/nike.svg',
+  'zara': 'images/brands/zara.svg',
+  'loreal': 'images/brands/loreal.svg',
+  'unilever': 'images/brands/unilever.svg',
+  'adidas': 'images/brands/adidas.svg'
+};
+
+function resolveBrandLogo(p) {
+  if (!p) return 'images/brands/fpt.svg';
+  if (p.logoUrl && p.logoUrl.startsWith('images/brands/')) return p.logoUrl;
+  const comp = ((p.company || p.clientName || '') + ' ' + (p.title || '')).toLowerCase();
+  for (const [key, path] of Object.entries(brandLogoLookup)) {
+    if (comp.includes(key)) return path;
+  }
+  const type = (p.logoType || '').toLowerCase();
+  for (const [key, path] of Object.entries(brandLogoLookup)) {
+    if (type.includes(key) || key.includes(type)) return path;
+  }
+  return p.logoUrl || 'images/brands/fpt.svg';
+}
+
+window.state = window.state || {
+  lang: "en",
+  currentView: 'home',
+  mode: 'work',
+  projects: (typeof initialProjects !== 'undefined') ? [...initialProjects] : [],
+  freelancers: (typeof initialFreelancers !== 'undefined') ? [...initialFreelancers] : [],
+  categories: (typeof initialCategories !== 'undefined') ? [...initialCategories] : [],
+  notifications: (typeof initialNotifications !== 'undefined') ? [...initialNotifications] : [],
+  savedJobs: new Set(['prj-100', 'prj-101']),
+  newsFilter: 'all',
+  opportunityFilter: 'all',
+  articles: (typeof initialArticles !== 'undefined') ? [...initialArticles] : [],
+  quickFilter: 'all',
+  attachedCVFile: null,
+  companies: [],
+  escrowLedger: [],
+  selectedProject: null,
+  filters: {
+    search: '',
+    category: 'all',
+    location: 'all',
+    type: 'all',
+    minBudget: 0,
+    maxBudget: 100000000,
+    skills: []
+  }
+};
+var state = window.state;
+
   /* ==========================================================================
      SMART-INSPIRED HOMEPAGE RENDERERS (LESS INFORMATION | MORE PREMIUM)
      ========================================================================== */
 
-  function renderHomeTopEmployers() {
+    function renderHomeTopEmployers() {
     const grid = document.getElementById('home-top-employers-grid');
     if (!grid) return;
 
-    const employers = [
-      { name: 'FPT Software', logo: 'images/brands/fpt.svg', jobsCount: 24, fallback: 'FPT' },
-      { name: 'Viettel Group', logo: 'images/brands/viettel.svg', jobsCount: 18, fallback: 'VTL' },
-      { name: 'Vietcombank', logo: 'images/brands/vcb.svg', jobsCount: 32, fallback: 'VCB' },
-      { name: 'Samsung Vietnam', logo: 'images/brands/samsung.svg', jobsCount: 20, fallback: 'SS' },
-      { name: 'Shopee Vietnam', logo: 'images/brands/shopee.svg', jobsCount: 28, fallback: 'SHP' },
-      { name: 'Vingroup / VinFast', logo: 'images/brands/vingroup.svg', jobsCount: 15, fallback: 'VIN' }
+    const employerData = [
+      {
+        name: 'FPT Software',
+        logo: 'images/brands/fpt.svg',
+        fallback: 'FPT',
+        jobsCount: 24,
+        featuredJobs: [
+          { id: 'prj-100', title: 'Senior Backend Engineer (Java / Spring Boot)', salary: '25 – 45 triệu/tháng', location: 'Hà Nội' },
+          { id: 'prj-104', title: 'AI & Data Science Lead', salary: '45 – 75 triệu/tháng', location: 'TP. HCM' }
+        ]
+      },
+      {
+        name: 'Viettel Group',
+        logo: 'images/brands/viettel.svg',
+        fallback: 'VTL',
+        jobsCount: 18,
+        featuredJobs: [
+          { id: 'prj-101', title: 'Senior Cloud Platform & DevOps Architect', salary: '30 – 55 triệu/tháng', location: 'Hà Nội' },
+          { id: 'prj-105', title: 'Cyber Security Specialist', salary: '28 – 50 triệu/tháng', location: 'Hà Nội' }
+        ]
+      },
+      {
+        name: 'Vietcombank',
+        logo: 'images/brands/vcb.svg',
+        fallback: 'VCB',
+        jobsCount: 32,
+        featuredJobs: [
+          { id: 'prj-102', title: 'Core Banking System Lead (Microservices)', salary: '35 – 60 triệu/tháng', location: 'Hà Nội' },
+          { id: 'prj-106', title: 'Fintech Solutions Architect', salary: '40 – 70 triệu/tháng', location: 'TP. HCM' }
+        ]
+      },
+      {
+        name: 'Samsung Vietnam',
+        logo: 'images/brands/samsung.svg',
+        fallback: 'SS',
+        jobsCount: 20,
+        featuredJobs: [
+          { id: 'prj-103', title: 'Mobile Systems QA & Automation Lead', salary: '22 – 40 triệu/tháng', location: 'Bắc Ninh' },
+          { id: 'prj-107', title: 'Embedded Firmware Specialist', salary: '25 – 45 triệu/tháng', location: 'Hà Nội' }
+        ]
+      },
+      {
+        name: 'Shopee Vietnam',
+        logo: 'images/brands/shopee.svg',
+        fallback: 'SHP',
+        jobsCount: 28,
+        featuredJobs: [
+          { id: 'prj-108', title: 'Principal Data Engineer (Big Data / Spark)', salary: '40 – 75 triệu/tháng', location: 'TP. HCM' },
+          { id: 'prj-109', title: 'Senior Product Designer (UX/UI)', salary: '25 – 42 triệu/tháng', location: 'TP. HCM' }
+        ]
+      },
+      {
+        name: 'Vingroup / VinFast',
+        logo: 'images/brands/vingroup.svg',
+        fallback: 'VIN',
+        jobsCount: 15,
+        featuredJobs: [
+          { id: 'prj-110', title: 'Automotive Embedded Systems Engineer', salary: '30 – 55 triệu/tháng', location: 'Hải Phòng' },
+          { id: 'prj-111', title: 'EV Battery Management System Lead', salary: '45 – 80 triệu/tháng', location: 'Hà Nội' }
+        ]
+      }
     ];
 
-    grid.innerHTML = employers.map(emp => `
-      <div class="wt-employer-card" data-company-name="${emp.name}">
-        <div class="wt-employer-logo-box">
-          <img src="${emp.logo}" alt="${emp.name}" class="wt-employer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <span style="display:none; font-weight:800; font-size:14px; color:#0c1b2e;">${emp.fallback}</span>
+    grid.innerHTML = employerData.map(emp => `
+      <div class="wt-employer-card borderless" data-company-name="${emp.name}">
+        <div class="wt-employer-header">
+          <div class="wt-employer-logo-box">
+            <img src="${emp.logo}" alt="${emp.name}" class="wt-employer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span style="display:none; font-weight:700; font-size:13px; color:#0f172a;">${emp.fallback}</span>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <div class="wt-employer-name">${emp.name}</div>
+            <div class="wt-employer-jobs-count">${emp.jobsCount} vị trí đang tuyển <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></div>
+          </div>
         </div>
-        <div class="wt-employer-name">${emp.name}</div>
-        <div class="wt-employer-jobs-count">${emp.jobsCount} open jobs <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></div>
+
+        <div class="wt-employer-jobs-list">
+          <div style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">Cơ hội tiêu biểu:</div>
+          ${emp.featuredJobs.map(job => `
+            <div class="wt-employer-job-item" data-project-id="${job.id}">
+              <div class="wt-employer-job-title">${job.title}</div>
+              <div class="wt-employer-job-meta">
+                <span class="wt-employer-job-salary">${job.salary}</span>
+                <span>•</span>
+                <span>${job.location}</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
       </div>
     `).join('');
+
+    grid.querySelectorAll('.wt-employer-job-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const prjId = item.getAttribute('data-project-id');
+        switchView('browse');
+        setTimeout(() => updateJobDetailPreview(prjId), 80);
+      });
+    });
 
     grid.querySelectorAll('.wt-employer-card').forEach(card => {
       card.addEventListener('click', () => {
@@ -37,38 +194,52 @@
     });
   }
 
-  function renderHomeFeaturedOpportunities() {
+      function renderHomeFeaturedOpportunities() {
     const grid = document.getElementById('home-featured-opps-grid');
     if (!grid) return;
 
-    const featuredJobs = state.projects.filter(p => p.featured || p.hot).slice(0, 4);
-    if (featuredJobs.length === 0) featuredJobs.push(...state.projects.slice(0, 4));
+    const projectList = (typeof state !== 'undefined' && state.projects && state.projects.length > 0) 
+      ? state.projects 
+      : (typeof initialProjects !== 'undefined' ? initialProjects : []);
+
+    const featuredJobs = projectList.filter(p => p.featured || p.hot).slice(0, 4);
+    if (featuredJobs.length === 0 && projectList.length > 0) {
+      featuredJobs.push(...projectList.slice(0, 4));
+    }
+
+    if (featuredJobs.length === 0) return;
 
     grid.innerHTML = featuredJobs.map(p => {
       const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
       const logoUrl = resolveBrandLogo(p);
-      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax} USD` : 'Thỏa thuận');
-      const heroImg = p.heroImage || 'images/project_dashboard.jpg';
-      const descShort = p.description ? (p.description.substring(0, 95) + '...') : 'Cơ hội phát triển sự nghiệp tại tập đoàn công nghệ hàng đầu...';
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax} USD` : 'Negotiable');
+      const heroImg = p.heroImage || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80';
+      const descShort = p.description ? (p.description.substring(0, 85) + '...') : 'High-impact growth role with leading enterprise...';
 
       return `
-        <div class="wt-featured-card" data-project-id="${p.id}">
-          <div class="wt-featured-img-box">
-            <img src="${heroImg}" alt="${p.title}" class="wt-featured-img" onerror="this.src='images/project_dashboard.jpg'">
-            <div class="wt-featured-badge-overlay">${p.workType || p.type || 'Toàn thời gian'}</div>
+        <div class="wt-featured-card borderless" data-project-id="${p.id}" style="background:#ffffff; border-radius:8px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;">
+          <div>
+            <div style="height:150px; overflow:hidden; position:relative; background:#f1f5f9;">
+              <img src="${heroImg}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80'">
+              <div style="position:absolute; top:10px; right:10px; background:rgba(15, 23, 42, 0.85); color:#ffffff; font-size:11px; font-weight:600; padding:3px 8px; border-radius:4px;">${p.workType || p.type || 'Full-Time'}</div>
+            </div>
+            <div style="padding:16px;">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <div style="width:32px; height:32px; border-radius:6px; background:#f1f5f9; padding:3px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                  <img src="${logoUrl}" alt="${p.company}" style="width:100%; height:100%; object-fit:contain;" onerror="this.src='images/brands/fpt.svg'">
+                </div>
+                <div>
+                  <div style="font-size:13px; font-weight:700; color:#0f172a;">${p.company || 'Enterprise Partner'}</div>
+                  <div style="font-size:11px; color:#64748b;"><i class="fa-solid fa-location-dot"></i> ${p.location || 'Hanoi'}</div>
+                </div>
+              </div>
+              <h4 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px; line-height:1.35;">${p.title}</h4>
+              <p style="font-size:12.5px; color:#475569; line-height:1.5; margin-bottom:12px;">${descShort}</p>
+            </div>
           </div>
-          <div class="wt-featured-body">
-            <div class="wt-featured-meta">
-              <span><strong>${p.company || 'Doanh Nghiệp'}</strong></span>
-              <span>•</span>
-              <span><i class="fa-solid fa-location-dot"></i> ${p.location || 'Hà Nội'}</span>
-            </div>
-            <h4 class="wt-featured-title">${p.title}</h4>
-            <p class="wt-featured-desc">${descShort}</p>
-            <div class="wt-featured-footer">
-              <span class="wt-featured-salary">${salaryText}</span>
-              <span class="wt-featured-action">Chi tiết <i class="fa-solid fa-arrow-right"></i></span>
-            </div>
+          <div style="padding:0 16px 16px 16px; border-top:1px solid #f1f5f9; pt-3; margin-top:0; padding-top:10px; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:14px; font-weight:700; color:#0284c7;">${salaryText}</span>
+            <span style="font-size:12px; font-weight:600; color:#0f172a; display:inline-flex; align-items:center; gap:4px;">Details <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></span>
           </div>
         </div>
       `;
@@ -87,7 +258,14 @@
     const grid = document.getElementById('home-smart-jobs-grid');
     if (!grid) return;
 
-    let filtered = [...state.projects];
+    let filtered = (typeof state !== 'undefined' && state.projects && state.projects.length > 0)
+      ? [...state.projects]
+      : ((typeof initialProjects !== 'undefined') ? [...initialProjects] : []);
+    if (typeof state !== 'undefined' && state.savedJobs) {
+      if (filterKey === 'saved') {
+        filtered = filtered.filter(p => state.savedJobs.has(p.id));
+      }
+    }
     if (filterKey === 'remote') {
       filtered = filtered.filter(p => (p.location && p.location.toLowerCase().includes('remote')) || (p.workType && p.workType.toLowerCase().includes('remote')));
     } else if (filterKey === 'fulltime') {
@@ -458,7 +636,95 @@ document.addEventListener('DOMContentLoaded', () => {
     return p.logoUrl || 'images/brands/fpt.svg';
   }
 
+  
+  /* ==========================================================================
+     INTERNATIONALIZATION SYSTEM (ENGLISH FIRST / EN-VN SWITCHER)
+     ========================================================================== */
+  const i18n = {
+    en: {
+      heroTitle: "Hire the right talent. Faster.",
+      heroDesc: "Build your career. Find your people. Connecting technology and leadership talent with 3,500+ leading enterprises.",
+      heroSearchPlaceholder: "Job title, skills, or company...",
+      heroSearchBtn: "Find Jobs",
+      topEmployersTitle: "Companies hiring right now",
+      topEmployersSubtitle: "Discover top tech & finance enterprises expanding their recruitment scale",
+      topEmployersLink: "View all companies",
+      featuredTitle: "Featured Job Opportunities",
+      featuredSubtitle: "High-impact roles with competitive compensation and growth environments",
+      featuredLink: "View all opportunities",
+      latestTitle: "Latest Jobs",
+      latestSubtitle: "Real-time updates from verified recruitment partners",
+      openJobsSuffix: "open positions",
+      applyNow: "Apply Now",
+      details: "Details",
+      postJob: "Post a Job",
+      login: "Login",
+      navHome: "Home",
+      navJobs: "Find Jobs",
+      navCompanies: "Companies",
+      navSalary: "Salary Benchmark",
+      navInsights: "Market Insights"
+    },
+    vn: {
+      heroTitle: "Tuyển đúng người. Nhanh hơn.",
+      heroDesc: "Build your career. Find your people. Kết nối nhân tài công nghệ và quản lý với hơn 3,500+ tập đoàn hàng đầu Việt Nam.",
+      heroSearchPlaceholder: "Vị trí, kỹ năng hoặc công ty...",
+      heroSearchBtn: "Tìm việc",
+      topEmployersTitle: "Doanh nghiệp đang tuyển dụng",
+      topEmployersSubtitle: "Khám phá các tập đoàn công nghệ & tài chính đang mở rộng quy mô tuyển dụng",
+      topEmployersLink: "Xem tất cả doanh nghiệp",
+      featuredTitle: "Cơ Hội Tuyển Dụng Tiêu Biểu",
+      featuredSubtitle: "Vị trí cấp cao với chế độ đãi ngộ vượt trội và môi trường phát triển chuyên nghiệp",
+      featuredLink: "Xem tất cả cơ hội",
+      latestTitle: "Việc Làm Mới Nhất",
+      latestSubtitle: "Cập nhật liên tục theo thời gian thực từ các đối tác tuyển dụng",
+      openJobsSuffix: "vị trí đang tuyển",
+      applyNow: "Ứng tuyển",
+      details: "Chi tiết",
+      postJob: "Đăng Tin Tuyển Dụng",
+      login: "Đăng Nhập",
+      navHome: "Trang Chủ",
+      navJobs: "Việc Làm",
+      navCompanies: "Doanh Nghiệp",
+      navSalary: "Khảo Sát Lương",
+      navInsights: "Chuyên Gia"
+    }
+  };
+
+  function setLanguage(lang) {
+    state.lang = lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+        btn.style.background = '#0284c7';
+        btn.style.color = '#ffffff';
+        btn.style.fontWeight = '700';
+      } else {
+        btn.classList.remove('active');
+        btn.style.background = 'transparent';
+        btn.style.color = '#64748b';
+        btn.style.fontWeight = '600';
+      }
+    });
+
+    // Re-render components with active language
+    renderHomeTopEmployers();
+    renderHomeFeaturedOpportunities();
+    renderHomeLatestJobs('all');
+  }
+
+  function initLanguageSwitcher() {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        setLanguage(lang);
+      });
+    });
+  }
+
+
   const state = {
+    lang: "en",
     currentView: 'home',
     mode: 'work', // 'work' = candidate, 'hire' = employer
     projects: [...initialProjects],
@@ -494,6 +760,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Initialize Modules
+  initLanguageSwitcher();
   initSalaryCalculator();
   updateSavedJobsCountUI();
   initMobileNav();
@@ -514,11 +781,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initOpportunityTabs();
   loadProjectsFromAPI();
   const initialHash = window.location.hash ? window.location.hash.replace('#', '') : '';
-  if (['home', 'browse', 'company', 'salary', 'insights', 'freelancers'].includes(initialHash)) {
-    switchView(initialHash, false);
-  } else {
-    switchView('home2', false);
-  }
+  switchView('home', false);
+  const h2 = document.getElementById('view-home2'); if (h2) h2.classList.remove('active-view');
+  renderHomeTopEmployers();
+  renderHomeFeaturedOpportunities();
+  renderHomeLatestJobs('all');
   handleUrlRouting();
 
   // Listen to browser forward/back & hash change
@@ -596,6 +863,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('footer-btn-headhunt')?.addEventListener('click', () => {
       openEnterpriseModal('Headhunt VIP');
     });
+
+    document.getElementById('btn-close-top-announcement')?.addEventListener('click', () => {
+      const bar = document.getElementById('top-announcement-bar');
+      if (bar) bar.style.display = 'none';
+    });
+
+    document.getElementById('btn-claim-header-promo')?.addEventListener('click', () => {
+      showToast('🎉 Promo PRO2026 Applied! 50% Off Employer Services Activated.');
+      const modal = document.getElementById('modal-enterprise-consult');
+      if (modal) modal.classList.add('show');
+    });
+
+    document.getElementById('btn-header-promo-50')?.addEventListener('click', () => {
+      showToast('👑 VIP Upgrade Promo: 50% Off Claimed!');
+      const modal = document.getElementById('modal-enterprise-consult');
+      if (modal) modal.classList.add('show');
+    });
   }
 
   function switchView(viewId, updateHash = true) {
@@ -635,6 +919,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    // Sync Breadcrumb Label
+    const breadcrumbEl = document.getElementById('breadcrumb-active-view');
+    if (breadcrumbEl) {
+      const viewNames = {
+        home: 'News',
+        browse: 'Jobs & Opportunities',
+        company: 'Companies',
+        services: 'Services',
+        salary: 'Knowledge',
+        experts: 'Experts',
+        academy: 'Academy',
+        insights: 'Market Insights'
+      };
+      breadcrumbEl.textContent = viewNames[viewId] || viewId.charAt(0).toUpperCase() + viewId.slice(1);
+    }
+
     // Sync Top Tier Nav Items
     document.querySelectorAll('.wt-nav-link').forEach(btn => {
       if (btn.getAttribute('data-view') === viewId) btn.classList.add('active');
@@ -661,18 +961,18 @@ document.addEventListener('DOMContentLoaded', () => {
       renderHomeFeaturedOpportunities();
       renderHomeLatestJobs('all');
       renderHomeMarketNews();
-    } else if (viewId === 'home2') {
-      // Home 2 uses FreightWaves structure with rich embedded editorial & data intelligence
     } else if (viewId === 'browse') {
       renderBrowseProjects();
     } else if (viewId === 'company') {
       renderCompanyPage();
+    } else if (viewId === 'services') {
+      renderServicesPage();
     } else if (viewId === 'salary') {
       initSalaryCalculator();
-    } else if (viewId === 'insights') {
-      renderInsightsPage();
-    } else if (viewId === 'freelancers') {
-      renderFreelancersDirectory();
+    } else if (viewId === 'experts') {
+      renderExpertsPage();
+    } else if (viewId === 'academy') {
+      renderAcademyPage();
     }
   }
 
@@ -699,6 +999,7 @@ document.addEventListener('DOMContentLoaded', () => {
       switchView('home2', false);
     } else if (hash === 'home') {
       switchView('home', false);
+  const h2 = document.getElementById('view-home2'); if (h2) h2.classList.remove('active-view');
     } else if (hash === 'browse') {
       switchView('browse', false);
     } else if (hash === 'salary') {
@@ -759,6 +1060,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       updateSavedJobsCountUI();
       renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
     });
 
     document.getElementById('btn-detail-trigger-share')?.addEventListener('click', () => {
@@ -886,6 +1189,8 @@ document.addEventListener('DOMContentLoaded', () => {
       state.filters.search = searchInput?.value.trim().toLowerCase() || '';
       state.filters.location = locationSelect?.value || 'all';
       renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
       renderBrowseProjects();
 
       if (state.currentView !== 'home' && state.currentView !== 'browse') {
@@ -899,6 +1204,8 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput?.addEventListener('input', () => {
       state.filters.search = searchInput.value.trim().toLowerCase();
       renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
     });
 
     locationSelect?.addEventListener('change', handleSearch);
@@ -911,6 +1218,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchInput) searchInput.value = kw;
         state.filters.search = kw.toLowerCase();
         renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
         showToast(`🔍 Đang tìm kiếm: ${kw}`);
         document.getElementById('projects-feed')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
@@ -924,6 +1233,8 @@ document.addEventListener('DOMContentLoaded', () => {
       state.filters.search = q;
       if (searchInput) searchInput.value = topCapsuleInput?.value || '';
       renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
       if (state.currentView !== 'home' && state.currentView !== 'browse') {
         switchView('home');
       }
@@ -933,6 +1244,8 @@ document.addEventListener('DOMContentLoaded', () => {
     topCapsuleInput?.addEventListener('input', () => {
       state.filters.search = topCapsuleInput.value.trim().toLowerCase();
       renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
     });
 
     topCapsuleInput?.addEventListener('keypress', (e) => {
@@ -960,6 +1273,8 @@ document.addEventListener('DOMContentLoaded', () => {
         pill.classList.add('active');
         state.quickFilter = pill.getAttribute('data-quick-filter') || 'all';
         renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
       });
     });
   }
@@ -1017,6 +1332,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchInput) searchInput.value = compName;
         state.filters.search = compName.toLowerCase();
         renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
         showToast(`🔍 Đang hiển thị việc làm mới tại ${compName}`);
         const feed = document.getElementById('projects-feed');
         feed?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1054,6 +1371,8 @@ document.addEventListener('DOMContentLoaded', () => {
     showSkeletonLoader('projects-feed', 4);
     setTimeout(() => {
       renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
     }, 300);
   }
 
@@ -1187,6 +1506,8 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           updateSavedJobsCountUI();
           renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
         });
       });
 
@@ -1345,7 +1666,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function updateJobDetailPreview(projectId) {
+    function updateJobDetailPreview(projectId) {
     const pane = document.getElementById('job-detail-preview-panel');
     if (!pane) return;
 
@@ -1355,40 +1676,44 @@ document.addEventListener('DOMContentLoaded', () => {
     state.selectedProject = p;
     const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
     const logoUrl = resolveBrandLogo(p);
-    const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin} – ${p.budgetMax} USD` : 'Thỏa thuận');
+    const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin} – ${p.budgetMax} USD` : 'Negotiable');
     const isSaved = state.savedJobs.has(p.id);
 
     pane.innerHTML = `
-      <div class="preview-company-header">
-        <img src="${logoUrl}" alt="${initial}" class="preview-logo" onerror="this.src='images/brands/fpt.svg'">
+      <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:16px;">
+        <img src="${logoUrl}" alt="${initial}" style="width:48px; height:48px; border-radius:6px; background:#f1f5f9; padding:4px; object-fit:contain;" onerror="this.src='images/brands/fpt.svg'">
         <div>
-          <h3 style="font-size:20px; font-weight:800; color:#0c1b2e; margin-bottom:4px;">${p.title}</h3>
-          <div style="font-size:14px; font-weight:700; color:#0a66c2;">${p.company || 'Doanh Nghiệp Tuyển Dụng'}</div>
-          <div style="font-size:12.5px; color:#64748b; margin-top:2px;"><i class="fa-solid fa-location-dot"></i> ${p.location || 'Hà Nội'} • ${p.workType || 'Toàn thời gian'}</div>
+          <h3 style="font-size:20px; font-weight:700; color:#0f172a; margin-bottom:4px; line-height:1.3;">${p.title}</h3>
+          <div style="font-size:14px; font-weight:600; color:#334155;">${p.company || 'Enterprise Partner'}</div>
+          <div style="font-size:12.5px; color:#64748b; margin-top:3px;"><i class="fa-solid fa-location-dot"></i> ${p.location || 'Hanoi'} • ${p.workType || 'Full-Time'}</div>
         </div>
       </div>
 
-      <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
-        <button type="button" class="btn-linkedin-apply" id="btn-preview-apply">
-          <i class="fa-solid fa-paper-plane"></i> Ứng Tuyển Nhanh
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:24px;">
+        <button type="button" id="btn-preview-apply" style="background:#0284c7; color:#ffffff; border:none; padding:9px 20px; border-radius:6px; font-weight:600; font-size:13.5px; cursor:pointer;">
+          Apply Now
         </button>
-        <button type="button" style="background:#f1f5f9; border:1px solid #cbd5e1; color:#334155; padding:10px 18px; border-radius:24px; font-weight:700; cursor:pointer;" id="btn-preview-save">
-          <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark" style="${isSaved ? 'color:#0a66c2;' : ''}"></i> ${isSaved ? 'Đã Lưu' : 'Lưu Việc'}
+        <button type="button" id="btn-preview-save" style="background:#f8fafc; border:1px solid #cbd5e1; color:#475569; padding:9px 18px; border-radius:6px; font-weight:600; font-size:13.5px; cursor:pointer;">
+          <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark"></i> ${isSaved ? 'Saved' : 'Save Job'}
         </button>
       </div>
 
-      <div style="border-top:1px solid #e2e8f0; padding-top:16px;">
-        <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">Mô Tả Công Việc</h4>
-        <p style="font-size:13.5px; color:#334155; line-height:1.6; margin-bottom:16px;">${p.description || 'Tham gia trực tiếp phát triển hệ thống sản phẩm chuyển đổi số quy mô lớn...'}</p>
-
-        <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">Quyền Lợi & Mức Lương</h4>
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:12px; border-radius:8px; font-weight:700; color:#dc2626; margin-bottom:16px;">
-          💰 ${salaryText}
+      <div style="border-top:1px solid #f1f5f9; padding-top:18px;">
+        <div style="margin-bottom:20px;">
+          <div style="font-size:12px; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:4px;">Compensation &amp; Salary</div>
+          <div style="font-size:16px; font-weight:700; color:#0f172a;">${salaryText}</div>
         </div>
 
-        <h4 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">Kỹ Năng Yêu Cầu</h4>
-        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px;">
-          ${(p.skills || ['React', 'Node.js']).map(s => `<span style="background:#e0f2fe; color:#0369a1; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">${s}</span>`).join('')}
+        <div style="margin-bottom:20px;">
+          <h4 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:8px;">Job Description</h4>
+          <p style="font-size:13.5px; color:#334155; line-height:1.6;">${p.description || 'Lead technical architecture, engineering workflows, and system optimization for enterprise software solutions...'}</p>
+        </div>
+
+        <div>
+          <h4 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:8px;">Required Skills</h4>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            ${(p.skills || ['Java', 'Spring Boot']).map(s => `<span style="background:#f1f5f9; color:#334155; font-size:12px; font-weight:500; padding:3px 10px; border-radius:4px;">${s}</span>`).join('')}
+          </div>
         </div>
       </div>
     `;
@@ -1400,10 +1725,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-preview-save')?.addEventListener('click', () => {
       if (state.savedJobs.has(p.id)) {
         state.savedJobs.delete(p.id);
-        showToast('Đã bỏ lưu việc làm');
+        showToast('Job removed from saved');
       } else {
         state.savedJobs.add(p.id);
-        showToast('❤️ Đã lưu việc làm!');
+        showToast('Bookmark added');
       }
       updateSavedJobsCountUI();
       updateJobDetailPreview(p.id);
@@ -1451,7 +1776,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function renderBrowseProjects() {
+    function renderBrowseProjects() {
     const browseFeed = document.getElementById('browse-projects-feed');
     if (!browseFeed) return;
 
@@ -1495,7 +1820,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (countEl) countEl.textContent = projects.length;
 
     if (projects.length === 0) {
-      browseFeed.innerHTML = `<div class="bg-white border border-slate-200 rounded-xl p-10 text-center"><span class="material-symbols-outlined text-4xl text-slate-400">folder_open</span><h4 class="mt-2 text-base font-bold text-slate-900">Không tìm thấy việc làm phù hợp</h4></div>`;
+      browseFeed.innerHTML = `<div style="padding: 40px 20px; text-align: center; color: #64748b;"><h4 style="font-size: 15px; font-weight: 600; color: #0f172a;">No matching jobs found.</h4></div>`;
       return;
     }
 
@@ -1503,43 +1828,48 @@ document.addEventListener('DOMContentLoaded', () => {
       const isSaved = state.savedJobs.has(p.id);
       const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
       const logoUrl = resolveBrandLogo(p);
-      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax}` : 'Thỏa thuận');
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax} USD` : 'Negotiable');
       return `
-        <div class="job-item-split-card" data-project-id="${p.id}">
+        <div class="job-item-split-card" data-project-id="${p.id}" style="padding: 14px 12px; border-bottom: 1px solid #f1f5f9; cursor: pointer; transition: background 0.15s ease;">
           <div style="display:flex; align-items:flex-start; gap:12px;">
-            <div style="width:44px;height:44px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;padding:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
-              <img src="${logoUrl}" alt="${initial}" style="width:100%;height:100%;object-fit:contain;" onerror="this.src='images/brands/fpt.svg'">
+            <div style="width:40px; height:40px; border-radius:6px; background:#f1f5f9; padding:4px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+              <img src="${logoUrl}" alt="${initial}" style="width:100%; height:100%; object-fit:contain;" onerror="this.src='images/brands/fpt.svg'">
             </div>
-            <div style="flex:1;min-width:0;">
-              <div style="font-size:15px;font-weight:700;color:#0a66c2;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${p.title}</div>
-              <div style="font-size:12.5px;font-weight:600;color:#334155;margin-bottom:2px;">${p.company || 'Doanh Nghiệp'}</div>
-              <div style="font-size:12px;color:#64748b;">
-                <i class="fa-solid fa-location-dot"></i> ${p.location || 'Hà Nội'} &nbsp;•&nbsp;
-                <span style="color:#dc2626;font-weight:700;">${salaryText}</span>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${p.title}</div>
+              <div style="font-size:12.5px; font-weight:600; color:#334155; margin-bottom:2px;">${p.company || 'Enterprise Partner'}</div>
+              <div style="font-size:12px; color:#64748b;">
+                <i class="fa-solid fa-location-dot"></i> ${p.location || 'Hanoi'} &nbsp;•&nbsp;
+                <span style="color:#0f172a; font-weight:700;">${salaryText}</span>
               </div>
-              <div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap;">
-                ${p.hot ? '<span style="background:#fef2f2;color:#dc2626;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;">⚡ Gấp</span>' : '<span style="background:#f0f7ff;color:#0a66c2;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;">Mới</span>'}
-                ${isSaved ? '<span style="background:#f0f7ff;color:#0a66c2;font-size:10px;padding:2px 6px;border-radius:3px;"><i class="fa-solid fa-bookmark"></i> Đã lưu</span>' : ''}
+              <div style="margin-top:6px; display:flex; gap:6px; flex-wrap:wrap;">
+                ${p.hot ? '<span style="background:#fef2f2; color:#dc2626; font-size:11px; font-weight:600; padding:2px 6px; border-radius:4px;">Urgent</span>' : '<span style="background:#f8fafc; color:#475569; font-size:11px; font-weight:500; padding:2px 6px; border-radius:4px;">New</span>'}
+                ${isSaved ? '<span style="background:#f8fafc; color:#475569; font-size:11px; padding:2px 6px; border-radius:4px;"><i class="fa-solid fa-bookmark"></i> Saved</span>' : ''}
               </div>
             </div>
           </div>
         </div>`;
     }).join('');
 
-    // Bind split-pane click → update right detail panel (no page redirect)
     const allCards = browseFeed.querySelectorAll('.job-item-split-card');
     allCards.forEach(card => {
       const prjId = card.getAttribute('data-project-id');
       card.addEventListener('click', () => {
-        allCards.forEach(c => c.classList.remove('active-selected'));
-        card.classList.add('active-selected');
+        allCards.forEach(c => {
+          c.style.borderLeft = 'none';
+          c.style.background = '#ffffff';
+        });
+        card.style.borderLeft = '3px solid #0284c7';
+        card.style.background = '#f0f9ff';
         updateJobDetailPreview(prjId);
       });
     });
 
-    // Auto-preview first job on browse load
     if (projects.length > 0) {
-      allCards[0]?.classList.add('active-selected');
+      if (allCards[0]) {
+        allCards[0].style.borderLeft = '3px solid #0284c7';
+        allCards[0].style.background = '#f0f9ff';
+      }
       updateJobDetailPreview(projects[0].id);
     }
   }
@@ -1692,6 +2022,8 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
       form.reset();
       renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
       showToast('🎉 Đăng tin tuyển dụng thành công! Tin đã xuất hiện trên trang chủ.');
     });
   }
@@ -1973,6 +2305,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (list && list.length > 0) {
           state.projects = list;
           renderHomeFeaturedProjects();
+          renderHomeFeaturedOpportunities();
+          renderHomeLatestJobs("all");
         }
       })
       .catch(() => {});
@@ -2397,3 +2731,128 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+
+  /* ==========================================================================
+     7 SECTIONS RENDERERS (SERVICES, EXPERTS, ACADEMY)
+     ========================================================================== */
+
+  function renderServicesPage() {
+    const grid = document.getElementById('services-grid');
+    if (!grid) return;
+
+    const services = (typeof initialServices !== 'undefined') ? initialServices : [];
+
+    grid.innerHTML = services.map(s => `
+      <div class="service-card borderless" style="background:#ffffff; padding:24px; border-radius:8px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <span style="font-size:11px; font-weight:700; color:#0284c7; background:#f0f9ff; border:1px solid #bae6fd; padding:3px 10px; border-radius:4px;">${s.badge || 'Verified'}</span>
+            <span style="font-size:12px; font-weight:600; color:#64748b;"><i class="fa-solid fa-star" style="color:#eab308;"></i> ${s.rating} (${s.reviewsCount} reviews)</span>
+          </div>
+          <h3 style="font-size:18px; font-weight:700; color:#0f172a; margin-bottom:6px;">${s.title}</h3>
+          <div style="font-size:13px; font-weight:600; color:#334155; margin-bottom:10px;">Provider: ${s.provider}</div>
+          <p style="font-size:13.5px; color:#475569; line-height:1.5; margin-bottom:16px;">${s.description}</p>
+
+          <div style="margin-bottom:18px;">
+            <div style="font-size:11.5px; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:6px;">Key Features:</div>
+            ${s.features.map(f => `<div style="font-size:12.5px; color:#334155; margin-bottom:4px;"><i class="fa-solid fa-check" style="color:#0284c7; margin-right:6px;"></i> ${f}</div>`).join('')}
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #f1f5f9; padding-top:14px; margin-top:12px;">
+          <div>
+            <div style="font-size:11px; color:#64748b;">Pricing:</div>
+            <div style="font-size:15px; font-weight:700; color:#0f172a;">${s.priceDisplay}</div>
+          </div>
+          <button type="button" class="btn-contact-service" style="background:#0284c7; color:#ffffff; border:none; padding:8px 18px; border-radius:6px; font-weight:600; font-size:13px; cursor:pointer;" onclick="showToast('Connecting with ${s.provider} sales team...')">Contact Vendor</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderExpertsPage() {
+    const grid = document.getElementById('experts-grid');
+    if (!grid) return;
+
+    const experts = (typeof initialExperts !== 'undefined') ? initialExperts : [];
+
+    grid.innerHTML = experts.map(e => `
+      <div class="expert-card borderless" style="background:#ffffff; padding:24px; border-radius:8px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+            <div style="width:48px; height:48px; border-radius:8px; background:#f1f5f9; display:flex; align-items:center; justify-content:center; font-weight:700; color:#0f172a;">${e.name.split(' ').map(w=>w[0]).join('')}</div>
+            <div>
+              <h3 style="font-size:16px; font-weight:700; color:#0f172a;">${e.name}</h3>
+              <div style="font-size:12.5px; font-weight:600; color:#0284c7;">${e.role}</div>
+              <div style="font-size:12px; color:#64748b;">${e.company} • ${e.experience} Exp</div>
+            </div>
+          </div>
+          <p style="font-size:13px; color:#475569; line-height:1.5; margin-bottom:14px;">${e.bio}</p>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px;">
+            ${e.specialties.map(s => `<span style="background:#f1f5f9; color:#334155; font-size:11px; font-weight:600; padding:3px 8px; border-radius:4px;">${s}</span>`).join('')}
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #f1f5f9; padding-top:14px;">
+          <span style="font-size:12px; color:#64748b;">${e.followersCount} Followers</span>
+          <button type="button" style="background:#f0f9ff; color:#0284c7; border:1px solid #bae6fd; padding:6px 14px; border-radius:6px; font-weight:600; font-size:12.5px; cursor:pointer;" onclick="showToast('Following ${e.name} updates')">Follow Expert</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderAcademyPage() {
+    const grid = document.getElementById('academy-grid');
+    if (!grid) return;
+
+    const courses = (typeof initialAcademyCourses !== 'undefined') ? initialAcademyCourses : [];
+
+    grid.innerHTML = courses.map(c => `
+      <div class="course-card borderless" style="background:#ffffff; padding:24px; border-radius:8px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+            <span style="background:#f1f5f9; color:#334155; font-size:11px; font-weight:700; padding:3px 8px; border-radius:4px;">${c.level}</span>
+            <span style="font-size:12px; color:#64748b;">${c.duration}</span>
+          </div>
+          <h3 style="font-size:17px; font-weight:700; color:#0f172a; margin-bottom:8px;">${c.title}</h3>
+          <div style="font-size:12.5px; color:#64748b; margin-bottom:10px;">Instructor: <strong>${c.instructor}</strong></div>
+          <p style="font-size:13px; color:#475569; line-height:1.5; margin-bottom:14px;">${c.description}</p>
+        </div>
+
+        <div style="border-top:1px solid #f1f5f9; padding-top:14px; margin-top:12px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <span style="font-size:18px; font-weight:700; color:#0284c7;">${c.price}</span>
+            <span style="font-size:12px; color:#64748b;">${c.enrolledCount} Enrolled</span>
+          </div>
+          <button type="button" style="width:100%; background:#0284c7; color:#ffffff; border:none; padding:10px; border-radius:6px; font-weight:700; font-size:13.5px; cursor:pointer;" onclick="showToast('Enrolled in ${c.title}')">Enroll &amp; Get Certified</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+
+// Execute renders immediately on script parse so there is 0ms delay or skeleton waiting
+function triggerAllSectionRenders() {
+  try {
+    if (typeof renderHomeTopEmployers === 'function') renderHomeTopEmployers();
+    if (typeof renderHomeFeaturedOpportunities === 'function') renderHomeFeaturedOpportunities();
+    if (typeof renderHomeLatestJobs === 'function') renderHomeLatestJobs('all');
+    if (typeof renderServicesPage === 'function') renderServicesPage();
+    if (typeof renderExpertsPage === 'function') renderExpertsPage();
+    if (typeof renderAcademyPage === 'function') renderAcademyPage();
+  } catch (e) {
+    console.error('Render error:', e);
+  }
+}
+
+// Call immediately
+triggerAllSectionRenders();
+
+if (typeof document !== 'undefined' && typeof document.addEventListener === 'function') {
+  document.addEventListener('DOMContentLoaded', triggerAllSectionRenders);
+}
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+  window.addEventListener('load', triggerAllSectionRenders);
+}

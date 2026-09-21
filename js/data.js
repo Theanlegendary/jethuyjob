@@ -1061,3 +1061,146 @@ const initialCompanyArticles = [
     "fullStory": "VinFast tiếp tục khẳng định vị thế dẫn đầu trong chuyển đổi di chuyển xanh khi triển khai đồng loạt các trung tâm dịch vụ và trung tâm công nghệ cao tại Hà Nội và Hải Phòng."
   }
 ];
+
+
+
+/* ==========================================================================
+   ENTERPRISE HR SERVICES DATA STORE
+   ========================================================================== */
+const initialServices = [
+  {
+    id: "srv-101",
+    title: "Executive Headhunting & Leadership Search",
+    category: "Recruitment",
+    provider: "WorkThean Executive",
+    rating: 4.9,
+    reviewsCount: 84,
+    description: "Specialized C-level and Senior Engineering talent search for technology, banking, and fintech enterprises.",
+    features: ["Pre-vetted Leadership Pipeline", "Replacement Guarantee (180 Days)", "Background & Reference Check Included"],
+    priceDisplay: "15% - 20% Annual Salary",
+    badge: "Top Rated"
+  },
+  {
+    id: "srv-102",
+    title: "TALENT-INDEX™ Background & Education Verification",
+    category: "Verification",
+    provider: "WorkThean Verification",
+    rating: 4.8,
+    reviewsCount: 112,
+    description: "Automated candidate background verification, degree checking, and employment history audit.",
+    features: ["Real-time Academic Verification", "Legal & Criminal Audit", "24-Hour Turnaround Time"],
+    priceDisplay: "$45 per candidate",
+    badge: "Automated"
+  },
+  {
+    id: "srv-103",
+    title: "Employer Branding & Campus Recruitment Solution",
+    category: "Branding",
+    provider: "WorkThean Brand Studio",
+    rating: 4.9,
+    reviewsCount: 46,
+    description: "End-to-end employer brand positioning, tech hackathon organization, and university career fairs.",
+    features: ["Tech Talent Reach 500k+", "Dedicated Video & Media Production", "Campus Ambassador Program"],
+    priceDisplay: "Custom Enterprise Plan",
+    badge: "Enterprise"
+  },
+  {
+    id: "srv-104",
+    title: "Global Payroll & Cross-Border Remote EOR",
+    category: "Payroll & Legal",
+    provider: "WorkThean Global Payroll",
+    rating: 4.7,
+    reviewsCount: 68,
+    description: "Employer of Record (EOR) service allowing international tech enterprises to hire Vietnamese talent legally.",
+    features: ["100% Vietnamese Labor Law Compliance", "Multi-Currency Tax & Insurance", "Contract Management"],
+    priceDisplay: "$199 / employee / month",
+    badge: "Compliance"
+  }
+];
+
+/* ==========================================================================
+   ACADEMY & CERTIFICATION COURSES DATA STORE
+   ========================================================================== */
+const initialAcademyCourses = [
+  {
+    id: "course-101",
+    title: "Certified Enterprise Technical Recruiter (CETR®)",
+    level: "Advanced",
+    duration: "6 Weeks (Online + Live Workshop)",
+    instructor: "Hoang Nam (CHRO, WorkThean)",
+    enrolledCount: 1240,
+    rating: 4.9,
+    price: "$299",
+    description: "Master modern technical sourcing, AI-driven candidate screening, System Architecture interview evaluation, and offer closing strategies.",
+    modules: ["Technical Role Deconstruction", "Advanced Boolean & Sourcing", "AI Candidate Evaluation", "Offer Closing & Compensation Negotiation"],
+    certificateName: "CETR® Enterprise Recruiter Certificate"
+  },
+  {
+    id: "course-102",
+    title: "Vietnam Labor Law & Employment Contracts 2026",
+    level: "Intermediate",
+    duration: "4 Weeks (Self-paced)",
+    instructor: "Tran Thu Huong (Senior HR Legal Counsel)",
+    enrolledCount: 890,
+    rating: 4.8,
+    price: "$199",
+    description: "Complete legal compliance masterclass covering remote contracts, NDA/NCA enforcement, severance packages, and labor dispute prevention.",
+    modules: ["2026 Labor Code Updates", "Remote & Freelance Legal Framework", "NDA/NCA Enforceability", "Dispute Resolution"],
+    certificateName: "Certified HR Compliance Specialist"
+  },
+  {
+    id: "course-103",
+    title: "Total Rewards & Compensation Structure Architecture",
+    level: "Executive",
+    duration: "5 Weeks (Live Masterclass)",
+    instructor: "Nguyen Van Minh (Total Rewards Director)",
+    enrolledCount: 650,
+    rating: 4.9,
+    price: "$349",
+    description: "Learn how to build competitive salary bands, ESOP incentive models, and performance-linked bonus structures for scaling tech companies.",
+    modules: ["Market Salary Benchmarking", "Salary Band Architecture", "ESOP & Long-Term Incentives", "Flexible Benefits Design"],
+    certificateName: "Certified Compensation Manager (CCM®)"
+  }
+];
+
+/* ==========================================================================
+   EXPERT DIRECTORY DATA STORE
+   ========================================================================== */
+const initialExperts = [
+  {
+    id: "expert-101",
+    name: "Hoang Nam",
+    role: "Chief Human Resources Officer",
+    company: "WorkThean Enterprise",
+    experience: "15+ Years",
+    avatar: "images/brands/fpt.svg",
+    specialties: ["Technical Recruitment", "Executive Search", "AI HR Systems"],
+    articlesCount: 24,
+    followersCount: "14.2k",
+    bio: "Pioneer in tech recruitment architecture in SE Asia. Author of 'The State of Tech Talent 2026' report."
+  },
+  {
+    id: "expert-102",
+    name: "Tran Thu Huong",
+    role: "Senior HR Legal Counsel",
+    company: "Vietnam HR Legal Alliance",
+    experience: "12+ Years",
+    avatar: "images/brands/vcb.svg",
+    specialties: ["Labor Law", "Remote Employment Contracts", "NDA/NCA Disputes"],
+    articlesCount: 18,
+    followersCount: "9.8k",
+    bio: "Specialist in employment law compliance, cross-border remote work regulations, and intellectual property protection."
+  },
+  {
+    id: "expert-103",
+    name: "Nguyen Van Minh",
+    role: "Global Total Rewards Director",
+    company: "Fintech Growth Partners",
+    experience: "14+ Years",
+    avatar: "images/brands/viettel.svg",
+    specialties: ["Compensation Benchmarking", "ESOP Design", "Executive Pay"],
+    articlesCount: 15,
+    followersCount: "11.5k",
+    bio: "Expert in enterprise salary benchmarking, equity compensation architecture, and performance management models."
+  }
+];
