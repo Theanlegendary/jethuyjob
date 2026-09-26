@@ -6,11 +6,11 @@ import { useRouter } from 'next/navigation'
 
 const translations = {
   vi: {
-    headline: 'Tìm công việc công nghệ của bạn tại Việt Nam',
-    subtitle: 'Kết nối với hàng nghìn công ty công nghệ hàng đầu',
-    searchPlaceholder: 'Vị trí, kỹ năng, công ty...',
+    headline: 'Tìm đúng công việc. Xây dựng sự nghiệp.',
+    subtitle: 'Khám phá việc làm đã xác minh từ các doanh nghiệp logistics, công nghệ, tài chính và dịch vụ.',
+    searchPlaceholder: 'Vị trí, kỹ năng hoặc công ty...',
     locationPlaceholder: 'Địa điểm',
-    searchButton: 'Tìm kiếm',
+    searchButton: 'Tìm việc làm',
     filters: {
       remote: 'Remote',
       senior: 'Senior',
@@ -33,11 +33,11 @@ const translations = {
     ],
   },
   en: {
-    headline: 'Find your next tech role in Vietnam',
-    subtitle: 'Connect with thousands of leading tech companies',
-    searchPlaceholder: 'Job title, skills, company...',
+    headline: 'Find the right job. Build your career.',
+    subtitle: 'Discover verified jobs from companies across logistics, technology, finance, and other growing industries.',
+    searchPlaceholder: 'Job title, skill, or company',
     locationPlaceholder: 'Location',
-    searchButton: 'Search',
+    searchButton: 'Search jobs',
     filters: {
       remote: 'Remote',
       senior: 'Senior',

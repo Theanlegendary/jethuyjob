@@ -79,103 +79,120 @@ var state = window.state;
      SMART-INSPIRED HOMEPAGE RENDERERS (LESS INFORMATION | MORE PREMIUM)
      ========================================================================== */
 
-    function renderHomeTopEmployers() {
+  function renderHomeTopEmployers() {
     const grid = document.getElementById('home-top-employers-grid');
     if (!grid) return;
 
     const employerData = [
       {
         name: 'FPT Software',
+        industry: 'Technology & IT Services',
         logo: 'images/brands/fpt.svg',
         fallback: 'FPT',
         jobsCount: 24,
         featuredJobs: [
-          { id: 'prj-100', title: 'Senior Backend Engineer (Java / Spring Boot)', salary: '25 – 45 triệu/tháng', location: 'Hà Nội' },
-          { id: 'prj-104', title: 'AI & Data Science Lead', salary: '45 – 75 triệu/tháng', location: 'TP. HCM' }
+          { id: 'prj-100', title: 'Senior Backend Engineer' },
+          { id: 'prj-101', title: 'Cloud Solutions Architect' },
+          { id: 'prj-106', title: 'DevOps & Cloud Engineer' }
         ]
       },
       {
         name: 'Viettel Group',
+        industry: 'Telecommunications & Cloud',
         logo: 'images/brands/viettel.svg',
         fallback: 'VTL',
         jobsCount: 18,
         featuredJobs: [
-          { id: 'prj-101', title: 'Senior Cloud Platform & DevOps Architect', salary: '30 – 55 triệu/tháng', location: 'Hà Nội' },
-          { id: 'prj-105', title: 'Cyber Security Specialist', salary: '28 – 50 triệu/tháng', location: 'Hà Nội' }
+          { id: 'prj-101', title: 'Senior Cloud Platform Architect' },
+          { id: 'prj-100', title: 'Security Operations Engineer' },
+          { id: 'prj-108', title: 'Fullstack Node.js Developer' }
         ]
       },
       {
         name: 'Vietcombank',
+        industry: 'Banking & Financial Services',
         logo: 'images/brands/vcb.svg',
         fallback: 'VCB',
         jobsCount: 32,
         featuredJobs: [
-          { id: 'prj-102', title: 'Core Banking System Lead (Microservices)', salary: '35 – 60 triệu/tháng', location: 'Hà Nội' },
-          { id: 'prj-106', title: 'Fintech Solutions Architect', salary: '40 – 70 triệu/tháng', location: 'TP. HCM' }
-        ]
-      },
-      {
-        name: 'Samsung Vietnam',
-        logo: 'images/brands/samsung.svg',
-        fallback: 'SS',
-        jobsCount: 20,
-        featuredJobs: [
-          { id: 'prj-103', title: 'Mobile Systems QA & Automation Lead', salary: '22 – 40 triệu/tháng', location: 'Bắc Ninh' },
-          { id: 'prj-107', title: 'Embedded Firmware Specialist', salary: '25 – 45 triệu/tháng', location: 'Hà Nội' }
+          { id: 'prj-102', title: 'Core Banking System Lead' },
+          { id: 'prj-113', title: 'Financial Analyst' },
+          { id: 'prj-109', title: 'Data Engineer' }
         ]
       },
       {
         name: 'Shopee Vietnam',
+        industry: 'E-Commerce & Digital Tech',
         logo: 'images/brands/shopee.svg',
         fallback: 'SHP',
         jobsCount: 28,
         featuredJobs: [
-          { id: 'prj-108', title: 'Principal Data Engineer (Big Data / Spark)', salary: '40 – 75 triệu/tháng', location: 'TP. HCM' },
-          { id: 'prj-109', title: 'Senior Product Designer (UX/UI)', salary: '25 – 42 triệu/tháng', location: 'TP. HCM' }
+          { id: 'prj-104', title: 'Digital Marketing Manager' },
+          { id: 'prj-108', title: 'Principal Data Engineer' },
+          { id: 'prj-105', title: 'Senior UI/UX Designer' }
         ]
       },
       {
-        name: 'Vingroup / VinFast',
-        logo: 'images/brands/vingroup.svg',
+        name: 'Samsung Vietnam',
+        industry: 'Electronics & Smart Manufacturing',
+        logo: 'images/brands/samsung.svg',
+        fallback: 'SS',
+        jobsCount: 20,
+        featuredJobs: [
+          { id: 'prj-103', title: 'Mobile Systems QA Lead' },
+          { id: 'prj-111', title: 'Supply Chain Manager' },
+          { id: 'prj-100', title: 'Embedded Firmware Engineer' }
+        ]
+      },
+      {
+        name: 'VinFast Auto',
+        industry: 'Automotive & Clean Energy',
+        logo: 'images/brands/vinfast.svg',
         fallback: 'VIN',
         jobsCount: 15,
         featuredJobs: [
-          { id: 'prj-110', title: 'Automotive Embedded Systems Engineer', salary: '30 – 55 triệu/tháng', location: 'Hải Phòng' },
-          { id: 'prj-111', title: 'EV Battery Management System Lead', salary: '45 – 80 triệu/tháng', location: 'Hà Nội' }
+          { id: 'prj-107', title: 'HR Business Partner' },
+          { id: 'prj-110', title: 'Automotive Systems Engineer' },
+          { id: 'prj-114', title: 'Software & Telematics Lead' }
         ]
       }
     ];
 
     grid.innerHTML = employerData.map(emp => `
-      <div class="wt-employer-card borderless" data-company-name="${emp.name}">
-        <div class="wt-employer-header">
-          <div class="wt-employer-logo-box">
-            <img src="${emp.logo}" alt="${emp.name}" class="wt-employer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="wt-recruitment-company-card" data-company-name="${emp.name}">
+        <div class="wt-rcompany-header">
+          <div class="wt-rcompany-logo-wrap">
+            <img src="${emp.logo}" alt="${emp.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <span style="display:none; font-weight:700; font-size:13px; color:#0f172a;">${emp.fallback}</span>
           </div>
-          <div style="flex: 1; min-width: 0;">
-            <div class="wt-employer-name">${emp.name}</div>
-            <div class="wt-employer-jobs-count">${emp.jobsCount} vị trí đang tuyển <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></div>
+          <div class="wt-rcompany-info">
+            <h3 class="wt-rcompany-name">${emp.name}</h3>
+            <div class="wt-rcompany-industry">${emp.industry}</div>
+            <div class="wt-rcompany-open-jobs">${emp.jobsCount} open jobs</div>
           </div>
         </div>
 
-        <div class="wt-employer-jobs-list">
-          <div style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">Cơ hội tiêu biểu:</div>
-          ${emp.featuredJobs.map(job => `
-            <div class="wt-employer-job-item" data-project-id="${job.id}">
-              <div class="wt-employer-job-title">${job.title}</div>
-              <div class="wt-employer-job-meta">
-                <span class="wt-employer-job-salary">${job.salary}</span>
-                <span>•</span>
-                <span>${job.location}</span>
-              </div>
-            </div>
-          `).join('')}
+        <div class="wt-rcompany-examples">
+          <div class="wt-rcompany-examples-label">Example roles</div>
+          <ul class="wt-rcompany-examples-list">
+            ${emp.featuredJobs.map(job => `
+              <li class="wt-rcompany-example-item" data-project-id="${job.id}">
+                <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
+                <span>${job.title}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+
+        <div class="wt-rcompany-footer">
+          <a href="#" class="wt-rcompany-link" data-company-name="${emp.name}">
+            View jobs <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
+          </a>
         </div>
       </div>
     `).join('');
 
-    grid.querySelectorAll('.wt-employer-job-item').forEach(item => {
+    grid.querySelectorAll('.wt-rcompany-example-item').forEach(item => {
       item.addEventListener('click', (e) => {
         e.stopPropagation();
         const prjId = item.getAttribute('data-project-id');
@@ -184,12 +201,16 @@ var state = window.state;
       });
     });
 
-    grid.querySelectorAll('.wt-employer-card').forEach(card => {
-      card.addEventListener('click', () => {
+    grid.querySelectorAll('.wt-rcompany-link, .wt-recruitment-company-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.wt-rcompany-example-item')) return;
+        e.preventDefault();
         const comp = card.getAttribute('data-company-name');
-        state.filters.search = comp.toLowerCase();
-        switchView('browse');
-        renderBrowseProjects();
+        if (comp) {
+          state.filters.search = comp.toLowerCase();
+          switchView('browse');
+          renderBrowseProjects();
+        }
       });
     });
   }
@@ -291,58 +312,51 @@ var state = window.state;
     grid.innerHTML = displayJobs.map(p => {
       const initial = p.logoType || (p.company ? p.company.split(' ').map(w => w[0]).join('').substring(0, 3).toUpperCase() : 'VJ');
       const logoUrl = resolveBrandLogo(p);
-      const salaryText = p.salaryDisplay || (p.budgetMin ? `${p.budgetMin}–${p.budgetMax} USD` : 'Thỏa thuận');
-      const isSaved = state.savedJobs.has(p.id);
+      const salaryText = p.salaryDisplay || (p.budgetMin ? `$${p.budgetMin} – $${p.budgetMax} / mo` : 'Competitive');
+      const postedTime = p.timeAgo || p.postedDate || 'Recently posted';
+      const loc = p.location || 'Vietnam';
+      const empType = p.type || p.workType || 'Full-Time';
 
       return `
-        <div class="wt-smart-job-card" data-project-id="${p.id}">
+        <div class="wt-job-card-real" data-project-id="${p.id}">
           <div>
-            <div class="wt-smart-card-header">
-              <div class="wt-smart-company-group">
-                <div class="wt-smart-logo-box">
-                  <img src="${logoUrl}" alt="${initial}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                  <span style="display:none; font-weight:800; font-size:12px; color:#0c1b2e;">${initial}</span>
+            <div class="wt-job-card-top">
+              <div class="wt-job-card-logo">
+                <img src="${logoUrl}" alt="${initial}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <span style="display:none; font-weight:800; font-size:12px; color:#0c1b2e;">${initial}</span>
+              </div>
+              <div class="wt-job-card-header-info">
+                <h3 class="wt-job-card-title">${p.title}</h3>
+                <div class="wt-job-card-company-line">
+                  <span class="wt-job-card-company">${p.company || 'Enterprise'}</span>
+                  <span class="wt-job-card-dot">•</span>
+                  <span class="wt-job-card-location"><i class="fa-solid fa-location-dot" style="font-size:11px;"></i> ${loc}</span>
+                  <span class="wt-job-card-dot">•</span>
+                  <span class="wt-job-card-type"><i class="fa-solid fa-briefcase" style="font-size:11px;"></i> ${empType}</span>
                 </div>
-                <div>
-                  <div class="wt-smart-company-name">${p.company || 'Doanh Nghiệp Tuyển Dụng'}</div>
-                  <div style="font-size: 12px; color: #94a3b8;">${p.timeAgo || p.postedDate || 'Hôm nay'}</div>
-                </div>
               </div>
-              <button type="button" class="btn-save-job-inline" data-save-id="${p.id}" style="background: none; border: none; cursor: pointer; color: ${isSaved ? '#0044cc' : '#94a3b8'}; font-size: 17px;" title="${isSaved ? 'Đã lưu' : 'Lưu việc'}">
-                <i class="fa-${isSaved ? 'solid' : 'regular'} fa-bookmark"></i>
-              </button>
-            </div>
-
-            <h3 class="wt-smart-title">${p.title}</h3>
-
-            <div class="wt-smart-meta-row">
-              <div class="wt-smart-meta-item">
-                <i class="fa-solid fa-location-dot" style="color: #64748b;"></i>
-                <span>${p.location || 'Hà Nội'}</span>
-              </div>
-              <span>•</span>
-              <div class="wt-smart-meta-item">
-                <i class="fa-solid fa-briefcase" style="color: #64748b;"></i>
-                <span>${p.workType || p.type || 'Toàn thời gian'}</span>
-              </div>
-              ${p.hot ? `<span>•</span><span style="background: #fef2f2; color: #dc2626; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Ưu tiên</span>` : ''}
             </div>
           </div>
 
-          <div class="wt-smart-card-footer">
-            <div class="wt-smart-salary">${salaryText}</div>
-            <button type="button" class="wt-smart-apply-btn" data-apply-id="${p.id}">
-              <span>Ứng tuyển</span>
-              <i class="fa-solid fa-arrow-right"></i>
+          <div class="wt-job-card-bottom">
+            <div class="wt-job-card-salary-wrap">
+              <span class="wt-job-card-salary">${salaryText}</span>
+              <span class="wt-job-card-dot">•</span>
+              <span class="wt-job-card-date">${postedTime}</span>
+            </div>
+            <button type="button" class="wt-btn-view-job" data-project-id="${p.id}">
+              <span>View job</span>
+              <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
             </button>
           </div>
         </div>
       `;
     }).join('');
 
-    grid.querySelectorAll('.wt-smart-job-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('.btn-save-job-inline') || e.target.closest('.wt-smart-apply-btn')) return;
+    grid.querySelectorAll('.wt-job-card-real, .wt-btn-view-job, .wt-job-card-title').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const card = el.closest('.wt-job-card-real');
+        if (!card) return;
         const prjId = card.getAttribute('data-project-id');
         switchView('browse');
         setTimeout(() => updateJobDetailPreview(prjId), 80);

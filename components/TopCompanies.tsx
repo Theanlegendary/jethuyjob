@@ -15,7 +15,7 @@ export default function TopCompanies({ language }: { language: 'vi' | 'en' }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-text dark:text-text-dark">
-            {language === 'vi' ? 'Công ty hàng đầu' : 'Top Companies'}
+            {language === 'vi' ? 'Doanh nghiệp đang tuyển dụng' : 'Companies hiring now'}
           </h2>
           <Link
             href="/companies"

@@ -7363,3 +7363,384 @@ footer a:hover {
     gap: 12px;
   }
 }
+
+/* ==========================================================================
+   ESTABLISHED JOB PLATFORM DESIGN (REALISTIC RECRUITMENT MARKETPLACE)
+   ========================================================================== */
+
+/* Popular Search Tags */
+.wt-popular-searches {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: -16px;
+  margin-bottom: 22px;
+  font-size: 13px;
+}
+
+.wt-popular-tag {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.3;
+}
+
+.wt-popular-tag:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+/* Factual Statements Strip */
+.wt-hero-facts {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 0;
+  margin-bottom: 20px;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  width: 100%;
+  max-width: 640px;
+  font-size: 13.5px;
+  color: #475569;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.wt-hero-fact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.wt-hero-fact-item i {
+  color: #0284c7;
+  font-size: 11px;
+}
+
+.wt-hero-fact-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  flex-shrink: 0;
+}
+
+/* Companies Hiring Now - Real Recruitment Card */
+.wt-companies-hiring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.wt-recruitment-company-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wt-recruitment-company-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.wt-rcompany-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.wt-rcompany-logo-wrap {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wt-rcompany-logo-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.wt-rcompany-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.wt-rcompany-name {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.wt-rcompany-industry {
+  font-size: 12.5px;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.wt-rcompany-open-jobs {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #0284c7;
+}
+
+/* Example Job Titles List */
+.wt-rcompany-examples {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.wt-rcompany-examples-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.wt-rcompany-examples-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wt-rcompany-example-item {
+  font-size: 12.5px;
+  color: #334155;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.wt-rcompany-example-item:hover {
+  color: #0284c7;
+}
+
+.wt-rcompany-bullet {
+  color: #94a3b8;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.wt-rcompany-footer {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.wt-rcompany-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0284c7;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.15s ease;
+}
+
+.wt-rcompany-link:hover {
+  color: #0369a1;
+}
+
+/* Realistic Job Listing Section */
+.wt-realistic-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.wt-job-card-real {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wt-job-card-real:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+.wt-job-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.wt-job-card-logo {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wt-job-card-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.wt-job-card-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.wt-job-card-title {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.wt-job-card-title:hover {
+  color: #0284c7;
+}
+
+.wt-job-card-company-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.wt-job-card-company {
+  font-weight: 600;
+  color: #334155;
+}
+
+.wt-job-card-dot {
+  color: #cbd5e1;
+  font-size: 10px;
+}
+
+.wt-job-card-location,
+.wt-job-card-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wt-job-card-bottom {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wt-job-card-salary-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wt-job-card-salary {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wt-job-card-date {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.wt-btn-view-job {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.wt-btn-view-job:hover {
+  background: #f8fafc;
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+@media (max-width: 960px) {
+  .wt-companies-hiring-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wt-realistic-jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .wt-companies-hiring-grid {
+    grid-template-columns: 1fr;
+  }
+}
