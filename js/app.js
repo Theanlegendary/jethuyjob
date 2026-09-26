@@ -2830,10 +2830,163 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
+  /* ==========================================================================
+     JIUYEQIAO NATIONAL PORTAL JOB RENDERER & INTERACTIVE HUB
+     ========================================================================== */
+  function renderPortalJobs(type = 'hot') {
+    const container = document.getElementById('portal-job-cards-list');
+    if (!container) return;
+
+    const projectList = (typeof state !== 'undefined' && state.projects && state.projects.length > 0) 
+      ? state.projects 
+      : (typeof initialProjects !== 'undefined' ? initialProjects : []);
+
+    let jobs = [];
+    if (type === 'hot') {
+      jobs = projectList.filter(p => p.hot || p.featured);
+      if (jobs.length < 9) {
+        jobs = [...jobs, ...projectList.filter(p => !jobs.includes(p))];
+      }
+    } else {
+      jobs = [...projectList].reverse();
+    }
+    jobs = jobs.slice(0, 9);
+
+    container.innerHTML = jobs.map(p => {
+      const salary = p.salaryDisplay || (p.budgetMin ? `$${p.budgetMin} – $${p.budgetMax} / mo` : 'Thỏa thuận');
+      const logoUrl = resolveBrandLogo(p);
+      const loc = p.location || 'Hanoi';
+      const exp = p.experience || '3-5 năm';
+      const workType = p.workType || p.type || 'Toàn thời gian';
+      const comp = p.company || p.clientName || 'Doanh Nghiệp';
+
+      return `
+        <li class="schoollist" data-project-id="${p.id}">
+          <div class="schoollistaone">
+            <span class="schoollistaonename" title="${p.title}">${p.title}</span>
+            <div class="schoollistaaones"><p>${salary}</p></div>
+          </div>
+          <div class="schoollistaatwo">
+            <span><i class="fa-solid fa-location-dot"></i> ${loc}</span>
+            <span>${exp}</span>
+            <span>${workType}</span>
+          </div>
+          <div class="advertathree">
+            <img src="${logoUrl}" alt="${comp}" onerror="this.src='images/brands/fpt.svg'">
+            <span class="advertathrees">${comp}</span>
+          </div>
+        </li>
+      `;
+    }).join('');
+
+    container.querySelectorAll('.schoollist').forEach(card => {
+      card.addEventListener('click', () => {
+        const pid = card.getAttribute('data-project-id');
+        if (pid) {
+          showJobDetail(pid);
+        }
+      });
+    });
+  }
+
+  function initPortalFeatures() {
+    // Job tabs
+    const tabHot = document.getElementById('tab-hot-jobs');
+    const tabNew = document.getElementById('tab-new-jobs');
+    if (tabHot && tabNew) {
+      tabHot.addEventListener('click', () => {
+        tabHot.classList.add('tabActive');
+        tabNew.classList.remove('tabActive');
+        renderPortalJobs('hot');
+      });
+      tabNew.addEventListener('click', () => {
+        tabNew.classList.add('tabActive');
+        tabHot.classList.remove('tabActive');
+        renderPortalJobs('new');
+      });
+    }
+
+    // Category Search
+    const searchBtn = document.getElementById('btn-portal-search-submit');
+    const searchInput = document.getElementById('portal-main-search-input');
+    const handleSearch = () => {
+      const q = (searchInput ? searchInput.value : '').trim();
+      if (q) {
+        state.filters.search = q.toLowerCase();
+      }
+      switchView('browse');
+      if (typeof renderBrowseProjects === 'function') {
+        renderBrowseProjects();
+      }
+    };
+    if (searchBtn) searchBtn.addEventListener('click', handleSearch);
+    if (searchInput) {
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleSearch();
+      });
+    }
+
+    // City Selector
+    const cityBtn = document.getElementById('city-selector-btn');
+    const cityText = document.getElementById('selected-city-text');
+    if (cityBtn && cityText) {
+      cityBtn.addEventListener('click', () => {
+        const cities = ['全国', '北京', '上海', '广东', 'Hà Nội', 'TP.HCM', 'Đà Nẵng'];
+        const curIndex = cities.indexOf(cityText.textContent.trim());
+        const nextIndex = (curIndex + 1) % cities.length;
+        cityText.textContent = cities[nextIndex];
+        if (typeof showToast === 'function') {
+          showToast(`Đã chuyển khu vực: ${cities[nextIndex]}`);
+        }
+      });
+    }
+
+    // Carousel slide nav
+    const carouselImg = document.getElementById('portal-carousel-img');
+    const slideNavItems = document.querySelectorAll('.slide-nav-item');
+    const slideImages = [
+      'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&h=480&q=80',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&h=480&q=80',
+      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&h=480&q=80'
+    ];
+    let currentSlide = 0;
+
+    slideNavItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        slideNavItems.forEach(n => n.classList.remove('active'));
+        item.classList.add('active');
+        currentSlide = index;
+        if (carouselImg) carouselImg.src = slideImages[index];
+      });
+    });
+
+    setInterval(() => {
+      if (slideNavItems.length > 0 && carouselImg) {
+        currentSlide = (currentSlide + 1) % slideImages.length;
+        slideNavItems.forEach((n, idx) => {
+          n.classList.toggle('active', idx === currentSlide);
+        });
+        carouselImg.src = slideImages[currentSlide];
+      }
+    }, 5000);
+
+    // Exam tabs
+    document.querySelectorAll('.ready-choose').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.ready-choose').forEach(t => t.classList.remove('selected'));
+        tab.classList.add('selected');
+      });
+    });
+
+    // Initial render of portal jobs
+    renderPortalJobs('hot');
+  }
 
 // Execute renders immediately on script parse so there is 0ms delay or skeleton waiting
 function triggerAllSectionRenders() {
   try {
+    if (typeof renderPortalJobs === 'function') renderPortalJobs('hot');
+    if (typeof initPortalFeatures === 'function') initPortalFeatures();
     if (typeof renderHomeTopEmployers === 'function') renderHomeTopEmployers();
     if (typeof renderHomeFeaturedOpportunities === 'function') renderHomeFeaturedOpportunities();
     if (typeof renderHomeLatestJobs === 'function') renderHomeLatestJobs('all');
@@ -2854,3 +3007,4 @@ if (typeof document !== 'undefined' && typeof document.addEventListener === 'fun
 if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
   window.addEventListener('load', triggerAllSectionRenders);
 }
+
