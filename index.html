@@ -218,246 +218,278 @@
          ======================================================================== -->
     <section class="app-view active-view" id="view-home">
 
-      <!-- 1. Main 3-Column Top Hub (热门推荐 + 轮播图 + 精选活动) -->
-      <div class="main-top">
-        <!-- Left: 热门推荐 -->
-        <div class="main-top-left">
-          <div class="tt">
-            <span class="leftline"></span>
-            <span>热门推荐</span>
+      <!-- 1. Zara-Scale Borderless Minimalist Hero Section -->
+      <section class="zara-hero">
+        <div class="container" style="max-width:1280px; padding:0 24px;">
+          <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.18em; color:#64748b; margin-bottom:16px;">
+            GLOBAL TALENT MARKETPLACE • ESTABLISHED 2026
           </div>
-          <div class="leftlist">
-            <a href="#" data-view="insights" class="list-li">
-              <span class="text">• 2026年中央机关及其直属机构考试录用公务员公告发布</span>
-            </a>
-            <a href="#" data-view="insights" class="list-li">
-              <span class="text">• 教育部启动2026届高校毕业生春季促就业攻坚行动</span>
-            </a>
-            <a href="#" data-view="insights" class="list-li">
-              <span class="text">• 国资委推进中央企业“千校万岗”线上线下双选会</span>
-            </a>
-            <a href="#" data-view="insights" class="list-li">
-              <span class="text">• 人社部发布新职业信息：人工智能调度员与数字物流师</span>
-            </a>
-            <a href="#" data-view="insights" class="list-li">
-              <span class="text">• 2026年全国大学生创新创业与职业生涯发展规划指导手册</span>
-            </a>
-            <a href="#" data-view="insights" class="list-li">
-              <span class="text">• 智能制造与跨境电商领军企业春招优质岗位集合发布</span>
-            </a>
+          <h1 class="zara-hero-title">
+            Find the right job.<br>Build your career.
+          </h1>
+          <p class="zara-hero-sub">
+            Direct recruitment &amp; verified positions from 3,500+ enterprise employers across technology, logistics, and executive operations.
+          </p>
+
+          <!-- Big Zara Minimalist Search (Borderless, High Contrast) -->
+          <div class="zara-search-wrap">
+            <i class="fa-solid fa-magnifying-glass" style="color:#0a66c2; font-size:18px;"></i>
+            <input type="text" id="hero-search-input" class="zara-search-input" placeholder="Job title, skill, or enterprise...">
+            <div style="width:1px; height:32px; background:#e2e8f0; margin:0 8px;"></div>
+            <select id="hero-search-location" class="zara-search-select">
+              <option value="all">All Locations</option>
+              <option value="hanoi">Hanoi</option>
+              <option value="hcm">Ho Chi Minh City</option>
+              <option value="danang">Da Nang</option>
+              <option value="remote">Remote / Hybrid</option>
+            </select>
+            <button type="button" id="btn-hero-search-submit" class="zara-search-btn">
+              <span>SEARCH JOBS</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Popular Search Tags in Clean Borderless Pills -->
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:13px; color:#64748b; margin-bottom:32px;">
+            <span style="font-weight:700; color:#2e3e4e; font-size:12px; letter-spacing:0.05em;">POPULAR:</span>
+            <button type="button" class="wt-popular-tag" data-topic-search="Software Engineer" style="border:none; background:#f1f5f9; padding:6px 14px; border-radius:6px; font-weight:600; color:#2e3e4e; cursor:pointer;">Software Engineer</button>
+            <button type="button" class="wt-popular-tag" data-topic-search="DevOps" style="border:none; background:#f1f5f9; padding:6px 14px; border-radius:6px; font-weight:600; color:#2e3e4e; cursor:pointer;">DevOps &amp; Cloud</button>
+            <button type="button" class="wt-popular-tag" data-topic-search="Supply Chain" style="border:none; background:#f1f5f9; padding:6px 14px; border-radius:6px; font-weight:600; color:#2e3e4e; cursor:pointer;">Supply Chain</button>
+            <button type="button" class="wt-popular-tag" data-topic-search="Marketing" style="border:none; background:#f1f5f9; padding:6px 14px; border-radius:6px; font-weight:600; color:#2e3e4e; cursor:pointer;">Marketing Manager</button>
+            <button type="button" class="wt-popular-tag" data-topic-search="Financial Analyst" style="border:none; background:#f1f5f9; padding:6px 14px; border-radius:6px; font-weight:600; color:#2e3e4e; cursor:pointer;">Financial Analyst</button>
+          </div>
+
+          <!-- Borderless Hiring Enterprise Strip -->
+          <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap; padding-top:20px; border-top:1px solid #f1f5f9;">
+            <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#94a3b8;">HIRING ENTERPRISES:</span>
+            <img src="images/brands/samsung.svg" alt="Samsung" style="height:20px; filter:grayscale(100%); opacity:0.65; cursor:pointer;" data-view="browse">
+            <img src="images/brands/viettel.svg" alt="Viettel" style="height:22px; filter:grayscale(100%); opacity:0.65; cursor:pointer;" data-view="browse">
+            <img src="images/brands/fpt.svg" alt="FPT Software" style="height:22px; filter:grayscale(100%); opacity:0.65; cursor:pointer;" data-view="browse">
+            <img src="images/brands/vcb.svg" alt="Vietcombank" style="height:22px; filter:grayscale(100%); opacity:0.65; cursor:pointer;" data-view="browse">
+            <img src="images/brands/shopee.svg" alt="Shopee" style="height:22px; filter:grayscale(100%); opacity:0.65; cursor:pointer;" data-view="browse">
+            <img src="images/brands/vinfast.svg" alt="VinFast" style="height:20px; filter:grayscale(100%); opacity:0.65; cursor:pointer;" data-view="browse">
           </div>
         </div>
+      </section>
 
-        <!-- Center: 轮播大图 (bigimg) -->
-        <div class="bigimg" id="portal-carousel-wrap">
-          <img id="portal-carousel-img" src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&h=480&q=80" alt="高校毕业生就业指导综合平台">
-          <div class="slide-nav">
-            <div class="slide-nav-item active" data-slide-index="0">就业攻坚行动</div>
-            <div class="slide-nav-item" data-slide-index="1">中央企业专场</div>
-            <div class="slide-nav-item" data-slide-index="2">名企春招直聘</div>
-          </div>
-        </div>
-
-        <!-- Right: 精选活动 -->
-        <div class="main-top-right">
-          <div class="tt">
-            <span class="leftline"></span>
-            <span>精选活动</span>
-          </div>
-          <div class="rightlist">
-            <a href="#" data-view="browse" class="list-li">
-              <span class="text"><span style="color:#dc2626;font-weight:700;">[进行中]</span> 2026“百城千校”全国巡回线上双选周</span>
-            </a>
-            <a href="#" data-view="browse" class="list-li">
-              <span class="text"><span style="color:#0a66c2;font-weight:700;">[直播]</span> 人力资源高管带你实战破解大厂群面考核</span>
-            </a>
-            <a href="#" data-view="browse" class="list-li">
-              <span class="text"><span style="color:#dc2626;font-weight:700;">[报名]</span> 全国首届青年数字技能与AI创客竞赛</span>
-            </a>
-            <a href="#" data-view="browse" class="list-li">
-              <span class="text"><span style="color:#0a66c2;font-weight:700;">[名企]</span> 500强央国企应届生专项直聘通道开启</span>
-            </a>
-            <a href="#" data-view="browse" class="list-li">
-              <span class="text"><span style="color:#16a34a;font-weight:700;">[免费]</span> 大学生求职测评与职业锚定专业咨询</span>
-            </a>
-            <a href="#" data-view="browse" class="list-li">
-              <span class="text"><span style="color:#d97706;font-weight:700;">[公益]</span> “宏志助航”毕业生求职能力提升训练营</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. Hot & Latest Jobs Section (schools / job_hot) -->
-      <section class="schools">
-        <div class="job_hot">
-          <div class="job_tabs_title">
-            <div class="job_tabs tabActive" id="tab-hot-jobs" data-job-tab="hot">
-              <i class="fa-solid fa-fire" style="color:#dc2626;"></i> 热门职位
+      <!-- 2. Big Zara-Scale Open Positions Section (Borderless Cards, Generous Padding) -->
+      <section style="padding: 56px 0 64px; background: #f8fafc;">
+        <div class="container" style="max-width: 1280px; padding: 0 24px;">
+          
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 32px; flex-wrap:wrap; gap:16px;">
+            <div>
+              <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.18em; color:#0a66c2; margin-bottom:6px;">LATEST ROLES</div>
+              <h2 class="section-title-big">OPEN POSITIONS</h2>
             </div>
-            <div class="job_tabs" id="tab-new-jobs" data-job-tab="new">
-              最新职位
+            
+            <div style="display:flex; align-items:center; gap:8px;">
+              <button type="button" id="tab-hot-jobs" class="wt-filter-pill active" data-job-tab="hot" style="border:none; padding:8px 18px; border-radius:6px; font-weight:700; cursor:pointer; background:#0a66c2; color:#ffffff;">
+                <i class="fa-solid fa-fire" style="color:#ffffff;"></i> Featured Roles
+              </button>
+              <button type="button" id="tab-new-jobs" class="wt-filter-pill" data-job-tab="new" style="border:none; padding:8px 18px; border-radius:6px; font-weight:700; cursor:pointer; background:#ffffff; color:#2e3e4e;">
+                Recent Postings
+              </button>
+              <button type="button" class="wt-section-link" data-view="browse" style="border:none; background:transparent; font-size:13.5px; font-weight:800; color:#0a66c2; cursor:pointer; text-transform:uppercase; letter-spacing:0.05em; display:flex; align-items:center; gap:6px; margin-left:12px;">
+                VIEW ALL <i class="fa-solid fa-arrow-right"></i>
+              </button>
             </div>
           </div>
-          <a href="#" class="more" data-view="browse">
-            更多职位 <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i>
-          </a>
-        </div>
 
-        <div class="tabs">
-          <ul id="portal-job-cards-list">
+          <!-- Big Borderless Job Cards Grid (Zara Scale) -->
+          <div class="zara-jobs-grid" id="portal-job-cards-list">
             <!-- Job Card 1 -->
-            <li class="schoollist" data-project-id="prj-100">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="Senior Backend Engineer (Java / Spring Boot)">Senior Backend Engineer (Java / Spring Boot)</span>
-                <div class="schoollistaaones"><p>$1,200 – $2,200 / mo</p></div>
+            <div class="zara-job-card" data-project-id="prj-100">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+                <div style="display:flex; align-items:flex-start; gap:16px;">
+                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
+                    <img src="images/brands/fpt.svg" alt="FPT Software" style="width:100%; height:100%; object-fit:contain;">
+                  </div>
+                  <div>
+                    <h3 class="zara-job-title">Senior Backend Engineer (Java / Spring Boot)</h3>
+                    <div class="zara-job-company">
+                      <span style="color:#2e3e4e; font-weight:700;">FPT Software</span>
+                      <span>•</span>
+                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Hanoi</span>
+                      <span>•</span>
+                      <span>Toàn thời gian</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="zara-job-salary">$1,200 – $2,200 / mo</div>
               </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> Hanoi</span>
-                <span>3-5 năm</span>
-                <span>Toàn thời gian</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Java</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Spring Boot</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Kafka</span>
+                </div>
+                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
+                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <div class="advertathree">
-                <img src="images/brands/fpt.svg" alt="FPT Software">
-                <span class="advertathrees">FPT Software</span>
-              </div>
-            </li>
+            </div>
 
             <!-- Job Card 2 -->
-            <li class="schoollist" data-project-id="prj-101">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="Senior Cloud Platform & DevOps Architect">Senior Cloud Platform &amp; DevOps Architect</span>
-                <div class="schoollistaaones"><p>$1,500 – $2,800 / mo</p></div>
+            <div class="zara-job-card" data-project-id="prj-101">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+                <div style="display:flex; align-items:flex-start; gap:16px;">
+                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
+                    <img src="images/brands/viettel.svg" alt="Viettel Group" style="width:100%; height:100%; object-fit:contain;">
+                  </div>
+                  <div>
+                    <h3 class="zara-job-title">Senior Cloud Platform &amp; DevOps Architect</h3>
+                    <div class="zara-job-company">
+                      <span style="color:#2e3e4e; font-weight:700;">Viettel Group</span>
+                      <span>•</span>
+                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Hanoi</span>
+                      <span>•</span>
+                      <span>Toàn thời gian</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="zara-job-salary">$1,500 – $2,800 / mo</div>
               </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> Hanoi</span>
-                <span>5+ năm</span>
-                <span>Toàn thời gian</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">AWS</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Kubernetes</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Terraform</span>
+                </div>
+                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
+                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <div class="advertathree">
-                <img src="images/brands/viettel.svg" alt="Viettel Group">
-                <span class="advertathrees">Viettel Group</span>
-              </div>
-            </li>
+            </div>
 
             <!-- Job Card 3 -->
-            <li class="schoollist" data-project-id="prj-102">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="Core Banking System Lead (Microservices)">Core Banking System Lead (Microservices)</span>
-                <div class="schoollistaaones"><p>$1,600 – $2,600 / mo</p></div>
+            <div class="zara-job-card" data-project-id="prj-102">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+                <div style="display:flex; align-items:flex-start; gap:16px;">
+                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
+                    <img src="images/brands/vcb.svg" alt="Vietcombank" style="width:100%; height:100%; object-fit:contain;">
+                  </div>
+                  <div>
+                    <h3 class="zara-job-title">Core Banking System Lead (Microservices)</h3>
+                    <div class="zara-job-company">
+                      <span style="color:#2e3e4e; font-weight:700;">Vietcombank</span>
+                      <span>•</span>
+                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Hanoi</span>
+                      <span>•</span>
+                      <span>Toàn thời gian</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="zara-job-salary">$1,600 – $2,600 / mo</div>
               </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> Hanoi</span>
-                <span>4-6 năm</span>
-                <span>Toàn thời gian</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Fintech</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Microservices</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">High Scale</span>
+                </div>
+                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
+                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <div class="advertathree">
-                <img src="images/brands/vcb.svg" alt="Vietcombank">
-                <span class="advertathrees">Vietcombank</span>
-              </div>
-            </li>
+            </div>
 
             <!-- Job Card 4 -->
-            <li class="schoollist" data-project-id="prj-104">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="Digital Marketing Manager (Growth & Performance)">Digital Marketing Manager (Growth &amp; Performance)</span>
-                <div class="schoollistaaones"><p>25 – 40 triệu</p></div>
+            <div class="zara-job-card" data-project-id="prj-111">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+                <div style="display:flex; align-items:flex-start; gap:16px;">
+                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
+                    <img src="images/brands/samsung.svg" alt="Samsung Vietnam" style="width:100%; height:100%; object-fit:contain;">
+                  </div>
+                  <div>
+                    <h3 class="zara-job-title">Supply Chain &amp; Logistics Manager</h3>
+                    <div class="zara-job-company">
+                      <span style="color:#2e3e4e; font-weight:700;">Samsung Vietnam</span>
+                      <span>•</span>
+                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Bắc Ninh</span>
+                      <span>•</span>
+                      <span>Toàn thời gian</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="zara-job-salary">35 – 65 triệu</div>
               </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> TP.HCM</span>
-                <span>3-5 năm</span>
-                <span>Toàn thời gian</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">SAP ERP</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Supply Chain</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Lean Six Sigma</span>
+                </div>
+                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
+                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <div class="advertathree">
-                <img src="images/brands/shopee.svg" alt="Shopee Vietnam">
-                <span class="advertathrees">Shopee Vietnam</span>
-              </div>
-            </li>
+            </div>
 
             <!-- Job Card 5 -->
-            <li class="schoollist" data-project-id="prj-105">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="Senior UI/UX Designer (Design System)">Senior UI/UX Designer (Design System)</span>
-                <div class="schoollistaaones"><p>30 – 50 triệu</p></div>
+            <div class="zara-job-card" data-project-id="prj-104">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+                <div style="display:flex; align-items:flex-start; gap:16px;">
+                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
+                    <img src="images/brands/shopee.svg" alt="Shopee Vietnam" style="width:100%; height:100%; object-fit:contain;">
+                  </div>
+                  <div>
+                    <h3 class="zara-job-title">Digital Marketing Manager (Growth &amp; Performance)</h3>
+                    <div class="zara-job-company">
+                      <span style="color:#2e3e4e; font-weight:700;">Shopee Vietnam</span>
+                      <span>•</span>
+                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> TP.HCM</span>
+                      <span>•</span>
+                      <span>Toàn thời gian</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="zara-job-salary">25 – 40 triệu</div>
               </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> Remote / Hybrid</span>
-                <span>3+ năm</span>
-                <span>Toàn thời gian</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Growth</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">E-commerce</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Analytics</span>
+                </div>
+                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
+                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <div class="advertathree">
-                <img src="images/brands/momo.svg" alt="MoMo Fintech">
-                <span class="advertathrees">MoMo Fintech</span>
-              </div>
-            </li>
+            </div>
 
             <!-- Job Card 6 -->
-            <li class="schoollist" data-project-id="prj-106">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="DevOps & Cloud Engineer (AWS / K8s)">DevOps &amp; Cloud Engineer (AWS / K8s)</span>
-                <div class="schoollistaaones"><p>35 – 60 triệu</p></div>
+            <div class="zara-job-card" data-project-id="prj-105">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+                <div style="display:flex; align-items:flex-start; gap:16px;">
+                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
+                    <img src="images/brands/momo.svg" alt="MoMo Fintech" style="width:100%; height:100%; object-fit:contain;">
+                  </div>
+                  <div>
+                    <h3 class="zara-job-title">Senior UI/UX Designer (Design System)</h3>
+                    <div class="zara-job-company">
+                      <span style="color:#2e3e4e; font-weight:700;">MoMo Fintech</span>
+                      <span>•</span>
+                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Remote / Hybrid</span>
+                      <span>•</span>
+                      <span>Toàn thời gian</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="zara-job-salary">30 – 50 triệu</div>
               </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> TP.HCM</span>
-                <span>3-5 năm</span>
-                <span>Toàn thời gian</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Design System</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Figma</span>
+                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">UX Research</span>
+                </div>
+                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
+                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <div class="advertathree">
-                <img src="images/brands/tiki.svg" alt="Tiki Corporation">
-                <span class="advertathrees">Tiki Corporation</span>
-              </div>
-            </li>
+            </div>
+          </div>
 
-            <!-- Job Card 7 -->
-            <li class="schoollist" data-project-id="prj-111">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="Supply Chain & Logistics Manager">Supply Chain &amp; Logistics Manager</span>
-                <div class="schoollistaaones"><p>35 – 65 triệu</p></div>
-              </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> Bắc Ninh</span>
-                <span>5+ năm</span>
-                <span>Toàn thời gian</span>
-              </div>
-              <div class="advertathree">
-                <img src="images/brands/samsung.svg" alt="Samsung Vietnam">
-                <span class="advertathrees">Samsung Vietnam</span>
-              </div>
-            </li>
-
-            <!-- Job Card 8 -->
-            <li class="schoollist" data-project-id="prj-107">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="HR Business Partner & Talent Acquisition">HR Business Partner &amp; Talent Acquisition</span>
-                <div class="schoollistaaones"><p>20 – 35 triệu</p></div>
-              </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> Hanoi</span>
-                <span>3-5 năm</span>
-                <span>Toàn thời gian</span>
-              </div>
-              <div class="advertathree">
-                <img src="images/brands/vinfast.svg" alt="VinFast Auto">
-                <span class="advertathrees">VinFast Auto</span>
-              </div>
-            </li>
-
-            <!-- Job Card 9 -->
-            <li class="schoollist" data-project-id="prj-113">
-              <div class="schoollistaone">
-                <span class="schoollistaonename" title="Financial Analyst & Valuation Specialist">Financial Analyst &amp; Valuation Specialist</span>
-                <div class="schoollistaaones"><p>25 – 45 triệu</p></div>
-              </div>
-              <div class="schoollistaatwo">
-                <span><i class="fa-solid fa-location-dot"></i> Hanoi</span>
-                <span>2-4 năm</span>
-                <span>Toàn thời gian</span>
-              </div>
-              <div class="advertathree">
-                <img src="images/brands/vpbank.svg" alt="VPBank Securities">
-                <span class="advertathrees">VPBank Securities</span>
-              </div>
-            </li>
-          </ul>
         </div>
       </section>
 
@@ -730,7 +762,7 @@
 
       <!-- 7. Course Center (class_center) -->
       <section class="class_center">
-        <div class="card_title" style="border-bottom:2px solid #0a66c2; padding-bottom:8px; margin-bottom:16px;">
+        <div class="card_title" style="padding-bottom:12px; margin-bottom:20px; border-bottom:1px solid #f1f5f9;">
           <div style="display:flex; align-items:center; gap:8px;">
             <span style="display:inline-block;width:3.5px;height:16px;background:#dc2626;border-radius:2px;"></span>
             <span style="font-size:18px; font-weight:800; color:#2e3e4e;">课程中心</span>

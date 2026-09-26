@@ -2844,42 +2844,56 @@ document.addEventListener('DOMContentLoaded', () => {
     let jobs = [];
     if (type === 'hot') {
       jobs = projectList.filter(p => p.hot || p.featured);
-      if (jobs.length < 9) {
+      if (jobs.length < 6) {
         jobs = [...jobs, ...projectList.filter(p => !jobs.includes(p))];
       }
     } else {
       jobs = [...projectList].reverse();
     }
-    jobs = jobs.slice(0, 9);
+    jobs = jobs.slice(0, 8);
 
     container.innerHTML = jobs.map(p => {
       const salary = p.salaryDisplay || (p.budgetMin ? `$${p.budgetMin} – $${p.budgetMax} / mo` : 'Thỏa thuận');
       const logoUrl = resolveBrandLogo(p);
       const loc = p.location || 'Hanoi';
-      const exp = p.experience || '3-5 năm';
       const workType = p.workType || p.type || 'Toàn thời gian';
       const comp = p.company || p.clientName || 'Doanh Nghiệp';
+      const skills = Array.isArray(p.skills) ? p.skills.slice(0, 3) : ['Enterprise', 'Verified'];
+      const skillBadges = skills.map(s => `<span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">${s}</span>`).join('');
 
       return `
-        <li class="schoollist" data-project-id="${p.id}">
-          <div class="schoollistaone">
-            <span class="schoollistaonename" title="${p.title}">${p.title}</span>
-            <div class="schoollistaaones"><p>${salary}</p></div>
+        <div class="zara-job-card" data-project-id="${p.id}">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+            <div style="display:flex; align-items:flex-start; gap:16px;">
+              <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
+                <img src="${logoUrl}" alt="${comp}" style="width:100%; height:100%; object-fit:contain;" onerror="this.src='images/brands/fpt.svg'">
+              </div>
+              <div>
+                <h3 class="zara-job-title">${p.title}</h3>
+                <div class="zara-job-company">
+                  <span style="color:#2e3e4e; font-weight:700;">${comp}</span>
+                  <span>•</span>
+                  <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> ${loc}</span>
+                  <span>•</span>
+                  <span>${workType}</span>
+                </div>
+              </div>
+            </div>
+            <div class="zara-job-salary">${salary}</div>
           </div>
-          <div class="schoollistaatwo">
-            <span><i class="fa-solid fa-location-dot"></i> ${loc}</span>
-            <span>${exp}</span>
-            <span>${workType}</span>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              ${skillBadges}
+            </div>
+            <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
+              VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
-          <div class="advertathree">
-            <img src="${logoUrl}" alt="${comp}" onerror="this.src='images/brands/fpt.svg'">
-            <span class="advertathrees">${comp}</span>
-          </div>
-        </li>
+        </div>
       `;
     }).join('');
 
-    container.querySelectorAll('.schoollist').forEach(card => {
+    container.querySelectorAll('.zara-job-card').forEach(card => {
       card.addEventListener('click', () => {
         const pid = card.getAttribute('data-project-id');
         if (pid) {
@@ -2895,31 +2909,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabNew = document.getElementById('tab-new-jobs');
     if (tabHot && tabNew) {
       tabHot.addEventListener('click', () => {
-        tabHot.classList.add('tabActive');
-        tabNew.classList.remove('tabActive');
+        tabHot.classList.add('active');
+        tabHot.style.background = '#0a66c2';
+        tabHot.style.color = '#ffffff';
+        if (tabNew) {
+          tabNew.classList.remove('active');
+          tabNew.style.background = '#ffffff';
+          tabNew.style.color = '#2e3e4e';
+        }
         renderPortalJobs('hot');
       });
       tabNew.addEventListener('click', () => {
-        tabNew.classList.add('tabActive');
-        tabHot.classList.remove('tabActive');
+        tabNew.classList.add('active');
+        tabNew.style.background = '#0a66c2';
+        tabNew.style.color = '#ffffff';
+        if (tabHot) {
+          tabHot.classList.remove('active');
+          tabHot.style.background = '#ffffff';
+          tabHot.style.color = '#2e3e4e';
+        }
         renderPortalJobs('new');
       });
     }
 
-    // Category & Header Quick Search
+    // Category, Hero & Header Quick Search
+    const heroSearchBtn = document.getElementById('btn-hero-search-submit');
+    const heroSearchInput = document.getElementById('hero-search-input');
+    const heroLocSelect = document.getElementById('hero-search-location');
     const searchBtn = document.getElementById('btn-portal-search-submit');
     const searchInput = document.getElementById('portal-main-search-input');
     const headerQuickSearch = document.getElementById('header-quick-search-input');
+
     const handleSearch = () => {
-      const q = (searchInput ? searchInput.value : (headerQuickSearch ? headerQuickSearch.value : '')).trim();
+      const q = ((heroSearchInput && heroSearchInput.value) || 
+                 (searchInput && searchInput.value) || 
+                 (headerQuickSearch && headerQuickSearch.value) || '').trim();
       if (q) {
         state.filters.search = q.toLowerCase();
+      }
+      if (heroLocSelect && heroLocSelect.value !== 'all') {
+        state.filters.location = heroLocSelect.value;
       }
       switchView('browse');
       if (typeof renderBrowseProjects === 'function') {
         renderBrowseProjects();
       }
     };
+
+    if (heroSearchBtn) heroSearchBtn.addEventListener('click', handleSearch);
+    if (heroSearchInput) {
+      heroSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleSearch();
+      });
+    }
     if (searchBtn) searchBtn.addEventListener('click', handleSearch);
     if (searchInput) {
       searchInput.addEventListener('keydown', (e) => {
@@ -2931,6 +2973,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') handleSearch();
       });
     }
+
+    // Popular tags
+    document.querySelectorAll('.wt-popular-tag').forEach(tag => {
+      tag.addEventListener('click', () => {
+        const topic = tag.getAttribute('data-topic-search');
+        if (topic) {
+          state.filters.search = topic.toLowerCase();
+          switchView('browse');
+          if (typeof renderBrowseProjects === 'function') {
+            renderBrowseProjects();
+          }
+        }
+      });
+    });
 
     // City Selector
     const cityBtn = document.getElementById('city-selector-btn');
