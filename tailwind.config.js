@@ -31,8 +31,8 @@ module.exports = {
           dark: '#334155',
         },
         text: {
-          DEFAULT: '#0F172A',
-          muted: '#64748B',
+          DEFAULT: '#2e3e4e',
+          muted: '#2e3e4e',
           dark: '#F1F5F9',
         },
       },

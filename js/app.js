@@ -856,6 +856,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('btn-open-post-project')?.addEventListener('click', openWizardModal);
+    document.getElementById('hero-feature-post-btn')?.addEventListener('click', openWizardModal);
     document.getElementById('footer-btn-post-job')?.addEventListener('click', openWizardModal);
     document.getElementById('footer-btn-headhunt')?.addEventListener('click', () => {
       openEnterpriseModal('Headhunt VIP');

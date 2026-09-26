@@ -14,8 +14,8 @@
   --color-surface: #FFFFFF;
   --color-background: #F7F9FC;
   --color-border: #E4E9F2;
-  --color-text: #0F172A;
-  --color-text-muted: #64748B;
+  --color-text: #2e3e4e;
+  --color-text-muted: #2e3e4e;
 }
 
 .dark {
