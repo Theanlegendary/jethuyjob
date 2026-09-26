@@ -83,129 +83,30 @@ var state = window.state;
     const grid = document.getElementById('home-top-employers-grid');
     if (!grid) return;
 
-    const employerData = [
-      {
-        name: 'FPT Software',
-        industry: 'Technology & IT Services',
-        logo: 'images/brands/fpt.svg',
-        fallback: 'FPT',
-        jobsCount: 24,
-        featuredJobs: [
-          { id: 'prj-100', title: 'Senior Backend Engineer' },
-          { id: 'prj-101', title: 'Cloud Solutions Architect' },
-          { id: 'prj-106', title: 'DevOps & Cloud Engineer' }
-        ]
-      },
-      {
-        name: 'Viettel Group',
-        industry: 'Telecommunications & Cloud',
-        logo: 'images/brands/viettel.svg',
-        fallback: 'VTL',
-        jobsCount: 18,
-        featuredJobs: [
-          { id: 'prj-101', title: 'Senior Cloud Platform Architect' },
-          { id: 'prj-100', title: 'Security Operations Engineer' },
-          { id: 'prj-108', title: 'Fullstack Node.js Developer' }
-        ]
-      },
-      {
-        name: 'Vietcombank',
-        industry: 'Banking & Financial Services',
-        logo: 'images/brands/vcb.svg',
-        fallback: 'VCB',
-        jobsCount: 32,
-        featuredJobs: [
-          { id: 'prj-102', title: 'Core Banking System Lead' },
-          { id: 'prj-113', title: 'Financial Analyst' },
-          { id: 'prj-109', title: 'Data Engineer' }
-        ]
-      },
-      {
-        name: 'Shopee Vietnam',
-        industry: 'E-Commerce & Digital Tech',
-        logo: 'images/brands/shopee.svg',
-        fallback: 'SHP',
-        jobsCount: 28,
-        featuredJobs: [
-          { id: 'prj-104', title: 'Digital Marketing Manager' },
-          { id: 'prj-108', title: 'Principal Data Engineer' },
-          { id: 'prj-105', title: 'Senior UI/UX Designer' }
-        ]
-      },
-      {
-        name: 'Samsung Vietnam',
-        industry: 'Electronics & Smart Manufacturing',
-        logo: 'images/brands/samsung.svg',
-        fallback: 'SS',
-        jobsCount: 20,
-        featuredJobs: [
-          { id: 'prj-103', title: 'Mobile Systems QA Lead' },
-          { id: 'prj-111', title: 'Supply Chain Manager' },
-          { id: 'prj-100', title: 'Embedded Firmware Engineer' }
-        ]
-      },
-      {
-        name: 'VinFast Auto',
-        industry: 'Automotive & Clean Energy',
-        logo: 'images/brands/vinfast.svg',
-        fallback: 'VIN',
-        jobsCount: 15,
-        featuredJobs: [
-          { id: 'prj-107', title: 'HR Business Partner' },
-          { id: 'prj-110', title: 'Automotive Systems Engineer' },
-          { id: 'prj-114', title: 'Software & Telematics Lead' }
-        ]
-      }
+    const spotlightCompanies = [
+      { name: 'NIKE VIETNAM', filter: 'Nike', logo: 'images/brands/nike.svg', badge: 'VIỆC MỚI' },
+      { name: 'SAMSUNG VIETNAM', filter: 'Samsung', logo: 'images/brands/samsung.svg', badge: 'VIỆC MỚI' },
+      { name: "L'ORÉAL VIETNAM", filter: "L'Oreal", logo: 'images/brands/loreal.svg', badge: 'VIỆC MỚI' },
+      { name: 'UNILEVER VIETNAM', filter: 'Unilever', logo: 'images/brands/unilever.svg', badge: 'VIỆC MỚI' },
+      { name: 'ZARA VIETNAM', filter: 'Zara', logo: 'images/brands/zara.svg', badge: 'VIỆC MỚI' },
+      { name: 'SHOPEE VIETNAM', filter: 'Shopee', logo: 'images/brands/shopee.svg', badge: 'VIỆC MỚI' }
     ];
 
-    grid.innerHTML = employerData.map(emp => `
-      <div class="wt-recruitment-company-card" data-company-name="${emp.name}">
-        <div class="wt-rcompany-header">
-          <div class="wt-rcompany-logo-wrap">
-            <img src="${emp.logo}" alt="${emp.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <span style="display:none; font-weight:700; font-size:13px; color:#0f172a;">${emp.fallback}</span>
-          </div>
-          <div class="wt-rcompany-info">
-            <h3 class="wt-rcompany-name">${emp.name}</h3>
-            <div class="wt-rcompany-industry">${emp.industry}</div>
-            <div class="wt-rcompany-open-jobs">${emp.jobsCount} open jobs</div>
-          </div>
+    grid.innerHTML = spotlightCompanies.map(comp => `
+      <div class="company-profile-card" data-view="browse" data-filter-company="${comp.filter}" title="Xem việc làm tại ${comp.name}">
+        <div class="company-avatar-box">
+          <img src="${comp.logo}" alt="${comp.name}" class="brand-logo-img" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\\'font-weight:800;font-size:14px;color:#0f172a;\\'>${comp.filter.toUpperCase()}</span>'">
         </div>
-
-        <div class="wt-rcompany-examples">
-          <div class="wt-rcompany-examples-label">Example roles</div>
-          <ul class="wt-rcompany-examples-list">
-            ${emp.featuredJobs.map(job => `
-              <li class="wt-rcompany-example-item" data-project-id="${job.id}">
-                <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                <span>${job.title}</span>
-              </li>
-            `).join('')}
-          </ul>
-        </div>
-
-        <div class="wt-rcompany-footer">
-          <a href="#" class="wt-rcompany-link" data-company-name="${emp.name}">
-            View jobs <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
-          </a>
-        </div>
+        <div class="company-name-text">${comp.name}</div>
+        <button type="button" class="btn-viec-moi" data-filter-company="${comp.filter}">${comp.badge}</button>
       </div>
     `).join('');
 
-    grid.querySelectorAll('.wt-rcompany-example-item').forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const prjId = item.getAttribute('data-project-id');
-        switchView('browse');
-        setTimeout(() => updateJobDetailPreview(prjId), 80);
-      });
-    });
-
-    grid.querySelectorAll('.wt-rcompany-link, .wt-recruitment-company-card').forEach(card => {
+    grid.querySelectorAll('.company-profile-card, .btn-viec-moi').forEach(card => {
       card.addEventListener('click', (e) => {
-        if (e.target.closest('.wt-rcompany-example-item')) return;
         e.preventDefault();
-        const comp = card.getAttribute('data-company-name');
+        e.stopPropagation();
+        const comp = card.getAttribute('data-filter-company');
         if (comp) {
           state.filters.search = comp.toLowerCase();
           switchView('browse');

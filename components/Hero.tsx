@@ -129,12 +129,13 @@ export default function Hero({ language }: HeroProps) {
               </select>
             </div>
 
-            {/* Search Button */}
+            {/* Search Button (Bigger than normal) */}
             <button
               type="submit"
-              className="bg-primary hover:bg-primary-hover text-white font-semibold px-8 py-3 rounded-lg transition-colors tap-target"
+              className="bg-primary hover:bg-primary-hover text-white font-bold px-10 py-4 text-base md:text-lg rounded-lg transition-colors shadow-sm tap-target flex items-center justify-center gap-2"
             >
-              {t.searchButton}
+              <Search className="w-5 h-5" />
+              <span>{t.searchButton}</span>
             </button>
           </div>
         </form>

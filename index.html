@@ -236,16 +236,16 @@
                 Discover verified jobs from companies across logistics, technology, finance, and other growing industries.
               </p>
 
-              <!-- Main Job Search Box -->
-              <div class="wt-hero-search" style="width:100%; max-width:640px; background:#ffffff; border:1px solid #cbd5e1; border-radius:6px; box-shadow:0 1px 3px rgba(15, 23, 42, 0.05); display:flex; align-items:center; padding:4px 6px 4px 16px; gap:12px; margin-bottom:22px;">
+              <!-- Main Job Search Box (High-Utility, Search-First, Bigger Button) -->
+              <div class="wt-hero-search" style="width:100%; max-width:680px; background:#ffffff; border:1.5px solid #94a3b8; border-radius:8px; box-shadow:0 3px 12px rgba(15, 23, 42, 0.08); display:flex; align-items:center; padding:4px 5px 4px 18px; gap:12px; margin-bottom:20px;">
                 <div class="wt-search-input-group" style="display:flex; align-items:center; gap:10px; flex:1;">
-                  <i class="fa-solid fa-magnifying-glass" style="color:#94a3b8; font-size:14px;"></i>
-                  <input type="text" id="hero-search-input" class="wt-search-input" placeholder="Job title, skill, or company" style="width:100%; border:none; outline:none; font-size:14px; color:#0f172a; background:transparent;">
+                  <i class="fa-solid fa-magnifying-glass" style="color:#0a66c2; font-size:16px;"></i>
+                  <input type="text" id="hero-search-input" class="wt-search-input" placeholder="Job title, skill, or company" style="width:100%; border:none; outline:none; font-size:15px; font-weight:500; color:#0f172a; background:transparent;">
                 </div>
-                <div class="wt-search-divider" style="width:1px; height:26px; background:#e2e8f0; flex-shrink:0;"></div>
-                <div class="wt-search-location-group" style="display:flex; align-items:center; gap:8px; width:170px; flex-shrink:0;">
-                  <i class="fa-solid fa-location-dot" style="color:#94a3b8; font-size:13px;"></i>
-                  <select id="hero-search-location" class="wt-search-select" style="width:100%; border:none; outline:none; font-size:13.5px; font-weight:500; color:#0f172a; background:transparent; cursor:pointer;">
+                <div class="wt-search-divider" style="width:1px; height:32px; background:#cbd5e1; flex-shrink:0;"></div>
+                <div class="wt-search-location-group" style="display:flex; align-items:center; gap:8px; width:180px; flex-shrink:0;">
+                  <i class="fa-solid fa-location-dot" style="color:#64748b; font-size:14px;"></i>
+                  <select id="hero-search-location" class="wt-search-select" style="width:100%; border:none; outline:none; font-size:14px; font-weight:600; color:#0f172a; background:transparent; cursor:pointer;">
                     <option value="all">All Locations</option>
                     <option value="hanoi">Hanoi</option>
                     <option value="hcm">Ho Chi Minh City</option>
@@ -253,9 +253,10 @@
                     <option value="remote">Remote / Hybrid</option>
                   </select>
                 </div>
-                <button type="button" id="btn-hero-search-submit" class="wt-search-submit-btn" style="height:42px; padding:0 20px; background:#0284c7; color:#ffffff; border:none; border-radius:6px; font-size:14px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:8px; flex-shrink:0; transition:background 0.15s ease;">
+                <!-- Main button noticeably bigger than normal: 52px height, 30px padding, bold 15.5px text -->
+                <button type="button" id="btn-hero-search-submit" class="wt-search-submit-btn" style="height:52px; min-width:150px; padding:0 30px; background:#0a66c2; color:#ffffff; border:none; border-radius:6px; font-size:15.5px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; flex-shrink:0; box-shadow:0 2px 6px rgba(10, 102, 194, 0.35); transition:background 0.15s ease;">
                   <span>Search jobs</span>
-                  <i class="fa-solid fa-arrow-right" style="font-size:12px;"></i>
+                  <i class="fa-solid fa-magnifying-glass" style="font-size:13px;"></i>
                 </button>
               </div>
 
@@ -272,17 +273,17 @@
               <!-- Simple Factual Statements (Replaces exaggerated statistics) -->
               <div class="wt-hero-facts">
                 <div class="wt-hero-fact-item">
-                  <i class="fa-solid fa-check"></i>
+                  <i class="fa-solid fa-check" style="color:#0a66c2;"></i>
                   <span>New jobs added daily</span>
                 </div>
                 <div class="wt-hero-fact-dot"></div>
                 <div class="wt-hero-fact-item">
-                  <i class="fa-solid fa-check"></i>
+                  <i class="fa-solid fa-check" style="color:#0a66c2;"></i>
                   <span>Verified company profiles</span>
                 </div>
                 <div class="wt-hero-fact-dot"></div>
                 <div class="wt-hero-fact-item">
-                  <i class="fa-solid fa-check"></i>
+                  <i class="fa-solid fa-check" style="color:#0a66c2;"></i>
                   <span>Multiple industries</span>
                 </div>
               </div>
@@ -310,228 +311,73 @@
         </div>
       </div>
 
-      <!-- 2. Companies hiring now Section -->
-      <section class="wt-section">
+      <!-- 2. TOP NHÀ TUYỂN DỤNG HÀNG ĐẦU (SIGNATURE BLUE SPOTLIGHT CONTAINER MATCHING media_1790389720451.png) -->
+      <section class="wt-section" style="padding: 24px 0 28px;">
         <div class="container" style="max-width: 1280px; padding: 0 24px;">
-          <div class="wt-section-header">
-            <div>
-              <div class="wt-section-tag">COMPANIES</div>
-              <h2 class="wt-section-title">Companies hiring now</h2>
-              <p class="wt-section-subtitle">Explore open positions at actively recruiting employers</p>
-            </div>
-            <button class="wt-section-link" data-view="company">
-              View all companies <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-          
-          <div class="wt-companies-hiring-grid" id="home-top-employers-grid">
-            <div class="wt-recruitment-company-card" data-company-name="FPT Software">
-              <div class="wt-rcompany-header">
-                <div class="wt-rcompany-logo-wrap">
-                  <img src="images/brands/fpt.svg" alt="FPT Software">
-                </div>
-                <div class="wt-rcompany-info">
-                  <h3 class="wt-rcompany-name">FPT Software</h3>
-                  <div class="wt-rcompany-industry">Technology &amp; IT Services</div>
-                  <div class="wt-rcompany-open-jobs">24 open jobs</div>
-                </div>
+          <div class="company-spotlight-section" aria-label="Top Nhà Tuyển Dụng Hàng Đầu">
+            <div class="section-header-row" style="margin-bottom: 0; border-bottom: 1px solid rgba(255,255,255,0.22); padding-bottom: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <h2 class="section-title" style="color: #ffffff; font-size: 20px; font-weight: 800; margin: 0 0 4px 0; letter-spacing: -0.01em;">Top Nhà Tuyển Dụng Hàng Đầu</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.85); font-size: 13.5px; margin: 0;">Khám phá cơ hội nghề nghiệp tại các doanh nghiệp tiêu biểu</p>
               </div>
-              <div class="wt-rcompany-examples">
-                <div class="wt-rcompany-examples-label">Example roles</div>
-                <ul class="wt-rcompany-examples-list">
-                  <li class="wt-rcompany-example-item" data-project-id="prj-100">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Senior Backend Engineer</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-101">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Cloud Solutions Architect</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-106">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>DevOps &amp; Cloud Engineer</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="wt-rcompany-footer">
-                <a href="#" class="wt-rcompany-link" data-company-name="FPT Software">
-                  View jobs <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
-                </a>
-              </div>
+              <a href="#" class="section-view-all-link" style="color: #ffffff; font-weight: 700; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" data-view="browse">
+                Xem tất cả công ty <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+              </a>
             </div>
 
-            <div class="wt-recruitment-company-card" data-company-name="Viettel Group">
-              <div class="wt-rcompany-header">
-                <div class="wt-rcompany-logo-wrap">
-                  <img src="images/brands/viettel.svg" alt="Viettel Group">
+            <div class="company-spotlight-grid" id="home-top-employers-grid">
+              <!-- Card 1: Nike -->
+              <div class="company-profile-card" data-view="browse" data-filter-company="Nike" title="Xem việc làm tại Nike">
+                <div class="company-avatar-box">
+                  <img src="images/brands/nike.svg" alt="Nike Vietnam" class="brand-logo-img">
                 </div>
-                <div class="wt-rcompany-info">
-                  <h3 class="wt-rcompany-name">Viettel Group</h3>
-                  <div class="wt-rcompany-industry">Telecommunications &amp; Cloud</div>
-                  <div class="wt-rcompany-open-jobs">18 open jobs</div>
-                </div>
+                <div class="company-name-text">NIKE VIETNAM</div>
+                <button type="button" class="btn-viec-moi" data-filter-company="Nike">VIỆC MỚI</button>
               </div>
-              <div class="wt-rcompany-examples">
-                <div class="wt-rcompany-examples-label">Example roles</div>
-                <ul class="wt-rcompany-examples-list">
-                  <li class="wt-rcompany-example-item" data-project-id="prj-101">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Senior Cloud Platform Architect</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-100">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Security Operations Engineer</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-108">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Fullstack Node.js Developer</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="wt-rcompany-footer">
-                <a href="#" class="wt-rcompany-link" data-company-name="Viettel Group">
-                  View jobs <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
-                </a>
-              </div>
-            </div>
 
-            <div class="wt-recruitment-company-card" data-company-name="Vietcombank">
-              <div class="wt-rcompany-header">
-                <div class="wt-rcompany-logo-wrap">
-                  <img src="images/brands/vcb.svg" alt="Vietcombank">
+              <!-- Card 2: Samsung -->
+              <div class="company-profile-card" data-view="browse" data-filter-company="Samsung" title="Xem việc làm tại Samsung">
+                <div class="company-avatar-box">
+                  <img src="images/brands/samsung.svg" alt="Samsung Vietnam" class="brand-logo-img">
                 </div>
-                <div class="wt-rcompany-info">
-                  <h3 class="wt-rcompany-name">Vietcombank</h3>
-                  <div class="wt-rcompany-industry">Banking &amp; Financial Services</div>
-                  <div class="wt-rcompany-open-jobs">32 open jobs</div>
-                </div>
+                <div class="company-name-text">SAMSUNG VIETNAM</div>
+                <button type="button" class="btn-viec-moi" data-filter-company="Samsung">VIỆC MỚI</button>
               </div>
-              <div class="wt-rcompany-examples">
-                <div class="wt-rcompany-examples-label">Example roles</div>
-                <ul class="wt-rcompany-examples-list">
-                  <li class="wt-rcompany-example-item" data-project-id="prj-102">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Core Banking System Lead</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-113">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Financial Analyst</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-109">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Data Engineer</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="wt-rcompany-footer">
-                <a href="#" class="wt-rcompany-link" data-company-name="Vietcombank">
-                  View jobs <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
-                </a>
-              </div>
-            </div>
 
-            <div class="wt-recruitment-company-card" data-company-name="Shopee Vietnam">
-              <div class="wt-rcompany-header">
-                <div class="wt-rcompany-logo-wrap">
-                  <img src="images/brands/shopee.svg" alt="Shopee Vietnam">
+              <!-- Card 3: L'Oréal -->
+              <div class="company-profile-card" data-view="browse" data-filter-company="L'Oreal" title="Xem việc làm tại L'Oreal">
+                <div class="company-avatar-box">
+                  <img src="images/brands/loreal.svg" alt="L'Oreal Vietnam" class="brand-logo-img">
                 </div>
-                <div class="wt-rcompany-info">
-                  <h3 class="wt-rcompany-name">Shopee Vietnam</h3>
-                  <div class="wt-rcompany-industry">E-Commerce &amp; Digital Tech</div>
-                  <div class="wt-rcompany-open-jobs">28 open jobs</div>
-                </div>
+                <div class="company-name-text">L'ORÉAL VIETNAM</div>
+                <button type="button" class="btn-viec-moi" data-filter-company="L'Oreal">VIỆC MỚI</button>
               </div>
-              <div class="wt-rcompany-examples">
-                <div class="wt-rcompany-examples-label">Example roles</div>
-                <ul class="wt-rcompany-examples-list">
-                  <li class="wt-rcompany-example-item" data-project-id="prj-104">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Digital Marketing Manager</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-108">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Principal Data Engineer</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-105">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Senior UI/UX Designer</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="wt-rcompany-footer">
-                <a href="#" class="wt-rcompany-link" data-company-name="Shopee Vietnam">
-                  View jobs <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
-                </a>
-              </div>
-            </div>
 
-            <div class="wt-recruitment-company-card" data-company-name="Samsung Vietnam">
-              <div class="wt-rcompany-header">
-                <div class="wt-rcompany-logo-wrap">
-                  <img src="images/brands/samsung.svg" alt="Samsung Vietnam">
+              <!-- Card 4: Unilever -->
+              <div class="company-profile-card" data-view="browse" data-filter-company="Unilever" title="Xem việc làm tại Unilever">
+                <div class="company-avatar-box">
+                  <img src="images/brands/unilever.svg" alt="Unilever Vietnam" class="brand-logo-img">
                 </div>
-                <div class="wt-rcompany-info">
-                  <h3 class="wt-rcompany-name">Samsung Vietnam</h3>
-                  <div class="wt-rcompany-industry">Electronics &amp; Smart Manufacturing</div>
-                  <div class="wt-rcompany-open-jobs">20 open jobs</div>
-                </div>
+                <div class="company-name-text">UNILEVER VIETNAM</div>
+                <button type="button" class="btn-viec-moi" data-filter-company="Unilever">VIỆC MỚI</button>
               </div>
-              <div class="wt-rcompany-examples">
-                <div class="wt-rcompany-examples-label">Example roles</div>
-                <ul class="wt-rcompany-examples-list">
-                  <li class="wt-rcompany-example-item" data-project-id="prj-103">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Mobile Systems QA Lead</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-111">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Supply Chain Manager</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-100">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Embedded Firmware Engineer</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="wt-rcompany-footer">
-                <a href="#" class="wt-rcompany-link" data-company-name="Samsung Vietnam">
-                  View jobs <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
-                </a>
-              </div>
-            </div>
 
-            <div class="wt-recruitment-company-card" data-company-name="VinFast Auto">
-              <div class="wt-rcompany-header">
-                <div class="wt-rcompany-logo-wrap">
-                  <img src="images/brands/vinfast.svg" alt="VinFast Auto">
+              <!-- Card 5: Zara -->
+              <div class="company-profile-card" data-view="browse" data-filter-company="Zara" title="Xem việc làm tại Zara">
+                <div class="company-avatar-box">
+                  <img src="images/brands/zara.svg" alt="Zara Vietnam" class="brand-logo-img">
                 </div>
-                <div class="wt-rcompany-info">
-                  <h3 class="wt-rcompany-name">VinFast Auto</h3>
-                  <div class="wt-rcompany-industry">Automotive &amp; Clean Energy</div>
-                  <div class="wt-rcompany-open-jobs">15 open jobs</div>
+                <div class="company-name-text">ZARA VIETNAM</div>
+                <button type="button" class="btn-viec-moi" data-filter-company="Zara">VIỆC MỚI</button>
+              </div>
+
+              <!-- Card 6: Shopee -->
+              <div class="company-profile-card" data-view="browse" data-filter-company="Shopee" title="Xem việc làm tại Shopee">
+                <div class="company-avatar-box">
+                  <img src="images/brands/shopee.svg" alt="Shopee Vietnam" class="brand-logo-img">
                 </div>
-              </div>
-              <div class="wt-rcompany-examples">
-                <div class="wt-rcompany-examples-label">Example roles</div>
-                <ul class="wt-rcompany-examples-list">
-                  <li class="wt-rcompany-example-item" data-project-id="prj-107">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>HR Business Partner</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-110">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Automotive Systems Engineer</span>
-                  </li>
-                  <li class="wt-rcompany-example-item" data-project-id="prj-114">
-                    <i class="fa-solid fa-angle-right wt-rcompany-bullet"></i>
-                    <span>Software &amp; Telematics Lead</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="wt-rcompany-footer">
-                <a href="#" class="wt-rcompany-link" data-company-name="VinFast Auto">
-                  View jobs <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
-                </a>
+                <div class="company-name-text">SHOPEE VIETNAM</div>
+                <button type="button" class="btn-viec-moi" data-filter-company="Shopee">VIỆC MỚI</button>
               </div>
             </div>
           </div>
