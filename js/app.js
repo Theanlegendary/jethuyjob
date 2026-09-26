@@ -2906,11 +2906,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Category Search
+    // Category & Header Quick Search
     const searchBtn = document.getElementById('btn-portal-search-submit');
     const searchInput = document.getElementById('portal-main-search-input');
+    const headerQuickSearch = document.getElementById('header-quick-search-input');
     const handleSearch = () => {
-      const q = (searchInput ? searchInput.value : '').trim();
+      const q = (searchInput ? searchInput.value : (headerQuickSearch ? headerQuickSearch.value : '')).trim();
       if (q) {
         state.filters.search = q.toLowerCase();
       }
@@ -2922,6 +2923,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchBtn) searchBtn.addEventListener('click', handleSearch);
     if (searchInput) {
       searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleSearch();
+      });
+    }
+    if (headerQuickSearch) {
+      headerQuickSearch.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') handleSearch();
       });
     }

@@ -93,85 +93,118 @@
 </head>
 <body>
 
-  <!-- Top Grey Utility Bar (grey-header) -->
-  <div class="grey-header">
-    <div class="grey_header-con">
-      <div class="grey-header-left">
-        <span>全域智慧就业资讯服务平台</span>
-        <div class="grey_citychange" id="city-selector-btn" style="cursor:pointer;">
-          <i class="fa-solid fa-location-dot"></i>
-          <span id="selected-city-text">全国</span>
-          <i class="fa-solid fa-caret-down"></i>
-        </div>
-      </div>
-      <div class="grey_mid_menu">
-        <a href="#" data-view="browse">网站导航</a>
-        <a href="#" data-view="services">学员工具</a>
-        <a href="#" data-view="services">课程推荐</a>
-      </div>
-      <div class="grey_phone-content">
-        <i class="fa-solid fa-phone-volume"></i>
-        <span>服务热线：400-633-0111</span>
-      </div>
+  <!-- Top Announcement Promo Bar (Executive Corporate Bar) -->
+  <div class="wt-top-announcement-bar" id="top-announcement-bar" style="background:#0c1b2e; color:#ffffff; border-bottom:1px solid #1e293b;">
+    <div class="wt-announcement-container">
+      <span class="wt-announcement-badge" style="background:#0284c7; color:#ffffff;"><i class="fa-solid fa-bolt"></i> ENTERPRISE REPORT</span>
+      <span class="wt-announcement-text" style="color:#cbd5e1;">2026 Logistics &amp; Human Capital Market Scale: 3,500+ Verified Hiring Partners</span>
+      <button type="button" class="wt-announcement-cta" id="btn-claim-header-promo" style="background:#ffffff; color:#2e3e4e; font-weight:700;">Explore Report <i class="fa-solid fa-arrow-right"></i></button>
     </div>
+    <button type="button" class="wt-announcement-close" id="btn-close-top-announcement" title="Close" style="color:#94a3b8;">&times;</button>
   </div>
 
-  <!-- Main Navigation Bar (www_header) -->
-  <header class="www_header" role="banner">
-    <div class="www_header-con">
-      <a href="#" class="wwwLogo" data-view="home" title="WorkThean Home">
-        <div class="wt-brand-grid-icon">
-          <div class="wt-grid-dot bg-blue"></div>
-          <div class="wt-grid-dot bg-red"></div>
-          <div class="wt-grid-dot bg-green"></div>
-          <div class="wt-grid-dot bg-yellow"></div>
-        </div>
-        <div class="wt-brand-text">WorkThean</div>
-      </a>
+  <!-- Executive Corporate Header -->
+  <header class="wt-header" role="banner">
+    <div class="wt-header-container">
+      
+      <!-- Left Group: Logo + Navigation Tabs with Dropdowns -->
+      <div style="display: flex; align-items: center; gap: 28px;">
+        <a href="#" class="wt-brand-logo" data-view="home" title="WorkThean Home">
+          <div class="wt-brand-grid-icon">
+            <div class="wt-grid-dot bg-blue"></div>
+            <div class="wt-grid-dot bg-red"></div>
+            <div class="wt-grid-dot bg-green"></div>
+            <div class="wt-grid-dot bg-yellow"></div>
+          </div>
+          <div class="wt-brand-text" style="color:#2e3e4e;">WorkThean</div>
+        </a>
 
-      <ul class="www_job_header_list">
-        <li class="active"><a href="#" data-view="home">首页</a></li>
-        <li><a href="#" data-view="browse">求职招聘</a></li>
-        <li><a href="#" class="btn-open-auth-modal">神笔简历</a></li>
-        <li><a href="#" data-view="browse">就业TV</a></li>
-        <li><a href="#" data-view="browse">考编制</a></li>
-        <li><a href="#" data-view="services">课程中心</a></li>
-        <li><a href="#" data-view="services">学历提升</a></li>
-        <li><a href="#" data-view="services">校园技能</a></li>
-        <li><a href="#" data-view="insights">就业政策</a></li>
-      </ul>
+        <nav class="wt-nav-menu" role="navigation" aria-label="Main Navigation">
+          <div class="wt-nav-item-dropdown">
+            <button class="wt-nav-link active" data-view="home" style="color:#2e3e4e;">
+              <span>News</span>
+              <svg class="nav-chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="wt-dropdown-menu">
+              <a href="#" data-view="home" class="wt-dropdown-item"><i class="fa-solid fa-newspaper"></i> Market News &amp; Logistics Updates</a>
+              <a href="#" data-view="insights" class="wt-dropdown-item"><i class="fa-solid fa-pen-nib"></i> Expert Industry Analysis</a>
+            </div>
+          </div>
 
-      <div class="www_new_login_submit">
-        <button type="button" class="btn-open-auth-modal" style="display:flex;align-items:center;gap:6px;background:#0a66c2;color:#ffffff;border:none;border-radius:4px;padding:6px 14px;font-size:13px;font-weight:700;cursor:pointer;">
-          <i class="fa-regular fa-user"></i>
-          <span>登录 / 注册</span>
-        </button>
+          <div class="wt-nav-item-dropdown">
+            <button class="wt-nav-link" data-view="browse" style="color:#2e3e4e;">
+              <span>Jobs</span>
+              <svg class="nav-chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="wt-dropdown-menu">
+              <a href="#" data-view="browse" class="wt-dropdown-item"><i class="fa-solid fa-truck-fast"></i> Logistics &amp; Supply Chain</a>
+              <a href="#" data-view="browse" class="wt-dropdown-item"><i class="fa-solid fa-code"></i> Software &amp; Tech Leadership</a>
+              <a href="#" data-view="browse" class="wt-dropdown-item"><i class="fa-solid fa-brain"></i> AI, Data &amp; Operations</a>
+            </div>
+          </div>
+
+          <div class="wt-nav-item-dropdown">
+            <button class="wt-nav-link" data-view="company" style="color:#2e3e4e;">
+              <span>Companies</span>
+              <svg class="nav-chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="wt-dropdown-menu">
+              <a href="#" data-view="company" class="wt-dropdown-item"><i class="fa-solid fa-building-flag"></i> Top Logistics Employers</a>
+              <a href="#" data-view="company" class="wt-dropdown-item"><i class="fa-solid fa-chart-line"></i> Fast-Growing Supply Chain</a>
+            </div>
+          </div>
+
+          <div class="wt-nav-item-dropdown">
+            <button class="wt-nav-link" data-view="services" style="color:#2e3e4e;">
+              <span>Services</span>
+              <svg class="nav-chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="wt-dropdown-menu">
+              <a href="#" data-view="services" class="wt-dropdown-item"><i class="fa-solid fa-boxes-packing"></i> Headhunt &amp; Logistics VIP</a>
+              <a href="#" data-view="services" class="wt-dropdown-item"><i class="fa-solid fa-laptop-file"></i> ATS CV &amp; Fleet Toolkit</a>
+            </div>
+          </div>
+
+          <button class="wt-nav-link" data-view="salary" style="color:#2e3e4e;"><span>Knowledge</span></button>
+          <button class="wt-nav-link" data-view="experts" style="color:#2e3e4e;"><span>Experts</span></button>
+          <button class="wt-nav-link" data-view="academy" style="color:#2e3e4e;"><span>Academy</span></button>
+        </nav>
       </div>
+
+      <!-- Right Group: Search + EN/VN + Executive Post a Job CTA + Profile -->
+      <div class="wt-header-actions">
+        <!-- Search -->
+        <div class="wt-header-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="header-quick-search-input" placeholder="Search jobs, companies..." style="color:#2e3e4e;">
+        </div>
+
+        <!-- EN / VN Switcher -->
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn active" id="btn-lang-en" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" id="btn-lang-vn" data-lang="vn">VN</button>
+        </div>
+
+        <!-- Executive Post Job CTA (Spacious, bold) -->
+        <button type="button" class="wt-btn-post-job" id="btn-open-post-project" style="background:#0a66c2; color:#ffffff; font-weight:700;">
+          <i class="fa-solid fa-plus"></i> Post a Job
+        </button>
+
+        <!-- User Profile Circle Avatar -->
+        <div class="header-user-avatar-circle" id="btn-user-profile-menu" title="User Profile">
+          T
+        </div>
+      </div>
+
     </div>
   </header>
 
-  <!-- Jiuyeqiao Live Ticker + Multi-Category Search Div (new_search_div) -->
-  <div class="new_search_div">
-    <div class="new_search_content">
-      <div class="swiperWrap">
-        <i class="fa-solid fa-fire" style="color:#dc2626;font-size:16px;"></i>
-        <span style="font-weight:800;color:#dc2626;font-size:12px;background:#fee2e2;padding:2px 6px;border-radius:4px;">HOT</span>
-        <span class="ticker-text" style="color:#2e3e4e;font-size:13px;font-weight:600;">2026年高校毕业生高质量充分就业综合服务季专场启动</span>
-      </div>
-      <div class="outbox">
-        <select class="search-select" id="portal-search-category">
-          <option value="jobs">职位</option>
-          <option value="company">企业</option>
-          <option value="news">资讯</option>
-          <option value="course">课程</option>
-          <option value="fair">双选会</option>
-        </select>
-        <input type="text" class="search-input" id="portal-main-search-input" placeholder="请输入职位名称、企业名称或关键词">
-        <button type="button" class="search_button" id="btn-portal-search-submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <span>搜索</span>
-        </button>
-      </div>
+  <!-- Breadcrumb Bar Below Header -->
+  <div class="wt-breadcrumb-bar">
+    <div class="container" style="max-width: 1280px; padding: 0 24px; display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #64748b;">
+      <a href="#" data-view="home" style="color: #64748b; text-decoration: none;">Home</a>
+      <span>/</span>
+      <span id="breadcrumb-active-view" style="color: #2e3e4e; font-weight: 700;">News</span>
     </div>
   </div>
 
