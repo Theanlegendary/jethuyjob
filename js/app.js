@@ -506,6 +506,88 @@ var state = window.state;
       const modal = document.getElementById('modal-enterprise-consult');
       if (modal) modal.classList.add('show');
     });
+
+    // Portal Press Tab Switcher (China MOHRSS / Xinhua Layout)
+    initPortalNewsTabs();
+  }
+
+  function initPortalNewsTabs() {
+    const portalData = {
+      policy: {
+        img: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=700&q=80',
+        title: '习近平会见国际经贸与全球供应链合作代表团 强化多边协同与高质量发展',
+        news: [
+          { text: '习近平复信国际青年技能与供应链创新研修班全体学员', date: '09-26' },
+          { text: '李强出席2026年全球供应链创新与人力资本发展大会并致开幕辞', date: '09-25' },
+          { text: '第48届国际技能大会在上海隆重开幕 聚焦智能物流与高端制造', date: '09-24' },
+          { text: '全国多式联运高质量发展推进会召开 加快现代流通体系建设', date: '09-24' },
+          { text: '李强会见世界技能组织主席与全球领军物流集团首席执行官', date: '09-23' }
+        ]
+      },
+      news: {
+        img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80',
+        title: '全国智慧港口铁水联运集装箱吞吐量突破1200万标箱 供应链韧性持续攀升',
+        news: [
+          { text: '交通运输部：前三季度综合货运物流保通保畅成效显著 骨干网络运行通畅', date: '09-26' },
+          { text: '商务部等5部门：加速数字技术在跨境供应链与现代物流全链路示范应用', date: '09-25' },
+          { text: '粤港澳大湾区与长三角综合立体交通网加快形成 重点行业物流成本下降7.2%', date: '09-24' },
+          { text: '人社部发布三季度全国人力资源市场供求报告：智能物流与算法工程师紧缺', date: '09-23' },
+          { text: '中国—东盟国际智慧物流骨干网络示范线路全线贯通 综合通关时效提升40%', date: '09-22' }
+        ]
+      },
+      work: {
+        img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80',
+        title: '2026年高质量充分就业攻坚行动全面推进 培育壮大新质生产力技能人才集群',
+        news: [
+          { text: '人力资源社会保障部部署启动2026年秋季重点产业链企业直聘与引才行动', date: '09-26' },
+          { text: '产教深度融合：首批50个国家级数字物流与供应链创新联合体正式挂牌', date: '09-25' },
+          { text: '人社部联合印发新一批国家职业标准：数字物流师、供应链风险分析师等入列', date: '09-24' },
+          { text: '全国骨干企业跨区域用工服务对接协作平台上线 覆盖超500万技能人才', date: '09-23' },
+          { text: '构建和谐劳动用工生态：全国现代供应链重点企业用工合规指引发布', date: '09-21' }
+        ]
+      }
+    };
+
+    const tabs = document.querySelectorAll('.portal-vtab[data-portal-tab]');
+    const heroImg = document.getElementById('portal-hero-image');
+    const heroHeading = document.getElementById('portal-hero-heading');
+    const newsList = document.getElementById('portal-news-list');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const tabKey = tab.getAttribute('data-portal-tab');
+        const data = portalData[tabKey];
+        if (!data) return;
+
+        if (heroImg) {
+          heroImg.style.opacity = '0.3';
+          heroImg.src = data.img;
+          setTimeout(() => { heroImg.style.opacity = '1'; }, 150);
+        }
+        if (heroHeading) heroHeading.textContent = data.title;
+
+        if (newsList) {
+          newsList.innerHTML = data.news.map(item => `
+            <li>
+              <a href="#" data-view="insights" class="portal-news-item">
+                <div class="portal-news-item-left">
+                  <span class="portal-news-icon">::</span>
+                  <span class="portal-news-text">${item.text}</span>
+                </div>
+                <span class="portal-news-date">${item.date}</span>
+              </a>
+            </li>
+          `).join('');
+        }
+      });
+    });
   }
 
   function updateSavedCountUI() {

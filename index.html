@@ -432,124 +432,177 @@
         </div>
       </section>
 
-      <!-- 3. Featured Opportunities Section (Square / Prominent visual cards) -->
-      <section class="wt-section wt-section-bg-white">
+      <!-- 3. National Portal Press & Special Topics Section (China MOHRSS / Xinhua Layout) -->
+      <section class="portal-section-wrap" id="portal-press-section">
         <div class="container" style="max-width: 1280px; padding: 0 24px;">
-          <div class="wt-section-header">
-            <div>
-              <div class="wt-section-tag">FEATURED OPPORTUNITIES</div>
-              <h2 class="wt-section-title">Featured Job Opportunities</h2>
-              <p class="wt-section-subtitle">High-impact roles with competitive compensation and growth environments</p>
-            </div>
-            <button class="wt-section-link" data-view="browse">
-              View all opportunities <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
+          <div class="portal-grid-layout">
+            
+            <!-- Left & Center Box (Tabs + Hero Story + News Feed) -->
+            <div class="portal-news-box">
+              <!-- Vertical Tab Strip -->
+              <div class="portal-vertical-tabs" role="tablist">
+                <button type="button" class="portal-vtab active" data-portal-tab="policy" role="tab" aria-selected="true" title="Policy & Macro Affairs">
+                  时政要闻
+                </button>
+                <button type="button" class="portal-vtab" data-portal-tab="news" role="tab" aria-selected="false" title="Important Industry News">
+                  重要新闻
+                </button>
+                <button type="button" class="portal-vtab" data-portal-tab="work" role="tab" aria-selected="false" title="Core Operations & Labor">
+                  中心工作
+                </button>
+              </div>
 
-          <div class="wt-featured-grid" id="home-featured-opps-grid">
-            <div class="wt-featured-card borderless" data-project-id="prj-100" style="background:#ffffff; border-radius:8px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;">
-              <div>
-                <div style="height:150px; overflow:hidden; position:relative; background:#f1f5f9;">
-                  <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Senior Backend Engineer" style="width:100%; height:100%; object-fit:cover;">
-                  <div style="position:absolute; top:10px; right:10px; background:rgba(15, 23, 42, 0.85); color:#ffffff; font-size:11px; font-weight:600; padding:3px 8px; border-radius:4px;">Full-Time</div>
-                </div>
-                <div style="padding:16px;">
-                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-                    <div style="width:32px; height:32px; border-radius:6px; background:#f1f5f9; padding:3px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                      <img src="images/brands/fpt.svg" alt="FPT Software" style="width:100%; height:100%; object-fit:contain;">
-                    </div>
-                    <div>
-                      <div style="font-size:13px; font-weight:700; color:#0f172a;">FPT Software</div>
-                      <div style="font-size:11px; color:#64748b;"><i class="fa-solid fa-location-dot"></i> Hanoi (Cau Giay)</div>
+              <!-- Center Content Area -->
+              <div class="portal-center-content">
+                <!-- Top Hero Story -->
+                <div class="portal-hero-story" id="portal-hero-container">
+                  <div class="portal-hero-img-wrap">
+                    <img id="portal-hero-image" src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=700&q=80" alt="Bilateral Summit & Global Logistics Cooperation">
+                  </div>
+                  <div class="portal-hero-body">
+                    <h3 class="portal-hero-title" id="portal-hero-heading" data-view="insights">
+                      习近平会见国际经贸与全球供应链合作代表团 强化多边协同与高质量发展
+                    </h3>
+                    <div class="portal-hero-bottom-meta">
+                      <div class="portal-carousel-indicators">
+                        <span class="portal-indicator-dot active"></span>
+                        <span class="portal-indicator-dot"></span>
+                        <span class="portal-indicator-dot"></span>
+                      </div>
+                      <a href="#" data-view="insights" class="portal-link-read-more" id="portal-hero-link">阅读原文 &gt;</a>
                     </div>
                   </div>
-                  <h4 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px; line-height:1.35;">Senior Backend Engineer (Java / Spring Boot)</h4>
-                  <p style="font-size:12.5px; color:#475569; line-height:1.5; margin-bottom:12px;">Lead microservices architecture, Kafka streaming, and cloud migration for enterprise banking clients...</p>
                 </div>
-              </div>
-              <div style="padding:0 16px 16px 16px; border-top:1px solid #f1f5f9; padding-top:10px; display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-size:14px; font-weight:700; color:#0284c7;">$1,200 – $2,200 / mo</span>
-                <span style="font-size:12px; font-weight:600; color:#0f172a; display:inline-flex; align-items:center; gap:4px;">Details <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></span>
+
+                <!-- Dividing Line -->
+                <div class="portal-divider"></div>
+
+                <!-- 5 News Items List -->
+                <ul class="portal-news-list" id="portal-news-list">
+                  <li>
+                    <a href="#" data-view="insights" class="portal-news-item">
+                      <div class="portal-news-item-left">
+                        <span class="portal-news-icon">::</span>
+                        <span class="portal-news-text">习近平复信国际青年技能与供应链创新研修班全体学员</span>
+                      </div>
+                      <span class="portal-news-date">09-26</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-view="insights" class="portal-news-item">
+                      <div class="portal-news-item-left">
+                        <span class="portal-news-icon">::</span>
+                        <span class="portal-news-text">李强出席2026年全球供应链创新与人力资本发展大会并致开幕辞</span>
+                      </div>
+                      <span class="portal-news-date">09-25</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-view="insights" class="portal-news-item">
+                      <div class="portal-news-item-left">
+                        <span class="portal-news-icon">::</span>
+                        <span class="portal-news-text">第48届国际技能大会在上海隆重开幕 聚焦智能物流与高端制造</span>
+                      </div>
+                      <span class="portal-news-date">09-24</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-view="insights" class="portal-news-item">
+                      <div class="portal-news-item-left">
+                        <span class="portal-news-icon">::</span>
+                        <span class="portal-news-text">全国多式联运高质量发展推进会召开 加快现代流通体系建设</span>
+                      </div>
+                      <span class="portal-news-date">09-24</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-view="insights" class="portal-news-item">
+                      <div class="portal-news-item-left">
+                        <span class="portal-news-icon">::</span>
+                        <span class="portal-news-text">李强会见世界技能组织主席与全球领军物流集团首席执行官</span>
+                      </div>
+                      <span class="portal-news-date">09-23</span>
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Footer Link -->
+                <div class="portal-footer-row">
+                  <a href="#" data-view="insights" class="portal-more-link">了解更多 &gt;</a>
+                </div>
               </div>
             </div>
 
-            <div class="wt-featured-card borderless" data-project-id="prj-101" style="background:#ffffff; border-radius:8px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;">
+            <!-- Right Box: Special Topics (专题资讯) -->
+            <div class="portal-topics-box">
               <div>
-                <div style="height:150px; overflow:hidden; position:relative; background:#f1f5f9;">
-                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Senior Cloud Architect" style="width:100%; height:100%; object-fit:cover;">
-                  <div style="position:absolute; top:10px; right:10px; background:rgba(15, 23, 42, 0.85); color:#ffffff; font-size:11px; font-weight:600; padding:3px 8px; border-radius:4px;">Full-Time</div>
+                <div class="portal-topics-header">
+                  <span>专题资讯</span>
                 </div>
-                <div style="padding:16px;">
-                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-                    <div style="width:32px; height:32px; border-radius:6px; background:#f1f5f9; padding:3px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                      <img src="images/brands/viettel.svg" alt="Viettel Group" style="width:100%; height:100%; object-fit:contain;">
+
+                <div class="portal-topics-grid">
+                  <!-- Card 1 -->
+                  <a href="#" data-view="insights" class="portal-topic-card">
+                    <div class="portal-topic-thumbnail">
+                      <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=80" alt="Special Topic 1">
+                      <span class="portal-topic-badge" style="background:#dc2626;">专题</span>
                     </div>
-                    <div>
-                      <div style="font-size:13px; font-weight:700; color:#0f172a;">Viettel Group</div>
-                      <div style="font-size:11px; color:#64748b;"><i class="fa-solid fa-location-dot"></i> Hanoi</div>
+                    <span class="portal-topic-caption">深入学习贯彻关于现代流通体系建设重要论述</span>
+                  </a>
+
+                  <!-- Card 2 -->
+                  <a href="#" data-view="insights" class="portal-topic-card">
+                    <div class="portal-topic-thumbnail">
+                      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" alt="Special Topic 2">
+                      <span class="portal-topic-badge" style="background:#1d4ed8;">规划解读</span>
                     </div>
-                  </div>
-                  <h4 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px; line-height:1.35;">Senior Cloud Platform & DevOps Architect</h4>
-                  <p style="font-size:12.5px; color:#475569; line-height:1.5; margin-bottom:12px;">Build scalable Kubernetes clusters, CI/CD pipelines, and high-security telecom cloud infrastructure...</p>
+                    <span class="portal-topic-caption">《人力资源与现代物流供应链发展“十五五”规划》系列解读</span>
+                  </a>
+
+                  <!-- Card 3 -->
+                  <a href="#" data-view="insights" class="portal-topic-card">
+                    <div class="portal-topic-thumbnail">
+                      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=80" alt="Special Topic 3">
+                      <span class="portal-topic-badge" style="background:#0284c7;">AI+探索</span>
+                    </div>
+                    <span class="portal-topic-caption">人工智能+就业服务探索：赋能供应链与智慧港口</span>
+                  </a>
+
+                  <!-- Card 4 -->
+                  <a href="#" data-view="insights" class="portal-topic-card">
+                    <div class="portal-topic-thumbnail">
+                      <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&q=80" alt="Special Topic 4">
+                      <span class="portal-topic-badge" style="background:#d97706;">人社日课</span>
+                    </div>
+                    <span class="portal-topic-caption">【人社日课】每天分享一个劳动用工与合规风险防范要点</span>
+                  </a>
+
+                  <!-- Card 5 -->
+                  <a href="#" data-view="insights" class="portal-topic-card">
+                    <div class="portal-topic-thumbnail">
+                      <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80" alt="Special Topic 5">
+                      <span class="portal-topic-badge" style="background:#059669;">月·读</span>
+                    </div>
+                    <span class="portal-topic-caption">【月·读】2026年企业物流人才薪酬与用工景气指数报告</span>
+                  </a>
+
+                  <!-- Card 6 -->
+                  <a href="#" data-view="insights" class="portal-topic-card">
+                    <div class="portal-topic-thumbnail">
+                      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80" alt="Special Topic 6">
+                      <span class="portal-topic-badge" style="background:#7c3aed;">新职业</span>
+                    </div>
+                    <span class="portal-topic-caption">新职业炫季：聚焦跨境电商运营、智能调度与数字化仓储</span>
+                  </a>
                 </div>
               </div>
-              <div style="padding:0 16px 16px 16px; border-top:1px solid #f1f5f9; padding-top:10px; display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-size:14px; font-weight:700; color:#0284c7;">$1,500 – $2,800 / mo</span>
-                <span style="font-size:12px; font-weight:600; color:#0f172a; display:inline-flex; align-items:center; gap:4px;">Details <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></span>
+
+              <!-- Footer Link -->
+              <div class="portal-footer-row">
+                <a href="#" data-view="insights" class="portal-more-link">了解更多 &gt;</a>
               </div>
             </div>
 
-            <div class="wt-featured-card borderless" data-project-id="prj-102" style="background:#ffffff; border-radius:8px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;">
-              <div>
-                <div style="height:150px; overflow:hidden; position:relative; background:#f1f5f9;">
-                  <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Core Banking System Lead" style="width:100%; height:100%; object-fit:cover;">
-                  <div style="position:absolute; top:10px; right:10px; background:rgba(15, 23, 42, 0.85); color:#ffffff; font-size:11px; font-weight:600; padding:3px 8px; border-radius:4px;">Full-Time</div>
-                </div>
-                <div style="padding:16px;">
-                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-                    <div style="width:32px; height:32px; border-radius:6px; background:#f1f5f9; padding:3px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                      <img src="images/brands/vcb.svg" alt="Vietcombank" style="width:100%; height:100%; object-fit:contain;">
-                    </div>
-                    <div>
-                      <div style="font-size:13px; font-weight:700; color:#0f172a;">Vietcombank</div>
-                      <div style="font-size:11px; color:#64748b;"><i class="fa-solid fa-location-dot"></i> Hanoi (Hoan Kiem)</div>
-                    </div>
-                  </div>
-                  <h4 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px; line-height:1.35;">Core Banking System Lead (Microservices)</h4>
-                  <p style="font-size:12.5px; color:#475569; line-height:1.5; margin-bottom:12px;">Design high-concurrency payment engines and real-time transaction processing platforms...</p>
-                </div>
-              </div>
-              <div style="padding:0 16px 16px 16px; border-top:1px solid #f1f5f9; padding-top:10px; display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-size:14px; font-weight:700; color:#0284c7;">$1,800 – $3,200 / mo</span>
-                <span style="font-size:12px; font-weight:600; color:#0f172a; display:inline-flex; align-items:center; gap:4px;">Details <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></span>
-              </div>
-            </div>
-
-            <div class="wt-featured-card borderless" data-project-id="prj-108" style="background:#ffffff; border-radius:8px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;">
-              <div>
-                <div style="height:150px; overflow:hidden; position:relative; background:#f1f5f9;">
-                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Principal Data Engineer" style="width:100%; height:100%; object-fit:cover;">
-                  <div style="position:absolute; top:10px; right:10px; background:rgba(15, 23, 42, 0.85); color:#ffffff; font-size:11px; font-weight:600; padding:3px 8px; border-radius:4px;">Full-Time</div>
-                </div>
-                <div style="padding:16px;">
-                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-                    <div style="width:32px; height:32px; border-radius:6px; background:#f1f5f9; padding:3px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                      <img src="images/brands/shopee.svg" alt="Shopee Vietnam" style="width:100%; height:100%; object-fit:contain;">
-                    </div>
-                    <div>
-                      <div style="font-size:13px; font-weight:700; color:#0f172a;">Shopee Vietnam</div>
-                      <div style="font-size:11px; color:#64748b;"><i class="fa-solid fa-location-dot"></i> Ho Chi Minh City</div>
-                    </div>
-                  </div>
-                  <h4 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px; line-height:1.35;">Principal Data Engineer (Big Data / Spark)</h4>
-                  <p style="font-size:12.5px; color:#475569; line-height:1.5; margin-bottom:12px;">Architect petabyte-scale real-time data streaming pipelines and ML recommendation systems...</p>
-                </div>
-              </div>
-              <div style="padding:0 16px 16px 16px; border-top:1px solid #f1f5f9; padding-top:10px; display:flex; align-items:center; justify-content:space-between;">
-                <span style="font-size:14px; font-weight:700; color:#0284c7;">$2,000 – $3,800 / mo</span>
-                <span style="font-size:12px; font-weight:600; color:#0f172a; display:inline-flex; align-items:center; gap:4px;">Details <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i></span>
-              </div>
-            </div>
           </div>
         </div>
       </section>

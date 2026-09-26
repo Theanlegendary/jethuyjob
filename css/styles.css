@@ -6939,3 +6939,427 @@ footer a:hover {
     max-width: 200px !important;
   }
 }
+
+/* ==========================================================================
+   PORTAL PRESS & SPECIAL TOPICS SECTION (CHINA MOHRSS / XINHUA STYLE)
+   ========================================================================== */
+
+.portal-section-wrap {
+  background: #ffffff;
+  padding: 32px 0 40px;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.portal-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 390px;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Left/Center Box */
+.portal-news-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+  display: flex;
+  overflow: hidden;
+}
+
+/* Vertical Tab Bar */
+.portal-vertical-tabs {
+  width: 52px;
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.portal-vtab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #475569;
+  background: #f8fafc;
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  padding: 18px 0;
+  transition: all 0.15s ease;
+  position: relative;
+  user-select: none;
+}
+
+.portal-vtab:last-child {
+  border-bottom: none;
+}
+
+.portal-vtab:hover {
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.portal-vtab.active {
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.portal-vtab.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3.5px;
+  background: #dc2626;
+}
+
+/* Center Content */
+.portal-center-content {
+  flex: 1;
+  padding: 22px 24px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Hero Top Story */
+.portal-hero-story {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.portal-hero-img-wrap {
+  width: 250px;
+  height: 160px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  background: #f1f5f9;
+}
+
+.portal-hero-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portal-hero-img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.portal-hero-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160px;
+}
+
+.portal-hero-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #0f172a;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.portal-hero-title:hover {
+  color: #0284c7;
+}
+
+.portal-hero-bottom-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.portal-carousel-indicators {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.portal-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: all 0.2s ease;
+}
+
+.portal-indicator-dot.active {
+  width: 18px;
+  border-radius: 4px;
+  background: #dc2626;
+}
+
+.portal-link-read-more {
+  font-size: 13px;
+  color: #64748b;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.portal-link-read-more:hover {
+  color: #0284c7;
+}
+
+/* Dividing line */
+.portal-divider {
+  border-top: 1px solid #e2e8f0;
+  margin: 12px 0 16px;
+}
+
+/* News List */
+.portal-news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.portal-news-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 3px 0;
+  transition: all 0.15s ease;
+}
+
+.portal-news-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.portal-news-icon {
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+  font-family: monospace;
+}
+
+.portal-news-text {
+  font-size: 14.5px;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.portal-news-item:hover .portal-news-text {
+  color: #0284c7;
+}
+
+.portal-news-item:hover .portal-news-icon {
+  color: #0284c7;
+}
+
+.portal-news-date {
+  font-size: 13px;
+  color: #94a3b8;
+  flex-shrink: 0;
+  margin-left: 16px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+/* Footer More Link */
+.portal-footer-row {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.portal-more-link {
+  font-size: 13px;
+  color: #64748b;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.portal-more-link:hover {
+  color: #0284c7;
+}
+
+/* Right Column: Special Topics (专题资讯) */
+.portal-topics-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.portal-topics-header {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.portal-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 12px;
+}
+
+.portal-topic-card {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.portal-topic-thumbnail {
+  width: 100%;
+  height: 90px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.portal-topic-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.portal-topic-card:hover .portal-topic-thumbnail img {
+  transform: scale(1.04);
+}
+
+.portal-topic-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(15, 23, 42, 0.75);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+}
+
+.portal-topic-caption {
+  font-size: 12.5px;
+  color: #334155;
+  font-weight: 600;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.15s ease;
+}
+
+.portal-topic-card:hover .portal-topic-caption {
+  color: #0284c7;
+}
+
+@media (max-width: 1024px) {
+  .portal-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .portal-news-box {
+    flex-direction: column;
+  }
+
+  .portal-vertical-tabs {
+    width: 100%;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .portal-vtab {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    letter-spacing: normal;
+    padding: 10px 14px;
+    border-bottom: none;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .portal-vtab:last-child {
+    border-right: none;
+  }
+
+  .portal-vtab.active::before {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+  }
+
+  .portal-hero-story {
+    flex-direction: column;
+  }
+
+  .portal-hero-img-wrap {
+    width: 100%;
+    height: 180px;
+  }
+
+  .portal-hero-body {
+    height: auto;
+    gap: 12px;
+  }
+}
