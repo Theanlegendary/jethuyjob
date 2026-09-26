@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Menu, X, Moon, Sun } from 'lucide-react'
+import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 
 const translations = {
@@ -48,17 +48,20 @@ export default function Header({ language, onLanguageToggle, isDarkMode, onDarkM
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
-            <Link href="/jobs" className="px-4 py-2 text-sm font-medium text-text dark:text-text-dark hover:bg-background dark:hover:bg-background-dark rounded-lg transition-colors tap-target">
-              {t.jobs}
+            <Link href="/jobs" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/70 dark:hover:bg-gray-800/60 rounded-md transition-colors tap-target">
+              <span>{t.jobs}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-gray-500 transition-transform group-hover:rotate-180" />
             </Link>
-            <Link href="/companies" className="px-4 py-2 text-sm font-medium text-text dark:text-text-dark hover:bg-background dark:hover:bg-background-dark rounded-lg transition-colors tap-target">
-              {t.companies}
+            <Link href="/companies" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/70 dark:hover:bg-gray-800/60 rounded-md transition-colors tap-target">
+              <span>{t.companies}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-gray-500 transition-transform group-hover:rotate-180" />
             </Link>
-            <Link href="/salary" className="px-4 py-2 text-sm font-medium text-text dark:text-text-dark hover:bg-background dark:hover:bg-background-dark rounded-lg transition-colors tap-target">
-              {t.salary}
+            <Link href="/salary" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/70 dark:hover:bg-gray-800/60 rounded-md transition-colors tap-target">
+              <span>{t.salary}</span>
             </Link>
-            <Link href="/resources" className="px-4 py-2 text-sm font-medium text-text dark:text-text-dark hover:bg-background dark:hover:bg-background-dark rounded-lg transition-colors tap-target">
-              {t.resources}
+            <Link href="/resources" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/70 dark:hover:bg-gray-800/60 rounded-md transition-colors tap-target">
+              <span>{t.resources}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-gray-500 transition-transform group-hover:rotate-180" />
             </Link>
           </nav>
 
