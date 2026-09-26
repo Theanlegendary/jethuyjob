@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39" width="38" height="39">
+  <defs>
+    <linearGradient id="optBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="34" height="35" rx="8" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1"/>
+  <!-- Printer / Scanner Base -->
+  <rect x="7" y="15" width="24" height="15" rx="3" fill="url(#optBg)"/>
+  <!-- Paper Tray Top -->
+  <path d="M 12 8 L 26 8 L 26 15 L 12 15 Z" fill="#ffffff"/>
+  <!-- Output Paper -->
+  <rect x="11" y="22" width="16" height="10" rx="1.5" fill="#ffffff"/>
+  <line x1="14" y1="25" x2="24" y2="25" stroke="#0284c7" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="14" y1="28" x2="21" y2="28" stroke="#0284c7" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Magic sparkle -->
+  <polygon points="31,7 32.5,10 35.5,11.5 32.5,13 31,16 29.5,13 26.5,11.5 29.5,10" fill="#f59e0b"/>
+</svg>

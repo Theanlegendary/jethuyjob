@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39" width="38" height="39">
+  <defs>
+    <linearGradient id="qaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="34" height="35" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"/>
+  <!-- Shield Badge Base -->
+  <path d="M 19 8 L 29 12 L 29 20 C 29 26 19 30 19 30 C 19 30 9 26 9 20 L 9 12 Z" fill="url(#qaBg)"/>
+  <!-- Checkmark -->
+  <path d="M 14 19 L 17.5 22.5 L 24 16" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

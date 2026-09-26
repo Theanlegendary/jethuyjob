@@ -7845,3 +7845,94 @@ body, p, .wt-hero-desc, .wt-section-subtitle, .section-subtitle,
   color: #2e3e4e;
 }
 
+/* ==========================================================================
+   AI SERVICES SECTION (AI面试 & AI简历 - CHINA MOHRSS / CHINAJOB SPEC)
+   ========================================================================== */
+
+.ai-services-grid {
+  display: grid;
+  grid-template-columns: 432px 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.ai-service-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+.ai-interview-banner-wrap {
+  width: 400px;
+  height: 300px;
+  max-width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.ai-interview-banner-img {
+  width: 400px !important;
+  height: 300px !important;
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+.ai-tool-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.ai-tool-item:hover {
+  background: #f8fafc;
+}
+
+.ai-tool-icon {
+  width: 38px !important;
+  height: 39px !important;
+  min-width: 38px !important;
+  min-height: 39px !important;
+  max-width: 38px !important;
+  max-height: 39px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.ai-header-link:hover {
+  color: #0284c7 !important;
+}
+
+@media (max-width: 1100px) {
+  .ai-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .ai-interview-banner-wrap {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-resume-body-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .ai-resume-banner-wrap {
+    display: none;
+  }
+  .ai-tools-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+

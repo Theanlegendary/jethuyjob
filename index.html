@@ -846,76 +846,111 @@
 
 
 
-      <!-- 5. Career Intelligence / 2026 IT Salary Report (Smart-style feature banner) -->
-      <section class="wt-section wt-section-bg-white">
+      <!-- 5. National AI Career & Recruitment Services (Matching China MOHRSS media_1790391154443.png) -->
+      <section class="wt-section wt-section-bg-white" id="section-ai-services" style="padding: 24px 0 32px;">
         <div class="container" style="max-width: 1280px; padding: 0 24px;">
-          <div class="wt-salary-banner">
-            <div>
-              <div class="wt-salary-badge">
-                <i class="fa-solid fa-chart-line"></i> 2026 IT SALARY REPORT
+          <div class="ai-services-grid">
+            
+            <!-- Left Card: AI面试 (AI Interview) -->
+            <div class="ai-service-card">
+              <div class="ai-card-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 3.5px; height: 16px; background: #dc2626; border-radius: 2px;"></span>
+                  <h3 style="font-size: 16px; font-weight: 800; color: #2e3e4e; margin: 0; letter-spacing: -0.01em;">AI面试</h3>
+                  <span style="font-size: 13px; font-weight: 600; color: #64748b;">· Phỏng Vấn AI</span>
+                </div>
+                <a href="#" data-view="browse" class="ai-header-link" style="font-size: 12.5px; color: #64748b; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s ease;">
+                  点击体验面试 <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+                </a>
               </div>
-              <h2 class="wt-salary-title">
-                What does your skillset really earn in Vietnam?
-              </h2>
-              <p class="wt-salary-subtitle">
-                Khảo sát độc quyền và phân tích chi tiết mức thu nhập thực tế của hơn 50 vị trí công nghệ & quản lý tại Việt Nam 2026.
-              </p>
-              <ul class="wt-salary-checklist">
-                <li>
-                  <i class="fa-solid fa-circle-check"></i>
-                  <span>50+ vị trí công nghệ: Software Engineering, AI, Cloud, Data & Product</span>
-                </li>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i>
-                  <span>Dữ liệu tiền lương benchmark từ 3,500+ doanh nghiệp thực tế</span>
-                </li>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i>
-                  <span>Xu hướng AI, tuyển dụng linh hoạt và dự báo kỹ năng 2026–2027</span>
-                </li>
-              </ul>
-              <button class="wt-salary-cta-btn" data-view="salary">
-                <span>Khám Phá Báo Cáo & Tính Lương</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
+
+              <!-- AI Interview Banner: Rendered size 400 × 300 px -->
+              <div class="ai-interview-banner-wrap">
+                <img src="images/ai/ai-interview-banner.svg" alt="AI面试 3分钟教你如何搞定面试" class="ai-interview-banner-img" width="400" height="300">
+              </div>
             </div>
 
-            <div>
-              <div class="wt-salary-mockup-card">
-                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 4px;">
-                  <div style="font-size: 13px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Vietnam Market Benchmark</div>
-                  <span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px;">2026 Live Data</span>
+            <!-- Right Card: AI简历 (AI Resume & Smart Tools) -->
+            <div class="ai-service-card">
+              <div class="ai-card-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 3.5px; height: 16px; background: #dc2626; border-radius: 2px;"></span>
+                  <h3 style="font-size: 16px; font-weight: 800; color: #2e3e4e; margin: 0; letter-spacing: -0.01em;">AI简历</h3>
+                  <span style="font-size: 13px; font-weight: 600; color: #64748b;">· Trợ Thủ Tạo CV</span>
                 </div>
-                <div class="wt-salary-mockup-item">
-                  <div>
-                    <div class="wt-salary-mockup-role">Senior Backend Engineer (Java / Go)</div>
-                    <div style="font-size: 11.5px; color: #94a3b8;">4 - 7 năm kinh nghiệm</div>
+                <a href="#" class="ai-header-link btn-open-auth-modal" style="font-size: 12.5px; color: #64748b; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s ease;">
+                  使用简历模版制作简历 <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+                </a>
+              </div>
+
+              <div class="ai-resume-body-layout" style="display: grid; grid-template-columns: 1fr 220px; gap: 14px; align-items: center;">
+                <!-- 6 Tool Items (3 rows x 2 cols) -->
+                <div class="ai-tools-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px;">
+                  
+                  <!-- Tool 1: AI简历优化 -->
+                  <div class="ai-tool-item">
+                    <img src="images/ai/icon-resume-opt.svg" alt="AI简历优化" class="ai-tool-icon" width="38" height="39">
+                    <div>
+                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI简历优化</h4>
+                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">输入你的过往经历，AI通过多个维度帮你优化一份高质量简历。</p>
+                    </div>
                   </div>
-                  <div class="wt-salary-mockup-val">40 – 65 triệu</div>
+
+                  <!-- Tool 2: AI简历智写 -->
+                  <div class="ai-tool-item">
+                    <img src="images/ai/icon-resume-write.svg" alt="AI简历智写" class="ai-tool-icon" width="38" height="39">
+                    <div>
+                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI简历智写</h4>
+                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">仅需输入一些简单的关键词，AI帮你写出一份高质量的简历。</p>
+                    </div>
+                  </div>
+
+                  <!-- Tool 3: AI求职自荐信 -->
+                  <div class="ai-tool-item">
+                    <img src="images/ai/icon-cover-letter.svg" alt="AI求职自荐信" class="ai-tool-icon" width="38" height="39">
+                    <div>
+                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI求职自荐信</h4>
+                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">输入你要应聘的职位名，AI算法自动为你生成一份高质量的求职信/自荐信。</p>
+                    </div>
+                  </div>
+
+                  <!-- Tool 4: AI岗位面试预测 -->
+                  <div class="ai-tool-item">
+                    <img src="images/ai/icon-interview-predict.svg" alt="AI岗位面试预测" class="ai-tool-icon" width="38" height="39">
+                    <div>
+                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI岗位面试预测</h4>
+                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">输入你即将面试的公司、职位名，AI算法对你的面试问题进行预测。</p>
+                    </div>
+                  </div>
+
+                  <!-- Tool 5: AI模拟面试 -->
+                  <div class="ai-tool-item">
+                    <img src="images/ai/icon-mock-interview.svg" alt="AI模拟面试" class="ai-tool-icon" width="38" height="39">
+                    <div>
+                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI模拟面试</h4>
+                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">输入你即将面试的公司职位名，进行对话式AI面试模拟。</p>
+                    </div>
+                  </div>
+
+                  <!-- Tool 6: AI简历面试预测 -->
+                  <div class="ai-tool-item">
+                    <img src="images/ai/icon-qa-predict.svg" alt="AI简历面试预测" class="ai-tool-icon" width="38" height="39">
+                    <div>
+                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI简历面试预测</h4>
+                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">根据当前简历内容，AI预测HR会通过你的简历提问的面试问题。</p>
+                    </div>
+                  </div>
+
                 </div>
-                <div class="wt-salary-mockup-item">
-                  <div>
-                    <div class="wt-salary-mockup-role">AI / Machine Learning Architect</div>
-                    <div style="font-size: 11.5px; color: #94a3b8;">Thạc sĩ / 5+ năm kinh nghiệm</div>
-                  </div>
-                  <div class="wt-salary-mockup-val">55 – 95 triệu</div>
-                </div>
-                <div class="wt-salary-mockup-item">
-                  <div>
-                    <div class="wt-salary-mockup-role">DevOps & Cloud Lead (AWS / K8s)</div>
-                    <div style="font-size: 11.5px; color: #94a3b8;">Chứng chỉ CKA / AWS Pro</div>
-                  </div>
-                  <div class="wt-salary-mockup-val">45 – 75 triệu</div>
-                </div>
-                <div class="wt-salary-mockup-item">
-                  <div>
-                    <div class="wt-salary-mockup-role">Head of Engineering / VP Tech</div>
-                    <div style="font-size: 11.5px; color: #94a3b8;">Lãnh đạo 30+ kỹ sư</div>
-                  </div>
-                  <div class="wt-salary-mockup-val">90 – 160 triệu</div>
+
+                <!-- Right Vertical Banner (神笔简历) -->
+                <div class="ai-resume-banner-wrap" style="width: 220px; height: 300px; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 8px rgba(15,23,42,0.06); flex-shrink: 0;">
+                  <img src="images/ai/ai-resume-banner.svg" alt="神笔简历 真AI赋能零基础写简历" class="ai-resume-banner-img" width="220" height="300" style="width: 220px; height: 300px; object-fit: cover; display: block;">
                 </div>
               </div>
+
             </div>
+
           </div>
         </div>
       </section>

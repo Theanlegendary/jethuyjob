@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="45%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="300" rx="8" fill="url(#bgGrad)"/>
+
+  <!-- Star sparkles -->
+  <circle cx="65" cy="45" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="120" cy="80" r="1.2" fill="#ffffff" opacity="0.4"/>
+  <circle cx="340" cy="50" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <circle cx="380" cy="110" r="1.2" fill="#ffffff" opacity="0.5"/>
+
+  <!-- Top Left Lightning Icon -->
+  <path d="M 45 42 L 35 62 L 44 62 L 36 82 L 55 58 L 46 58 Z" fill="#fbbf24"/>
+
+  <!-- Left Main Headline -->
+  <text x="35" y="128" fill="#ffffff" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-weight="900" font-size="38" letter-spacing="1">AI面试</text>
+
+  <!-- Subtitle Badge -->
+  <rect x="35" y="148" width="56" height="24" rx="4" fill="#fbbf24"/>
+  <text x="43" y="165" fill="#1e3a8a" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13">3分钟</text>
+
+  <text x="35" y="196" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15">教你如何搞定面试</text>
+
+  <!-- Dotted Arc Trajectory -->
+  <path d="M 210 240 Q 280 80 340 180" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.65"/>
+
+  <!-- Glowing Feature Badges along trajectory -->
+  <!-- Badge 1: 真实模拟 -->
+  <g transform="translate(260, 85)">
+    <rect x="0" y="0" width="105" height="36" rx="18" fill="rgba(30, 58, 138, 0.75)" stroke="#60a5fa" stroke-width="1"/>
+    <circle cx="16" cy="18" r="4" fill="#fbbf24"/>
+    <text x="26" y="16" fill="#ffffff" font-family="sans-serif" font-weight="700" font-size="11">· 真实模拟</text>
+    <text x="26" y="28" fill="#cbd5e1" font-family="sans-serif" font-size="8.5">模拟企业真实场景</text>
+  </g>
+
+  <!-- Badge 2: 随时练习 -->
+  <g transform="translate(225, 145)">
+    <rect x="0" y="0" width="105" height="34" rx="17" fill="rgba(30, 58, 138, 0.75)" stroke="#60a5fa" stroke-width="1"/>
+    <circle cx="14" cy="17" r="3.5" fill="#38bdf8"/>
+    <text x="23" y="15" fill="#ffffff" font-family="sans-serif" font-weight="700" font-size="10.5">· 随时练习</text>
+    <text x="23" y="27" fill="#cbd5e1" font-family="sans-serif" font-size="8">不限时间、无需考官</text>
+  </g>
+
+  <!-- Badge 3: 自动评估 -->
+  <g transform="translate(285, 205)">
+    <rect x="0" y="0" width="95" height="34" rx="17" fill="rgba(30, 58, 138, 0.75)" stroke="#60a5fa" stroke-width="1"/>
+    <circle cx="14" cy="17" r="3.5" fill="#4ade80"/>
+    <text x="23" y="15" fill="#ffffff" font-family="sans-serif" font-weight="700" font-size="10.5">· 自动评估</text>
+    <text x="23" y="27" fill="#cbd5e1" font-family="sans-serif" font-size="8">优劣势一键查询</text>
+  </g>
+
+  <!-- Running Character Illustration -->
+  <g transform="translate(230, 215) scale(0.65)">
+    <!-- Head -->
+    <circle cx="20" cy="15" r="8" fill="#fcd34d"/>
+    <!-- Hair -->
+    <path d="M 12 15 Q 16 7 26 12 Q 22 18 12 15 Z" fill="#1e293b"/>
+    <!-- Torso (green shirt) -->
+    <path d="M 14 24 L 27 24 L 24 48 L 16 48 Z" fill="#22c55e"/>
+    <!-- Arms -->
+    <path d="M 14 26 L 4 36" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 27 26 L 38 20" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <!-- Legs (running dark shorts / socks) -->
+    <path d="M 16 48 L 8 68 L -2 70" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 24 48 L 36 62 L 48 64" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Shoes -->
+    <ellipse cx="-2" cy="71" rx="5" ry="2.5" fill="#ef4444"/>
+    <ellipse cx="49" cy="65" rx="5" ry="2.5" fill="#ef4444"/>
+  </g>
+
+  <!-- Bottom Golden Hill Waves -->
+  <path d="M 0 260 Q 120 230 250 270 T 400 250 L 400 300 L 0 300 Z" fill="url(#curveGrad)"/>
+  <path d="M 0 275 Q 160 250 300 280 T 400 270 L 400 300 L 0 300 Z" fill="#fef08a" opacity="0.35"/>
+</svg>

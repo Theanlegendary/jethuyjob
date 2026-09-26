@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39" width="38" height="39">
+  <defs>
+    <linearGradient id="mockBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="34" height="35" rx="8" fill="#faf5ff" stroke="#f3e8ff" stroke-width="1"/>
+  <!-- Chat Bubble 1 -->
+  <path d="M 8 10 L 24 10 C 26 10 28 12 28 14 L 28 21 C 28 23 26 25 24 25 L 14 25 L 9 29 L 10 25 L 8 25 C 6 25 4 23 4 21 L 4 14 C 4 12 6 10 8 10 Z" fill="url(#mockBg)"/>
+  <!-- Soundwave / Speech dots -->
+  <circle cx="11" cy="18" r="1.8" fill="#ffffff"/>
+  <circle cx="16" cy="18" r="1.8" fill="#ffffff"/>
+  <circle cx="21" cy="18" r="1.8" fill="#ffffff"/>
+  <!-- User Profile Icon overlapping bottom right -->
+  <circle cx="28" cy="27" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="28" cy="25" r="2.2" fill="#ffffff"/>
+  <path d="M 24 30 Q 28 27.5 32 30" stroke="#ffffff" stroke-width="1" fill="none"/>
+</svg>

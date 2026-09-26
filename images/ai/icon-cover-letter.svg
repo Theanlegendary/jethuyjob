@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39" width="38" height="39">
+  <defs>
+    <linearGradient id="letterBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="34" height="35" rx="8" fill="#fdf2f8" stroke="#fbcfe8" stroke-width="1"/>
+  <!-- Envelope Body -->
+  <rect x="8" y="13" width="22" height="16" rx="3" fill="url(#letterBg)"/>
+  <!-- Envelope Flap -->
+  <path d="M 8 15 L 19 23 L 30 15" stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Document peeking out -->
+  <path d="M 12 8 L 26 8 L 26 14 L 12 14 Z" fill="#ffffff" stroke="#ec4899" stroke-width="0.8"/>
+  <line x1="15" y1="10" x2="23" y2="10" stroke="#f472b6" stroke-width="1" stroke-linecap="round"/>
+  <!-- Small Star Badge -->
+  <polygon points="29,24 30.2,26.5 33,26.8 30.9,28.8 31.4,31.5 29,30.2 26.6,31.5 27.1,28.8 25,26.8 27.8,26.5" fill="#fbbf24"/>
+</svg>
