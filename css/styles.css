@@ -9221,6 +9221,7 @@ body, p, .wt-hero-desc, .wt-section-subtitle, .section-subtitle,
 }
 
 .zara-hero-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: clamp(42px, 5.6vw, 68px);
   font-weight: 900;
   line-height: 1.05;
