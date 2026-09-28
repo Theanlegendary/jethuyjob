@@ -102,16 +102,11 @@ var state = window.state;
       </div>
     `).join('');
 
-    grid.querySelectorAll('.company-profile-card, .btn-viec-moi').forEach(card => {
+    grid.querySelectorAll('.company-profile-card').forEach(card => {
       card.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const comp = card.getAttribute('data-filter-company');
-        if (comp) {
-          state.filters.search = comp.toLowerCase();
-          switchView('browse');
-          renderBrowseProjects();
-        }
+        switchView('company');
       });
     });
   }
@@ -955,14 +950,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (viewId === 'home') {
-      renderHomeTopEmployers();
-      renderHomeFeaturedOpportunities();
-      renderHomeLatestJobs('all');
-      renderHomeMarketNews();
+      if (typeof renderHomeEditorial === 'function') renderHomeEditorial();
+      if (typeof renderHomeSquareJobs === 'function') renderHomeSquareJobs();
+      if (typeof renderHomeTopEmployers === 'function') renderHomeTopEmployers();
+      if (typeof renderHomeFeaturedOpportunities === 'function') renderHomeFeaturedOpportunities();
+      if (typeof renderHomeLatestJobs === 'function') renderHomeLatestJobs('all');
+      if (typeof renderHomeMarketNews === 'function') renderHomeMarketNews();
     } else if (viewId === 'browse') {
       renderBrowseProjects();
     } else if (viewId === 'company') {
       renderCompanyPage();
+    } else if (viewId === 'insights') {
+      if (typeof renderInsightsPage === 'function') renderInsightsPage();
     } else if (viewId === 'services') {
       renderServicesPage();
     } else if (viewId === 'salary') {
@@ -1565,6 +1564,13 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
+    leadContainer.querySelectorAll('.fw-lead-article, .fw-topic-card').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', () => {
+        switchView('insights');
+      });
+    });
+
     if (topicsContainer) {
       topicsContainer.innerHTML = topicArts.slice(2).map(a => `
         <div class="fw-topic-card">
@@ -1574,6 +1580,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <div style="font-size:12px; color:#94a3b8;"><i class="fa-regular fa-clock"></i> ${a.date} • ${a.author}</div>
         </div>
       `).join('');
+
+      topicsContainer.querySelectorAll('.fw-topic-card').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => {
+          switchView('insights');
+        });
+      });
     }
   }
 
@@ -2973,6 +2986,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') handleSearch();
       });
     }
+    const headerSearchBtn = document.getElementById('btn-header-search-submit');
+    if (headerSearchBtn) headerSearchBtn.addEventListener('click', handleSearch);
+
+    const headerSalaryBtn = document.getElementById('btn-header-salary-index');
+    if (headerSalaryBtn) {
+      headerSalaryBtn.addEventListener('click', () => {
+        switchView('salary');
+      });
+    }
 
     // Popular tags
     document.querySelectorAll('.wt-popular-tag').forEach(tag => {
@@ -3049,6 +3071,8 @@ function triggerAllSectionRenders() {
   try {
     if (typeof renderPortalJobs === 'function') renderPortalJobs('hot');
     if (typeof initPortalFeatures === 'function') initPortalFeatures();
+    if (typeof renderHomeEditorial === 'function') renderHomeEditorial();
+    if (typeof renderHomeSquareJobs === 'function') renderHomeSquareJobs();
     if (typeof renderHomeTopEmployers === 'function') renderHomeTopEmployers();
     if (typeof renderHomeFeaturedOpportunities === 'function') renderHomeFeaturedOpportunities();
     if (typeof renderHomeLatestJobs === 'function') renderHomeLatestJobs('all');

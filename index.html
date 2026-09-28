@@ -93,109 +93,78 @@
 </head>
 <body>
 
-  <!-- Top Announcement Promo Bar (Executive Corporate Bar) -->
-  <div class="wt-top-announcement-bar" id="top-announcement-bar" style="background:#0c1b2e; color:#ffffff; border-bottom:1px solid #1e293b;">
-    <div class="wt-announcement-container">
-      <span class="wt-announcement-badge" style="background:#0284c7; color:#ffffff;"><i class="fa-solid fa-bolt"></i> ENTERPRISE REPORT</span>
-      <span class="wt-announcement-text" style="color:#cbd5e1;">2026 Logistics &amp; Human Capital Market Scale: 3,500+ Verified Hiring Partners</span>
-      <button type="button" class="wt-announcement-cta" id="btn-claim-header-promo" style="background:#ffffff; color:#2e3e4e; font-weight:700;">Explore Report <i class="fa-solid fa-arrow-right"></i></button>
+  <!-- ========================================================================
+       1. FREIGHTWAVES LIVE WIRE & MACRO MARKET PULSE TICKER
+       ======================================================================== -->
+  <div class="fw-ticker-bar">
+    <div class="container" style="max-width:1280px; padding:0 24px;">
+      <div class="fw-ticker-inner">
+        <div class="fw-ticker-left">
+          <span class="fw-ticker-badge">LIVE INTEL WIRE</span>
+          <div class="fw-ticker-track">
+            <span class="ticker-item"><strong style="color: #70B5F9;">[09:42]</strong> Vietnam Logistics Index: Technical &amp; Engineering Demand +34.2% ▲</span>
+            <span class="ticker-sep">•</span>
+            <span class="ticker-item"><strong style="color: #00E676;">[SPOT INDEX]</strong> National Highway &amp; Port Dispatch Volume: 8.4M TEU (+2.1%) ▲</span>
+            <span class="ticker-sep">•</span>
+            <span class="ticker-item"><strong style="color: #FF5252;">[ALERT]</strong> Maritime Port Container Dwell Times Tighten by 1.8 Days</span>
+            <span class="ticker-sep">•</span>
+            <span class="ticker-item"><strong style="color: #FFD600;">[WORKFORCE]</strong> 14,820 Active Enterprise Vacancies Live Today</span>
+          </div>
+        </div>
+        <div class="fw-ticker-right">
+          <span class="fw-pulse-indicator"><span class="fw-green-dot"></span> LIVE RECRUITMENT FEED</span>
+          <span>•</span>
+          <span><i class="fa-solid fa-phone" style="font-size:10px; margin-right:4px;"></i> +84 (0) 28-3822-8888</span>
+          <span>•</span>
+          <button type="button" id="lang-toggle-btn" class="lang-btn" data-lang="en">GLOBAL (EN)</button>
+        </div>
+      </div>
     </div>
-    <button type="button" class="wt-announcement-close" id="btn-close-top-announcement" title="Close" style="color:#94a3b8;">&times;</button>
   </div>
 
-  <!-- Executive Corporate Header -->
-  <header class="wt-header" role="banner">
-    <div class="wt-header-container">
-      
-      <!-- Left Group: Logo + Navigation Tabs with Dropdowns -->
-      <div style="display: flex; align-items: center; gap: 28px;">
-        <a href="#" class="wt-brand-logo" data-view="home" title="WorkThean Home">
-          <div class="wt-brand-grid-icon">
-            <div class="wt-grid-dot bg-blue"></div>
-            <div class="wt-grid-dot bg-red"></div>
-            <div class="wt-grid-dot bg-green"></div>
-            <div class="wt-grid-dot bg-yellow"></div>
+  <!-- ========================================================================
+       2. EDITORIAL MASTHEAD & PRIMARY NAVIGATION (THE SANDBOX / FREIGHTWAVES 2-TIER)
+       ======================================================================== -->
+  <header class="fw-masthead-wrapper" id="main-header" role="banner">
+    <div class="container" style="max-width:1280px; padding:0 24px;">
+      <div class="fw-masthead-main">
+        <!-- Brand Emblem & Title -->
+        <a href="#" data-view="home" class="fw-brand-logo" title="WorkThean - Global Logistics &amp; Talent Platform">
+          <div class="fw-brand-box">
+            <span class="fw-brand-emblem"><i class="fa-solid fa-cubes-stacked"></i></span>
+            <div class="fw-brand-text">
+              <span class="fw-brand-title">WORKTHEAN</span>
+              <span class="fw-brand-subtitle">GLOBAL LOGISTICS &amp; WORKFORCE INTELLIGENCE PLATFORM · workthean-one.vercel.app</span>
+            </div>
           </div>
-          <div class="wt-brand-text" style="color:#2e3e4e;">WorkThean</div>
         </a>
 
-        <nav class="wt-nav-menu" role="navigation" aria-label="Main Navigation">
-          <div class="wt-nav-item-dropdown">
-            <button class="wt-nav-link active" data-view="home" style="color:#2e3e4e;">
-              <span>News</span>
-              <svg class="nav-chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="wt-dropdown-menu">
-              <a href="#" data-view="home" class="wt-dropdown-item"><i class="fa-solid fa-newspaper"></i> Market News &amp; Logistics Updates</a>
-              <a href="#" data-view="insights" class="wt-dropdown-item"><i class="fa-solid fa-pen-nib"></i> Expert Industry Analysis</a>
-            </div>
-          </div>
-
-          <div class="wt-nav-item-dropdown">
-            <button class="wt-nav-link" data-view="browse" style="color:#2e3e4e;">
-              <span>Jobs</span>
-              <svg class="nav-chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="wt-dropdown-menu">
-              <a href="#" data-view="browse" class="wt-dropdown-item"><i class="fa-solid fa-truck-fast"></i> Logistics &amp; Supply Chain</a>
-              <a href="#" data-view="browse" class="wt-dropdown-item"><i class="fa-solid fa-code"></i> Software &amp; Tech Leadership</a>
-              <a href="#" data-view="browse" class="wt-dropdown-item"><i class="fa-solid fa-brain"></i> AI, Data &amp; Operations</a>
-            </div>
-          </div>
-
-          <div class="wt-nav-item-dropdown">
-            <button class="wt-nav-link" data-view="company" style="color:#2e3e4e;">
-              <span>Companies</span>
-              <svg class="nav-chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="wt-dropdown-menu">
-              <a href="#" data-view="company" class="wt-dropdown-item"><i class="fa-solid fa-building-flag"></i> Top Logistics Employers</a>
-              <a href="#" data-view="company" class="wt-dropdown-item"><i class="fa-solid fa-chart-line"></i> Fast-Growing Supply Chain</a>
-            </div>
-          </div>
-
-          <div class="wt-nav-item-dropdown">
-            <button class="wt-nav-link" data-view="services" style="color:#2e3e4e;">
-              <span>Services</span>
-              <svg class="nav-chevron-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="wt-dropdown-menu">
-              <a href="#" data-view="services" class="wt-dropdown-item"><i class="fa-solid fa-boxes-packing"></i> Headhunt &amp; Logistics VIP</a>
-              <a href="#" data-view="services" class="wt-dropdown-item"><i class="fa-solid fa-laptop-file"></i> ATS CV &amp; Fleet Toolkit</a>
-            </div>
-          </div>
-
-          <button class="wt-nav-link" data-view="salary" style="color:#2e3e4e;"><span>Knowledge</span></button>
-          <button class="wt-nav-link" data-view="experts" style="color:#2e3e4e;"><span>Experts</span></button>
-          <button class="wt-nav-link" data-view="academy" style="color:#2e3e4e;"><span>Academy</span></button>
-        </nav>
-      </div>
-
-      <!-- Right Group: Search + EN/VN + Executive Post a Job CTA + Profile -->
-      <div class="wt-header-actions">
-        <!-- Search -->
-        <div class="wt-header-search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="header-quick-search-input" placeholder="Search jobs, companies..." style="color:#2e3e4e;">
-        </div>
-
-        <!-- EN / VN Switcher -->
-        <div class="lang-switcher">
-          <button type="button" class="lang-btn active" id="btn-lang-en" data-lang="en">EN</button>
-          <button type="button" class="lang-btn" id="btn-lang-vn" data-lang="vn">VN</button>
-        </div>
-
-        <!-- Executive Post Job CTA (Spacious, bold) -->
-        <button type="button" class="wt-btn-post-job" id="btn-open-post-project" style="background:#0a66c2; color:#ffffff; font-weight:700;">
-          <i class="fa-solid fa-plus"></i> Post a Job
-        </button>
-
-        <!-- User Profile Circle Avatar -->
-        <div class="header-user-avatar-circle" id="btn-user-profile-menu" title="User Profile">
-          T
+        <!-- Masthead Action Box -->
+        <div class="fw-masthead-actions">
+          <form class="fw-search-box" id="header-search-form" onsubmit="event.preventDefault();">
+            <input type="text" class="fw-search-input" id="header-quick-search-input" placeholder="Search roles, companies, intel..." aria-label="Search" style="color:#2e3e4e;">
+            <button type="button" class="fw-search-btn" id="btn-header-search-submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+          <button type="button" class="fw-btn-auth fw-btn-auth-login" data-view="salary" id="btn-header-salary-index">Salary Index</button>
+          <button type="button" class="fw-btn-auth fw-btn-auth-reg" id="btn-open-post-project">+ Post a Job</button>
         </div>
       </div>
 
+      <!-- Unified Clean FreightWaves Editorial Navigation -->
+      <nav class="fw-nav-bar" aria-label="Editorial Navigation">
+        <div class="fw-nav-menu-links">
+          <a href="#" data-view="salary" class="fw-nav-link"><i class="fa-solid fa-calculator" style="color:#0a66c2;"></i> SALARY BENCHMARK</a>
+          <a href="#" data-view="browse" class="fw-nav-link"><i class="fa-solid fa-play" style="color:#dc2626;"></i> VIDEO BROADCASTS</a>
+          <a href="#" data-view="home" class="fw-nav-link active">MARKET HEADLINES</a>
+          <a href="#" data-view="academy" class="fw-nav-link"><i class="fa-solid fa-graduation-cap" style="color:#0a66c2;"></i> ACADEMIC ALLIANCE</a>
+          <a href="#" data-view="insights" class="fw-nav-link">POLICY DIRECTIVES</a>
+          <a href="#" data-view="services" class="fw-nav-link">ACADEMY &amp; STANDARDS</a>
+          <a href="#" data-view="company" class="fw-nav-link">CREDENTIAL REGISTRY</a>
+        </div>
+        <a href="#" data-view="browse" class="fw-nav-live-btn" style="background:#0a66c2; color:#FFFFFF;">
+          <i class="fa-solid fa-building-columns" style="margin-right:5px; font-size:11px;"></i> 3,500+ ALLIANCE
+        </a>
+      </nav>
     </div>
   </header>
 
@@ -227,9 +196,7 @@
           <h1 class="zara-hero-title">
             Find the right job.<br>Build your career.
           </h1>
-          <p class="zara-hero-sub">
-            Direct recruitment &amp; verified positions from 3,500+ enterprise employers across technology, logistics, and executive operations.
-          </p>
+
 
           <!-- Big Zara Minimalist Search (Borderless, High Contrast) -->
           <div class="zara-search-wrap">
@@ -272,561 +239,89 @@
         </div>
       </section>
 
-      <!-- 2. Big Zara-Scale Open Positions Section (Borderless Cards, Generous Padding) -->
-      <section style="padding: 56px 0 64px; background: #f8fafc;">
+      <!-- 1. Breaking / Trending News & Curated Articles (Editor + Companies + Experts) -->
+      <section style="padding: 48px 0 44px; background: #ffffff; border-bottom: 1px solid #f1f5f9;">
         <div class="container" style="max-width: 1280px; padding: 0 24px;">
           
-          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 32px; flex-wrap:wrap; gap:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 24px; flex-wrap:wrap; gap:16px;">
             <div>
-              <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.18em; color:#0a66c2; margin-bottom:6px;">LATEST ROLES</div>
-              <h2 class="section-title-big">OPEN POSITIONS</h2>
+              <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.15em; color:#0a66c2; margin-bottom:6px;">MARKET INTELLIGENCE &amp; EDITORIAL</div>
+              <h2 style="font-size:24px; font-weight:800; color:#0f172a; margin:0; letter-spacing:-0.02em;">Breaking / Trending News &amp; Curated Articles</h2>
+              <p style="font-size:14px; color:#64748b; margin:4px 0 0;">Bản tin tổng hợp xu hướng ngành nghề, tuyển dụng và phân tích từ chuyên gia &amp; doanh nghiệp hàng đầu</p>
             </div>
             
-            <div style="display:flex; align-items:center; gap:8px;">
-              <button type="button" id="tab-hot-jobs" class="wt-filter-pill active" data-job-tab="hot" style="border:none; padding:8px 18px; border-radius:6px; font-weight:700; cursor:pointer; background:#0a66c2; color:#ffffff;">
-                <i class="fa-solid fa-fire" style="color:#ffffff;"></i> Featured Roles
-              </button>
-              <button type="button" id="tab-new-jobs" class="wt-filter-pill" data-job-tab="new" style="border:none; padding:8px 18px; border-radius:6px; font-weight:700; cursor:pointer; background:#ffffff; color:#2e3e4e;">
-                Recent Postings
-              </button>
-              <button type="button" class="wt-section-link" data-view="browse" style="border:none; background:transparent; font-size:13.5px; font-weight:800; color:#0a66c2; cursor:pointer; text-transform:uppercase; letter-spacing:0.05em; display:flex; align-items:center; gap:6px; margin-left:12px;">
-                VIEW ALL <i class="fa-solid fa-arrow-right"></i>
+            <div>
+              <button type="button" class="wt-section-link" data-view="insights" style="border:1px solid #e2e8f0; background:#f8fafc; font-size:13px; font-weight:700; color:#0a66c2; cursor:pointer; padding:9px 18px; border-radius:6px; display:inline-flex; align-items:center; gap:8px; transition:all 0.15s ease;">
+                <span>Full News Archive (VIR.VN Style)</span>
+                <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
 
-          <!-- Big Borderless Job Cards Grid (Zara Scale) -->
-          <div class="zara-jobs-grid" id="portal-job-cards-list">
-            <!-- Job Card 1 -->
-            <div class="zara-job-card" data-project-id="prj-100">
-              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
-                <div style="display:flex; align-items:flex-start; gap:16px;">
-                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
-                    <img src="images/brands/fpt.svg" alt="FPT Software" style="width:100%; height:100%; object-fit:contain;">
-                  </div>
-                  <div>
-                    <h3 class="zara-job-title">Senior Backend Engineer (Java / Spring Boot)</h3>
-                    <div class="zara-job-company">
-                      <span style="color:#2e3e4e; font-weight:700;">FPT Software</span>
-                      <span>•</span>
-                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Hanoi</span>
-                      <span>•</span>
-                      <span>Toàn thời gian</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="zara-job-salary">$1,200 – $2,200 / mo</div>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
-                <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Java</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Spring Boot</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Kafka</span>
-                </div>
-                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
-                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
+          <!-- Editorial Lead Story + 2 Side Articles -->
+          <div class="fw-editorial-grid" id="home-editorial-grid">
+            <!-- Dynamically populated by renderHomeEditorial() -->
+          </div>
 
-            <!-- Job Card 2 -->
-            <div class="zara-job-card" data-project-id="prj-101">
-              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
-                <div style="display:flex; align-items:flex-start; gap:16px;">
-                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
-                    <img src="images/brands/viettel.svg" alt="Viettel Group" style="width:100%; height:100%; object-fit:contain;">
-                  </div>
-                  <div>
-                    <h3 class="zara-job-title">Senior Cloud Platform &amp; DevOps Architect</h3>
-                    <div class="zara-job-company">
-                      <span style="color:#2e3e4e; font-weight:700;">Viettel Group</span>
-                      <span>•</span>
-                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Hanoi</span>
-                      <span>•</span>
-                      <span>Toàn thời gian</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="zara-job-salary">$1,500 – $2,800 / mo</div>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
-                <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">AWS</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Kubernetes</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Terraform</span>
-                </div>
-                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
-                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-
-            <!-- Job Card 3 -->
-            <div class="zara-job-card" data-project-id="prj-102">
-              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
-                <div style="display:flex; align-items:flex-start; gap:16px;">
-                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
-                    <img src="images/brands/vcb.svg" alt="Vietcombank" style="width:100%; height:100%; object-fit:contain;">
-                  </div>
-                  <div>
-                    <h3 class="zara-job-title">Core Banking System Lead (Microservices)</h3>
-                    <div class="zara-job-company">
-                      <span style="color:#2e3e4e; font-weight:700;">Vietcombank</span>
-                      <span>•</span>
-                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Hanoi</span>
-                      <span>•</span>
-                      <span>Toàn thời gian</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="zara-job-salary">$1,600 – $2,600 / mo</div>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
-                <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Fintech</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Microservices</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">High Scale</span>
-                </div>
-                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
-                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-
-            <!-- Job Card 4 -->
-            <div class="zara-job-card" data-project-id="prj-111">
-              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
-                <div style="display:flex; align-items:flex-start; gap:16px;">
-                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
-                    <img src="images/brands/samsung.svg" alt="Samsung Vietnam" style="width:100%; height:100%; object-fit:contain;">
-                  </div>
-                  <div>
-                    <h3 class="zara-job-title">Supply Chain &amp; Logistics Manager</h3>
-                    <div class="zara-job-company">
-                      <span style="color:#2e3e4e; font-weight:700;">Samsung Vietnam</span>
-                      <span>•</span>
-                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Bắc Ninh</span>
-                      <span>•</span>
-                      <span>Toàn thời gian</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="zara-job-salary">35 – 65 triệu</div>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
-                <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">SAP ERP</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Supply Chain</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Lean Six Sigma</span>
-                </div>
-                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
-                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-
-            <!-- Job Card 5 -->
-            <div class="zara-job-card" data-project-id="prj-104">
-              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
-                <div style="display:flex; align-items:flex-start; gap:16px;">
-                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
-                    <img src="images/brands/shopee.svg" alt="Shopee Vietnam" style="width:100%; height:100%; object-fit:contain;">
-                  </div>
-                  <div>
-                    <h3 class="zara-job-title">Digital Marketing Manager (Growth &amp; Performance)</h3>
-                    <div class="zara-job-company">
-                      <span style="color:#2e3e4e; font-weight:700;">Shopee Vietnam</span>
-                      <span>•</span>
-                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> TP.HCM</span>
-                      <span>•</span>
-                      <span>Toàn thời gian</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="zara-job-salary">25 – 40 triệu</div>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
-                <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Growth</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">E-commerce</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Analytics</span>
-                </div>
-                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
-                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-
-            <!-- Job Card 6 -->
-            <div class="zara-job-card" data-project-id="prj-105">
-              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
-                <div style="display:flex; align-items:flex-start; gap:16px;">
-                  <div style="width:48px; height:48px; border-radius:10px; background:#f8fafc; display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;">
-                    <img src="images/brands/momo.svg" alt="MoMo Fintech" style="width:100%; height:100%; object-fit:contain;">
-                  </div>
-                  <div>
-                    <h3 class="zara-job-title">Senior UI/UX Designer (Design System)</h3>
-                    <div class="zara-job-company">
-                      <span style="color:#2e3e4e; font-weight:700;">MoMo Fintech</span>
-                      <span>•</span>
-                      <span><i class="fa-solid fa-location-dot" style="font-size:12px;"></i> Remote / Hybrid</span>
-                      <span>•</span>
-                      <span>Toàn thời gian</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="zara-job-salary">30 – 50 triệu</div>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:16px;">
-                <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Design System</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">Figma</span>
-                  <span style="background:#f8fafc; color:#64748b; font-size:12px; font-weight:600; padding:4px 10px; border-radius:4px;">UX Research</span>
-                </div>
-                <button type="button" class="btn-view-job-zara" style="border:none; background:transparent; font-size:13px; font-weight:800; color:#0a66c2; cursor:pointer; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em;">
-                  VIEW ROLE <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
+          <!-- 3-Column Topic News Cards -->
+          <div class="fw-topics-grid" id="home-topics-grid">
+            <!-- Dynamically populated by renderHomeEditorial() -->
           </div>
 
         </div>
       </section>
 
-      <!-- 3. AI Career Services Section (AI面试 Rendered size 400 × 300 px & AI简历 with 38 × 39 px icons) -->
-      <section class="wt-section wt-section-bg-white" id="section-ai-services" style="padding: 24px 0 32px;">
+      <!-- 2. Square Job Opportunity Cards -->
+      <section style="padding: 48px 0 44px; background: #f8fafc; border-bottom: 1px solid #f1f5f9;">
         <div class="container" style="max-width: 1280px; padding: 0 24px;">
-          <div class="ai-services-grid">
+          
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 24px; flex-wrap:wrap; gap:16px;">
+            <div>
+              <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.15em; color:#0a66c2; margin-bottom:6px;">FEATURED OPPORTUNITIES</div>
+              <h2 style="font-size:24px; font-weight:800; color:#0f172a; margin:0; letter-spacing:-0.02em;">Square Job Opportunity Cards</h2>
+              <p style="font-size:14px; color:#64748b; margin:4px 0 0;">Nhấp vào thẻ việc làm để mở bảng điều khiển 2 cột (Job Board: 2-Column Split Screen)</p>
+            </div>
             
-            <!-- Left Card: AI面试 (AI Interview) -->
-            <div class="ai-service-card">
-              <div class="ai-card-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9;">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <span style="display: inline-block; width: 3.5px; height: 16px; background: #dc2626; border-radius: 2px;"></span>
-                  <h3 style="font-size: 16px; font-weight: 800; color: #2e3e4e; margin: 0; letter-spacing: -0.01em;">AI面试</h3>
-                  <span style="font-size: 13px; font-weight: 600; color: #64748b;">· Phỏng Vấn AI</span>
-                </div>
-                <a href="#" data-view="browse" class="ai-header-link" style="font-size: 12.5px; color: #64748b; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s ease;">
-                  点击体验面试 <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
-                </a>
-              </div>
-
-              <!-- AI Interview Banner: Rendered size 400 × 300 px -->
-              <div class="ai-interview-banner-wrap">
-                <img src="images/ai/ai-interview-banner.svg" alt="AI面试 3分钟教你如何搞定面试" class="ai-interview-banner-img" width="400" height="300">
-              </div>
+            <div>
+              <button type="button" class="wt-section-link" data-view="browse" style="border:1px solid #0a66c2; background:#0a66c2; color:#ffffff; font-size:13px; font-weight:700; cursor:pointer; padding:9px 18px; border-radius:6px; display:inline-flex; align-items:center; gap:8px; transition:all 0.15s ease;">
+                <span>Xem Tất Cả Việc Làm (2-Column Board)</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
             </div>
+          </div>
 
-            <!-- Right Card: AI简历 (AI Resume & Smart Tools) -->
-            <div class="ai-service-card">
-              <div class="ai-card-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9;">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <span style="display: inline-block; width: 3.5px; height: 16px; background: #dc2626; border-radius: 2px;"></span>
-                  <h3 style="font-size: 16px; font-weight: 800; color: #2e3e4e; margin: 0; letter-spacing: -0.01em;">AI简历</h3>
-                  <span style="font-size: 13px; font-weight: 600; color: #64748b;">· Trợ Thủ Tạo CV</span>
-                </div>
-                <a href="#" class="ai-header-link btn-open-auth-modal" style="font-size: 12.5px; color: #64748b; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s ease;">
-                  使用简历模版制作简历 <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
-                </a>
-              </div>
+          <!-- 4 Square Cards (1:1 Ratio) Grid -->
+          <div class="home-square-jobs-grid" id="home-square-jobs-grid">
+            <!-- Dynamically populated by renderHomeSquareJobs() -->
+          </div>
 
-              <div class="ai-resume-body-layout" style="display: grid; grid-template-columns: 1fr 220px; gap: 14px; align-items: center;">
-                <!-- 6 Tool Items (3 rows x 2 cols) -->
-                <div class="ai-tools-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px;">
-                  
-                  <!-- Tool 1: AI简历优化 -->
-                  <div class="ai-tool-item">
-                    <img src="images/ai/icon-resume-opt.svg" alt="AI简历优化" class="ai-tool-icon" width="38" height="39">
-                    <div>
-                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI简历优化</h4>
-                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">输入你的过往经历，AI通过多个维度帮你优化一份高质量简历。</p>
-                    </div>
-                  </div>
+        </div>
+      </section>
 
-                  <!-- Tool 2: AI简历智写 -->
-                  <div class="ai-tool-item">
-                    <img src="images/ai/icon-resume-write.svg" alt="AI简历智写" class="ai-tool-icon" width="38" height="39">
-                    <div>
-                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI简历智写</h4>
-                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">仅需输入一些简单的关键词，AI帮你写出一份高质量的简历。</p>
-                    </div>
-                  </div>
-
-                  <!-- Tool 3: AI求职自荐信 -->
-                  <div class="ai-tool-item">
-                    <img src="images/ai/icon-cover-letter.svg" alt="AI求职自荐信" class="ai-tool-icon" width="38" height="39">
-                    <div>
-                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI求职自荐信</h4>
-                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">输入你要应聘的职位名，AI算法自动为你生成一份高质量的求职信/自荐信。</p>
-                    </div>
-                  </div>
-
-                  <!-- Tool 4: AI岗位面试预测 -->
-                  <div class="ai-tool-item">
-                    <img src="images/ai/icon-interview-predict.svg" alt="AI岗位面试预测" class="ai-tool-icon" width="38" height="39">
-                    <div>
-                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI岗位面试预测</h4>
-                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">输入你即将面试的公司、职位名，AI算法对你的面试问题进行预测。</p>
-                    </div>
-                  </div>
-
-                  <!-- Tool 5: AI模拟面试 -->
-                  <div class="ai-tool-item">
-                    <img src="images/ai/icon-mock-interview.svg" alt="AI模拟面试" class="ai-tool-icon" width="38" height="39">
-                    <div>
-                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI模拟面试</h4>
-                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">输入你即将面试的公司职位名，进行对话式AI面试模拟。</p>
-                    </div>
-                  </div>
-
-                  <!-- Tool 6: AI简历面试预测 -->
-                  <div class="ai-tool-item">
-                    <img src="images/ai/icon-qa-predict.svg" alt="AI简历面试预测" class="ai-tool-icon" width="38" height="39">
-                    <div>
-                      <h4 style="font-size: 13.5px; font-weight: 800; color: #2e3e4e; margin: 0 0 2px 0;">AI简历面试预测</h4>
-                      <p style="font-size: 11.5px; color: #2e3e4e; margin: 0; line-height: 1.38; opacity: 0.82;">根据当前简历内容，AI预测HR会通过你的简历提问的面试问题。</p>
-                    </div>
-                  </div>
-
-                </div>
-
-                <!-- Right Vertical Banner (神笔简历) -->
-                <div class="ai-resume-banner-wrap" style="width: 220px; height: 300px; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 8px rgba(15,23,42,0.06); flex-shrink: 0;">
-                  <img src="images/ai/ai-resume-banner.svg" alt="神笔简历 真AI赋能零基础写简历" class="ai-resume-banner-img" width="220" height="300" style="width: 220px; height: 300px; object-fit: cover; display: block;">
-                </div>
-              </div>
-
+      <!-- 3. Company Showcase Grid -->
+      <section style="padding: 48px 0 52px; background: #ffffff;">
+        <div class="container" style="max-width: 1280px; padding: 0 24px;">
+          
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 24px; flex-wrap:wrap; gap:16px;">
+            <div>
+              <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.15em; color:#0a66c2; margin-bottom:6px;">ENTERPRISE DIRECTORY</div>
+              <h2 style="font-size:24px; font-weight:800; color:#0f172a; margin:0; letter-spacing:-0.02em;">Company Showcase Grid</h2>
+              <p style="font-size:14px; color:#64748b; margin:4px 0 0;">Doanh nghiệp xác thực &amp; đối tác tuyển dụng chiến lược trên hệ thống WorkThean</p>
             </div>
+            
+            <div>
+              <button type="button" class="wt-section-link" data-view="company" style="border:1px solid #e2e8f0; background:#f8fafc; font-size:13px; font-weight:700; color:#0a66c2; cursor:pointer; padding:9px 18px; border-radius:6px; display:inline-flex; align-items:center; gap:8px; transition:all 0.15s ease;">
+                <span>Company Directory (Phnom Penh Post Style)</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
 
+          <!-- Company Spotlight Grid -->
+          <div class="company-spotlight-grid" id="home-top-employers-grid">
+            <!-- Dynamically populated by renderHomeTopEmployers() -->
           </div>
-        </div>
-      </section>
 
-      <!-- 4. Large National Recruitment Banner (Rendered size: 1200 × 120 px) -->
-      <div style="max-width: 1280px; margin: 20px auto; padding: 0 24px;">
-        <img src="images/brands/portal-banner-1200x120.svg" alt="全国高校毕业生就业平台" style="width:100%; height:120px; object-fit:cover; border-radius:6px; display:block;" width="1200" height="120">
-      </div>
-
-      <!-- 5. Employment TV & Professional Certifications (jobAndCert) -->
-      <section class="jobAndCert">
-        <!-- Left: 就业TV -->
-        <div class="card_item">
-          <div class="card_title">
-            <span><a href="#" data-view="browse"><span style="display:inline-block;width:3.5px;height:15px;background:#dc2626;border-radius:2px;margin-right:6px;vertical-align:middle;"></span>就业TV</a></span>
-            <a href="#" class="more" data-view="browse">更多直播 <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></a>
-          </div>
-          <div class="jobTv_cont">
-            <ul class="jobTv_left">
-              <li>
-                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=320&h=205&q=80" alt="线上就业宣讲会">
-              </li>
-              <li>
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=320&h=205&q=80" alt="央企带岗直播">
-              </li>
-            </ul>
-            <ul class="jobTv_right">
-              <li>
-                <a href="#" data-view="browse">
-                  <div class="double_tit">2026年重点央国企春季高校直聘视频宣讲专场</div>
-                  <div class="double_cont">
-                    <span>主讲：国资委人才中心 / 5,280人在线</span>
-                    <span class="doubleBtn">立即观看</span>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#" data-view="browse">
-                  <div class="double_tit">智能物流与跨境供应链标杆企业空中宣讲会</div>
-                  <div class="double_cont">
-                    <span>主讲：Shopee / Samsung / 3,420人在线</span>
-                    <span class="doubleBtn">立即观看</span>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#" data-view="browse">
-                  <div class="double_tit">金融科技与人工智能专场面试通关全攻略</div>
-                  <div class="double_cont">
-                    <span>主讲：VPBank / MoMo / 4,110人在线</span>
-                    <span class="doubleBtn">立即观看</span>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Right: 我要考证 -->
-        <div class="card_item">
-          <div class="card_title">
-            <span><a href="#" data-view="services"><span style="display:inline-block;width:3.5px;height:15px;background:#dc2626;border-radius:2px;margin-right:6px;vertical-align:middle;"></span>我要考证</a></span>
-            <a href="#" class="more" data-view="services">考证中心 <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></a>
-          </div>
-          <!-- Top 4 Badges -->
-          <div class="cont_top">
-            <a href="#" data-view="services" class="cert_item">
-              <img src="images/icons/cert-pmp.svg" alt="PMP 项目管理认证" width="38" height="38">
-              <span class="cert_name">PMP 项目管理</span>
-            </a>
-            <a href="#" data-view="services" class="cert_item">
-              <img src="images/icons/cert-cfa.svg" alt="CFA 金融分析师" width="38" height="38">
-              <span class="cert_name">CFA 特许金融</span>
-            </a>
-            <a href="#" data-view="services" class="cert_item">
-              <img src="images/icons/cert-aws.svg" alt="AWS 云计算专家" width="38" height="38">
-              <span class="cert_name">AWS 云架构师</span>
-            </a>
-            <a href="#" data-view="services" class="cert_item">
-              <img src="images/icons/cert-sixsigma.svg" alt="六西格玛黑带" width="38" height="38">
-              <span class="cert_name">精益六西格玛</span>
-            </a>
-          </div>
-          <!-- 15 Cert Categories Tags -->
-          <ul class="cert_type">
-            <li><a href="#" data-view="services">教师资格</a></li>
-            <li><a href="#" data-view="services">初级会计</a></li>
-            <li><a href="#" data-view="services">注册会计师</a></li>
-            <li><a href="#" data-view="services">法律职业资格</a></li>
-            <li><a href="#" data-view="services">一级建造师</a></li>
-            <li><a href="#" data-view="services">造价工程师</a></li>
-            <li><a href="#" data-view="services">软考程序员</a></li>
-            <li><a href="#" data-view="services">网络规划师</a></li>
-            <li><a href="#" data-view="services">证券从业</a></li>
-            <li><a href="#" data-view="services">执业药师</a></li>
-            <li><a href="#" data-view="services">心理咨询师</a></li>
-            <li><a href="#" data-view="services">人力资源师</a></li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 6. Official Exams & Competitions (official) -->
-      <section class="official">
-        <!-- Left: 考试资讯 -->
-        <div class="card_item">
-          <div class="card_title">
-            <span><a href="#" data-view="insights"><span style="display:inline-block;width:3.5px;height:15px;background:#dc2626;border-radius:2px;margin-right:6px;vertical-align:middle;"></span>考试资讯</a></span>
-            <a href="#" class="more" data-view="insights">更多资讯 <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></a>
-          </div>
-          <!-- 8 Tabs -->
-          <div class="title-tabs">
-            <span class="ready-choose selected" data-exam-tab="all">全部</span>
-            <span class="ready-choose" data-exam-tab="guokao">国考</span>
-            <span class="ready-choose" data-exam-tab="shengkao">省考</span>
-            <span class="ready-choose" data-exam-tab="shiye">事业编</span>
-            <span class="ready-choose" data-exam-tab="sanzhi">三支一扶</span>
-            <span class="ready-choose" data-exam-tab="tegang">特岗教师</span>
-            <span class="ready-choose" data-exam-tab="yangqi">央国企</span>
-            <span class="ready-choose" data-exam-tab="wenzhi">军队文职</span>
-          </div>
-          <!-- List of exam updates -->
-          <div class="list-text">
-            <a href="#" data-view="insights">
-              <div class="text-title">2026年中央机关及其直属机构公务员招考调剂公告与名单公布</div>
-              <div class="text-content">调剂报名时间：3月28日8:00至3月30日18:00，进入调剂资格审查人员名单已同步公示。</div>
-              <div class="text-bot">发布时间：2026-03-26 · 来源：国家公务员局</div>
-            </a>
-            <a href="#" data-view="insights">
-              <div class="text-title">2026年度各省市级机关定向招录选调生面试测评工作安排说明</div>
-              <div class="text-content">多省组织部门发布2026届优秀毕业生选调面试细则，涵盖结构化面试与无领导小组讨论考核。</div>
-              <div class="text-bot">发布时间：2026-03-25 · 来源：省级人才组织部</div>
-            </a>
-            <a href="#" data-view="insights">
-              <div class="text-title">2026年上半年事业单位公开招聘联考综合应用能力考试大纲解读</div>
-              <div class="text-content">针对职业能力倾向测验及综合应用能力A/B/C/D类科目的分值权重和最新备考题型全景解析。</div>
-              <div class="text-bot">发布时间：2026-03-24 · 来源：事业单位考试网</div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: 我要创赛 -->
-        <div class="card_item">
-          <div class="card_title">
-            <span><a href="#" data-view="browse"><span style="display:inline-block;width:3.5px;height:15px;background:#dc2626;border-radius:2px;margin-right:6px;vertical-align:middle;"></span>我要创赛</a></span>
-            <a href="#" class="more" data-view="browse">创赛专区 <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></a>
-          </div>
-          <div style="margin-bottom:12px; border-radius:4px; overflow:hidden;">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=320&h=205&q=80" alt="创赛视频" style="width:100%; height:130px; object-fit:cover; display:block;">
-          </div>
-          <div class="list-text">
-            <a href="#" data-view="browse">
-              <div class="text-title">中国国际大学生创新大赛（2026）高教主赛道通知</div>
-              <div class="text-bot">赛事类别：国家级A类 · 3.8万支团队已报名</div>
-            </a>
-            <a href="#" data-view="browse">
-              <div class="text-title">“创青春”全国青年创新创业大赛数字化赛道征集</div>
-              <div class="text-bot">赛事类别：创新创业重点赛事 · 奖金总额500万</div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- 7. Course Center (class_center) -->
-      <section class="class_center">
-        <div class="card_title" style="padding-bottom:12px; margin-bottom:20px; border-bottom:1px solid #f1f5f9;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="display:inline-block;width:3.5px;height:16px;background:#dc2626;border-radius:2px;"></span>
-            <span style="font-size:18px; font-weight:800; color:#2e3e4e;">课程中心</span>
-          </div>
-          <a href="#" class="more" data-view="services">更多好课 <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></a>
-        </div>
-        <div class="banner_video">
-          <ul>
-            <!-- Course 1 -->
-            <li>
-              <a href="#" data-view="services" class="list">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=320&h=205&q=80" alt="大厂HR求职通关指导课" class="video">
-                <div class="title">大厂HR求职通关指导课：从简历筛选到HR群面高分技巧</div>
-                <div class="info">
-                  <div class="info_list">
-                    <span><i class="fa-solid fa-book-open"></i> 24课时</span>
-                    <span style="color:#0a66c2; font-weight:700;"><i class="fa-solid fa-user-group"></i> 2.4万人在学</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <!-- Course 2 -->
-            <li>
-              <a href="#" data-view="services" class="list">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=320&h=205&q=80" alt="2026公务员行测申论提分系统课" class="video">
-                <div class="title">2026年公务员与事业编行测申论系统课：全题型技巧精讲</div>
-                <div class="info">
-                  <div class="info_list">
-                    <span><i class="fa-solid fa-book-open"></i> 48课时</span>
-                    <span style="color:#0a66c2; font-weight:700;"><i class="fa-solid fa-user-group"></i> 3.8万人在学</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <!-- Course 3 -->
-            <li>
-              <a href="#" data-view="services" class="list">
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=320&h=205&q=80" alt="现代物流与供应链数字化实战精通" class="video">
-                <div class="title">现代物流与供应链数字化实战：ERP系统、仓储调度与成本管控</div>
-                <div class="info">
-                  <div class="info_list">
-                    <span><i class="fa-solid fa-book-open"></i> 18课时</span>
-                    <span style="color:#0a66c2; font-weight:700;"><i class="fa-solid fa-user-group"></i> 1.2万人在学</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <!-- Course 4 -->
-            <li>
-              <a href="#" data-view="services" class="list">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=320&h=205&q=80" alt="人工智能在工作与学习中的实战应用" class="video">
-                <div class="title">AI大模型在职场与办公中的提效应用：Prompt工程与自动化</div>
-                <div class="info">
-                  <div class="info_list">
-                    <span><i class="fa-solid fa-book-open"></i> 16课时</span>
-                    <span style="color:#0a66c2; font-weight:700;"><i class="fa-solid fa-user-group"></i> 4.5万人在学</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-          </ul>
         </div>
       </section>
 
@@ -1196,6 +691,35 @@
         <div class="fw-topics-grid" id="insights-topics-grid">
           <!-- Populated by JS -->
         </div>
+
+        <!-- Special Topics (专题资讯) 6 Banners Grid -->
+        <div style="margin-top: 32px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px;">
+          <div class="platform-title-group" style="margin-bottom: 16px;">
+            <span class="orange-title-tag"></span>
+            <h2 class="section-headline-text">Special Topics &amp; Strategic Whitepapers</h2>
+          </div>
+          <div class="specials-grid-6">
+            <a href="#" class="special-banner-item" title="20th CPC Central Committee Strategy">
+              <img src="images/portal/special_1.svg" alt="National Strategic Priorities" width="280" height="100">
+            </a>
+            <a href="#" class="special-banner-item" title="Public Employment Contest">
+              <img src="images/portal/special_2.svg" alt="Public Employment Skills Contest" width="280" height="100">
+            </a>
+            <a href="#" class="special-banner-item" title="HRSS Legal &amp; Policy Portal">
+              <img src="images/portal/special_3.svg" alt="HRSS Legal &amp; Policy Portal" width="280" height="100">
+            </a>
+            <a href="#" class="special-banner-item" title="Employment Masterclass Series">
+              <img src="images/portal/special_4.svg" alt="Employment Masterclass Series" width="280" height="100">
+            </a>
+            <a href="#" class="special-banner-item" title="Monthly Youth Entrepreneurship Digest">
+              <img src="images/portal/special_5.svg" alt="Monthly Youth Digest" width="280" height="100">
+            </a>
+            <a href="#" class="special-banner-item" title="WorldSkills China Portal">
+              <img src="images/portal/special_6.svg" alt="WorldSkills Portal" width="280" height="100">
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1356,15 +880,85 @@
          ======================================================================== -->
     <section class="app-view" id="view-services">
       <div class="container" style="max-width: 1280px; padding: 40px 24px;">
-        <div style="margin-bottom: 32px;">
-          <div style="font-size: 11px; font-weight: 700; color: #0284c7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">ENTERPRISE HR SERVICES</div>
-          <h1 style="font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">HR &amp; Recruitment Solutions Marketplace</h1>
-          <p style="font-size: 16px; color: #475569; max-width: 680px;">Compare, select, and contract verified enterprise HR software, executive headhunting, global payroll, and verification partners.</p>
+        
+        <!-- Header -->
+        <div style="margin-bottom: 28px;">
+          <div style="font-size: 11px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">DIGITAL HUBS &amp; ENTERPRISE HR SERVICES</div>
+          <h1 style="font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 8px;">National Digital Service Platforms &amp; Enterprise Solutions</h1>
+          <p style="font-size: 15px; color: #475569; max-width: 760px;">Explore national-level digital exhibition halls, standardized labor branding platforms, and verified enterprise HR &amp; recruitment software providers.</p>
         </div>
 
-        <div id="services-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
-          <!-- Rendered via JS -->
+        <!-- 1. Digital Service Full-Width Banners -->
+        <div class="digital-banner-stack">
+          <a href="#" class="digital-full-banner" title="Occupational Digital Exhibition Hall">
+            <img src="images/portal/banner_exhibition.svg" alt="Occupational Digital Exhibition Hall" width="1200" height="95">
+          </a>
+          <a href="#" class="digital-full-banner" title="Labor Brand Digital Service Platform">
+            <img src="images/portal/banner_brand.svg" alt="Labor Brand Digital Service Platform" width="1200" height="90">
+          </a>
+
+          <!-- 4 Core Service Pillars -->
+          <div class="four-service-cards-grid">
+            <a href="#" class="four-service-card-item" title="China Entrepreneurship Training">
+              <img src="images/portal/serv_card_1.svg" alt="China Entrepreneurship Training" width="280" height="100">
+            </a>
+            <a href="#" class="four-service-card-item" title="Work-Study Integrated Faculty Training">
+              <img src="images/portal/serv_card_2.svg" alt="Work-Study Integrated Faculty Training" width="280" height="100">
+            </a>
+            <a href="#" class="four-service-card-item" title="Job Search Competency Practical Drills">
+              <img src="images/portal/serv_card_3.svg" alt="Job Search Competency Practical Drills" width="280" height="100">
+            </a>
+            <a href="#" class="four-service-card-item" title="Public Employment Skills Competition">
+              <img src="images/portal/serv_card_4.svg" alt="Public Employment Skills Competition" width="280" height="100">
+            </a>
+          </div>
         </div>
+
+        <!-- 2. Four Quick Service Tiles -->
+        <div class="service-tiles-2x2">
+          <div class="service-tile-box" data-view="browse">
+            <div class="tile-title">College Graduate Fast-Track</div>
+            <div class="tile-accent-line"></div>
+            <div class="tile-icon-wrap"><i class="fa-solid fa-display"></i></div>
+          </div>
+          <div class="service-tile-box" data-view="freelancers">
+            <div class="tile-title">Gig &amp; Flexible Labor Zone</div>
+            <div class="tile-accent-line"></div>
+            <div class="tile-icon-wrap"><i class="fa-regular fa-comments"></i></div>
+          </div>
+          <div class="service-tile-box" data-view="insights">
+            <div class="tile-title">Visual Policy Explainer</div>
+            <div class="tile-accent-line"></div>
+            <div class="tile-icon-wrap"><i class="fa-solid fa-book-open-reader"></i></div>
+          </div>
+          <div class="service-tile-box" data-view="experts">
+            <div class="tile-title">Interactive Q&amp;A Advisory</div>
+            <div class="tile-accent-line"></div>
+            <div class="tile-icon-wrap"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          </div>
+        </div>
+
+        <!-- 3. Internet Guidance Banners -->
+        <div class="digital-banner-stack">
+          <a href="#" class="digital-full-banner" title="Internet + Career Guidance">
+            <img src="images/portal/banner_guidance.svg" alt="Internet + Career Guidance" width="1200" height="90">
+          </a>
+          <a href="#" class="digital-full-banner" title="Internet + Entrepreneurship Services">
+            <img src="images/portal/banner_startup.svg" alt="Internet + Entrepreneurship Services" width="1200" height="90">
+          </a>
+        </div>
+
+        <!-- 4. Verified Enterprise HR Marketplace -->
+        <div style="margin: 36px 0 20px;">
+          <div class="platform-title-group" style="margin-bottom: 16px;">
+            <span class="orange-title-tag"></span>
+            <h2 class="section-headline-text">Verified Enterprise HR &amp; Recruitment Partners</h2>
+          </div>
+          <div id="services-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1390,15 +984,138 @@
          ======================================================================== -->
     <section class="app-view" id="view-academy">
       <div class="container" style="max-width: 1280px; padding: 40px 24px;">
+        
+        <!-- Header -->
         <div style="margin-bottom: 32px;">
-          <div style="font-size: 11px; font-weight: 700; color: #0284c7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">WORKTHEAN ACADEMY</div>
-          <h1 style="font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Professional HR &amp; Recruiter Certifications</h1>
-          <p style="font-size: 16px; color: #475569; max-width: 680px;">Enroll in certified training programs, master technical sourcing, labor law compliance, and total rewards architecture.</p>
+          <div style="font-size: 11px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">WORKTHEAN ACADEMY &amp; NATIONAL STANDARDS</div>
+          <h1 style="font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 8px;">Vocational Training, New Occupations &amp; Credential Registry</h1>
+          <p style="font-size: 15px; color: #475569; max-width: 760px;">Access accredited vocational training courses, national new occupation standards, and verified credential checking platforms.</p>
         </div>
 
-        <div id="academy-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-          <!-- Rendered via JS -->
+        <!-- 1. Vocational Training Platform (4 Course Cards) -->
+        <div class="platform-container-box">
+          <div class="platform-header-row">
+            <div class="platform-title-group">
+              <span class="orange-title-tag"></span>
+              <h2 class="section-headline-text">Vocational Training Platform</h2>
+            </div>
+            <a href="#" style="font-size:12.5px; color:#64748b; font-weight:700;">All Courses <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></a>
+          </div>
+
+          <div class="platform-cards-row-4">
+            <a href="#" class="platform-card-item" title="Elderly Caregiver Intermediate Course">
+              <img src="images/portal/course_1.svg" alt="Elderly Caregiver Course" width="280" height="160">
+            </a>
+            <a href="#" class="platform-card-item" title="Hairdressing &amp; Salon Practical Skills">
+              <img src="images/portal/course_2.svg" alt="Hairdressing Practical Skills" width="280" height="160">
+            </a>
+            <a href="#" class="platform-card-item" title="Domestic &amp; Housekeeping Services Training">
+              <img src="images/portal/course_3.svg" alt="Domestic &amp; Housekeeping Services" width="280" height="160">
+            </a>
+            <a href="#" class="platform-card-item" title="Security Guard Professional Certification">
+              <img src="images/portal/course_4.svg" alt="Security Guard Professional Certification" width="280" height="160">
+            </a>
+          </div>
         </div>
+
+        <!-- 2. New Occupations Platform (4 Cards) -->
+        <div class="platform-container-box">
+          <div class="platform-header-row">
+            <div class="platform-title-group">
+              <span class="orange-title-tag"></span>
+              <h2 class="section-headline-text">New Occupations &amp; Standards Platform</h2>
+            </div>
+            <a href="#" style="font-size:12.5px; color:#64748b; font-weight:700;">All Specifications <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></a>
+          </div>
+
+          <div class="platform-cards-row-4">
+            <a href="#" class="platform-card-item" title="Big Data Engineering Technician (Level 5)">
+              <img src="images/portal/occ_1.svg" alt="Big Data Engineering Technician" width="280" height="160">
+            </a>
+            <a href="#" class="platform-card-item" title="Blockchain Engineering Technician (Junior)">
+              <img src="images/portal/occ_2.svg" alt="Blockchain Engineering Technician" width="280" height="160">
+            </a>
+            <a href="#" class="platform-card-item" title="IoT Installation &amp; Debugging Specialist (Level 5)">
+              <img src="images/portal/occ_3.svg" alt="IoT Installation &amp; Debugging Specialist" width="280" height="160">
+            </a>
+            <a href="#" class="platform-card-item" title="Industrial Robot System Operator Advanced Skills">
+              <img src="images/portal/occ_4.svg" alt="Industrial Robot System Operator" width="280" height="160">
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Quick Channels & Official Verification Portals -->
+        <div class="quick-channels-box" style="margin-bottom: 32px;">
+          <div class="platform-header-row" style="margin-bottom:16px;">
+            <div class="platform-title-group">
+              <span class="orange-title-tag"></span>
+              <h2 class="section-headline-text">Official Credential Registry &amp; Fast Channels</h2>
+            </div>
+          </div>
+
+          <div class="quick-links-grid">
+            <a href="#" class="quick-link-tile" title="Skilled Talent Evaluation Work Network">
+              <div class="quick-tile-icon"><i class="fa-solid fa-award"></i></div>
+              <span class="quick-tile-text">Skilled Talent Evaluation Network</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="12333 National Public Recruitment Network">
+              <div class="quick-tile-icon"><i class="fa-solid fa-headset"></i></div>
+              <span class="quick-tile-text">12333 Public Recruitment Network</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="National Vocational Qualification Certificate Verification">
+              <div class="quick-tile-icon"><i class="fa-solid fa-certificate"></i></div>
+              <span class="quick-tile-text">Vocational Certificate Verification</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="National College Student Employment Service Platform">
+              <div class="quick-tile-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <span class="quick-tile-text">College Student Employment Hub</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="Skill China Online Training Platform">
+              <div class="quick-tile-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+              <span class="quick-tile-text">Skill China Online Academy</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="Technical College Student Registry System">
+              <div class="quick-tile-icon"><i class="fa-solid fa-id-card-clip"></i></div>
+              <span class="quick-tile-text">Technical School Registry System</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="Training Voucher &amp; Subsidy Verification Portal">
+              <div class="quick-tile-icon"><i class="fa-solid fa-ticket"></i></div>
+              <span class="quick-tile-text">Training Voucher &amp; Subsidy Portal</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="WorldSkills China Organizing Committee">
+              <div class="quick-tile-icon"><i class="fa-solid fa-globe"></i></div>
+              <span class="quick-tile-text">WorldSkills Competition Portal</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="Online Employment &amp; Unemployment Registration">
+              <div class="quick-tile-icon"><i class="fa-solid fa-file-signature"></i></div>
+              <span class="quick-tile-text">Employment &amp; Registry Portal</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="Graduate Real-Name Employment Registry">
+              <div class="quick-tile-icon"><i class="fa-solid fa-user-check"></i></div>
+              <span class="quick-tile-text">Graduate Real-Name Career Hub</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="Inter-Provincial Labor Cooperation Platform">
+              <div class="quick-tile-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+              <span class="quick-tile-text">Labor Cooperation Matching System</span>
+            </a>
+            <a href="#" class="quick-link-tile" title="Public Job Fair Direct Channel">
+              <div class="quick-tile-icon"><i class="fa-solid fa-briefcase"></i></div>
+              <span class="quick-tile-text">National Job Fair Direct Channel</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Executive HR & Recruiter Masterclasses -->
+        <div style="margin-top: 36px;">
+          <div class="platform-title-group" style="margin-bottom: 16px;">
+            <span class="orange-title-tag"></span>
+            <h2 class="section-headline-text">Executive HR &amp; Recruiter Certifications</h2>
+          </div>
+          <div id="academy-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1682,5 +1399,26 @@
   <!-- SCRIPTS -->
   <script src="js/data.js?v=1789700000"></script>
   <script src="js/app.js?v=1789700000_home2"></script>
+
+  <!-- Floating Sticky Right-Side Action Toolbar -->
+  <aside class="floating-side-toolbar" aria-label="Quick Action Toolbar">
+    <div class="toolbar-item" onclick="alert('WorkThean Survey: Thank you for participating in our 2026 Labor & Hiring Market Survey!')" title="Survey">
+      <i class="fa-regular fa-clipboard"></i>
+      <span>Survey</span>
+    </div>
+    <div class="toolbar-item" onclick="prompt('WorkThean Feedback: Please enter your feedback or inquiry:')" title="Feedback">
+      <i class="fa-regular fa-comment-dots"></i>
+      <span>Feedback</span>
+    </div>
+    <div class="toolbar-item" onclick="alert('WorkThean Support: Hotline: 010-84888188 / 1900-8888 | Email: support@workthean.com')" title="Contact">
+      <i class="fa-solid fa-phone"></i>
+      <span>Contact</span>
+    </div>
+    <div class="toolbar-item" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" title="Back to Top">
+      <i class="fa-solid fa-arrow-up"></i>
+      <span>Top</span>
+    </div>
+  </aside>
+
 </body>
 </html>
